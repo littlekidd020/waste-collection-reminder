@@ -1,9 +1,10 @@
 import SwiftUI
 import SwiftData
+import MapKit
+import CoreLocation
 
 /// The main home screen — shows today's/upcoming collections with colourful bin cards.
 struct TodayView: View {
-    @Environment(\.modelContext) private var modelContext
     @Query private var profiles: [UserProfile]
     @State private var showChangeAddress = false
 
@@ -35,45 +36,93 @@ struct TodayView: View {
     }
 
     private var displayAddress: String {
-        profile?.address ?? "Set your address"
+        profile?.address ?? L("Set your address")
     }
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 24) {
-                    // Address pill
-                    addressPill
+                VStack(spacing: 32) {
+                    // Header / Address
+                    VStack(spacing: 0) {
+                        AddressPillView(
+                            displayAddress: displayAddress,
+                            currentZone: currentZone,
+                            showChangeAddress: $showChangeAddress
+                        )
+                        .padding(.top, 16)
+                    }
 
                     // Hero section
-                    heroSection
+                    TodayHeroSectionView(todaysCollections: todaysCollections)
 
                     // Tomorrow preview
                     if !tomorrowsCollections.isEmpty {
-                        tomorrowSection
+                        TomorrowPreviewView(tomorrowsCollections: tomorrowsCollections)
                     }
 
                     // Upcoming list
-                    upcomingSection
+                    UpcomingCollectionsView(upcoming: upcoming)
                 }
                 .padding(.horizontal, 20)
                 .padding(.bottom, 32)
             }
             .background(
-                Color(uiColor: .systemGroupedBackground)
+                ZStack {
+                    Color(uiColor: .systemGroupedBackground)
+                    
+                    // Subtle map peek at the top to tie in the design
+                    VStack {
+                        if currentZone != nil {
+                            // Default to Auckland center for the peek
+                            MapPeekBackground(coordinate: CLLocationCoordinate2D(latitude: -36.8485, longitude: 174.7633))
+                                .frame(height: 240)
+                                .mask(
+                                    LinearGradient(
+                                        colors: [.black.opacity(0.18), .black.opacity(0.06), .clear],
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                                .allowsHitTesting(false)
+                        }
+                        Spacer()
+                    }
+                }
                 .ignoresSafeArea()
             )
-            .navigationTitle(String(localized: "Today"))
+            .navigationTitle(L("Today"))
             .navigationBarTitleDisplayMode(.large)
             .sheet(isPresented: $showChangeAddress) {
                 ChangeAddressView()
             }
         }
     }
+}
 
-    // MARK: - Address Pill
+private struct MapPeekBackground: View {
+    let coordinate: CLLocationCoordinate2D
+    
+    var body: some View {
+        Map(initialPosition: .region(MKCoordinateRegion(
+            center: coordinate,
+            span: MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015)
+        ))) {
+            Marker("", coordinate: coordinate)
+                .annotationTitles(.hidden)
+        }
+    }
+}
 
-    private var addressPill: some View {
+
+// MARK: - Address Pill View
+
+private struct AddressPillView: View {
+    let displayAddress: String
+    let currentZone: CollectionZone?
+    @Binding var showChangeAddress: Bool
+
+    var body: some View {
         Button {
             showChangeAddress = true
         } label: {
@@ -99,11 +148,11 @@ struct TodayView: View {
                             .font(.caption)
                             .foregroundStyle(.green)
                         
-                        Text(zone.name)
+                        Text(L(zone.name))
                             .font(.caption.weight(.medium))
                             .foregroundStyle(.secondary)
                     }
-                    .padding(.leading, 24) // Align with text above
+                    .padding(.leading, 24)
                 }
             }
             .padding(.horizontal, 16)
@@ -114,26 +163,29 @@ struct TodayView: View {
                     .shadow(color: .black.opacity(0.05), radius: 8, y: 2)
             )
         }
+        .buttonStyle(.plain) // remove default button fading
         .frame(maxWidth: .infinity, alignment: .leading)
     }
+}
 
-    // MARK: - Sections
+// MARK: - Sections
 
-    @ViewBuilder
-    private var heroSection: some View {
+private struct TodayHeroSectionView: View {
+    let todaysCollections: [BinType]
+
+    var body: some View {
         if todaysCollections.isEmpty {
-            // No collection today
             VStack(spacing: 16) {
                 Image(systemName: "checkmark.circle.fill")
                     .font(.system(size: 56))
                     .foregroundStyle(.green.opacity(0.6))
                     .symbolEffect(.pulse)
 
-                Text(String(localized: "No collection today"))
+                Text(L("No collection today"))
                     .font(.title2.weight(.semibold))
                     .foregroundStyle(.primary)
 
-                Text(String(localized: "Enjoy your day! 🌤️"))
+                Text(L("Enjoy your day! 🌤️"))
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
@@ -144,96 +196,107 @@ struct TodayView: View {
                     .fill(Color(uiColor: .secondarySystemGroupedBackground))
             )
         } else {
-            // Collection today!
             VStack(spacing: 16) {
-                Text(String(localized: "Collection Today!"))
+                Text(L("Collection Today!"))
                     .font(.headline)
                     .foregroundStyle(.secondary)
 
                 HStack(spacing: 16) {
                     ForEach(todaysCollections) { bin in
-                        BinCard(binType: bin, label: String(localized: "Today"))
+                        BinCard(binType: bin, label: L("Today"))
                     }
                 }
             }
         }
     }
+}
 
-    @ViewBuilder
-    private var tomorrowSection: some View {
+private struct TomorrowPreviewView: View {
+    let tomorrowsCollections: [BinType]
+
+    var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text(String(localized: "Tomorrow"))
+            Text(L("Tomorrow"))
                 .font(.headline)
                 .foregroundStyle(.secondary)
 
             HStack(spacing: 12) {
                 ForEach(tomorrowsCollections) { bin in
-                    BinCard(binType: bin, label: String(localized: "Tomorrow"), compact: true)
+                    BinCard(binType: bin, label: L("Tomorrow"), compact: true)
                 }
             }
         }
     }
+}
 
-    @ViewBuilder
-    private var upcomingSection: some View {
+private struct UpcomingCollectionsView: View {
+    let upcoming: [UpcomingCollection]
+
+    var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text(String(localized: "Upcoming"))
+            Text(L("Upcoming"))
                 .font(.headline)
                 .foregroundStyle(.secondary)
 
-            ForEach(upcoming) { collection in
-                HStack(spacing: 16) {
-                    // Bin icon
-                    Image(systemName: collection.binType.systemImage)
-                        .font(.title3)
-                        .foregroundStyle(collection.binType.color)
-                        .frame(width: 40, height: 40)
-                        .background(
-                            Circle()
-                                .fill(collection.binType.color.opacity(0.15))
-                        )
+            VStack(spacing: 0) {
+                ForEach(upcoming) { collection in
+                    HStack(spacing: 16) {
+                        Image(systemName: collection.binType.systemImage)
+                            .font(.title3)
+                            .foregroundStyle(collection.binType.color)
+                            .frame(width: 40, height: 40)
+                            .background(
+                                Circle()
+                                    .fill(collection.binType.color.opacity(0.15))
+                            )
 
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(collection.binType.displayName)
-                            .font(.body.weight(.medium))
-                            .foregroundStyle(.primary)
-                        Text(collection.relativeLabel)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(collection.binType.displayName)
+                                .font(.body.weight(.medium))
+                                .foregroundStyle(.primary)
+                            Text(collection.relativeLabel)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+
+                        Spacer()
+
+                        if collection.isToday {
+                            Text(L("Today"))
+                                .font(.caption.weight(.semibold))
+                                .foregroundStyle(.green)
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 4)
+                                .background(
+                                    Capsule().fill(.green.opacity(0.15))
+                                )
+                        } else if collection.isTomorrow {
+                            Text(L("Tomorrow"))
+                                .font(.caption.weight(.semibold))
+                                .foregroundStyle(.orange)
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 4)
+                                .background(
+                                    Capsule().fill(.orange.opacity(0.15))
+                                )
+                        } else {
+                            Text("\(collection.daysUntil)d")
+                                .font(.caption.weight(.medium))
+                                .foregroundStyle(.tertiary)
+                        }
                     }
-
-                    Spacer()
-
-                    if collection.isToday {
-                        Text(String(localized: "Today"))
-                            .font(.caption.weight(.semibold))
-                            .foregroundStyle(.green)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 4)
-                            .background(
-                                Capsule().fill(.green.opacity(0.15))
-                            )
-                    } else if collection.isTomorrow {
-                        Text(String(localized: "Tomorrow"))
-                            .font(.caption.weight(.semibold))
-                            .foregroundStyle(.orange)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 4)
-                            .background(
-                                Capsule().fill(.orange.opacity(0.15))
-                            )
-                    } else {
-                        Text("\(collection.daysUntil)d")
-                            .font(.caption.weight(.medium))
-                            .foregroundStyle(.tertiary)
+                    .padding(14)
+                    
+                    if collection.id != upcoming.last?.id {
+                        Divider()
+                            .padding(.leading, 70)
                     }
                 }
-                .padding(14)
-                .background(
-                    RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(Color(uiColor: .secondarySystemGroupedBackground))
-                )
             }
+            .background(
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(Color(uiColor: .secondarySystemGroupedBackground))
+            )
         }
     }
 }
@@ -245,6 +308,8 @@ struct BinCard: View {
     let binType: BinType
     let label: String
     var compact: Bool = false
+    
+    @State private var isVisible = false
 
     var body: some View {
         VStack(spacing: compact ? 8 : 12) {
@@ -270,5 +335,12 @@ struct BinCard: View {
                 .fill(binType.gradient)
                 .shadow(color: binType.color.opacity(0.3), radius: 8, y: 4)
         )
+        .scaleEffect(isVisible ? 1.0 : 0.8)
+        .opacity(isVisible ? 1.0 : 0.0)
+        .onAppear {
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+                isVisible = true
+            }
+        }
     }
 }

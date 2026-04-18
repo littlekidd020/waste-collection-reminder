@@ -170,7 +170,7 @@ enum CalendarError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .accessDenied:
-            return String(localized: "Calendar access was denied. Please enable it in Settings.")
+            return L("Calendar access was denied. Please enable it in Settings.")
         }
     }
 }

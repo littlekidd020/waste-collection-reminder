@@ -38,11 +38,11 @@ final class NotificationService {
         let content = UNMutableNotificationContent()
 
         if isEvening {
-            content.title = "\(binType.icon) \(binType.displayName) bin out tonight!"
-            content.body = "Your \(binType.displayName.lowercased()) bin is collected tomorrow."
+            content.title = "\(binType.icon) " + L("%@ bin out tonight!", binType.displayName)
+            content.body = L("Your %@ bin is collected tomorrow.", binType.displayName.lowercased())
         } else {
-            content.title = "\(binType.icon) \(binType.displayName) day today!"
-            content.body = "Don't forget your \(binType.displayName.lowercased()) bin — collection is today."
+            content.title = "\(binType.icon) " + L("%@ day today!", binType.displayName)
+            content.body = L("Don't forget your %@ bin — collection is today.", binType.displayName.lowercased())
         }
 
         content.sound = .default

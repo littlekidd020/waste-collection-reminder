@@ -2,9 +2,11 @@ import SwiftUI
 import SwiftData
 
 /// Root view that switches between onboarding and the main tab bar.
+/// Language changes take effect immediately via LanguageManager + view rebuild.
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var profiles: [UserProfile]
+    @State private var languageRefreshID = UUID()
 
     private var profile: UserProfile {
         if let existing = profiles.first {
@@ -16,10 +18,24 @@ struct ContentView: View {
     }
 
     var body: some View {
-        if profile.hasCompletedOnboarding {
-            MainTabView()
-        } else {
-            OnboardingContainerView()
+        Group {
+            if profile.hasCompletedOnboarding {
+                MainTabView()
+            } else {
+                OnboardingContainerView()
+            }
+        }
+        .id(languageRefreshID)
+        .environment(\.locale, LanguageManager.shared.locale)
+        .onAppear {
+            LanguageManager.shared.apply(profile.languageCode)
+        }
+        .onChange(of: profile.languageCode) { _, newCode in
+            LanguageManager.shared.apply(newCode)
+            // Force full view tree rebuild so all L() calls re-execute
+            withAnimation(.easeInOut(duration: 0.15)) {
+                languageRefreshID = UUID()
+            }
         }
     }
 }
@@ -30,22 +46,22 @@ struct MainTabView: View {
         TabView {
             TodayView()
                 .tabItem {
-                    Label(String(localized: "Today"), systemImage: "house.fill")
+                    Label(L("Today"), systemImage: "house.fill")
                 }
 
             ScheduleView()
                 .tabItem {
-                    Label(String(localized: "Schedule"), systemImage: "calendar")
+                    Label(L("Schedule"), systemImage: "calendar")
                 }
 
             InfoView()
                 .tabItem {
-                    Label(String(localized: "Info"), systemImage: "info.circle.fill")
+                    Label(L("Info"), systemImage: "info.circle.fill")
                 }
 
             SettingsView()
                 .tabItem {
-                    Label(String(localized: "Settings"), systemImage: "gearshape.fill")
+                    Label(L("Settings"), systemImage: "gearshape.fill")
                 }
         }
         .tint(.green)

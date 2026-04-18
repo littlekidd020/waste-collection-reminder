@@ -19,12 +19,12 @@ struct WelcomeView: View {
                 Spacer()
 
                 // App icon area
-                VStack(spacing: 20) {
-                    // Animated bin icons
-                    HStack(spacing: 24) {
-                        binIcon("🔴", delay: 0.0)
-                        binIcon("🟡", delay: 0.15)
-                        binIcon("🟢", delay: 0.3)
+                VStack(spacing: 24) {
+                    // Animated bin symbols
+                    HStack(spacing: 28) {
+                        binSymbol("trash.fill", color: .red, delay: 0.0)
+                        binSymbol("trash.fill", color: .yellow, delay: 0.15)
+                        binSymbol("trash.fill", color: .green, delay: 0.3)
                     }
                     .scaleEffect(animateIcons ? 1.0 : 0.5)
                     .opacity(animateIcons ? 1.0 : 0.0)
@@ -32,10 +32,10 @@ struct WelcomeView: View {
                     // App name
                     VStack(spacing: 8) {
                         Text("Bin Day")
-                            .font(.system(size: 42, weight: .bold, design: .rounded))
+                            .font(.system(size: 44, weight: .bold, design: .rounded))
                             .foregroundStyle(.primary)
                         Text("NZ")
-                            .font(.system(size: 42, weight: .light, design: .rounded))
+                            .font(.system(size: 44, weight: .light, design: .rounded))
                             .foregroundStyle(Color.green)
                     }
                     .opacity(animateTitle ? 1.0 : 0.0)
@@ -43,18 +43,18 @@ struct WelcomeView: View {
                 }
 
                 // Tagline
-                Text(String(localized: "Never miss a collection day"))
-                    .font(.title3)
+                Text(L("Never miss a collection day"))
+                    .font(.title3.weight(.medium))
                     .foregroundStyle(.secondary)
                     .opacity(animateTitle ? 1.0 : 0.0)
 
                 Spacer()
 
                 // Features preview
-                VStack(alignment: .leading, spacing: 16) {
-                    featureRow(icon: "bell.fill", text: String(localized: "Smart reminders"))
-                    featureRow(icon: "calendar", text: String(localized: "Calendar integration"))
-                    featureRow(icon: "rectangle.on.rectangle", text: String(localized: "Home screen widget"))
+                VStack(alignment: .leading, spacing: 18) {
+                    featureRow(icon: "bell.fill", text: L("Smart reminders"))
+                    featureRow(icon: "calendar", text: L("Calendar integration"))
+                    featureRow(icon: "rectangle.on.rectangle", text: L("Home screen widget"))
                 }
                 .padding(.horizontal, 40)
                 .opacity(animateTitle ? 1.0 : 0.0)
@@ -63,20 +63,21 @@ struct WelcomeView: View {
 
                 // Get Started button
                 Button(action: onContinue) {
-                    Text(String(localized: "Get Started"))
+                    Text(L("Get Started"))
                         .font(.headline)
-                        .foregroundStyle(.white) // Always white on green button
+                        .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
+                        .padding(.vertical, 18)
                         .background(
-                            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            RoundedRectangle(cornerRadius: 18, style: .continuous)
                                 .fill(Color.green)
                         )
+                        .shadow(color: Color.green.opacity(0.3), radius: 10, y: 5)
                 }
                 .padding(.horizontal, 32)
                 .opacity(animateTitle ? 1.0 : 0.0)
 
-                // Page indicator (native look approximation)
+                // Page indicator
                 HStack(spacing: 8) {
                     Circle().fill(.secondary).frame(width: 8, height: 8)
                     Circle().fill(.quaternary).frame(width: 8, height: 8)
@@ -102,12 +103,14 @@ struct WelcomeView: View {
         }
     }
 
-    private func binIcon(_ emoji: String, delay: Double) -> some View {
-        Text(emoji)
+    private func binSymbol(_ name: String, color: Color, delay: Double) -> some View {
+        Image(systemName: name)
             .font(.system(size: 48))
-            .shadow(color: .black.opacity(0.15), radius: 8, y: 4)
+            .foregroundStyle(color)
+            .shadow(color: color.opacity(0.2), radius: 8, y: 4)
             .symbolEffect(.bounce, value: showBounce)
-            // Note: symbolEffect on emoji might not animate like an SF Symbol, but will gracefully fallback.
+            .rotationEffect(.degrees(showBounce ? 5 : -5))
+            .animation(.interactiveSpring.delay(delay), value: showBounce)
     }
 
     private func featureRow(icon: String, text: String) -> some View {

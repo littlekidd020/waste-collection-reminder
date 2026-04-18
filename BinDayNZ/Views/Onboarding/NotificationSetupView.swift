@@ -29,10 +29,10 @@ struct NotificationSetupView: View {
                         .foregroundStyle(.green)
                         .padding(.bottom, 8)
 
-                    Text(String(localized: "Set Up Reminders"))
+                    Text(L("Set Up Reminders"))
                         .font(.title.bold())
                         .foregroundStyle(.primary)
-                    Text(String(localized: "Choose when you'd like to be reminded"))
+                    Text(L("Choose when you'd like to be reminded"))
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -42,49 +42,25 @@ struct NotificationSetupView: View {
                 // Settings cards
                 VStack(spacing: 16) {
                     // Evening reminder
-                    reminderCard(
+                    ReminderCardView(
                         icon: "moon.fill",
-                        title: String(localized: "Evening Before"),
-                        subtitle: String(localized: "Get reminded to put your bin out tonight"),
+                        title: L("Evening Before"),
+                        subtitle: L("Get reminded to put your bin out tonight"),
                         isEnabled: $notifyEvening,
                         time: $eveningTime
                     )
 
                     // Morning reminder
-                    reminderCard(
+                    ReminderCardView(
                         icon: "sun.max.fill",
-                        title: String(localized: "Morning Of"),
-                        subtitle: String(localized: "Quick reminder on collection morning"),
+                        title: L("Morning Of"),
+                        subtitle: L("Quick reminder on collection morning"),
                         isEnabled: $notifyMorning,
                         time: $morningTime
                     )
 
                     // Calendar sync
-                    HStack {
-                        Image(systemName: "calendar.badge.plus")
-                            .font(.title2)
-                            .foregroundStyle(.green)
-                            .frame(width: 36)
-
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(String(localized: "Add to Calendar"))
-                                .font(.body.weight(.medium))
-                                .foregroundStyle(.primary)
-                            Text(String(localized: "Sync collection dates with your calendar app"))
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-
-                        Spacer()
-
-                        Toggle("", isOn: $calendarSync)
-                            .tint(.green)
-                    }
-                    .padding(16)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12, style: .continuous)
-                            .fill(Color(uiColor: .secondarySystemGroupedBackground))
-                    )
+                    CalendarSyncRow(calendarSync: $calendarSync)
                 }
                 .padding(.horizontal, 24)
 
@@ -95,7 +71,7 @@ struct NotificationSetupView: View {
                     savePreferences()
                     onComplete()
                 }) {
-                    Text(String(localized: "All Set! 🎉"))
+                    Text(L("All Set! 🎉"))
                         .font(.headline)
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
@@ -119,13 +95,27 @@ struct NotificationSetupView: View {
         }
     }
 
-    private func reminderCard(
-        icon: String,
-        title: String,
-        subtitle: String,
-        isEnabled: Binding<Bool>,
-        time: Binding<Date>
-    ) -> some View {
+    private func savePreferences() {
+        guard let profile = profile else { return }
+        profile.notifyEveningBefore = notifyEvening
+        profile.eveningNotifyTime = eveningTime
+        profile.notifyMorningOf = notifyMorning
+        profile.morningNotifyTime = morningTime
+        profile.calendarSyncEnabled = calendarSync
+        try? modelContext.save()
+    }
+}
+
+// MARK: - Subviews
+
+private struct ReminderCardView: View {
+    let icon: String
+    let title: String
+    let subtitle: String
+    @Binding var isEnabled: Bool
+    @Binding var time: Date
+
+    var body: some View {
         VStack(spacing: 12) {
             HStack {
                 Image(systemName: icon)
@@ -144,14 +134,14 @@ struct NotificationSetupView: View {
 
                 Spacer()
 
-                Toggle("", isOn: isEnabled)
+                Toggle("", isOn: $isEnabled)
                     .tint(.green)
             }
 
-            if isEnabled.wrappedValue {
+            if isEnabled {
                 HStack {
                     Spacer()
-                    DatePicker("", selection: time, displayedComponents: .hourAndMinute)
+                    DatePicker("", selection: $time, displayedComponents: .hourAndMinute)
                         .labelsHidden()
                 }
             }
@@ -162,14 +152,36 @@ struct NotificationSetupView: View {
                 .fill(Color(uiColor: .secondarySystemGroupedBackground))
         )
     }
+}
 
-    private func savePreferences() {
-        guard let profile = profile else { return }
-        profile.notifyEveningBefore = notifyEvening
-        profile.eveningNotifyTime = eveningTime
-        profile.notifyMorningOf = notifyMorning
-        profile.morningNotifyTime = morningTime
-        profile.calendarSyncEnabled = calendarSync
-        try? modelContext.save()
+private struct CalendarSyncRow: View {
+    @Binding var calendarSync: Bool
+
+    var body: some View {
+        HStack {
+            Image(systemName: "calendar.badge.plus")
+                .font(.title2)
+                .foregroundStyle(.green)
+                .frame(width: 36)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(L("Add to Calendar"))
+                    .font(.body.weight(.medium))
+                    .foregroundStyle(.primary)
+                Text(L("Sync collection dates with your calendar app"))
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
+            Spacer()
+
+            Toggle("", isOn: $calendarSync)
+                .tint(.green)
+        }
+        .padding(16)
+        .background(
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .fill(Color(uiColor: .secondarySystemGroupedBackground))
+        )
     }
 }

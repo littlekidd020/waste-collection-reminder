@@ -8,15 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		0004423F17556AD9CDC23E2D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658B5D07D5553171D68A9DB /* SettingsView.swift */; };
+		023278082BA6DC4C81E3128C /* CollectionDayPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105D4DCDD07F24E17A3C8150 /* CollectionDayPreview.swift */; };
 		04248346A5F79AE0746DC10B /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28296697ED8CE2E0779EA0A8 /* WidgetViews.swift */; };
 		0451D5F0A043DDACDCABEB7D /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BA1B37C5F1B9EAAFFD0CE4 /* OnboardingContainerView.swift */; };
 		0DF140FD8725EBD5A591685A /* AddressSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9F90236ACD3D623964FF56 /* AddressSearchView.swift */; };
+		0EB9A6A6B16F2B99597107AA /* Videos/recycling.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CE0008ED8F09B4C55056281A /* Videos/recycling.mp4 */; };
 		12FA7B0973F3FABD9268C9AD /* ScheduleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF0B056C382561CEED2F5B9 /* ScheduleEngine.swift */; };
+		AA11223344556677LANG0002 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11223344556677LANG0001 /* LanguageManager.swift */; };
 		21390720FA416AE319D0632C /* AddressSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D40BE507B54DFE98CB54614 /* AddressSearchService.swift */; };
 		25DD0C6D7435B3873ABE4EA3 /* CollectionZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E642DD6D95F4AFE57B88231 /* CollectionZone.swift */; };
 		2A010B55BC90837D0A87FD55 /* UpcomingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054562B446E399A964099556 /* UpcomingCollection.swift */; };
 		37983968D045BF4BB40D50D6 /* CollectionSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9A60E42058263ACDAEBFB1 /* CollectionSchedule.swift */; };
 		3998D1D53B3A8FF746BA0411 /* BinDayNZApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C602DACDBD7E8EE18AE3CE8 /* BinDayNZApp.swift */; };
+		3AA0468C2D6D32A6D5D8E89A /* Videos/rubbish.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC38B018527D9A7EA3B511E /* Videos/rubbish.mp4 */; };
+		3CFC545E5BD0EE6E346A8732 /* YouTubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D920A1591CACFDFC73236 /* YouTubePlayerView.swift */; };
 		480598E301C3D1C0D766BA2B /* CouncilPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F7738B97E9A3EEFC2FB40 /* CouncilPickerView.swift */; };
 		4BB0E3D5331AA395E142D447 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FD07FF4983F4C665BB7129 /* NotificationService.swift */; };
 		5B912F901F31C18C64992FF6 /* councils.json in Resources */ = {isa = PBXBuildFile; fileRef = 81A872CDC1A80A4D3C50B230 /* councils.json */; };
@@ -34,9 +39,11 @@
 		C239A772D542C2F70232AB1A /* NotificationSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D767777DC0FBB857780378 /* NotificationSetupView.swift */; };
 		C6F3F62A522E4844B4BEDE9F /* ChangeAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795E5ABEDEE853158CDDD5A6 /* ChangeAddressView.swift */; };
 		D3ADB5AA57A69C0FFBDAAFFB /* Council.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CAC95B09A5F5A84E48D8E5 /* Council.swift */; };
-		D45EFCE49B2BDE998812CD25 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD169C4F5A57799FAC22123 /* AppIcon.png */; };
+		E3D0EA1EA3CB0CED2109D3E7 /* Videos/food-scraps.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 90AE47B9B2D52BE2CFA63524 /* Videos/food-scraps.mp4 */; };
+		E61055A92FD976DE88D302F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079C527AB8285CC13EC2D3A9 /* Assets.xcassets */; };
 		ED2D6A5ABFE81D0E72A5614C /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371A2E571D2CC3555A5DE94 /* ScheduleView.swift */; };
 		EF95AB3A0CAE75F1B869E823 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA913875AAEC620CA5267BA /* WelcomeView.swift */; };
+		F63CB4DA37F31DCD083B26CC /* Videos/inorganic.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 010B34AA50573C83ACAB0FFD /* Videos/inorganic.mp4 */; };
 		FCEA0704DCEF8BE11CBF8C19 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5212870E41E8360D0D4DE7B /* TodayView.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,18 +72,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		010B34AA50573C83ACAB0FFD /* Videos/inorganic.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Videos/inorganic.mp4; sourceTree = "<group>"; };
 		04FD07FF4983F4C665BB7129 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		0540C34F907DEA5778E8B893 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		054562B446E399A964099556 /* UpcomingCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCollection.swift; sourceTree = "<group>"; };
+		079C527AB8285CC13EC2D3A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C27F35021B72FEF1E003734 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		105D4DCDD07F24E17A3C8150 /* CollectionDayPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDayPreview.swift; sourceTree = "<group>"; };
 		28296697ED8CE2E0779EA0A8 /* WidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
 		2981DA82CD2DF9EC4C3FB889 /* BinDayNZWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinDayNZWidget.swift; sourceTree = "<group>"; };
+		2BC38B018527D9A7EA3B511E /* Videos/rubbish.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Videos/rubbish.mp4; sourceTree = "<group>"; };
 		2E9F90236ACD3D623964FF56 /* AddressSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchView.swift; sourceTree = "<group>"; };
 		2FF0B056C382561CEED2F5B9 /* ScheduleEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleEngine.swift; sourceTree = "<group>"; };
 		3658B5D07D5553171D68A9DB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3F8F7738B97E9A3EEFC2FB40 /* CouncilPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouncilPickerView.swift; sourceTree = "<group>"; };
 		40BA1B37C5F1B9EAAFFD0CE4 /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
-		4C1D865B0B57CE06228046D6 /* BinDayNZWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = BinDayNZWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C1D865B0B57CE06228046D6 /* BinDayNZWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BinDayNZWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA11223344556677LANG0001 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		6D40BE507B54DFE98CB54614 /* AddressSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchService.swift; sourceTree = "<group>"; };
 		795E5ABEDEE853158CDDD5A6 /* ChangeAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAddressView.swift; sourceTree = "<group>"; };
 		7C602DACDBD7E8EE18AE3CE8 /* BinDayNZApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinDayNZApp.swift; sourceTree = "<group>"; };
@@ -86,18 +98,20 @@
 		81A872CDC1A80A4D3C50B230 /* councils.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = councils.json; sourceTree = "<group>"; };
 		81D767777DC0FBB857780378 /* NotificationSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSetupView.swift; sourceTree = "<group>"; };
 		881E295227E8406F355D323A /* BinDayNZWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BinDayNZWidgetExtension.entitlements; sourceTree = "<group>"; };
+		884D920A1591CACFDFC73236 /* YouTubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubePlayerView.swift; sourceTree = "<group>"; };
 		8E642DD6D95F4AFE57B88231 /* CollectionZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionZone.swift; sourceTree = "<group>"; };
+		90AE47B9B2D52BE2CFA63524 /* Videos/food-scraps.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Videos/food-scraps.mp4"; sourceTree = "<group>"; };
 		B33739A6F23D3F5F9F93638E /* CloudKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitService.swift; sourceTree = "<group>"; };
 		B371A2E571D2CC3555A5DE94 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		B45C863FE587028BF51C7AF1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		BBB6B8C4E189BA79D65E3679 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BCF0EBB5534BAAFC527436D4 /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
-		BDD169C4F5A57799FAC22123 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		C5212870E41E8360D0D4DE7B /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		CE0008ED8F09B4C55056281A /* Videos/recycling.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Videos/recycling.mp4; sourceTree = "<group>"; };
 		D3B85B577A772A4C3983313F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E6CAC95B09A5F5A84E48D8E5 /* Council.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Council.swift; sourceTree = "<group>"; };
 		E933392050D92A2A4AAC3C67 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		F522FF296ECDC64EC334426E /* BinDayNZ.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = BinDayNZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F522FF296ECDC64EC334426E /* BinDayNZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinDayNZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA21B9852D340BABF74AE5CC /* BinDayNZ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BinDayNZ.entitlements; sourceTree = "<group>"; };
 		FEA913875AAEC620CA5267BA /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				795E5ABEDEE853158CDDD5A6 /* ChangeAddressView.swift */,
+				105D4DCDD07F24E17A3C8150 /* CollectionDayPreview.swift */,
 				C5212870E41E8360D0D4DE7B /* TodayView.swift */,
 			);
 			path = Today;
@@ -145,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				6D40BE507B54DFE98CB54614 /* AddressSearchService.swift */,
+				AA11223344556677LANG0001 /* LanguageManager.swift */,
 				BCF0EBB5534BAAFC527436D4 /* CalendarService.swift */,
 				B33739A6F23D3F5F9F93638E /* CloudKitService.swift */,
 				8198819FA539DE5E1BC01095 /* DataService.swift */,
@@ -158,6 +174,7 @@
 		2429C0F9B68227FDF7CF4C72 /* BinDayNZ */ = {
 			isa = PBXGroup;
 			children = (
+				079C527AB8285CC13EC2D3A9 /* Assets.xcassets */,
 				FA21B9852D340BABF74AE5CC /* BinDayNZ.entitlements */,
 				1AEE87681A4EEBB850B2FDE5 /* App */,
 				D3AC5940B5E199A0E6047808 /* Models */,
@@ -191,7 +208,10 @@
 		4436AC25DBD30E5DB467459D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BDD169C4F5A57799FAC22123 /* AppIcon.png */,
+				2BC38B018527D9A7EA3B511E /* Videos/rubbish.mp4 */,
+				CE0008ED8F09B4C55056281A /* Videos/recycling.mp4 */,
+				90AE47B9B2D52BE2CFA63524 /* Videos/food-scraps.mp4 */,
+				010B34AA50573C83ACAB0FFD /* Videos/inorganic.mp4 */,
 				81A872CDC1A80A4D3C50B230 /* councils.json */,
 				B45C863FE587028BF51C7AF1 /* Localizable.xcstrings */,
 			);
@@ -214,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				0C27F35021B72FEF1E003734 /* InfoView.swift */,
+				884D920A1591CACFDFC73236 /* YouTubePlayerView.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -296,8 +317,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1600;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 7E51427A7FD5D1E7F1938998 /* Build configuration list for PBXProject "BinDayNZ" */;
 			developmentRegion = en;
@@ -306,6 +325,9 @@
 				Base,
 				en,
 				mi,
+				"zh-Hans",
+				hi,
+				ko,
 			);
 			mainGroup = EF6A60DF7A26F63416ED07BB;
 			minimizedProjectReferenceProxies = 1;
@@ -325,7 +347,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D45EFCE49B2BDE998812CD25 /* AppIcon.png in Resources */,
+				3AA0468C2D6D32A6D5D8E89A /* Videos/rubbish.mp4 in Resources */,
+				0EB9A6A6B16F2B99597107AA /* Videos/recycling.mp4 in Resources */,
+				E3D0EA1EA3CB0CED2109D3E7 /* Videos/food-scraps.mp4 in Resources */,
+				F63CB4DA37F31DCD083B26CC /* Videos/inorganic.mp4 in Resources */,
+				E61055A92FD976DE88D302F6 /* Assets.xcassets in Resources */,
 				9FE0E42535485DF2803A6762 /* Localizable.xcstrings in Resources */,
 				5B912F901F31C18C64992FF6 /* councils.json in Resources */,
 			);
@@ -347,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA11223344556677LANG0002 /* LanguageManager.swift in Sources */,
 				21390720FA416AE319D0632C /* AddressSearchService.swift in Sources */,
 				0DF140FD8725EBD5A591685A /* AddressSearchView.swift in Sources */,
 				3998D1D53B3A8FF746BA0411 /* BinDayNZApp.swift in Sources */,
@@ -354,6 +381,7 @@
 				95DE6BE377D626897882D4B7 /* CalendarService.swift in Sources */,
 				C6F3F62A522E4844B4BEDE9F /* ChangeAddressView.swift in Sources */,
 				6BF1D75CE9E583BAC9C673C3 /* CloudKitService.swift in Sources */,
+				023278082BA6DC4C81E3128C /* CollectionDayPreview.swift in Sources */,
 				37983968D045BF4BB40D50D6 /* CollectionSchedule.swift in Sources */,
 				25DD0C6D7435B3873ABE4EA3 /* CollectionZone.swift in Sources */,
 				9F5164613747F9C8B43B76EC /* ContentView.swift in Sources */,
@@ -372,6 +400,7 @@
 				2A010B55BC90837D0A87FD55 /* UpcomingCollection.swift in Sources */,
 				85D00E3C21B3651361571A6C /* UserProfile.swift in Sources */,
 				EF95AB3A0CAE75F1B869E823 /* WelcomeView.swift in Sources */,
+				3CFC545E5BD0EE6E346A8732 /* YouTubePlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,14 +421,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BinDayNZ/BinDayNZ.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = GQ9SBP53TA;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = BinDayNZ/Info.plist;
+				INFOPLIST_KEY_CFBundleIconName = AppIcon;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bindaynz.app;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -410,7 +442,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BinDayNZWidget/BinDayNZWidgetExtension.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = GQ9SBP53TA;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = BinDayNZWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -418,7 +451,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bindaynz.app.widget;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -552,7 +585,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BinDayNZWidget/BinDayNZWidgetExtension.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = GQ9SBP53TA;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = BinDayNZWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -560,7 +594,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bindaynz.app.widget;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -573,14 +607,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BinDayNZ/BinDayNZ.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = GQ9SBP53TA;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = BinDayNZ/Info.plist;
+				INFOPLIST_KEY_CFBundleIconName = AppIcon;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bindaynz.app;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

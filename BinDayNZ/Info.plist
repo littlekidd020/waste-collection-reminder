@@ -44,5 +44,9 @@
 	<string>Bin Day NZ needs full calendar access to create and manage your bin collection events.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Bin Day NZ needs your location to automatically find your address.</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
 </dict>
 </plist>

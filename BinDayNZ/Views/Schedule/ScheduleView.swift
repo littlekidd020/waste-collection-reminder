@@ -30,6 +30,7 @@ struct ScheduleView: View {
 
     private var monthName: String {
         let formatter = DateFormatter()
+        formatter.locale = LanguageManager.shared.locale
         formatter.dateFormat = "MMMM yyyy"
         return formatter.string(from: displayedMonth)
     }
@@ -50,6 +51,8 @@ struct ScheduleView: View {
                     Text(monthName)
                         .font(.title3.weight(.semibold))
                         .foregroundStyle(.primary)
+                        .id(displayedMonth) // ensure identity for transition
+                        .transition(.asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity), removal: .move(edge: .leading).combined(with: .opacity)))
 
                     Spacer()
 
@@ -75,13 +78,22 @@ struct ScheduleView: View {
                 .padding(.bottom, 8)
 
                 // Calendar grid
-                calendarGrid
-                    .padding(.horizontal, 12)
+                CalendarGridView(
+                    year: year,
+                    month: month,
+                    displayedMonth: displayedMonth,
+                    monthCollections: monthCollections,
+                    calendar: calendar,
+                    selectedDate: $selectedDate
+                )
+                .padding(.horizontal, 12)
+                .id(displayedMonth) // trigger grid transition
+                .transition(.opacity.combined(with: .scale(scale: 0.98)))
 
                 Spacer()
 
                 // Legend
-                legend
+                ScheduleLegendView()
                     .padding(.horizontal, 24)
                     .padding(.bottom, 16)
             }
@@ -89,7 +101,7 @@ struct ScheduleView: View {
                 Color(uiColor: .systemGroupedBackground)
                     .ignoresSafeArea()
             )
-            .navigationTitle(String(localized: "Schedule"))
+            .navigationTitle(L("Schedule"))
             .navigationBarTitleDisplayMode(.large)
             .sheet(item: $selectedDate) { date in
                 DayDetailView(date: date, zone: currentZone)
@@ -98,9 +110,32 @@ struct ScheduleView: View {
         }
     }
 
-    // MARK: - Calendar Grid
+    // MARK: - Helpers
 
-    private var calendarGrid: some View {
+    private func previousMonth() {
+        withAnimation(.easeInOut) {
+            displayedMonth = calendar.date(byAdding: .month, value: -1, to: displayedMonth) ?? displayedMonth
+        }
+    }
+
+    private func nextMonth() {
+        withAnimation(.easeInOut) {
+            displayedMonth = calendar.date(byAdding: .month, value: 1, to: displayedMonth) ?? displayedMonth
+        }
+    }
+}
+
+// MARK: - Calendar Subviews
+
+private struct CalendarGridView: View {
+    let year: Int
+    let month: Int
+    let displayedMonth: Date
+    let monthCollections: [Int: [BinType]]
+    let calendar: Calendar
+    @Binding var selectedDate: Date?
+
+    var body: some View {
         let daysInMonth = calendar.range(of: .day, in: .month, for: displayedMonth)!.count
         var components = DateComponents()
         components.year = year
@@ -122,7 +157,18 @@ struct ScheduleView: View {
                         let day = index - startOffset + 1
 
                         if day >= 1 && day <= daysInMonth {
-                            dayCell(day: day)
+                            let bins = monthCollections[day] ?? []
+                            let isToday = checkIsToday(day: day)
+                            
+                            CalendarDayCellView(
+                                day: day,
+                                bins: bins,
+                                isToday: isToday,
+                                year: year,
+                                month: month,
+                                calendar: calendar,
+                                selectedDate: $selectedDate
+                            )
                         } else {
                             Color.clear
                                 .frame(maxWidth: .infinity)
@@ -134,11 +180,25 @@ struct ScheduleView: View {
         }
     }
 
-    private func dayCell(day: Int) -> some View {
-        let bins = monthCollections[day] ?? []
-        let isToday = isTodayCheck(day: day)
+    private func checkIsToday(day: Int) -> Bool {
+        let today = Date()
+        return calendar.component(.year, from: today) == year
+            && calendar.component(.month, from: today) == month
+            && calendar.component(.day, from: today) == day
+    }
+}
 
-        return Button {
+private struct CalendarDayCellView: View {
+    let day: Int
+    let bins: [BinType]
+    let isToday: Bool
+    let year: Int
+    let month: Int
+    let calendar: Calendar
+    @Binding var selectedDate: Date?
+
+    var body: some View {
+        Button {
             var components = DateComponents()
             components.year = year
             components.month = month
@@ -167,8 +227,10 @@ struct ScheduleView: View {
             )
         }
     }
+}
 
-    private var legend: some View {
+private struct ScheduleLegendView: View {
+    var body: some View {
         HStack(spacing: 20) {
             ForEach(BinType.allCases.filter { $0 != .inorganic }) { bin in
                 HStack(spacing: 6) {
@@ -181,23 +243,6 @@ struct ScheduleView: View {
                 }
             }
         }
-    }
-
-    // MARK: - Helpers
-
-    private func isTodayCheck(day: Int) -> Bool {
-        let today = Date()
-        return calendar.component(.year, from: today) == year
-            && calendar.component(.month, from: today) == month
-            && calendar.component(.day, from: today) == day
-    }
-
-    private func previousMonth() {
-        displayedMonth = calendar.date(byAdding: .month, value: -1, to: displayedMonth) ?? displayedMonth
-    }
-
-    private func nextMonth() {
-        displayedMonth = calendar.date(byAdding: .month, value: 1, to: displayedMonth) ?? displayedMonth
     }
 }
 
@@ -222,6 +267,7 @@ struct DayDetailView: View {
 
     private var dateString: String {
         let formatter = DateFormatter()
+        formatter.locale = LanguageManager.shared.locale
         formatter.dateStyle = .full
         return formatter.string(from: date)
     }
@@ -242,7 +288,7 @@ struct DayDetailView: View {
                     Image(systemName: "checkmark.circle")
                         .font(.largeTitle)
                         .foregroundStyle(.green.opacity(0.5))
-                    Text(String(localized: "No collection on this day"))
+                    Text(L("No collection on this day"))
                         .foregroundStyle(.secondary)
                 }
                 .padding(.top, 20)

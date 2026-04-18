@@ -10,11 +10,12 @@ struct UpcomingCollection: Identifiable, Equatable {
     var relativeLabel: String {
         let calendar = Calendar.current
         if calendar.isDateInToday(date) {
-            return String(localized: "Today")
+            return L("Today")
         } else if calendar.isDateInTomorrow(date) {
-            return String(localized: "Tomorrow")
+            return L("Tomorrow")
         } else {
             let formatter = DateFormatter()
+            formatter.locale = LanguageManager.shared.locale
             formatter.dateFormat = "EEEE d MMM"
             return formatter.string(from: date)
         }

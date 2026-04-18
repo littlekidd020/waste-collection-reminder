@@ -12,10 +12,10 @@ enum BinType: String, Codable, CaseIterable, Identifiable {
 
     var displayName: String {
         switch self {
-        case .rubbish: return String(localized: "Rubbish")
-        case .recycling: return String(localized: "Recycling")
-        case .foodScraps: return String(localized: "Food Scraps")
-        case .inorganic: return String(localized: "Inorganic Collection")
+        case .rubbish: return L("Rubbish")
+        case .recycling: return L("Recycling")
+        case .foodScraps: return L("Food Scraps")
+        case .inorganic: return L("Inorganic Collection")
         }
     }
 
@@ -87,35 +87,35 @@ enum BinType: String, Codable, CaseIterable, Identifiable {
         switch self {
         case .rubbish:
             return [
-                String(localized: "Nappies and sanitary products"),
-                String(localized: "Polystyrene and bubble wrap"),
-                String(localized: "Broken crockery and ceramics"),
-                String(localized: "Vacuum cleaner dust"),
-                String(localized: "Cold ashes")
+                L("Nappies and sanitary products"),
+                L("Polystyrene and bubble wrap"),
+                L("Broken crockery and ceramics"),
+                L("Vacuum cleaner dust"),
+                L("Cold ashes")
             ]
         case .recycling:
             return [
-                String(localized: "Paper and cardboard (flattened)"),
-                String(localized: "Plastic bottles and containers (#1, #2, #5)"),
-                String(localized: "Glass bottles and jars"),
-                String(localized: "Steel and aluminium cans"),
-                String(localized: "Tin cans (rinsed)")
+                L("Paper and cardboard (flattened)"),
+                L("Plastic bottles and containers (#1, #2, #5)"),
+                L("Glass bottles and jars"),
+                L("Steel and aluminium cans"),
+                L("Tin cans (rinsed)")
             ]
         case .foodScraps:
             return [
-                String(localized: "Fruit and vegetable scraps"),
-                String(localized: "Meat, fish, and bones"),
-                String(localized: "Dairy products"),
-                String(localized: "Bread, rice, and pasta"),
-                String(localized: "Tea bags and coffee grounds")
+                L("Fruit and vegetable scraps"),
+                L("Meat, fish, and bones"),
+                L("Dairy products"),
+                L("Bread, rice, and pasta"),
+                L("Tea bags and coffee grounds")
             ]
         case .inorganic:
             return [
-                String(localized: "Old furniture"),
-                String(localized: "Whiteware (fridges, washing machines)"),
-                String(localized: "Mattresses"),
-                String(localized: "Scrap metal"),
-                String(localized: "Carpet and underlay")
+                L("Old furniture"),
+                L("Whiteware (fridges, washing machines)"),
+                L("Mattresses"),
+                L("Scrap metal"),
+                L("Carpet and underlay")
             ]
         }
     }
@@ -125,33 +125,57 @@ enum BinType: String, Codable, CaseIterable, Identifiable {
         switch self {
         case .rubbish:
             return [
-                String(localized: "Recyclable items (use yellow bin)"),
-                String(localized: "Food scraps (use green bin)"),
-                String(localized: "Hazardous waste (paint, chemicals)"),
-                String(localized: "E-waste (batteries, electronics)")
+                L("Recyclable items (use yellow bin)"),
+                L("Food scraps (use green bin)"),
+                L("Hazardous waste (paint, chemicals)"),
+                L("E-waste (batteries, electronics)")
             ]
         case .recycling:
             return [
-                String(localized: "Plastic bags and soft plastics"),
-                String(localized: "Food-contaminated containers"),
-                String(localized: "Drinking glasses and ceramics"),
-                String(localized: "Styrofoam and polystyrene"),
-                String(localized: "Nappies")
+                L("Plastic bags and soft plastics"),
+                L("Food-contaminated containers"),
+                L("Drinking glasses and ceramics"),
+                L("Styrofoam and polystyrene"),
+                L("Nappies")
             ]
         case .foodScraps:
             return [
-                String(localized: "Plastic bags (even compostable)"),
-                String(localized: "Liquids and cooking oil"),
-                String(localized: "Garden waste"),
-                String(localized: "Pet waste")
+                L("Plastic bags (even compostable)"),
+                L("Liquids and cooking oil"),
+                L("Garden waste"),
+                L("Pet waste")
             ]
         case .inorganic:
             return [
-                String(localized: "Hazardous materials (paint, gas bottles)"),
-                String(localized: "Car parts and tyres"),
-                String(localized: "Building materials (concrete, timber)"),
-                String(localized: "Green waste")
+                L("Hazardous materials (paint, gas bottles)"),
+                L("Car parts and tyres"),
+                L("Building materials (concrete, timber)"),
+                L("Green waste")
             ]
+        }
+    }
+
+    var localVideoName: String {
+        switch self {
+        case .rubbish: return "rubbish"
+        case .recycling: return "recycling"
+        case .foodScraps: return "food-scraps"
+        case .inorganic: return "inorganic"
+        }
+    }
+
+    var videoURL: String {
+        // We'll prioritize the local video file once it's added to the bundle
+        if let localURL = Bundle.main.url(forResource: localVideoName, withExtension: "mp4") {
+            return localURL.absoluteString
+        }
+        
+        // Fallback to YouTube
+        switch self {
+        case .rubbish: return "https://www.youtube.com/watch?v=AIkjD2vszQo"
+        case .recycling: return "https://www.youtube.com/watch?v=42dWHzAqO7E"
+        case .foodScraps: return "https://www.youtube.com/watch?v=fCk0RGm-xK8"
+        case .inorganic: return "https://www.youtube.com/watch?v=vq5rAaNrevA"
         }
     }
 }

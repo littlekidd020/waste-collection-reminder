@@ -24,10 +24,10 @@ struct CouncilPickerView: View {
             VStack(spacing: 24) {
                 // Header
                 VStack(spacing: 8) {
-                    Text(String(localized: "Select Your Council"))
+                    Text(L("Select Your Council"))
                         .font(.title.bold())
                         .foregroundStyle(.primary)
-                    Text(String(localized: "Choose your local council to get your collection schedule"))
+                    Text(L("Choose your local council to get your collection schedule"))
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -39,11 +39,15 @@ struct CouncilPickerView: View {
                     VStack(spacing: 12) {
                         // Supported councils
                         ForEach(supportedCouncils) { council in
-                            councilRow(council: council, isSupported: true)
+                            CouncilRow(
+                                council: council,
+                                isSupported: true,
+                                selectedCouncil: $selectedCouncil
+                            )
                         }
 
                         if !unsupportedCouncils.isEmpty {
-                            Text(String(localized: "Coming Soon"))
+                            Text(L("Coming Soon"))
                                 .font(.caption.weight(.medium))
                                 .foregroundStyle(.tertiary)
                                 .textCase(.uppercase)
@@ -52,7 +56,11 @@ struct CouncilPickerView: View {
                                 .padding(.horizontal, 8)
 
                             ForEach(unsupportedCouncils) { council in
-                                councilRow(council: council, isSupported: false)
+                                CouncilRow(
+                                    council: council,
+                                    isSupported: false,
+                                    selectedCouncil: $selectedCouncil
+                                )
                             }
                         }
                     }
@@ -61,7 +69,7 @@ struct CouncilPickerView: View {
 
                 // Continue button
                 Button(action: onContinue) {
-                    Text(String(localized: "Continue"))
+                    Text(L("Continue"))
                         .font(.headline)
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
@@ -86,8 +94,14 @@ struct CouncilPickerView: View {
             }
         }
     }
+}
 
-    private func councilRow(council: Council, isSupported: Bool) -> some View {
+private struct CouncilRow: View {
+    let council: Council
+    let isSupported: Bool
+    @Binding var selectedCouncil: Council?
+
+    var body: some View {
         Button {
             if isSupported {
                 withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
@@ -97,7 +111,7 @@ struct CouncilPickerView: View {
         } label: {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(council.name)
+                    Text(L(council.name))
                         .font(.body.weight(.medium))
                         .foregroundStyle(isSupported ? .primary : .secondary)
                     Text(council.region)
@@ -119,7 +133,7 @@ struct CouncilPickerView: View {
                             .font(.title3)
                     }
                 } else {
-                    Text(String(localized: "Soon"))
+                    Text(L("Soon"))
                         .font(.caption2.weight(.medium))
                         .foregroundStyle(.secondary)
                         .padding(.horizontal, 8)

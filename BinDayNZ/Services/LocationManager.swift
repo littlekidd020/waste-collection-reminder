@@ -24,13 +24,11 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 
         let status = manager.authorizationStatus
         if status == .denied || status == .restricted {
-            throw NSError(domain: "LocationManager", code: 1, userInfo: [NSLocalizedDescriptionKey: String(localized: "Location access denied. Please enable in Settings.")])
+            throw NSError(domain: "LocationManager", code: 1, userInfo: [NSLocalizedDescriptionKey: L("Location access denied. Please enable in Settings.")])
         }
 
         if status == .notDetermined {
             manager.requestWhenInUseAuthorization()
-            // We need to wait for the authorization status to change.
-            // For simplicity, we'll try to request location anyway, but if it fails, the user will need to tap again next time.
         }
 
         let location: CLLocation? = try await withCheckedThrowingContinuation { continuation in
@@ -40,21 +38,32 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 
         guard let location = location else { return nil }
 
-        // Reverse geocode
         let geocoder = CLGeocoder()
         let placemarks = try await geocoder.reverseGeocodeLocation(location)
         guard let placemark = placemarks.first else { return nil }
 
-        let streetAddress = [
-            placemark.subThoroughfare,
-            placemark.thoroughfare
-        ].compactMap { $0 }.joined(separator: " ")
+        var addressComponents: [String] = []
 
-        let suburb = placemark.subLocality ?? placemark.locality ?? ""
-        let city = placemark.locality ?? placemark.administrativeArea ?? ""
+        if let subThoroughfare = placemark.subThoroughfare, !subThoroughfare.isEmpty {
+            addressComponents.append(subThoroughfare)
+        }
 
-        let fullAddress = [streetAddress, suburb, city].filter { !$0.isEmpty }.joined(separator: ", ")
-        
+        if let thoroughfare = placemark.thoroughfare, !thoroughfare.isEmpty, placemark.subThoroughfare == nil {
+            addressComponents.append(thoroughfare)
+        }
+
+        if let locality = placemark.subLocality ?? placemark.locality, !locality.isEmpty {
+            addressComponents.append(locality)
+        }
+
+        if let administrativeArea = placemark.administrativeArea, !administrativeArea.isEmpty {
+            if addressComponents.isEmpty || !addressComponents.last!.contains(administrativeArea) {
+                addressComponents.append(administrativeArea)
+            }
+        }
+
+        let fullAddress = addressComponents.filter { !$0.isEmpty }.joined(separator: ", ")
+
         return fullAddress.isEmpty ? nil : fullAddress
     }
 
@@ -69,7 +78,6 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 
     nonisolated func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         Task { @MainActor in
-            // CLError.locationUnknown can be ignored as the manager will keep trying
             if let clError = error as? CLError, clError.code == .locationUnknown {
                 return
             }
@@ -89,7 +97,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
                 }
             } else if manager.authorizationStatus == .denied || manager.authorizationStatus == .restricted {
                 if let continuation = locationContinuation {
-                    let error = NSError(domain: "LocationManager", code: 1, userInfo: [NSLocalizedDescriptionKey: String(localized: "Location access denied.")])
+                    let error = NSError(domain: "LocationManager", code: 1, userInfo: [NSLocalizedDescriptionKey: L("Location access denied.")])
                     continuation.resume(throwing: error)
                     locationContinuation = nil
                 }
