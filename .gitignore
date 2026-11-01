@@ -15,3 +15,6 @@ build/
 # Local scratch and archives
 /test_*.swift
 /*.zip
+
+# asc CLI local state and reports
+/.asc/

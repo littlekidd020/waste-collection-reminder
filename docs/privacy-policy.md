@@ -1,6 +1,6 @@
 # Bin Day NZ privacy policy
 
-Prepared 6 September 2026 for the local 1.2 candidate. **This file has not been published to the App Store's linked policy URL.** Check the final release's network behavior and App Store answers before publishing it.
+Prepared 6 September 2026 and published 2 November 2026 as the App Store privacy policy link for Bin Day NZ 1.2. It describes the app as released; the address lookup uses Apple mapping services only and no Bin Day NZ server receives your data.
 
 Bin Day NZ helps you keep a household bin schedule. You do not create a Bin Day NZ account. The app stores your chosen address, any saved coordinates, collection schedule and preferences on your device. We do not operate a server that receives this household profile, and we do not sell it.
 
