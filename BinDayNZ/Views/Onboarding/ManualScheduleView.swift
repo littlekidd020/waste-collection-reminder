@@ -6,10 +6,13 @@ struct ManualScheduleView: View {
     @State private var schedules: [CollectionSchedule]
     @State private var enabled: Set<BinType>
     @State private var confirmed = false
+    @State private var showCouncil = false
+    let intro: String?
     let onSave: (CollectionZone) -> Void
 
-    init(initialZone: CollectionZone? = nil, onSave: @escaping (CollectionZone) -> Void) {
+    init(initialZone: CollectionZone? = nil, intro: String? = nil, onSave: @escaping (CollectionZone) -> Void) {
         self.onSave = onSave
+        self.intro = intro
         let calendar = ScheduleEngine.collectionCalendar
         let nextDate = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 1, to: Date())!)
         let bins: [BinType] = [.rubbish, .recycling, .foodScraps]
@@ -26,8 +29,9 @@ struct ManualScheduleView: View {
         NavigationStack {
             Form {
                 Section {
+                    if let intro { Text(intro).font(.headline) }
                     Text(L("Check the regular collection dates for your property, then set each bin below. Add holiday or disruption changes separately."))
-                    Link(L("Check dates with Auckland Council"), destination: DataService.collectionURL)
+                    Button(L("Check dates with Auckland Council")) { showCouncil = true }
                     Text(L("Dates and reminder times use Auckland time. Address search does not verify collection dates."))
                         .font(.footnote).foregroundStyle(.secondary)
                 }
@@ -42,7 +46,16 @@ struct ManualScheduleView: View {
                                 Text(L("Weekly")).tag(Frequency.weekly)
                                 Text(L("Fortnightly")).tag(Frequency.fortnightly)
                             }
-                            DatePicker(L("A regular collection date"), selection: $schedule.anchorDate, displayedComponents: .date)
+                            Picker(L("Collection day"), selection: weekdayBinding($schedule)) {
+                                ForEach(1...7, id: \.self) { Text(Self.weekdayName($0)).tag($0) }
+                            }
+                            if schedule.frequency == .fortnightly {
+                                let options = Self.nextDateOptions(for: schedule)
+                                Picker(L("Next collection"), selection: nextDateBinding($schedule, options: options)) {
+                                    ForEach(options, id: \.self) { Text($0, format: .dateTime.weekday(.abbreviated).day().month()).tag($0) }
+                                }
+                                .pickerStyle(.segmented)
+                            }
                             let preview = ScheduleEngine().upcomingCollections(for: DataService.shared.manualZone(schedules: [schedule]), from: Date(), count: 2)
                             ForEach(preview) { collection in
                                 Text(collection.date, format: .dateTime.weekday(.wide).day().month())
@@ -68,9 +81,60 @@ struct ManualScheduleView: View {
                 }
             }
             .onChange(of: schedules) { _, _ in confirmed = false }
+            .sheet(isPresented: $showCouncil) { SafariView(url: DataService.collectionURL).ignoresSafeArea() }
         }
         .environment(\.calendar, ScheduleEngine.collectionCalendar)
         .environment(\.timeZone, ScheduleEngine.collectionCalendar.timeZone)
+    }
+
+    // MARK: - Guided date selection
+
+    /// Monday = 1 … Sunday = 7, in the collection calendar.
+    static func weekday(of date: Date) -> Int {
+        let day = ScheduleEngine.collectionCalendar.component(.weekday, from: date)
+        return day == 1 ? 7 : day - 1
+    }
+
+    static func weekdayName(_ weekday: Int) -> String {
+        var calendar = ScheduleEngine.collectionCalendar
+        calendar.locale = LanguageManager.shared.locale
+        return calendar.standaloneWeekdaySymbols[weekday % 7]
+    }
+
+    /// The first date on or after today with the given weekday.
+    static func nextDate(weekday: Int, from reference: Date = Date()) -> Date {
+        let calendar = ScheduleEngine.collectionCalendar
+        let start = calendar.startOfDay(for: reference)
+        let delta = (weekday - Self.weekday(of: start) + 7) % 7
+        return calendar.date(byAdding: .day, value: delta, to: start)!
+    }
+
+    /// For fortnightly bins: the next two occurrences of the schedule's weekday. One of them is the next collection.
+    static func nextDateOptions(for schedule: CollectionSchedule) -> [Date] {
+        let first = nextDate(weekday: weekday(of: schedule.anchorDate))
+        return [first, ScheduleEngine.collectionCalendar.date(byAdding: .day, value: 7, to: first)!]
+    }
+
+    /// Re-anchors a schedule on a date that keeps the cycle valid. Past one-off changes no longer apply and are dropped.
+    static func reanchored(_ schedule: CollectionSchedule, to anchor: Date) -> CollectionSchedule {
+        var updated = schedule
+        updated.anchorDate = anchor
+        updated.changes.removeAll { $0.originalDate < anchor }
+        return updated
+    }
+
+    private func weekdayBinding(_ schedule: Binding<CollectionSchedule>) -> Binding<Int> {
+        Binding(
+            get: { Self.weekday(of: schedule.wrappedValue.anchorDate) },
+            set: { schedule.wrappedValue = Self.reanchored(schedule.wrappedValue, to: Self.nextDate(weekday: $0)) }
+        )
+    }
+
+    private func nextDateBinding(_ schedule: Binding<CollectionSchedule>, options: [Date]) -> Binding<Date> {
+        Binding(
+            get: { options.first { schedule.wrappedValue.isRegularCollection(on: $0) } ?? options[0] },
+            set: { schedule.wrappedValue = Self.reanchored(schedule.wrappedValue, to: $0) }
+        )
     }
 }
 

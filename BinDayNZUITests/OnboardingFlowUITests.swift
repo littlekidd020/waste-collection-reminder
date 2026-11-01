@@ -45,6 +45,10 @@ final class OnboardingFlowUITests: XCTestCase {
             else if alternateDeny.exists { alternateDeny.tap() }
         }
         XCTAssertTrue(app.tabBars.buttons["Today"].waitForExistence(timeout: 15))
+        if app.staticTexts["You're set"].waitForExistence(timeout: 5) {
+            capture("05-setup-complete")
+            app.buttons["Done"].firstMatch.tap()
+        }
         capture("05-today")
         let reminderStatus = allowNotifications
             ? app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "Reminders scheduled through")).firstMatch

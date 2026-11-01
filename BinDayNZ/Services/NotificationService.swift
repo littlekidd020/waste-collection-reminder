@@ -72,17 +72,21 @@ final class NotificationService {
         guard let last = plan.last else { throw ScheduleError.invalid }
         do {
             for reminder in plan {
-                let names = reminder.bins.map(\.displayName).joined(separator: ", ")
+                let names = reminder.bins.map { "\($0.icon) \($0.displayName)" }.joined(separator: "  ")
                 let content = UNMutableNotificationContent()
                 content.title = reminder.isEvening ? L("Bins out tonight") : L("Collection today")
                 content.body = names
                 content.sound = .default
+                content.interruptionLevel = .timeSensitive
+                content.categoryIdentifier = NotificationRouter.collectionCategory
+                content.userInfo = [NotificationRouter.tabKey: 0]
                 try await center.add(request(id: reminder.id, date: reminder.date, content: content))
             }
             let content = UNMutableNotificationContent()
             content.title = L("Refresh your bin reminders")
             content.body = L("Open Bin Day NZ to schedule more reminders and check for collection changes.")
             content.sound = .default
+            content.userInfo = [NotificationRouter.tabKey: 3]
             let renewalDate = max(now.addingTimeInterval(60), ScheduleEngine.collectionCalendar.date(byAdding: .day, value: -7, to: last.date)!)
             try await center.add(request(id: "binday.renewal", date: renewalDate, content: content))
             let pending = await center.pendingNotificationRequests()
@@ -102,6 +106,35 @@ final class NotificationService {
         components.calendar = ScheduleEngine.collectionCalendar
         components.timeZone = ScheduleEngine.collectionCalendar.timeZone
         return UNNotificationRequest(identifier: id, content: content, trigger: UNCalendarNotificationTrigger(dateMatching: components, repeats: false))
+    }
+}
+
+extension Notification.Name {
+    static let binDayOpenTab = Notification.Name("BinDayNZ.openTab")
+}
+
+/// Tapping a reminder lands on Today; tapping the renewal notice lands on Settings.
+/// Reminders also show as banners while the app is open.
+final class NotificationRouter: NSObject, UNUserNotificationCenterDelegate {
+    static let shared = NotificationRouter()
+    static let collectionCategory = "binday.collection"
+    static let tabKey = "tab"
+
+    func install() {
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        center.setNotificationCategories([
+            UNNotificationCategory(identifier: Self.collectionCategory, actions: [], intentIdentifiers: [], options: [])
+        ])
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+        [.banner, .sound, .list]
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+        let tab = response.notification.request.content.userInfo[Self.tabKey] as? Int ?? 0
+        await MainActor.run { NotificationCenter.default.post(name: .binDayOpenTab, object: tab) }
     }
 }
 

@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import UIKit
 
 /// Represents the different types of waste bins used across New Zealand councils.
 enum BinType: String, Codable, CaseIterable, Identifiable {
@@ -19,12 +20,35 @@ enum BinType: String, Codable, CaseIterable, Identifiable {
         }
     }
 
+    /// Auckland lid colours tuned for text and glyphs on grouped backgrounds: darker in light mode,
+    /// lighter in dark mode, so each passes 3:1 against both.
     var color: Color {
+        Color(uiColor: UIColor { traits in
+            let dark = traits.userInterfaceStyle == .dark
+            switch self {
+            case .rubbish: return dark ? UIColor(red: 0.96, green: 0.38, blue: 0.36, alpha: 1) : UIColor(red: 0.76, green: 0.12, blue: 0.12, alpha: 1)
+            case .recycling: return dark ? UIColor(red: 0.98, green: 0.80, blue: 0.28, alpha: 1) : UIColor(red: 0.62, green: 0.47, blue: 0.0, alpha: 1)
+            case .foodScraps: return dark ? UIColor(red: 0.42, green: 0.80, blue: 0.48, alpha: 1) : UIColor(red: 0.14, green: 0.48, blue: 0.22, alpha: 1)
+            case .inorganic: return dark ? UIColor(red: 0.95, green: 0.64, blue: 0.28, alpha: 1) : UIColor(red: 0.68, green: 0.40, blue: 0.04, alpha: 1)
+            }
+        })
+    }
+
+    /// The physical lid colour, identical in both appearances, for filled chips.
+    var lidFill: Color {
         switch self {
-        case .rubbish: return .red
-        case .recycling: return .yellow
-        case .foodScraps: return .green
-        case .inorganic: return .orange
+        case .rubbish: return Color(red: 0.84, green: 0.16, blue: 0.16)
+        case .recycling: return Color(red: 0.96, green: 0.76, blue: 0.15)
+        case .foodScraps: return Color(red: 0.18, green: 0.56, blue: 0.26)
+        case .inorganic: return Color(red: 0.85, green: 0.52, blue: 0.12)
+        }
+    }
+
+    /// Glyph colour on `lidFill`.
+    var lidForeground: Color {
+        switch self {
+        case .recycling: return Color.black.opacity(0.82)
+        case .rubbish, .foodScraps, .inorganic: return .white
         }
     }
 

@@ -7,6 +7,7 @@ struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
     @Query private var profiles: [UserProfile]
     @State private var storageError = false
+    @State private var sharedZone: CollectionZone?
 
     var body: some View {
         Group {
@@ -45,6 +46,17 @@ struct ContentView: View {
         .environment(\.calendar, ScheduleEngine.collectionCalendar)
         .environment(\.timeZone, ScheduleEngine.collectionCalendar.timeZone)
         .tint(AppTheme.accent)
+        .onOpenURL { url in
+            if let zone = ScheduleLink.zone(from: url) { sharedZone = zone }
+        }
+        .sheet(item: $sharedZone) { zone in
+            ManualScheduleView(initialZone: zone, intro: L("Review this shared schedule, then confirm it matches your property.")) { confirmed in
+                guard let profile = profiles.first else { return }
+                Task { @MainActor in
+                    try? await ScheduleCoordinator.shared.save(zone: confirmed, address: profile.address, coordinate: nil, profile: profile, context: modelContext)
+                }
+            }
+        }
         .alert(L("Storage needs attention"), isPresented: $storageError) {
             Button(L("OK"), role: .cancel) {}
         } message: {
@@ -62,6 +74,7 @@ struct ContentView: View {
 /// Main tab bar with Today, Schedule, Info, and Settings tabs.
 struct MainTabView: View {
     @State private var selectedTab = 0
+    @AppStorage("pendingSetupComplete") private var pendingSetupComplete = false
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -94,5 +107,9 @@ struct MainTabView: View {
                 }
         }
         .tint(AppTheme.accent)
+        .onReceive(NotificationCenter.default.publisher(for: .binDayOpenTab)) { note in
+            if let tab = note.object as? Int { selectedTab = tab }
+        }
+        .sheet(isPresented: $pendingSetupComplete) { SetupCompleteView() }
     }
 }

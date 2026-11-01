@@ -11,6 +11,7 @@ struct NotificationSetupView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var isCompleting = false
     @State private var errorMessage: String?
+    @AppStorage("pendingSetupComplete") private var pendingSetupComplete = false
 
     var body: some View {
         Form {
@@ -55,6 +56,7 @@ struct NotificationSetupView: View {
         }
         do {
             try await ScheduleCoordinator.shared.save(zone: zone, address: address, coordinate: coordinate, profile: profile, context: modelContext)
+            pendingSetupComplete = true
         } catch {
             errorMessage = L("Your schedule could not be saved. Please try again.")
         }

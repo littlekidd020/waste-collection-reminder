@@ -114,6 +114,6 @@ struct BinDayNZWidget: Widget {
         }
         .configurationDisplayName("Bin Day NZ")
         .description("See your upcoming bin collection at a glance.")
-        .supportedFamilies([.systemSmall, .systemMedium, .accessoryInline, .accessoryCircular])
+        .supportedFamilies([.systemSmall, .systemMedium, .accessoryInline, .accessoryCircular, .accessoryRectangular])
     }
 }

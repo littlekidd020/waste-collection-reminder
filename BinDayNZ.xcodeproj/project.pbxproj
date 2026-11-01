@@ -20,12 +20,15 @@
 		256655519CAF4EBD6057687F /* ManualScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18EB3CD492EB680A9ED55C5 /* ManualScheduleView.swift */; };
 		25DD0C6D7435B3873ABE4EA3 /* CollectionZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E642DD6D95F4AFE57B88231 /* CollectionZone.swift */; };
 		2A010B55BC90837D0A87FD55 /* UpcomingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054562B446E399A964099556 /* UpcomingCollection.swift */; };
+		323A0BE16180FB1FE1A2824F /* BinLidChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D69FD1E036E43AB38AD2A2 /* BinLidChip.swift */; };
 		37983968D045BF4BB40D50D6 /* CollectionSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9A60E42058263ACDAEBFB1 /* CollectionSchedule.swift */; };
 		3998D1D53B3A8FF746BA0411 /* BinDayNZApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C602DACDBD7E8EE18AE3CE8 /* BinDayNZApp.swift */; };
 		3CFC545E5BD0EE6E346A8732 /* YouTubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D920A1591CACFDFC73236 /* YouTubePlayerView.swift */; };
 		4BB0E3D5331AA395E142D447 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FD07FF4983F4C665BB7129 /* NotificationService.swift */; };
+		528B42112604697BB537FC75 /* ShareAndHolidayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0FA664B09ED906518E27A3 /* ShareAndHolidayTests.swift */; };
 		6103DBBF6E20E6A502D78C47 /* CollectionZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E642DD6D95F4AFE57B88231 /* CollectionZone.swift */; };
 		7528902A079CCB4181E8F94C /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0634A68C6DBF935F256A55F /* PrivacyView.swift */; };
+		7A894C26C76B3556671760F1 /* SetupCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB730791D2782DB4D6393E38 /* SetupCompleteView.swift */; };
 		7B19D4D5D72E811AA5C1D70A /* BinDayNZWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4C1D865B0B57CE06228046D6 /* BinDayNZWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7E5C9DBF9DC8F2D3B1B73D06 /* BinDayNZWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2981DA82CD2DF9EC4C3FB889 /* BinDayNZWidget.swift */; };
 		85D00E3C21B3651361571A6C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E933392050D92A2A4AAC3C67 /* UserProfile.swift */; };
@@ -40,12 +43,17 @@
 		A11D38F256991120E1CFF3BE /* OnboardingFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C01CBED6D096060B0AD672 /* OnboardingFlowUITests.swift */; };
 		A3C9FF54690FC1B5DAB50A8F /* IconographyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3FF0D355A1E34BC674B9A9 /* IconographyTests.swift */; };
 		A925571945FBC88DF949F057 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0540C34F907DEA5778E8B893 /* LocationManager.swift */; };
+		A9F7C322F30F2C4803D33506 /* ScheduleLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD307241E49D968781AF04 /* ScheduleLink.swift */; };
 		AABF4FF329E8231AC9EE4ABF /* HowItWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D178E60E1478050531170C3 /* HowItWorksView.swift */; };
+		AD7004DE7774053C40C2D0C1 /* BinLidChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D69FD1E036E43AB38AD2A2 /* BinLidChip.swift */; };
+		AF093EA9D9213A0FB4F89101 /* HolidayShiftCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A1F005CB4FAB53B19D9715 /* HolidayShiftCard.swift */; };
 		B183C1B5DF59057C379EDB41 /* CalendarSafetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96436C5B41C44A9334497A0B /* CalendarSafetyTests.swift */; };
 		B1F70522EB5F06CEE21501BD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8198819FA539DE5E1BC01095 /* DataService.swift */; };
+		C007FEF2D733813801F2CA24 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D0140EEFE5E60E4F90F16E /* SafariView.swift */; };
 		C239A772D542C2F70232AB1A /* NotificationSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D767777DC0FBB857780378 /* NotificationSetupView.swift */; };
 		C6F3F62A522E4844B4BEDE9F /* ChangeAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795E5ABEDEE853158CDDD5A6 /* ChangeAddressView.swift */; };
 		C7C7E62F89F506DDAF218CE3 /* BinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63FC860715FB04548D4018 /* BinType.swift */; };
+		CFFE3D3C3ED24C67DD261848 /* HolidayShiftService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D09925A02318365407402 /* HolidayShiftService.swift */; };
 		D3D97E7763801229DBA16BF3 /* WidgetDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F8E851134A06FD1218E62 /* WidgetDataService.swift */; };
 		E61055A92FD976DE88D302F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079C527AB8285CC13EC2D3A9 /* Assets.xcassets */; };
 		E67835E50514A813A8D17FC9 /* ManualScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D876C6B543CB4D429F85BD0 /* ManualScheduleTests.swift */; };
@@ -119,8 +127,10 @@
 		40BA1B37C5F1B9EAAFFD0CE4 /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
 		4C1D865B0B57CE06228046D6 /* BinDayNZWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = BinDayNZWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D178E60E1478050531170C3 /* HowItWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowItWorksView.swift; sourceTree = "<group>"; };
+		5E0FA664B09ED906518E27A3 /* ShareAndHolidayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareAndHolidayTests.swift; sourceTree = "<group>"; };
 		5F3FF0D355A1E34BC674B9A9 /* IconographyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconographyTests.swift; sourceTree = "<group>"; };
 		608758E1855EB60D44D82BC4 /* BinDayNZUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = BinDayNZUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		61D0140EEFE5E60E4F90F16E /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		640F8E851134A06FD1218E62 /* WidgetDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDataService.swift; sourceTree = "<group>"; };
 		69E0EBAE77BB08142AAE2BA3 /* ScheduleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCoordinator.swift; sourceTree = "<group>"; };
 		6B683F8B64C16CA4A575FD6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -136,19 +146,24 @@
 		884D920A1591CACFDFC73236 /* YouTubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubePlayerView.swift; sourceTree = "<group>"; };
 		89082F8E583F74FDFABA0610 /* mi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = mi; path = mi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8E642DD6D95F4AFE57B88231 /* CollectionZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionZone.swift; sourceTree = "<group>"; };
+		90A1F005CB4FAB53B19D9715 /* HolidayShiftCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayShiftCard.swift; sourceTree = "<group>"; };
 		96436C5B41C44A9334497A0B /* CalendarSafetyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSafetyTests.swift; sourceTree = "<group>"; };
 		9704563038160A6E9F6D41C5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9E6C07D04B413ED8137B3343 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		A2C01CBED6D096060B0AD672 /* OnboardingFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowUITests.swift; sourceTree = "<group>"; };
+		A9D69FD1E036E43AB38AD2A2 /* BinLidChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinLidChip.swift; sourceTree = "<group>"; };
 		B371A2E571D2CC3555A5DE94 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		B45C863FE587028BF51C7AF1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		B6AD307241E49D968781AF04 /* ScheduleLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleLink.swift; sourceTree = "<group>"; };
 		BBB6B8C4E189BA79D65E3679 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BCC21ECE7D810346CBE6350A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		BCF0EBB5534BAAFC527436D4 /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
 		C5212870E41E8360D0D4DE7B /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		E18EB3CD492EB680A9ED55C5 /* ManualScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualScheduleView.swift; sourceTree = "<group>"; };
+		E28D09925A02318365407402 /* HolidayShiftService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayShiftService.swift; sourceTree = "<group>"; };
 		E933392050D92A2A4AAC3C67 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		E9EB0C7B256FD11353256705 /* BinDayNZTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = BinDayNZTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB730791D2782DB4D6393E38 /* SetupCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCompleteView.swift; sourceTree = "<group>"; };
 		EFBEC462C449EA3CF1E9DFB8 /* ChangeAddressMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAddressMapTests.swift; sourceTree = "<group>"; };
 		F0634A68C6DBF935F256A55F /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		F522FF296ECDC64EC334426E /* BinDayNZ.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = BinDayNZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,10 +172,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		097930F3C4810277FB11AD35 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A9D69FD1E036E43AB38AD2A2 /* BinLidChip.swift */,
+				61D0140EEFE5E60E4F90F16E /* SafariView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		11EE11D848FA3C927726EE5B /* Today */ = {
 			isa = PBXGroup;
 			children = (
 				795E5ABEDEE853158CDDD5A6 /* ChangeAddressView.swift */,
+				90A1F005CB4FAB53B19D9715 /* HolidayShiftCard.swift */,
 				C5212870E41E8360D0D4DE7B /* TodayView.swift */,
 			);
 			path = Today;
@@ -204,11 +229,13 @@
 				6D40BE507B54DFE98CB54614 /* AddressSearchService.swift */,
 				BCF0EBB5534BAAFC527436D4 /* CalendarService.swift */,
 				8198819FA539DE5E1BC01095 /* DataService.swift */,
+				E28D09925A02318365407402 /* HolidayShiftService.swift */,
 				7157F17A5CE0322C0CA1E323 /* LanguageManager.swift */,
 				0540C34F907DEA5778E8B893 /* LocationManager.swift */,
 				04FD07FF4983F4C665BB7129 /* NotificationService.swift */,
 				69E0EBAE77BB08142AAE2BA3 /* ScheduleCoordinator.swift */,
 				2FF0B056C382561CEED2F5B9 /* ScheduleEngine.swift */,
+				B6AD307241E49D968781AF04 /* ScheduleLink.swift */,
 				640F8E851134A06FD1218E62 /* WidgetDataService.swift */,
 			);
 			path = Services;
@@ -244,6 +271,7 @@
 				54A2A6AC66FE11F4FFA5FD6F /* Onboarding */,
 				D5596EAC169E6D60AAA54D00 /* Schedule */,
 				3A1AE344FA56F038FBA24E33 /* Settings */,
+				097930F3C4810277FB11AD35 /* Shared */,
 				11EE11D848FA3C927726EE5B /* Today */,
 			);
 			path = Views;
@@ -265,6 +293,7 @@
 				E18EB3CD492EB680A9ED55C5 /* ManualScheduleView.swift */,
 				81D767777DC0FBB857780378 /* NotificationSetupView.swift */,
 				40BA1B37C5F1B9EAAFFD0CE4 /* OnboardingContainerView.swift */,
+				EB730791D2782DB4D6393E38 /* SetupCompleteView.swift */,
 				FEA913875AAEC620CA5267BA /* WelcomeView.swift */,
 			);
 			path = Onboarding;
@@ -308,6 +337,7 @@
 				EFBEC462C449EA3CF1E9DFB8 /* ChangeAddressMapTests.swift */,
 				5F3FF0D355A1E34BC674B9A9 /* IconographyTests.swift */,
 				2D876C6B543CB4D429F85BD0 /* ManualScheduleTests.swift */,
+				5E0FA664B09ED906518E27A3 /* ShareAndHolidayTests.swift */,
 				2C219D3CD620B17D6E4E3B1F /* VideoSourceTests.swift */,
 				24547698AABA70EF5702D8A3 /* WidgetSnapshotTests.swift */,
 			);
@@ -490,6 +520,7 @@
 				1C24FE63A7D2C20742A79317 /* ChangeAddressMapTests.swift in Sources */,
 				A3C9FF54690FC1B5DAB50A8F /* IconographyTests.swift in Sources */,
 				E67835E50514A813A8D17FC9 /* ManualScheduleTests.swift in Sources */,
+				528B42112604697BB537FC75 /* ShareAndHolidayTests.swift in Sources */,
 				FD7538A49CCBE33E7816C451 /* VideoSourceTests.swift in Sources */,
 				E8645849DF33D38465AADC89 /* WidgetSnapshotTests.swift in Sources */,
 			);
@@ -500,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E5C9DBF9DC8F2D3B1B73D06 /* BinDayNZWidget.swift in Sources */,
+				AD7004DE7774053C40C2D0C1 /* BinLidChip.swift in Sources */,
 				C7C7E62F89F506DDAF218CE3 /* BinType.swift in Sources */,
 				F4175D47E6CCEF59F3797F22 /* CollectionSchedule.swift in Sources */,
 				6103DBBF6E20E6A502D78C47 /* CollectionZone.swift in Sources */,
@@ -518,6 +550,7 @@
 				0DF140FD8725EBD5A591685A /* AddressSearchView.swift in Sources */,
 				EA7820F4901348315E0D3725 /* AppTheme.swift in Sources */,
 				3998D1D53B3A8FF746BA0411 /* BinDayNZApp.swift in Sources */,
+				323A0BE16180FB1FE1A2824F /* BinLidChip.swift in Sources */,
 				9C201D63962ABA47C85F09E9 /* BinType.swift in Sources */,
 				95DE6BE377D626897882D4B7 /* CalendarService.swift in Sources */,
 				C6F3F62A522E4844B4BEDE9F /* ChangeAddressView.swift in Sources */,
@@ -525,6 +558,8 @@
 				25DD0C6D7435B3873ABE4EA3 /* CollectionZone.swift in Sources */,
 				9F5164613747F9C8B43B76EC /* ContentView.swift in Sources */,
 				B1F70522EB5F06CEE21501BD /* DataService.swift in Sources */,
+				AF093EA9D9213A0FB4F89101 /* HolidayShiftCard.swift in Sources */,
+				CFFE3D3C3ED24C67DD261848 /* HolidayShiftService.swift in Sources */,
 				AABF4FF329E8231AC9EE4ABF /* HowItWorksView.swift in Sources */,
 				8D75249E866957AAEA25559E /* InfoView.swift in Sources */,
 				0114F0D655C6F1879C080AB0 /* LanguageManager.swift in Sources */,
@@ -534,10 +569,13 @@
 				C239A772D542C2F70232AB1A /* NotificationSetupView.swift in Sources */,
 				0451D5F0A043DDACDCABEB7D /* OnboardingContainerView.swift in Sources */,
 				7528902A079CCB4181E8F94C /* PrivacyView.swift in Sources */,
+				C007FEF2D733813801F2CA24 /* SafariView.swift in Sources */,
 				1B0C7355FEB1C1721C6E7D79 /* ScheduleCoordinator.swift in Sources */,
 				12FA7B0973F3FABD9268C9AD /* ScheduleEngine.swift in Sources */,
+				A9F7C322F30F2C4803D33506 /* ScheduleLink.swift in Sources */,
 				ED2D6A5ABFE81D0E72A5614C /* ScheduleView.swift in Sources */,
 				0004423F17556AD9CDC23E2D /* SettingsView.swift in Sources */,
+				7A894C26C76B3556671760F1 /* SetupCompleteView.swift in Sources */,
 				FCEA0704DCEF8BE11CBF8C19 /* TodayView.swift in Sources */,
 				2A010B55BC90837D0A87FD55 /* UpcomingCollection.swift in Sources */,
 				85D00E3C21B3651361571A6C /* UserProfile.swift in Sources */,

@@ -1,12 +1,19 @@
 import SwiftUI
 import SwiftData
+import WidgetKit
+import CoreLocation
 
 /// One next collection, one status row, then upcoming dates. Rare actions live in the toolbar menu.
 struct TodayView: View {
     @Query private var profiles: [UserProfile]
     @State private var showChangeAddress = false
     @State private var showHowItWorks = false
+    @State private var showCouncil = false
     @State private var coordinator = ScheduleCoordinator.shared
+    @State private var widgetInstalled: Bool?
+    @AppStorage("widgetNudgeDismissed") private var widgetNudgeDismissed = false
+    @AppStorage("dismissedHolidayIDs") private var dismissedHolidayIDs = ""
+    @Environment(\.modelContext) private var modelContext
 
     private let engine = ScheduleEngine()
     private var profile: UserProfile? { profiles.first }
@@ -32,8 +39,20 @@ struct TodayView: View {
                                 )
                             }
 
+                            ForEach(HolidayShiftService.suggestions(for: zone, now: context.date, dismissed: dismissedHolidays)) { suggestion in
+                                HolidayShiftCard(suggestion: suggestion) {
+                                    applyHoliday(suggestion, zone: zone, profile: profile)
+                                } onDismiss: {
+                                    dismissHoliday(suggestion.holiday.id)
+                                }
+                            }
+
                             ScheduleStatusCard(profile: profile, coordinator: coordinator, now: context.date) {
                                 showChangeAddress = true
+                            }
+
+                            if shouldNudgeWidget(profile: profile, now: context.date) {
+                                WidgetNudgeCard { widgetNudgeDismissed = true }
                             }
 
                             if dates.count > 1 {
@@ -71,6 +90,8 @@ struct TodayView: View {
                 .background(Color(uiColor: .systemGroupedBackground))
             }
             .navigationTitle(L("Today"))
+            .task { await checkWidgets() }
+            .onChange(of: scenePhaseKey) { _, _ in Task { await checkWidgets() } }
             .toolbar {
                 if currentZone != nil {
                     ToolbarItem(placement: .topBarTrailing) {
@@ -78,7 +99,7 @@ struct TodayView: View {
                             Button { showChangeAddress = true } label: {
                                 Label(L("Change schedule"), systemImage: "calendar.badge.clock")
                             }
-                            Link(destination: DataService.collectionURL) {
+                            Button { showCouncil = true } label: {
                                 Label(L("Check dates with Auckland Council"), systemImage: "safari")
                             }
                             Button { showHowItWorks = true } label: {
@@ -91,6 +112,7 @@ struct TodayView: View {
                 }
             }
             .sheet(isPresented: $showChangeAddress) { ChangeAddressView() }
+            .sheet(isPresented: $showCouncil) { SafariView(url: DataService.collectionURL).ignoresSafeArea() }
             .sheet(isPresented: $showHowItWorks) {
                 NavigationStack {
                     HowItWorksView()
@@ -102,6 +124,41 @@ struct TodayView: View {
                 }
             }
         }
+    }
+}
+
+extension TodayView {
+    private var scenePhaseKey: Bool { coordinator.isUpdating }
+
+    fileprivate var dismissedHolidays: Set<String> {
+        Set(dismissedHolidayIDs.split(separator: ",").map(String.init))
+    }
+
+    fileprivate func dismissHoliday(_ id: String) {
+        dismissedHolidayIDs = (dismissedHolidays.union([id])).sorted().joined(separator: ",")
+    }
+
+    fileprivate func applyHoliday(_ suggestion: HolidaySuggestion, zone: CollectionZone, profile: UserProfile) {
+        guard let updated = HolidayShiftService.applying(suggestion, to: zone) else { return }
+        let coordinate = profile.latitude.flatMap { lat in profile.longitude.map { CLLocationCoordinate2D(latitude: lat, longitude: $0) } }
+        Task { @MainActor in
+            try? await ScheduleCoordinator.shared.save(zone: updated, address: profile.address, coordinate: coordinate, profile: profile, context: modelContext)
+        }
+    }
+
+    /// Two weeks after confirming a schedule, suggest the widget once if none is installed.
+    fileprivate func shouldNudgeWidget(profile: UserProfile, now: Date) -> Bool {
+        guard widgetInstalled == false, !widgetNudgeDismissed, let confirmed = profile.scheduleConfirmedAt else { return false }
+        return now.timeIntervalSince(confirmed) > 14 * 86400
+    }
+
+    fileprivate func checkWidgets() async {
+        let installed: Bool = await withCheckedContinuation { continuation in
+            WidgetCenter.shared.getCurrentConfigurations { result in
+                continuation.resume(returning: !((try? result.get()) ?? []).isEmpty)
+            }
+        }
+        widgetInstalled = installed
     }
 }
 
@@ -141,12 +198,8 @@ struct CollectionBinRow: View {
     let bin: BinType
 
     var body: some View {
-        HStack(alignment: .firstTextBaseline, spacing: 12) {
-            Image(systemName: bin.systemImage)
-                .symbolVariant(.none)
-                .foregroundStyle(bin.color)
-                .frame(minWidth: 28)
-                .accessibilityHidden(true)
+        HStack(alignment: .center, spacing: 12) {
+            BinLidChip(bin: bin)
             Text(bin.displayName)
                 .foregroundStyle(.primary)
                 .fixedSize(horizontal: false, vertical: true)

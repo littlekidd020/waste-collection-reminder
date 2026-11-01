@@ -7,6 +7,7 @@ struct BinDayNZApp: App {
 
     init() {
         container = try? ModelContainer(for: UserProfile.self)
+        NotificationRouter.shared.install()
     }
 
     var body: some Scene {

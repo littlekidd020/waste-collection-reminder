@@ -12,6 +12,7 @@ struct BinDayWidgetEntryView: View {
             case .systemMedium: MediumWidgetView(entry: entry)
             case .accessoryInline: LockScreenInlineView(entry: entry)
             case .accessoryCircular: LockScreenCircularView(entry: entry)
+            case .accessoryRectangular: LockScreenRectangularView(entry: entry)
             default: SmallWidgetView(entry: entry)
             }
         }
@@ -88,9 +89,7 @@ private struct WidgetDayColumn: View {
             Spacer(minLength: 2)
             ForEach(day.bins) { bin in
                 HStack(spacing: 6) {
-                    Image(systemName: bin.systemImage)
-                        .symbolVariant(.none)
-                        .frame(width: 16)
+                    BinLidChip(bin: bin, size: 18)
                     Text(widgetBinName(bin, languageCode: entry.languageCode))
                         .lineLimit(1)
                         .minimumScaleFactor(0.8)
@@ -116,6 +115,30 @@ struct LockScreenInlineView: View {
                 .accessibilityLabel(next.accessibleLabel(languageCode: entry.languageCode, relativeTo: entry.date))
         } else {
             Label(entry.emptyMessage, systemImage: "calendar.badge.exclamationmark")
+        }
+    }
+}
+
+struct LockScreenRectangularView: View {
+    let entry: BinDayEntry
+
+    var body: some View {
+        if let next = entry.nextCollection {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(next.relativeLabel(languageCode: entry.languageCode, relativeTo: entry.date))
+                    .font(.headline)
+                    .widgetAccentable()
+                Text(next.bins.map { widgetBinName($0, languageCode: entry.languageCode) }.joined(separator: ", "))
+                    .font(.caption)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.8)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(next.accessibleLabel(languageCode: entry.languageCode, relativeTo: entry.date))
+        } else {
+            Label(entry.emptyMessage, systemImage: "calendar.badge.exclamationmark")
+                .font(.caption)
         }
     }
 }

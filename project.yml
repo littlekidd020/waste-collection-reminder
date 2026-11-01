@@ -35,6 +35,7 @@ targets:
       properties:
         com.apple.security.application-groups:
           - group.com.bindaynz.app
+        com.apple.developer.usernotifications.time-sensitive: true
     dependencies:
       - target: BinDayNZWidgetExtension
 
@@ -51,6 +52,7 @@ targets:
       - path: BinDayNZ/Models/UpcomingCollection.swift
       - path: BinDayNZ/Services/ScheduleEngine.swift
       - path: BinDayNZ/Services/LanguageManager.swift
+      - path: BinDayNZ/Views/Shared/BinLidChip.swift
       - path: BinDayNZ/Resources/Localizable.xcstrings
         buildPhase: resources
     settings:

@@ -45,6 +45,9 @@ private struct SettingsFormView: View {
                     Text(L("Confirmed %@", collectionDateLabel(date, template: "d MMMM yyyy"))).font(.footnote)
                 }
                 Button(L("Change schedule")) { showAddressSearch = true }
+                if let zone, let text = ScheduleLink.shareText(for: zone) {
+                    ShareLink(item: text) { Label(L("Share with your household"), systemImage: "square.and.arrow.up") }
+                }
                 Link(L("Check official collection dates"), destination: DataService.collectionURL)
             }
             ReminderPreferenceFields(profile: profile)
