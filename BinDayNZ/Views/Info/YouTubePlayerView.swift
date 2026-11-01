@@ -1,191 +1,86 @@
 import SwiftUI
-import AVKit
-import SafariServices
+import WebKit
 
-/// Inline video player for bin guide videos.
-///
-/// Strategy:
-/// 1. If a direct video URL (MP4) is available → plays inline with AVPlayer
-/// 2. Otherwise → shows YouTube thumbnail, tapping opens in-app Safari sheet
-///
-/// To enable true inline playback, replace the YouTube URLs in BinType.videoURL
-/// with direct MP4 links (e.g. from cloud storage, your own CDN, or bundled files).
-struct YouTubePlayerView: View {
-    let binType: BinType
-    @State private var showingSafari = false
+/// Created only after the user chooses to load a council video.
+struct YouTubePlayerView: UIViewRepresentable {
+    let videoID: String
+    let onFailure: () -> Void
 
-    private var videoURL: String { binType.videoURL }
-
-    /// Whether this is a direct video file (MP4) vs a YouTube link
-    private var isDirectVideo: Bool {
-        let lower = videoURL.lowercased()
-        return lower.hasPrefix("file://") || lower.hasSuffix(".mp4") || lower.hasSuffix(".mov") ||
-               lower.hasSuffix(".m4v") || lower.contains(".mp4?")
+    func makeCoordinator() -> Coordinator {
+        Coordinator(videoID: videoID, onFailure: onFailure)
     }
 
-    private var videoID: String? {
-        // First try the YouTube watch URL
-        if let id = extractVideoID(from: "https://www.youtube.com/watch?v=\(youTubeID)") {
-            return id
+    func makeUIView(context: Context) -> WKWebView {
+        let configuration = WKWebViewConfiguration()
+        configuration.websiteDataStore = .nonPersistent()
+        configuration.allowsInlineMediaPlayback = true
+        configuration.allowsPictureInPictureMediaPlayback = true
+        configuration.allowsAirPlayForMediaPlayback = true
+        configuration.mediaTypesRequiringUserActionForPlayback = .all
+
+        let webView = WKWebView(frame: .zero, configuration: configuration)
+        webView.navigationDelegate = context.coordinator
+        webView.isOpaque = false
+        webView.backgroundColor = .black
+        webView.scrollView.backgroundColor = .black
+        webView.scrollView.isScrollEnabled = false
+        webView.load(Self.request(for: videoID))
+        return webView
+    }
+
+    func updateUIView(_ webView: WKWebView, context: Context) {
+        context.coordinator.onFailure = onFailure
+        guard context.coordinator.videoID != videoID else { return }
+        context.coordinator.videoID = videoID
+        webView.load(Self.request(for: videoID))
+    }
+
+    static func dismantleUIView(_ webView: WKWebView, coordinator: Coordinator) {
+        webView.pauseAllMediaPlayback(completionHandler: nil)
+        webView.stopLoading()
+        webView.navigationDelegate = nil
+    }
+
+    static func request(for videoID: String) -> URLRequest {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "www.youtube-nocookie.com"
+        components.path = "/embed/\(videoID)"
+        components.queryItems = [
+            URLQueryItem(name: "playsinline", value: "1"),
+            URLQueryItem(name: "controls", value: "1"),
+            URLQueryItem(name: "rel", value: "0")
+        ]
+
+        var request = URLRequest(url: components.url!, timeoutInterval: 20)
+        // YouTube requires the iOS client's bundle ID as its HTTPS referrer.
+        // https://developers.google.com/youtube/terms/required-minimum-functionality
+        if let bundleID = Bundle.main.bundleIdentifier {
+            request.setValue("https://\(bundleID.lowercased())", forHTTPHeaderField: "Referer")
         }
-        return extractVideoID(from: videoURL)
+        return request
     }
 
-    /// Explicit YouTube ID for thumbnails
-    private var youTubeID: String {
-        switch binType {
-        case .rubbish: return "AIkjD2vszQo"
-        case .recycling: return "42dWHzAqO7E"
-        case .foodScraps: return "fCk0RGm-xK8"
-        case .inorganic: return "vq5rAaNrevA"
+    final class Coordinator: NSObject, WKNavigationDelegate {
+        var videoID: String
+        var onFailure: () -> Void
+
+        init(videoID: String, onFailure: @escaping () -> Void) {
+            self.videoID = videoID
+            self.onFailure = onFailure
         }
-    }
 
-    private var thumbnailURL: URL? {
-        return URL(string: "https://img.youtube.com/vi/\(youTubeID)/hqdefault.jpg")
-    }
-
-    private var watchURL: URL? {
-        return URL(string: "https://www.youtube.com/watch?v=\(youTubeID)")
-    }
-
-    var body: some View {
-        if isDirectVideo, let url = URL(string: videoURL) {
-            // ── Direct MP4: true inline playback ──
-            InlineVideoPlayer(url: url)
-                .aspectRatio(16/9, contentMode: .fit)
-                .clipShape(RoundedRectangle(cornerRadius: 0))
-        } else {
-            // ── YouTube: thumbnail + in-app Safari sheet ──
-            youTubeThumbnailView
+        func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+            report(error)
         }
-    }
 
-    // MARK: - YouTube Thumbnail
-
-    private var youTubeThumbnailView: some View {
-        Button {
-            showingSafari = true
-        } label: {
-            ZStack {
-                if let thumbnailURL {
-                    AsyncImage(url: thumbnailURL) { phase in
-                        switch phase {
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .aspectRatio(16/9, contentMode: .fill)
-                        case .failure:
-                            placeholder
-                        case .empty:
-                            placeholder
-                                .overlay {
-                                    ProgressView()
-                                        .tint(.white)
-                                }
-                        @unknown default:
-                            placeholder
-                        }
-                    }
-                } else {
-                    placeholder
-                }
-
-                // YouTube-style play button
-                Circle()
-                    .fill(.red)
-                    .frame(width: 64, height: 64)
-                    .overlay {
-                        Image(systemName: "play.fill")
-                            .font(.title2)
-                            .foregroundStyle(.white)
-                            .offset(x: 2)
-                    }
-                    .shadow(color: .black.opacity(0.4), radius: 10, y: 3)
-            }
-            .clipped()
+        func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+            report(error)
         }
-        .buttonStyle(.plain)
-        .sheet(isPresented: $showingSafari) {
-            if let url = watchURL {
-                SafariVideoPlayer(url: url)
-                    .ignoresSafeArea()
-                    .presentationDetents([.large])
-                    .presentationDragIndicator(.visible)
-            }
+
+        private func report(_ error: Error) {
+            guard (error as NSError).code != NSURLErrorCancelled else { return }
+            onFailure()
         }
     }
-
-    private var placeholder: some View {
-        Rectangle()
-            .fill(Color.black)
-            .aspectRatio(16/9, contentMode: .fill)
-            .overlay {
-                VStack(spacing: 8) {
-                    Image(systemName: "play.rectangle.fill")
-                        .font(.largeTitle)
-                        .foregroundStyle(.white.opacity(0.4))
-                    Text(L("Tap to play"))
-                        .font(.caption)
-                        .foregroundStyle(.white.opacity(0.3))
-                }
-            }
-    }
-
-    // MARK: - Helpers
-
-    private func extractVideoID(from url: String) -> String? {
-        if let range = url.range(of: "v=") {
-            return String(url[range.upperBound...].components(separatedBy: "&").first ?? "")
-        } else if url.contains("embed/") {
-            return url.components(separatedBy: "embed/").last?.components(separatedBy: "?").first
-        } else if url.contains("youtu.be/") {
-            return url.components(separatedBy: "youtu.be/").last?.components(separatedBy: "?").first
-        }
-        return nil
-    }
-}
-
-// MARK: - Inline AVPlayer (for direct MP4 URLs)
-
-/// Plays a direct video file inline using AVPlayer.
-/// Provides native iOS video controls with no YouTube restrictions.
-struct InlineVideoPlayer: UIViewControllerRepresentable {
-    let url: URL
-
-    func makeUIViewController(context: Context) -> AVPlayerViewController {
-        let player = AVPlayer(url: url)
-        let controller = AVPlayerViewController()
-        controller.player = player
-        controller.showsPlaybackControls = true
-        controller.allowsPictureInPicturePlayback = false
-        controller.videoGravity = .resizeAspect
-
-        // Don't auto-play — let the user tap play
-        controller.player?.pause()
-
-        return controller
-    }
-
-    func updateUIViewController(_ uiViewController: AVPlayerViewController, context: Context) {}
-}
-
-// MARK: - Safari Fallback (for YouTube URLs)
-
-struct SafariVideoPlayer: UIViewControllerRepresentable {
-    let url: URL
-
-    func makeUIViewController(context: Context) -> SFSafariViewController {
-        let config = SFSafariViewController.Configuration()
-        config.entersReaderIfAvailable = false
-        config.barCollapsingEnabled = true
-
-        let safari = SFSafariViewController(url: url, configuration: config)
-        safari.preferredBarTintColor = .black
-        safari.preferredControlTintColor = .white
-        safari.dismissButtonStyle = .close
-        return safari
-    }
-
-    func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {}
 }

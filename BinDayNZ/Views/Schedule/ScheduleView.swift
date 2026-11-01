@@ -1,326 +1,283 @@
 import SwiftUI
 import SwiftData
 
-/// Monthly calendar view showing colour-coded collection dots per day.
 struct ScheduleView: View {
     @Query private var profiles: [UserProfile]
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var displayedMonth = Date()
-    @State private var selectedDate: Date?
+    @State private var selectedDate = Date()
+    @State private var showsDayDetail = false
+    @State private var showsList = false
+    @State private var showChangeAddress = false
 
     private let engine = ScheduleEngine()
-    private let dataService = DataService.shared
-    private let calendar = Calendar.current
-
-    private var profile: UserProfile? { profiles.first }
-
+    private var calendar: Calendar { ScheduleEngine.collectionCalendar }
     private var currentZone: CollectionZone? {
-        guard let profile = profile,
-              let councilId = profile.councilId,
-              let zoneId = profile.zoneId else { return nil }
-        return dataService.zone(withId: zoneId, in: councilId)
+        profiles.first.flatMap { DataService.shared.zone(for: $0) }
     }
-
     private var year: Int { calendar.component(.year, from: displayedMonth) }
     private var month: Int { calendar.component(.month, from: displayedMonth) }
-
     private var monthCollections: [Int: [BinType]] {
-        guard let zone = currentZone else { return [:] }
-        return engine.collectionsForMonth(year: year, month: month, zone: zone)
-    }
-
-    private var monthName: String {
-        let formatter = DateFormatter()
-        formatter.locale = LanguageManager.shared.locale
-        formatter.dateFormat = "MMMM yyyy"
-        return formatter.string(from: displayedMonth)
+        currentZone.map { engine.collectionsForMonth(year: year, month: month, zone: $0) } ?? [:]
     }
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 0) {
-                // Month navigation
-                HStack {
-                    Button(action: previousMonth) {
-                        Image(systemName: "chevron.left")
-                            .font(.title3.weight(.semibold))
-                            .foregroundStyle(.secondary)
+            Group {
+                if currentZone == nil {
+                    ContentUnavailableView {
+                        Label(L("Finish setup"), systemImage: "calendar.badge.exclamationmark")
+                    } description: {
+                        Text(L("Confirm a collection schedule to see your next bin day."))
+                    } actions: {
+                        Button(L("Set Collection Schedule")) { showChangeAddress = true }
+                            .buttonStyle(.borderedProminent).tint(AppTheme.buttonFill)
                     }
-
-                    Spacer()
-
-                    Text(monthName)
-                        .font(.title3.weight(.semibold))
-                        .foregroundStyle(.primary)
-                        .id(displayedMonth) // ensure identity for transition
-                        .transition(.asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity), removal: .move(edge: .leading).combined(with: .opacity)))
-
-                    Spacer()
-
-                    Button(action: nextMonth) {
-                        Image(systemName: "chevron.right")
-                            .font(.title3.weight(.semibold))
-                            .foregroundStyle(.secondary)
-                    }
-                }
-                .padding(.horizontal, 24)
-                .padding(.vertical, 16)
-
-                // Day of week headers
-                HStack(spacing: 0) {
-                    ForEach(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], id: \.self) { day in
-                        Text(day)
-                            .font(.caption2.weight(.medium))
-                            .foregroundStyle(.tertiary)
-                            .frame(maxWidth: .infinity)
-                    }
-                }
-                .padding(.horizontal, 12)
-                .padding(.bottom, 8)
-
-                // Calendar grid
-                CalendarGridView(
-                    year: year,
-                    month: month,
-                    displayedMonth: displayedMonth,
-                    monthCollections: monthCollections,
-                    calendar: calendar,
-                    selectedDate: $selectedDate
-                )
-                .padding(.horizontal, 12)
-                .id(displayedMonth) // trigger grid transition
-                .transition(.opacity.combined(with: .scale(scale: 0.98)))
-
-                Spacer()
-
-                // Legend
-                ScheduleLegendView()
-                    .padding(.horizontal, 24)
-                    .padding(.bottom, 16)
-            }
-            .background(
-                Color(uiColor: .systemGroupedBackground)
-                    .ignoresSafeArea()
-            )
-            .navigationTitle(L("Schedule"))
-            .navigationBarTitleDisplayMode(.large)
-            .sheet(item: $selectedDate) { date in
-                DayDetailView(date: date, zone: currentZone)
-                    .presentationDetents([.medium])
-            }
-        }
-    }
-
-    // MARK: - Helpers
-
-    private func previousMonth() {
-        withAnimation(.easeInOut) {
-            displayedMonth = calendar.date(byAdding: .month, value: -1, to: displayedMonth) ?? displayedMonth
-        }
-    }
-
-    private func nextMonth() {
-        withAnimation(.easeInOut) {
-            displayedMonth = calendar.date(byAdding: .month, value: 1, to: displayedMonth) ?? displayedMonth
-        }
-    }
-}
-
-// MARK: - Calendar Subviews
-
-private struct CalendarGridView: View {
-    let year: Int
-    let month: Int
-    let displayedMonth: Date
-    let monthCollections: [Int: [BinType]]
-    let calendar: Calendar
-    @Binding var selectedDate: Date?
-
-    var body: some View {
-        let daysInMonth = calendar.range(of: .day, in: .month, for: displayedMonth)!.count
-        var components = DateComponents()
-        components.year = year
-        components.month = month
-        components.day = 1
-        let firstDayDate = calendar.date(from: components)!
-        let firstWeekday = calendar.component(.weekday, from: firstDayDate)
-        // Convert to Monday-start: Mon=0, Tue=1, ... Sun=6
-        let startOffset = (firstWeekday + 5) % 7
-
-        let totalCells = startOffset + daysInMonth
-        let rows = (totalCells + 6) / 7
-
-        return VStack(spacing: 4) {
-            ForEach(0..<rows, id: \.self) { row in
-                HStack(spacing: 0) {
-                    ForEach(0..<7, id: \.self) { col in
-                        let index = row * 7 + col
-                        let day = index - startOffset + 1
-
-                        if day >= 1 && day <= daysInMonth {
-                            let bins = monthCollections[day] ?? []
-                            let isToday = checkIsToday(day: day)
-                            
-                            CalendarDayCellView(
-                                day: day,
-                                bins: bins,
-                                isToday: isToday,
-                                year: year,
-                                month: month,
-                                calendar: calendar,
-                                selectedDate: $selectedDate
-                            )
-                        } else {
-                            Color.clear
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 52)
+                } else {
+                    ScrollView {
+                        VStack(spacing: 20) {
+                            monthNavigation
+                                .padding(.horizontal, 12)
+                            if !dynamicTypeSize.isAccessibilitySize {
+                                Picker(L("Schedule display"), selection: $showsList) {
+                                    Text(L("Calendar")).tag(false)
+                                    Text(L("List")).tag(true)
+                                }
+                                .pickerStyle(.segmented)
+                                .padding(.horizontal, 12)
+                            }
+                            if showsList || dynamicTypeSize.isAccessibilitySize {
+                                monthList
+                                    .padding(.horizontal, 12)
+                            } else {
+                                monthGrid
+                            }
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text(L("Dates follow your saved schedule. Add any council-confirmed changes in Change schedule."))
+                                    .font(.footnote)
+                                    .foregroundStyle(.secondary)
+                                Button(L("Change schedule")) { showChangeAddress = true }
+                                    .buttonStyle(.bordered)
+                                    .controlSize(.large)
+                                Link(L("Check dates with Auckland Council"), destination: DataService.collectionURL)
+                                    .frame(minHeight: 44, alignment: .leading)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal, 12)
                         }
+                        .frame(maxWidth: 680)
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 16)
+                        .frame(maxWidth: .infinity)
                     }
                 }
             }
+            .background(Color(uiColor: .systemGroupedBackground))
+            .navigationTitle(L("Schedule"))
+            .sheet(isPresented: $showsDayDetail) {
+                DayDetailView(date: selectedDate, zone: currentZone)
+                    .presentationDetents(dynamicTypeSize.isAccessibilitySize ? [.large] : [.medium, .large])
+                    .presentationDragIndicator(.visible)
+            }
+            .sheet(isPresented: $showChangeAddress) { ChangeAddressView() }
         }
     }
 
-    private func checkIsToday(day: Int) -> Bool {
-        let today = Date()
-        return calendar.component(.year, from: today) == year
-            && calendar.component(.month, from: today) == month
-            && calendar.component(.day, from: today) == day
-    }
-}
-
-private struct CalendarDayCellView: View {
-    let day: Int
-    let bins: [BinType]
-    let isToday: Bool
-    let year: Int
-    let month: Int
-    let calendar: Calendar
-    @Binding var selectedDate: Date?
-
-    var body: some View {
-        Button {
-            var components = DateComponents()
-            components.year = year
-            components.month = month
-            components.day = day
-            selectedDate = calendar.date(from: components)
-        } label: {
-            VStack(spacing: 4) {
-                Text("\(day)")
-                    .font(.system(size: 14, weight: isToday ? .bold : .regular))
-                    .foregroundStyle(isToday ? .green : .primary)
-
-                HStack(spacing: 3) {
-                    ForEach(bins) { bin in
-                        Circle()
-                            .fill(bin.color)
-                            .frame(width: 6, height: 6)
-                    }
-                }
-                .frame(height: 8)
-            }
+    private var monthNavigation: some View {
+        let title = Text(collectionDateLabel(displayedMonth, template: "MMMM yyyy"))
+            .font(.title3.bold())
+            .multilineTextAlignment(.center)
             .frame(maxWidth: .infinity)
-            .frame(height: 52)
-            .background(
-                RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .fill(isToday ? Color.green.opacity(0.15) : Color.clear)
-            )
+            .accessibilityAddTraits(.isHeader)
+        return VStack(spacing: 8) {
+            if dynamicTypeSize.isAccessibilitySize { title }
+            HStack(spacing: 8) {
+                Button { changeMonth(-1) } label: {
+                    Image(systemName: "chevron.left")
+                        .frame(minWidth: 44, minHeight: 44)
+                        .contentShape(Rectangle())
+                }
+                .accessibilityLabel(L("Previous month"))
+                if dynamicTypeSize.isAccessibilitySize { Spacer() }
+                else { title }
+                Button { changeMonth(1) } label: {
+                    Image(systemName: "chevron.right")
+                        .frame(minWidth: 44, minHeight: 44)
+                        .contentShape(Rectangle())
+                }
+                .accessibilityLabel(L("Next month"))
+            }
+            Button(L("Show current month")) {
+                displayedMonth = Date()
+                selectedDate = Date()
+            }
+            .frame(minHeight: 44)
         }
     }
-}
 
-private struct ScheduleLegendView: View {
-    var body: some View {
-        HStack(spacing: 20) {
-            ForEach(BinType.allCases.filter { $0 != .inorganic }) { bin in
-                HStack(spacing: 6) {
-                    Circle()
-                        .fill(bin.color)
-                        .frame(width: 8, height: 8)
-                    Text(bin.displayName)
-                        .font(.caption2)
+    private var monthGrid: some View {
+        let firstDate = calendar.date(from: DateComponents(year: year, month: month, day: 1))!
+        let days = calendar.range(of: .day, in: .month, for: firstDate)!.count
+        let offset = (calendar.component(.weekday, from: firstDate) + 5) % 7
+        let cells = ((offset + days + 6) / 7) * 7
+        let collections = monthCollections
+        var localizedCalendar = calendar
+        localizedCalendar.locale = LanguageManager.shared.locale
+        let symbols = localizedCalendar.shortStandaloneWeekdaySymbols
+        let mondayFirst = Array(symbols.dropFirst()) + [symbols[0]]
+
+        return VStack(spacing: 6) {
+            HStack(spacing: 0) {
+                ForEach(Array(mondayFirst.enumerated()), id: \.offset) { _, symbol in
+                    Text(symbol)
+                        .font(.caption.weight(.medium))
                         .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity)
+                }
+            }
+            .accessibilityHidden(true)
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 44), spacing: 0), count: 7), spacing: 6) {
+                ForEach(0..<cells, id: \.self) { cell in
+                    let day = cell - offset + 1
+                    if (1...days).contains(day) {
+                        dayCell(day, date: calendar.date(byAdding: .day, value: day - 1, to: firstDate)!, bins: collections[day, default: []])
+                    } else {
+                        Color.clear.frame(height: 64)
+                            .accessibilityHidden(true)
+                    }
+                }
+            }
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(BinType.allCases.filter { $0 != .inorganic }) { bin in
+                    CollectionBinRow(bin: bin)
+                        .font(.subheadline)
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(12)
+        }
+    }
+
+    private func dayCell(_ day: Int, date: Date, bins: [BinType]) -> some View {
+        let selected = calendar.isDate(date, inSameDayAs: selectedDate)
+        let isToday = calendar.isDateInToday(date)
+
+        return Button {
+            selectedDate = date
+            showsDayDetail = true
+        } label: {
+            VStack(spacing: 8) {
+                Text(day, format: .number)
+                    .font(.body.weight(isToday ? .bold : .regular))
+                HStack(spacing: 0) {
+                    ForEach(bins) { bin in
+                        Image(systemName: bin.systemImage)
+                            .symbolVariant(.none)
+                            .font(.system(size: 14, weight: .medium))
+                            .frame(width: 14)
+                    }
+                }
+                .frame(height: 16)
+            }
+            .foregroundStyle(.primary)
+            .frame(minWidth: 44, maxWidth: .infinity, minHeight: 64)
+            .background(selected ? AppTheme.accent.opacity(0.14) : Color.clear, in: RoundedRectangle(cornerRadius: 10))
+            .overlay {
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(selected ? AppTheme.accent : Color.clear, lineWidth: 2)
+            }
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(collectionDateLabel(date) + (isToday ? ", " + L("Today") : ""))
+        .accessibilityValue(bins.isEmpty ? L("No collection") : bins.map(\.displayName).joined(separator: ", "))
+        .accessibilityHint(L("Show collection details"))
+        .accessibilityAddTraits(selected ? .isSelected : [])
+    }
+
+    private var monthList: some View {
+        let collections = monthCollections
+        return LazyVStack(alignment: .leading, spacing: 12) {
+            if collections.isEmpty {
+                ContentUnavailableView(L("No collections this month"), systemImage: "calendar")
+            } else {
+                ForEach(collections.keys.sorted(), id: \.self) { day in
+                    let date = calendar.date(from: DateComponents(year: year, month: month, day: day))!
+                    Button {
+                        selectedDate = date
+                        showsDayDetail = true
+                    } label: {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text(collectionDateLabel(date))
+                                .font(.headline)
+                            ForEach(collections[day, default: []]) { bin in
+                                CollectionBinRow(bin: bin)
+                            }
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(16)
+                        .background(Color(uiColor: .secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityElement(children: .combine)
+                    .accessibilityHint(L("Show collection details"))
+                    .accessibilityAddTraits(calendar.isDate(date, inSameDayAs: selectedDate) ? .isSelected : [])
                 }
             }
         }
     }
+
+    private func changeMonth(_ offset: Int) {
+        withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.15)) {
+            displayedMonth = calendar.date(byAdding: .month, value: offset, to: displayedMonth) ?? displayedMonth
+        }
+    }
 }
-
-// MARK: - Date extension for sheet
-
-extension Date: @retroactive Identifiable {
-    public var id: TimeInterval { timeIntervalSince1970 }
-}
-
-// MARK: - Day Detail Sheet
 
 struct DayDetailView: View {
     let date: Date
     let zone: CollectionZone?
-
-    private let engine = ScheduleEngine()
-
-    private var collections: [BinType] {
-        guard let zone = zone else { return [] }
-        return engine.binsCollectedOn(date: date, zone: zone)
-    }
-
-    private var dateString: String {
-        let formatter = DateFormatter()
-        formatter.locale = LanguageManager.shared.locale
-        formatter.dateStyle = .full
-        return formatter.string(from: date)
-    }
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
-        VStack(spacing: 20) {
-            // Handle / header
-            RoundedRectangle(cornerRadius: 3)
-                .fill(.gray.opacity(0.4))
-                .frame(width: 40, height: 5)
-                .padding(.top, 12)
-
-            Text(dateString)
-                .font(.headline)
-
-            if collections.isEmpty {
-                VStack(spacing: 12) {
-                    Image(systemName: "checkmark.circle")
-                        .font(.largeTitle)
-                        .foregroundStyle(.green.opacity(0.5))
-                    Text(L("No collection on this day"))
-                        .foregroundStyle(.secondary)
-                }
-                .padding(.top, 20)
-            } else {
-                VStack(spacing: 12) {
-                    ForEach(collections) { bin in
-                        HStack(spacing: 16) {
-                            Text(bin.icon)
-                                .font(.title)
-
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(bin.displayName)
-                                    .font(.body.weight(.semibold))
-                                Text(bin.acceptedItems.prefix(3).joined(separator: ", "))
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                                    .lineLimit(1)
-                            }
-
-                            Spacer()
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 24) {
+                    Text(collectionDateLabel(date))
+                        .font(.title2.bold())
+                    let bins = zone.map { ScheduleEngine().binsCollectedOn(date: date, zone: $0) } ?? []
+                    if bins.isEmpty {
+                        Label(L("No collection on this day"), systemImage: "calendar")
+                    } else {
+                        ForEach(bins) { bin in
+                            CollectionBinRow(bin: bin)
+                                .font(.title3.weight(.semibold))
                         }
-                        .padding(16)
-                        .background(
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(bin.color.opacity(0.1))
-                        )
                     }
                 }
-                .padding(.horizontal, 24)
+                .frame(maxWidth: 680, alignment: .leading)
+                .padding(24)
+                .frame(maxWidth: .infinity)
             }
-
-            Spacer()
+            .navigationTitle(L("Collection details"))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button(L("Done")) { dismiss() }
+                }
+            }
         }
     }
+}
+
+/// Dates in the collection views always describe the property's New Zealand day.
+func collectionDateLabel(_ date: Date, template: String = "EEEE d MMMM") -> String {
+    let formatter = DateFormatter()
+    formatter.calendar = ScheduleEngine.collectionCalendar
+    formatter.timeZone = ScheduleEngine.collectionCalendar.timeZone
+    formatter.locale = LanguageManager.shared.locale
+    formatter.setLocalizedDateFormatFromTemplate(template)
+    return formatter.string(from: date)
 }

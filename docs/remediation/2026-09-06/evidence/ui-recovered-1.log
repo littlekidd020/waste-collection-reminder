@@ -1,0 +1,115 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/bindaynz-final-dd/Build/Products/BinDayNZ-ui.xctestrun -destination "platform=iOS Simulator,id=E7B0A682-1912-4538-B8DC-EA62BEA8D745" -parallel-testing-enabled NO -resultBundlePath /tmp/binday-ui-recovered-1.xcresult
+
+2026-09-06 23:16:53.843 xcodebuild[79636:8037935] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+Writing result bundle at path:
+	/tmp/binday-ui-recovered-1.xcresult
+
+2026-09-06 23:16:53.871 xcodebuild[79636:8037935] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+2026-09-06 23:16:56.430 xcodebuild[79636:8037935] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+2026-09-06 23:17:22.078532+1200 BinDayNZUITests-Runner[79793:8040689] [Default] Running tests...
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'All tests' started at 2026-09-06 23:17:25.775.
+Test Suite 'BinDayNZUITests.xctest' started at 2026-09-06 23:17:25.776.
+Test Suite 'OnboardingFlowUITests' started at 2026-09-06 23:17:25.776.
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testConfirmedScheduleRecoveryEditingGuidesAndRelaunch]' started.
+    t =     0.00s Start Test at 2026-09-06 23:17:25.781
+    t =     0.27s Set Up
+    t =     0.27s     Open com.bindaynz.app
+    t =     0.27s         Launch com.bindaynz.app
+    t =     4.84s             Setting up automation session
+    t =     9.23s             Wait for com.bindaynz.app to idle
+    t =    11.00s Waiting 10.0s for "Get Started" Button to exist
+    t =    12.05s     Checking `Expect predicate `existsNoRetry == 1` for object "Get Started" Button`
+    t =    12.05s         Checking existence of `"Get Started" Button`
+    t =    12.29s Added attachment named '01-welcome'
+    t =    12.29s Tap "Get Started" Button
+    t =    12.29s     Wait for com.bindaynz.app to idle
+    t =    12.29s     Find the "Get Started" Button
+    t =    12.32s     Check for interrupting elements affecting "Get Started" Button
+    t =    12.34s     Synthesize event
+    t =    12.76s     Wait for com.bindaynz.app to idle
+    t =    12.76s Waiting 5.0s for "Set up manually" Button to exist
+    t =    13.80s     Checking `Expect predicate `existsNoRetry == 1` for object "Set up manually" Button`
+    t =    13.81s         Checking existence of `"Set up manually" Button`
+    t =    13.95s Added attachment named '02-optional-address'
+    t =    13.95s Tap "Set up manually" Button
+    t =    13.95s     Wait for com.bindaynz.app to idle
+    t =    13.95s     Find the "Set up manually" Button
+    t =    13.97s     Check for interrupting elements affecting "Set up manually" Button
+    t =    13.99s     Synthesize event
+    t =    14.29s     Wait for com.bindaynz.app to idle
+    t =    14.70s Waiting 5.0s for "Your bin schedule" NavigationBar to exist
+    t =    15.74s     Checking `Expect predicate `existsNoRetry == 1` for object "Your bin schedule" NavigationBar`
+    t =    15.74s         Checking existence of `"Your bin schedule" NavigationBar`
+    t =    15.88s Find the "Save" Button
+    t =    16.07s Added attachment named '03-per-bin-editor'
+    t =    16.07s Find the "I have checked these dates for my property" Switch
+    t =    17.15s     Find the "I have checked these dates for my property" Switch (retry 1)
+    t =    18.22s     Find the "I have checked these dates for my property" Switch (retry 2)
+    t =    18.30s Swipe up Target Application 'com.bindaynz.app'
+    t =    18.30s     Wait for com.bindaynz.app to idle
+    t =    18.30s     Find the Target Application 'com.bindaynz.app'
+    t =    18.38s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    18.44s     Synthesize event
+    t =    18.86s     Wait for com.bindaynz.app to idle
+    t =    21.07s Find the "I have checked these dates for my property" Switch
+    t =    21.25s Tap "I have checked these dates for my property" Switch
+    t =    21.25s     Wait for com.bindaynz.app to idle
+    t =    21.28s     Find the "I have checked these dates for my property" Switch
+    t =    21.37s     Check for interrupting elements affecting "I have checked these dates for my property" Switch
+    t =    21.46s     Synthesize event
+    t =    21.77s     Wait for com.bindaynz.app to idle
+    t =    21.78s Tap "Save" Button
+    t =    21.78s     Wait for com.bindaynz.app to idle
+    t =    21.79s     Find the "Save" Button
+    t =    21.87s     Check for interrupting elements affecting "Save" Button
+    t =    21.95s     Synthesize event
+    t =    22.26s     Wait for com.bindaynz.app to idle
+    t =    23.04s Tap "Continue" Button
+    t =    23.04s     Wait for com.bindaynz.app to idle
+    t =    23.04s     Find the "Continue" Button
+    t =    23.13s     Check for interrupting elements affecting "Continue" Button
+    t =    23.21s     Synthesize event
+    t =    23.24s         Scroll element to visible
+    t =    23.25s         Find the "Continue" Button
+    t =    23.39s         Computed hit point {-1, -1} after scrolling to visible
+    t =    23.68s     Wait for com.bindaynz.app to idle
+    t =    23.69s Waiting 5.0s for "Set Up Reminders" StaticText to exist
+    t =    24.74s     Checking `Expect predicate `existsNoRetry == 1` for object "Set Up Reminders" StaticText`
+    t =    24.74s         Checking existence of `"Set Up Reminders" StaticText`
+    t =    24.81s         Capturing element debug description
+    t =    25.75s     Checking `Expect predicate `existsNoRetry == 1` for object "Set Up Reminders" StaticText`
+    t =    25.76s         Checking existence of `"Set Up Reminders" StaticText`
+    t =    25.83s         Capturing element debug description
+    t =    26.77s     Checking `Expect predicate `existsNoRetry == 1` for object "Set Up Reminders" StaticText`
+    t =    26.77s         Checking existence of `"Set Up Reminders" StaticText`
+    t =    26.85s         Capturing element debug description
+    t =    27.69s     Checking `Expect predicate `existsNoRetry == 1` for object "Set Up Reminders" StaticText`
+    t =    27.70s         Checking existence of `"Set Up Reminders" StaticText`
+    t =    27.78s         Capturing element debug description
+    t =    28.69s     Checking `Expect predicate `existsNoRetry == 1` for object "Set Up Reminders" StaticText`
+    t =    28.72s         Checking existence of `"Set Up Reminders" StaticText`
+    t =    28.92s         Capturing element debug description
+    t =    28.93s     Checking existence of `"Set Up Reminders" StaticText`
+    t =    29.34s Collecting debug information to assist test failure triage
+    t =    29.34s     Requesting snapshot of accessibility hierarchy for app with pid 79932
+/Users/kexinli/My Drive/AI Projects/waste collection reminder/BinDayNZUITests/OnboardingFlowUITests.swift:28: error: -[BinDayNZUITests.OnboardingFlowUITests testConfirmedScheduleRecoveryEditingGuidesAndRelaunch] : XCTAssertTrue failed
+    t =    29.61s Tear Down
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testConfirmedScheduleRecoveryEditingGuidesAndRelaunch]' failed (29.960 seconds).
+Test Suite 'OnboardingFlowUITests' failed at 2026-09-06 23:17:55.741.
+	 Executed 1 test, with 1 failure (0 unexpected) in 29.960 (29.965) seconds
+Test Suite 'BinDayNZUITests.xctest' failed at 2026-09-06 23:17:55.741.
+	 Executed 1 test, with 1 failure (0 unexpected) in 29.960 (29.965) seconds
+Test Suite 'All tests' failed at 2026-09-06 23:17:55.741.
+	 Executed 1 test, with 1 failure (0 unexpected) in 29.960 (29.966) seconds
+2026-09-06 23:18:42.137 xcodebuild[79636:8037935] [MT] IDETestOperationsObserverDebug: 105.657 elapsed -- Testing started completed.
+2026-09-06 23:18:42.137 xcodebuild[79636:8037935] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-06 23:18:42.137 xcodebuild[79636:8037935] [MT] IDETestOperationsObserverDebug: 105.657 sec, +105.657 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/binday-ui-recovered-1.xcresult
+
+** TEST EXECUTE FAILED **
+
+Testing started

@@ -1,0 +1,44 @@
+Analysis of sampling launchd_sim (pid 73108) every 1 millisecond
+Process:         launchd_sim [73108]
+Path:            /Volumes/VOLUME/*/launchd_sim
+Load Address:    0x104dd0000
+Identifier:      launchd_sim
+Version:         ???
+Code Type:       ARM64
+Platform:        iOS Simulator
+Parent Process:  launchd [1]
+Target Type:     live task
+
+Date/Time:       2026-09-06 23:01:57.003 +1200
+Launch Time:     2026-09-06 22:57:15.400 +1200
+OS Version:      macOS 26.5.1 (25F80)
+Report Version:  7
+Analysis Tool:   /usr/bin/sample
+
+Physical footprint:         25.5M
+Physical footprint (peak):  26.8M
+Idle exit:                  untracked
+----
+
+Call graph:
+    2564 Thread_7961582: Main Thread   DispatchQueue_<multiple>
+    + 2564 _dispatch_sig_thread  (in libdispatch.dylib) + 52  [0x1801d5834]
+    +   2564 _dispatch_sigsuspend  (in libdispatch.dylib) + 44  [0x1801d5860]
+    +     2564 __sigsuspend_nocancel  (in libsystem_kernel.dylib) + 8  [0x104ecf8d8]
+    2564 Thread_7983896
+    + 2564 start_wqthread  (in libsystem_pthread.dylib) + 8  [0x105225a28]
+    +   2564 _pthread_wqthread  (in libsystem_pthread.dylib) + 364  [0x105226c74]
+    +     2564 __workq_kernreturn  (in libsystem_kernel.dylib) + 8  [0x104eca698]
+    1588 Thread_7981508
+      1588 start_wqthread  (in libsystem_pthread.dylib) + 8  [0x105225a28]
+        1588 _pthread_wqthread  (in libsystem_pthread.dylib) + 364  [0x105226c74]
+          1588 __workq_kernreturn  (in libsystem_kernel.dylib) + 8  [0x104eca698]
+
+Total number in stack (recursive counted multiple, when >=5):
+
+Sort by top of stack, same collapsed (when >= 5):
+        __workq_kernreturn  (in libsystem_kernel.dylib)        4152
+        __sigsuspend_nocancel  (in libsystem_kernel.dylib)        2564
+
+Binary images description not available
+

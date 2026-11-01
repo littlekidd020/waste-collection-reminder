@@ -1,152 +1,180 @@
 import SwiftUI
 import SwiftData
+import UIKit
 
-/// Settings view — preferences, notifications, calendar, language, and about info.
 struct SettingsView: View {
     @Query private var profiles: [UserProfile]
-    @State private var showAddressSearch = false
-
     var body: some View {
         NavigationStack {
-            Group {
-                if let profile = profiles.first {
-                    SettingsFormView(profile: profile, showAddressSearch: $showAddressSearch)
-                } else {
-                    ContentUnavailableView(
-                        L("No Profile"),
-                        systemImage: "person.crop.circle.badge.exclamationmark",
-                        description: Text(L("Please complete onboarding to access settings."))
-                    )
-                }
-            }
-            .navigationTitle(L("Settings"))
-            .navigationBarTitleDisplayMode(.large)
-            .sheet(isPresented: $showAddressSearch) {
-                // Use the new redesigned ChangeAddressView
-                ChangeAddressView()
+            if let profile = profiles.first {
+                SettingsFormView(profile: profile)
+                    .navigationTitle(L("Settings"))
             }
         }
     }
 }
 
-/// The settings form subview using standard SwiftUI @Bindable for auto-saving properties
+private struct ShareItem: Identifiable {
+    let id = UUID()
+    let url: URL
+}
+
 private struct SettingsFormView: View {
     @Bindable var profile: UserProfile
-    @Binding var showAddressSearch: Bool
-
-    private let dataService = DataService.shared
-
-    private var councilName: String {
-        guard let id = profile.councilId else { return L("Not set") }
-        return dataService.council(withId: id)?.name ?? L("Unknown")
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.openURL) private var openURL
+    @State private var showAddressSearch = false
+    @State private var confirmRemoval = false
+    @State private var confirmLocalOnly = false
+    @State private var isRemoving = false
+    @State private var alertMessage: String?
+    @State private var shareItem: ShareItem?
+    private let coordinator = ScheduleCoordinator.shared
+    private var zone: CollectionZone? { DataService.shared.zone(for: profile) }
+    private var version: String {
+        let info = Bundle.main.infoDictionary ?? [:]
+        return "\(info["CFBundleShortVersionString"] as? String ?? "—") (\(info["CFBundleVersion"] as? String ?? "—"))"
     }
 
     var body: some View {
-        List {
-            // Location section
-            Section {
-                HStack {
-                    Label(L("Council"), systemImage: "building.2.fill")
-                    Spacer()
-                    Text(councilName)
-                        .foregroundStyle(.secondary)
+        Form {
+            Section(L("Your schedule")) {
+                if let address = profile.address { Text(address) }
+                Label(L("User-confirmed schedule"), systemImage: "checkmark.circle")
+                if let date = profile.scheduleConfirmedAt {
+                    Text(L("Confirmed %@", collectionDateLabel(date, template: "d MMMM yyyy"))).font(.footnote)
                 }
-
-                HStack {
-                    Label(L("Area"), systemImage: "map.fill")
-                    Spacer()
-                    Text(profile.address ?? L("Not set"))
-                        .foregroundStyle(.secondary)
-                }
-
-                Button {
-                    showAddressSearch = true
-                } label: {
-                    Label(L("Change Location"), systemImage: "location.fill")
-                }
-            } header: {
-                Text(L("Location"))
+                Button(L("Change schedule")) { showAddressSearch = true }
+                Link(L("Check official collection dates"), destination: DataService.collectionURL)
             }
-
-            // Notifications section
+            ReminderPreferenceFields(profile: profile)
             Section {
-                Toggle(isOn: $profile.notifyEveningBefore.animation()) {
-                    Label(L("Evening Before"), systemImage: "moon.fill")
-                }
-
-                if profile.notifyEveningBefore {
-                    DatePicker(
-                        L("Time"),
-                        selection: $profile.eveningNotifyTime,
-                        displayedComponents: .hourAndMinute
-                    )
-                    .transition(.opacity.combined(with: .move(edge: .top)))
-                }
-
-                Toggle(isOn: $profile.notifyMorningOf.animation()) {
-                    Label(L("Morning Of"), systemImage: "sun.max.fill")
-                }
-
-                if profile.notifyMorningOf {
-                    DatePicker(
-                        L("Time"),
-                        selection: $profile.morningNotifyTime,
-                        displayedComponents: .hourAndMinute
-                    )
-                    .transition(.opacity.combined(with: .move(edge: .top)))
-                }
-            } header: {
-                Text(L("Notifications"))
-            }
-
-            // Calendar section
-            Section {
-                Toggle(isOn: $profile.calendarSyncEnabled) {
-                    Label(L("Sync to Calendar"), systemImage: "calendar.badge.plus")
-                }
-
-                Button {
-                    // TODO: Export .ics file
-                } label: {
-                    Label(L("Export .ics File"), systemImage: "square.and.arrow.up")
-                }
-            } header: {
-                Text(L("Calendar"))
-            }
-
-            // Language section
-            Section {
-                Picker(selection: $profile.language) {
-                    ForEach(AppLanguage.allCases) { lang in
-                        Text(lang.displayName).tag(lang)
+                if coordinator.isUpdating {
+                    ProgressView(L("Updating reminders"))
+                } else if !coordinator.hasCheckedAuthorization {
+                    Text(L("Checking reminder access…"))
+                } else if !coordinator.notificationsAuthorized && profile.reminderPreferences.isEnabled {
+                    Text(L("Notifications are not allowed. Enable them in iPhone or iPad Settings."))
+                    Button(L("Enable notifications")) {
+                        Task {
+                            let granted = await NotificationService.shared.requestPermission()
+                            if !granted, let url = URL(string: UIApplication.openNotificationSettingsURLString) { openURL(url) }
+                            await coordinator.refresh(profile: profile, context: modelContext)
+                        }
                     }
-                } label: {
-                    Label(L("Language"), systemImage: "globe")
+                } else if let through = profile.remindersScheduledThrough {
+                    Text(L("Reminders scheduled through %@", collectionDateLabel(through, template: "d MMMM yyyy")))
+                } else if !profile.reminderPreferences.isEnabled {
+                    Text(L("App reminders are off."))
                 }
-            } header: {
-                Text(L("Language"))
-            }
+                Text(L("Reminder times stay in New Zealand time, including when you travel."))
+                Text(L("App reminders have a limited window. Open Bin Day NZ regularly to renew them; the app also schedules a renewal reminder. Settings shows the last scheduled collection date."))
+                if let message = profile.integrationMessage { Text(message).foregroundStyle(.red) }
+                Button(L("Refresh reminders and calendar")) {
+                    Task { await coordinator.refresh(profile: profile, context: modelContext) }
+                }.disabled(coordinator.isUpdating)
+            }.font(.footnote)
 
-            // About section
             Section {
-                HStack {
-                    Label(L("Version"), systemImage: "info.circle")
-                    Spacer()
-                    Text("1.0.0")
-                        .foregroundStyle(.secondary)
+                Toggle(L("Sync to Calendar"), isOn: $profile.calendarSyncEnabled)
+                if profile.calendarSyncEnabled {
+                    Toggle(L("Calendar reminder events"), isOn: $profile.calendarRemindersEnabled)
+                    Text(L("Collection events repeat without reopening Bin Day NZ. One-off changes update when you save your schedule. Calendar reminder events add alerts at both chosen times. To avoid duplicate alerts, turn off app notifications if you use calendar alerts."))
+                        .font(.footnote).foregroundStyle(.secondary)
                 }
+                Button(L("Export 90-day calendar file"), action: exportICS)
+                    .disabled(zone == nil)
+                Text(L("An exported file is a separate 90-day snapshot. It does not update automatically and importing it again may create duplicates."))
+                    .font(.footnote).foregroundStyle(.secondary)
+            } header: { Text(L("Calendar")) }
+            .disabled(coordinator.isUpdating)
 
-                Link(destination: URL(string: "https://www.aucklandcouncil.govt.nz/rubbish-recycling")!) {
-                    Label(L("Auckland Council Website"), systemImage: "link")
-                }
-
-                HStack {
-                    Label(L("Made with ♥ in Aotearoa"), systemImage: "heart.fill")
-                        .foregroundStyle(.primary)
-                }
-            } header: {
-                Text(L("About"))
+            Section(L("Language")) {
+                Picker(L("Language"), selection: $profile.language) {
+                    ForEach(AppLanguage.allCases) { Text($0.displayName).tag($0) }
+                }.accessibilityIdentifier("languagePicker")
+            }
+            Section(L("About")) {
+                LabeledContent(L("Version"), value: version)
+                NavigationLink(L("Privacy and Help")) { PrivacyView() }
+                Link(L("Auckland Council Website"), destination: URL(string: "https://www.aucklandcouncil.govt.nz/rubbish-recycling")!)
+                Text(L("Made with ♥ in Aotearoa"))
+            }
+            Section {
+                Button(L("Remove saved data"), role: .destructive) { confirmRemoval = true }
+                    .disabled(coordinator.isUpdating)
             }
         }
+        .disabled(isRemoving)
+        .onChange(of: profile.reminderPreferences) { _, _ in savePreferences() }
+        .onChange(of: profile.calendarSyncEnabled) { _, _ in savePreferences() }
+        .onChange(of: profile.calendarRemindersEnabled) { _, _ in savePreferences() }
+        .sheet(isPresented: $showAddressSearch) { ChangeAddressView() }
+        .sheet(item: $shareItem) { ActivityView(activityItems: [$0.url]) }
+        .confirmationDialog(L("Remove saved data?"), isPresented: $confirmRemoval, titleVisibility: .visible) {
+            Button(L("Remove saved data"), role: .destructive, action: removeData)
+                .disabled(coordinator.isUpdating)
+        } message: {
+            Text(L("This removes your saved address, schedule, app reminders and calendar events created by this version. Other calendar events and exported copies are kept. You will return to setup."))
+        }
+        .confirmationDialog(L("Calendar events could not be removed"), isPresented: $confirmLocalOnly, titleVisibility: .visible) {
+            Button(L("Remove local data only"), role: .destructive) { removeLocalData(forgetCalendarConnection: true) }
+                .disabled(coordinator.isUpdating)
+        } message: {
+            Text(L("This removes your saved data and disconnects calendar sync. Existing calendar events may remain and continue alerting. Remove them in Calendar; Bin Day NZ will no longer track them."))
+        }
+        .alert(L("Settings Update"), isPresented: Binding(get: { alertMessage != nil }, set: { if !$0 { alertMessage = nil } })) {
+            Button(L("OK"), role: .cancel) { alertMessage = nil }
+        } message: { Text(alertMessage ?? "") }
     }
+
+    private func savePreferences() {
+        do { try modelContext.save() }
+        catch {
+            modelContext.rollback()
+            alertMessage = L("Your settings could not be saved. Please try again.")
+            return
+        }
+        Task { await coordinator.refresh(profile: profile, context: modelContext) }
+    }
+
+    private func removeData() {
+        guard !coordinator.isUpdating else { alertMessage = L("Updating reminders"); return }
+        do { try CalendarService.shared.removeSyncedCalendar() }
+        catch { confirmLocalOnly = true; return }
+        removeLocalData()
+    }
+
+    private func removeLocalData(forgetCalendarConnection: Bool = false) {
+        guard !coordinator.isUpdating else { alertMessage = L("Updating reminders"); return }
+        isRemoving = true
+        defer { isRemoving = false }
+        do {
+            modelContext.delete(profile)
+            try modelContext.save()
+            if forgetCalendarConnection { CalendarService.shared.forgetConnection() }
+            NotificationService.shared.cancelAllReminders()
+            WidgetDataService.clear()
+            LanguageManager.shared.apply("en")
+        } catch {
+            modelContext.rollback()
+            alertMessage = L("Saved data could not be removed. Free some device storage and try again. Your schedule has been kept.")
+        }
+    }
+
+    private func exportICS() {
+        guard let zone, let url = CalendarService.shared.generateICSFile(zone: zone) else {
+            alertMessage = L("The calendar file could not be created. Please try again.")
+            return
+        }
+        shareItem = ShareItem(url: url)
+    }
+}
+
+private struct ActivityView: UIViewControllerRepresentable {
+    let activityItems: [Any]
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+    }
+    func updateUIViewController(_ controller: UIActivityViewController, context: Context) {}
 }

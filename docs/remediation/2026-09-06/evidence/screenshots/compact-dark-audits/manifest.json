@@ -1,0 +1,48 @@
+{
+  "resultBundle": "/tmp/binday-compact-dark-audits.xcresult",
+  "rawAttachments": "/tmp/binday-compact-dark-audits-attachments",
+  "appearance": "dark",
+  "contentSize": "large",
+  "preserved": [
+    {
+      "file": "17-saved-day-detail.png",
+      "configurationName": "Test Scheme Action",
+      "deviceId": "82F9EDCF-F739-4434-9EAD-0D1B36F87C0F",
+      "deviceName": "BinDay Audit Compact 0609",
+      "exportedFileName": "A7505B17-C10B-4CE5-AAF8-6C26A54CF224.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "17-saved-day-detail_0_0CEFAB59-43AD-4EAA-AE20-06891C00CD84.png",
+      "timestamp": 1788695799.132
+    },
+    {
+      "file": "16-saved-schedule-list.png",
+      "configurationName": "Test Scheme Action",
+      "deviceId": "82F9EDCF-F739-4434-9EAD-0D1B36F87C0F",
+      "deviceName": "BinDay Audit Compact 0609",
+      "exportedFileName": "5958AA10-1362-493B-BDA9-C03A3E78BCE6.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "16-saved-schedule-list_0_330FBD70-0FA6-4AC8-B6A0-B07C333E06BF.png",
+      "timestamp": 1788695796.931
+    },
+    {
+      "file": "15-saved-schedule.png",
+      "configurationName": "Test Scheme Action",
+      "deviceId": "82F9EDCF-F739-4434-9EAD-0D1B36F87C0F",
+      "deviceName": "BinDay Audit Compact 0609",
+      "exportedFileName": "3B7F5565-8312-4F7B-BCE8-B63E1E8D9D01.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "15-saved-schedule_0_E8EF8663-D61A-44D5-99B4-5C1CE348A769.png",
+      "timestamp": 1788695795.234
+    },
+    {
+      "file": "14-saved-today.png",
+      "configurationName": "Test Scheme Action",
+      "deviceId": "82F9EDCF-F739-4434-9EAD-0D1B36F87C0F",
+      "deviceName": "BinDay Audit Compact 0609",
+      "exportedFileName": "914D7003-D484-4C85-8F9D-9906E0D75B86.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "14-saved-today_0_3CCFDC4E-97EE-4EA9-9B8C-33494D148119.png",
+      "timestamp": 1788695792.349
+    }
+  ]
+}

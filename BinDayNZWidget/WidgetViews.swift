@@ -1,155 +1,151 @@
 import WidgetKit
 import SwiftUI
 
-/// Unified widget entry view that adapts to different widget families.
 struct BinDayWidgetEntryView: View {
-    @Environment(\.widgetFamily) var family
+    @Environment(\.widgetFamily) private var family
     let entry: BinDayEntry
 
     var body: some View {
-        switch family {
-        case .systemSmall:
-            SmallWidgetView(entry: entry)
-        case .systemMedium:
-            MediumWidgetView(entry: entry)
-        case .accessoryInline:
-            LockScreenInlineView(entry: entry)
-        case .accessoryCircular:
-            LockScreenCircularView(entry: entry)
-        default:
-            SmallWidgetView(entry: entry)
+        Group {
+            switch family {
+            case .systemSmall: SmallWidgetView(entry: entry)
+            case .systemMedium: MediumWidgetView(entry: entry)
+            case .accessoryInline: LockScreenInlineView(entry: entry)
+            case .accessoryCircular: LockScreenCircularView(entry: entry)
+            default: SmallWidgetView(entry: entry)
+            }
         }
+        .environment(\.locale, Locale(identifier: entry.languageCode))
+        .containerBackground(.background, for: .widget)
     }
 }
 
-// MARK: - Small Widget (2×2)
+private struct WidgetEmptyState: View {
+    let entry: BinDayEntry
 
-/// Shows the next bin type with colour background and date.
+    var body: some View {
+        VStack(spacing: 10) {
+            Image(systemName: "calendar.badge.exclamationmark")
+                .font(.title)
+                .accessibilityHidden(true)
+            Text(entry.emptyMessage)
+                .font(.caption.weight(.medium))
+                .multilineTextAlignment(.center)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .accessibilityElement(children: .combine)
+    }
+}
+
 struct SmallWidgetView: View {
     let entry: BinDayEntry
 
     var body: some View {
         if let next = entry.nextCollection {
-            VStack(alignment: .leading, spacing: 8) {
-                // Bin icon
-                Text(next.binIcon)
-                    .font(.system(size: 36))
-
-                Spacer()
-
-                // Bin name
-                Text(next.binName)
-                    .font(.headline)
-                    .foregroundStyle(.white)
-                    .lineLimit(1)
-
-                // Date
-                Text(next.relativeLabel)
-                    .font(.caption)
-                    .foregroundStyle(.white.opacity(0.8))
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-            .padding(16)
-            .background(
-                LinearGradient(
-                    colors: [
-                        Color(red: next.colorRed, green: next.colorGreen, blue: next.colorBlue),
-                        Color(red: next.colorRed * 0.7, green: next.colorGreen * 0.7, blue: next.colorBlue * 0.7)
-                    ],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-            )
+            WidgetDayColumn(day: next, entry: entry)
         } else {
-            VStack(spacing: 8) {
-                Image(systemName: "checkmark.circle.fill")
-                    .font(.largeTitle)
-                    .foregroundStyle(.green)
-                Text("All clear!")
-                    .font(.caption)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding()
+            WidgetEmptyState(entry: entry)
         }
     }
 }
 
-// MARK: - Medium Widget (4×2)
-
-/// Shows the next 3 upcoming collections in a row.
 struct MediumWidgetView: View {
     let entry: BinDayEntry
 
     var body: some View {
-        HStack(spacing: 12) {
-            ForEach(Array(entry.collections.prefix(3).enumerated()), id: \.offset) { _, collection in
-                VStack(spacing: 8) {
-                    Text(collection.binIcon)
-                        .font(.system(size: 28))
-
-                    Text(collection.binName)
-                        .font(.caption2.weight(.semibold))
-                        .foregroundStyle(.white)
-                        .lineLimit(1)
-
-                    Text(collection.relativeLabel)
-                        .font(.caption2)
-                        .foregroundStyle(.white.opacity(0.7))
-                        .lineLimit(1)
+        if entry.collectionDays.isEmpty {
+            WidgetEmptyState(entry: entry)
+        } else {
+            HStack(alignment: .top, spacing: 16) {
+                ForEach(Array(entry.collectionDays.prefix(2))) { day in
+                    WidgetDayColumn(day: day, entry: entry)
+                    if day.id != entry.collectionDays.prefix(2).last?.id { Divider() }
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 12)
-                .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(
-                            LinearGradient(
-                                colors: [
-                                    Color(red: collection.colorRed, green: collection.colorGreen, blue: collection.colorBlue).opacity(0.8),
-                                    Color(red: collection.colorRed, green: collection.colorGreen, blue: collection.colorBlue).opacity(0.5)
-                                ],
-                                startPoint: .top,
-                                endPoint: .bottom
-                            )
-                        )
-                )
             }
         }
-        .padding(12)
-        .background(Color(red: 0.08, green: 0.12, blue: 0.08))
     }
 }
 
-// MARK: - Lock Screen Widgets
+private struct WidgetDayColumn: View {
+    let day: WidgetCollectionDay
+    let entry: BinDayEntry
 
-/// Lock screen inline widget — shows a single line of text.
+    private var relativeDate: String {
+        day.relativeLabel(languageCode: entry.languageCode, relativeTo: entry.date)
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(relativeDate)
+                .font(.headline)
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
+            if relativeDate != day.dateLabel(languageCode: entry.languageCode) {
+                Text(day.dateLabel(languageCode: entry.languageCode))
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            Spacer(minLength: 2)
+            ForEach(day.bins) { bin in
+                HStack(spacing: 6) {
+                    Image(systemName: bin.systemImage)
+                        .symbolVariant(.none)
+                        .frame(width: 16)
+                    Text(widgetBinName(bin, languageCode: entry.languageCode))
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.8)
+                }
+                .font(.caption.weight(.medium))
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(day.accessibleLabel(languageCode: entry.languageCode, relativeTo: entry.date))
+    }
+}
+
 struct LockScreenInlineView: View {
     let entry: BinDayEntry
 
     var body: some View {
         if let next = entry.nextCollection {
-            Text("\(next.binIcon) \(next.binName) \(next.relativeLabel.lowercased())")
+            let bins = next.bins.count == 1
+                ? widgetBinName(next.bins[0], languageCode: entry.languageCode)
+                : WL("%d bins", languageCode: entry.languageCode, next.bins.count)
+            Label(next.relativeLabel(languageCode: entry.languageCode, relativeTo: entry.date) + " · " + bins, systemImage: "calendar")
+                .accessibilityLabel(next.accessibleLabel(languageCode: entry.languageCode, relativeTo: entry.date))
         } else {
-            Text("✅ No collection today")
+            Label(entry.emptyMessage, systemImage: "calendar.badge.exclamationmark")
         }
     }
 }
 
-/// Lock screen circular widget — shows the bin icon.
 struct LockScreenCircularView: View {
     let entry: BinDayEntry
 
     var body: some View {
-        if let next = entry.nextCollection {
-            ZStack {
-                AccessoryWidgetBackground()
-                Text(next.binIcon)
-                    .font(.title2)
-            }
-        } else {
-            ZStack {
-                AccessoryWidgetBackground()
-                Image(systemName: "checkmark")
+        ZStack {
+            AccessoryWidgetBackground()
+            if let next = entry.nextCollection {
+                VStack(spacing: 3) {
+                    HStack(spacing: 2) {
+                        ForEach(next.bins) { bin in
+                            Image(systemName: bin.systemImage)
+                                .symbolVariant(.none)
+                                .font(.system(size: 12, weight: .medium))
+                        }
+                    }
+                    Text(next.relativeLabel(languageCode: entry.languageCode, relativeTo: entry.date))
+                        .font(.caption2.weight(.medium))
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.75)
+                }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(next.accessibleLabel(languageCode: entry.languageCode, relativeTo: entry.date))
+            } else {
+                Image(systemName: "calendar.badge.exclamationmark")
                     .font(.title3)
+                    .accessibilityLabel(entry.emptyMessage)
             }
         }
     }

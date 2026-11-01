@@ -9,7 +9,9 @@ options:
 settings:
   base:
     SWIFT_VERSION: "5.9"
-    TARGETED_DEVICE_FAMILY: "1"  # iPhone only
+    TARGETED_DEVICE_FAMILY: "1,2"
+    MARKETING_VERSION: "1.2"
+    CURRENT_PROJECT_VERSION: 3
     INFOPLIST_FILE: BinDayNZ/Info.plist
 
 targets:
@@ -20,14 +22,10 @@ targets:
       - path: BinDayNZ
         excludes:
           - Info.plist
-    resources:
-      - path: BinDayNZ/Resources
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.bindaynz.app
         INFOPLIST_FILE: BinDayNZ/Info.plist
-        MARKETING_VERSION: "1.0.0"
-        CURRENT_PROJECT_VERSION: 2
         GENERATE_INFOPLIST_FILE: false
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         INFOPLIST_KEY_CFBundleIconName: AppIcon
@@ -35,7 +33,9 @@ targets:
         CODE_SIGN_ENTITLEMENTS: BinDayNZ/BinDayNZ.entitlements
     entitlements:
       path: BinDayNZ/BinDayNZ.entitlements
-      properties: {}
+      properties:
+        com.apple.security.application-groups:
+          - group.com.bindaynz.app
     dependencies:
       - target: BinDayNZWidgetExtension
 
@@ -44,14 +44,59 @@ targets:
     platform: iOS
     sources:
       - path: BinDayNZWidget
+        excludes:
+          - Info.plist
+      - path: BinDayNZ/Models/BinType.swift
+      - path: BinDayNZ/Models/CollectionSchedule.swift
+      - path: BinDayNZ/Models/CollectionZone.swift
+      - path: BinDayNZ/Models/UpcomingCollection.swift
+      - path: BinDayNZ/Services/ScheduleEngine.swift
+      - path: BinDayNZ/Services/LanguageManager.swift
+      - path: BinDayNZ/Resources/Localizable.xcstrings
+        buildPhase: resources
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.bindaynz.app.widget
         INFOPLIST_FILE: BinDayNZWidget/Info.plist
         GENERATE_INFOPLIST_FILE: false
-        MARKETING_VERSION: "1.0.0"
-        CURRENT_PROJECT_VERSION: 2
         CODE_SIGN_ENTITLEMENTS: BinDayNZWidget/BinDayNZWidgetExtension.entitlements
     entitlements:
       path: BinDayNZWidget/BinDayNZWidgetExtension.entitlements
-      properties: {}
+      properties:
+        com.apple.security.application-groups:
+          - group.com.bindaynz.app
+
+  BinDayNZTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: BinDayNZTests
+    dependencies:
+      - target: BinDayNZ
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bindaynz.app.tests
+        GENERATE_INFOPLIST_FILE: true
+
+  BinDayNZUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: BinDayNZUITests
+    dependencies:
+      - target: BinDayNZ
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bindaynz.app.uitests
+        GENERATE_INFOPLIST_FILE: true
+        TEST_TARGET_NAME: BinDayNZ
+
+schemes:
+  BinDayNZ:
+    build:
+      targets:
+        BinDayNZ: all
+    test:
+      targets:
+        - BinDayNZTests
+        - BinDayNZUITests

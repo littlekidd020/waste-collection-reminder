@@ -8,11 +8,23 @@ struct CollectionZone: Codable, Identifiable, Hashable {
     let suburbs: [String]
     let schedules: [CollectionSchedule]
 
-    static func == (lhs: CollectionZone, rhs: CollectionZone) -> Bool {
-        lhs.id == rhs.id
+    var isValid: Bool {
+        !schedules.isEmpty && schedules.allSatisfy(\.isValid)
+            && Set(schedules.map(\.binType)).count == schedules.count
     }
+}
 
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+/// App and widget share recurrence rules, never a finite cache of dates or an address.
+struct WidgetScheduleSnapshot: Codable {
+    static let appGroupID = "group.com.bindaynz.app"
+    static let storageKey = "confirmedWidgetSchedule"
+    let zone: CollectionZone
+    let languageCode: String
+    let confirmedAt: Date?
+
+    static func load(from defaults: UserDefaults) -> WidgetScheduleSnapshot? {
+        guard let data = defaults.data(forKey: storageKey),
+              let snapshot = try? JSONDecoder().decode(Self.self, from: data), snapshot.zone.isValid else { return nil }
+        return snapshot
     }
 }

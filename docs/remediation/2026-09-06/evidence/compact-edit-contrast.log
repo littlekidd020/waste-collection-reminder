@@ -1,0 +1,336 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/bindaynz-ui-dd/Build/Products/BinDayNZ-ui.xctestrun -destination "platform=iOS Simulator,id=82F9EDCF-F739-4434-9EAD-0D1B36F87C0F" -parallel-testing-enabled NO "-only-testing:BinDayNZUITests/OnboardingFlowUITests/testSavedScheduleFrequencyAndOneOffChangePersist" "-only-testing:BinDayNZUITests/OnboardingFlowUITests/testVisibleReminderStatusContrastAudit" -resultBundlePath /tmp/binday-compact-edit-contrast.xcresult
+
+2026-09-07 00:00:32.159 xcodebuild[95991:8247271] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+Writing result bundle at path:
+	/tmp/binday-compact-edit-contrast.xcresult
+
+2026-09-07 00:00:32.169 xcodebuild[95991:8247271] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+2026-09-07 00:00:34.006 xcodebuild[95991:8247271] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+2026-09-07 00:00:42.873762+1200 BinDayNZUITests-Runner[96010:8247903] [Default] Running tests...
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'Selected tests' started at 2026-09-07 00:00:45.639.
+Test Suite 'BinDayNZUITests.xctest' started at 2026-09-07 00:00:45.640.
+Test Suite 'OnboardingFlowUITests' started at 2026-09-07 00:00:45.640.
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testSavedScheduleFrequencyAndOneOffChangePersist]' started.
+    t =     0.00s Start Test at 2026-09-07 00:00:45.641
+    t =     0.04s Set Up
+    t =     0.04s     Open com.bindaynz.app
+    t =     0.04s         Launch com.bindaynz.app
+    t =     3.01s             Setting up automation session
+    t =     3.87s             Wait for com.bindaynz.app to idle
+    t =     5.76s Waiting 10.0s for "Today" Button to exist
+    t =     6.85s     Checking `Expect predicate `existsNoRetry == 1` for object "Today" Button`
+    t =     6.85s         Checking existence of `"Today" Button`
+    t =     6.99s Find the "Change schedule" Button
+    t =     7.04s Tap "Change schedule" Button
+    t =     7.04s     Wait for com.bindaynz.app to idle
+    t =     7.04s     Find the "Change schedule" Button
+    t =     7.08s     Check for interrupting elements affecting "Change schedule" Button
+    t =     7.12s     Synthesize event
+    t =     7.41s     Wait for com.bindaynz.app to idle
+    t =     7.48s Tap "Review bin schedule" Button
+    t =     7.48s     Wait for com.bindaynz.app to idle
+    t =     8.23s     Find the "Review bin schedule" Button
+    t =     8.31s     Check for interrupting elements affecting "Review bin schedule" Button
+    t =     8.37s     Synthesize event
+    t =     8.68s     Wait for com.bindaynz.app to idle
+    t =     8.92s Waiting 5.0s for "Your bin schedule" NavigationBar to exist
+    t =     9.99s     Checking `Expect predicate `existsNoRetry == 1` for object "Your bin schedule" NavigationBar`
+    t =     9.99s         Checking existence of `"Your bin schedule" NavigationBar`
+    t =    10.14s Find the "Frequency, Weekly" Button
+    t =    10.29s Tap "Frequency, Weekly" Button
+    t =    10.29s     Wait for com.bindaynz.app to idle
+    t =    10.30s     Find the "Frequency, Weekly" Button
+    t =    10.43s     Check for interrupting elements affecting "Frequency, Weekly" Button
+    t =    10.51s     Synthesize event
+    t =    10.80s     Wait for com.bindaynz.app to idle
+    t =    12.12s Tap "Fortnightly" Button
+    t =    12.13s     Wait for com.bindaynz.app to idle
+    t =    12.13s     Find the "Fortnightly" Button
+    t =    12.23s     Check for interrupting elements affecting "Fortnightly" Button
+    t =    12.31s     Synthesize event
+    t =    12.60s     Wait for com.bindaynz.app to idle
+    t =    14.11s Find the "One-off changes (0)" Button
+    t =    15.34s     Find the "One-off changes (0)" Button (retry 1)
+    t =    16.59s     Find the "One-off changes (0)" Button (retry 2)
+    t =    16.83s Checking existence of `"One-off changes (0)" Button`
+    t =    17.04s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    17.04s     Wait for com.bindaynz.app to idle
+    t =    17.04s     Find the Target Application 'com.bindaynz.app'
+    t =    17.12s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    17.22s     Synthesize event
+    t =    17.22s         Find the Target Application 'com.bindaynz.app'
+    t =    17.30s         Find the Target Application 'com.bindaynz.app'
+    t =    17.39s         Find the Target Application 'com.bindaynz.app'
+    t =    17.48s         Find the Target Application 'com.bindaynz.app'
+    t =    17.57s         Find the Target Application 'com.bindaynz.app'
+    t =    18.87s     Wait for com.bindaynz.app to idle
+    t =    18.98s Find the "One-off changes (0)" Button
+    t =    19.14s Tap "One-off changes (0)" Button
+    t =    19.14s     Wait for com.bindaynz.app to idle
+    t =    19.14s     Find the "One-off changes (0)" Button
+    t =    19.28s     Check for interrupting elements affecting "One-off changes (0)" Button
+    t =    19.38s     Synthesize event
+    t =    19.67s     Wait for com.bindaynz.app to idle
+    t =    20.46s Waiting 5.0s for "One-off changes" NavigationBar to exist
+    t =    21.55s     Checking `Expect predicate `existsNoRetry == 1` for object "One-off changes" NavigationBar`
+    t =    21.55s         Checking existence of `"One-off changes" NavigationBar`
+    t =    21.64s Find the "Add change" Button
+    t =    21.73s Tap "Add change" Button
+    t =    21.73s     Wait for com.bindaynz.app to idle
+    t =    21.73s     Find the "Add change" Button
+    t =    21.85s     Check for interrupting elements affecting "Add change" Button
+    t =    21.94s     Synthesize event
+    t =    22.23s     Wait for com.bindaynz.app to idle
+    t =    22.50s Waiting 5.0s for "Remove change" Button to exist
+    t =    23.58s     Checking `Expect predicate `existsNoRetry == 1` for object "Remove change" Button`
+    t =    23.58s         Checking existence of `"Remove change" Button`
+    t =    23.81s Added attachment named '18-added-one-off-change'
+    t =    23.81s Tap Button (Element at index 0)
+    t =    23.81s     Wait for com.bindaynz.app to idle
+    t =    23.81s     Find the Button (Element at index 0)
+    t =    23.91s     Check for interrupting elements affecting "BackButton" Button
+    t =    24.01s     Synthesize event
+    t =    24.30s     Wait for com.bindaynz.app to idle
+    t =    25.14s Find the Switch (First Match)
+    t =    26.38s     Find the Switch (First Match) (retry 1)
+    t =    27.59s     Find the Switch (First Match) (retry 2)
+    t =    27.79s Checking existence of `Switch (First Match)`
+    t =    27.98s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    27.98s     Wait for com.bindaynz.app to idle
+    t =    27.99s     Find the Target Application 'com.bindaynz.app'
+    t =    28.06s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    28.15s     Synthesize event
+    t =    28.15s         Find the Target Application 'com.bindaynz.app'
+    t =    28.23s         Find the Target Application 'com.bindaynz.app'
+    t =    28.31s         Find the Target Application 'com.bindaynz.app'
+    t =    28.39s         Find the Target Application 'com.bindaynz.app'
+    t =    28.47s         Find the Target Application 'com.bindaynz.app'
+    t =    29.75s     Wait for com.bindaynz.app to idle
+    t =    30.44s Find the Switch (First Match)
+    t =    31.68s     Find the Switch (First Match) (retry 1)
+    t =    32.92s     Find the Switch (First Match) (retry 2)
+    t =    33.14s Checking existence of `Switch (First Match)`
+    t =    33.37s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    33.37s     Wait for com.bindaynz.app to idle
+    t =    33.38s     Find the Target Application 'com.bindaynz.app'
+    t =    33.46s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    33.56s     Synthesize event
+    t =    33.56s         Find the Target Application 'com.bindaynz.app'
+    t =    33.64s         Find the Target Application 'com.bindaynz.app'
+    t =    33.73s         Find the Target Application 'com.bindaynz.app'
+    t =    33.83s         Find the Target Application 'com.bindaynz.app'
+    t =    33.93s         Find the Target Application 'com.bindaynz.app'
+    t =    35.23s     Wait for com.bindaynz.app to idle
+    t =    35.31s Find the Switch (First Match)
+    t =    36.62s     Find the Switch (First Match) (retry 1)
+    t =    40.41s     Find the Switch (First Match) (retry 2)
+    t =    40.66s Checking existence of `Switch (First Match)`
+    t =    40.87s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    40.87s     Wait for com.bindaynz.app to idle
+    t =    40.87s     Find the Target Application 'com.bindaynz.app'
+    t =    40.95s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    41.04s     Synthesize event
+    t =    41.05s         Find the Target Application 'com.bindaynz.app'
+    t =    41.13s         Find the Target Application 'com.bindaynz.app'
+    t =    41.21s         Find the Target Application 'com.bindaynz.app'
+    t =    41.29s         Find the Target Application 'com.bindaynz.app'
+    t =    41.36s         Find the Target Application 'com.bindaynz.app'
+    t =    42.64s     Wait for com.bindaynz.app to idle
+    t =    42.91s Find the Switch (First Match)
+    t =    44.14s     Find the Switch (First Match) (retry 1)
+    t =    45.36s     Find the Switch (First Match) (retry 2)
+    t =    45.57s Checking existence of `Switch (First Match)`
+    t =    45.77s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    45.77s     Wait for com.bindaynz.app to idle
+    t =    45.78s     Find the Target Application 'com.bindaynz.app'
+    t =    45.85s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    45.94s     Synthesize event
+    t =    45.94s         Find the Target Application 'com.bindaynz.app'
+    t =    46.03s         Find the Target Application 'com.bindaynz.app'
+    t =    46.11s         Find the Target Application 'com.bindaynz.app'
+    t =    46.19s         Find the Target Application 'com.bindaynz.app'
+    t =    46.27s         Find the Target Application 'com.bindaynz.app'
+    t =    47.56s     Wait for com.bindaynz.app to idle
+    t =    47.87s Find the Switch (First Match)
+    t =    48.04s Tap Switch (First Match)
+    t =    48.04s     Wait for com.bindaynz.app to idle
+    t =    48.04s     Find the Switch (First Match)
+    t =    48.19s     Check for interrupting elements affecting "0" Switch
+    t =    48.29s     Synthesize event
+    t =    48.59s     Wait for com.bindaynz.app to idle
+    t =    49.88s Find the "Save" Button
+    t =    50.00s Tap "Save" Button
+    t =    50.00s     Wait for com.bindaynz.app to idle
+    t =    50.00s     Find the "Save" Button
+    t =    50.10s     Check for interrupting elements affecting "Save" Button
+    t =    50.19s     Synthesize event
+    t =    50.49s     Wait for com.bindaynz.app to idle
+    t =    51.28s Find the "Save" Button
+    t =    51.35s Tap "Save" Button
+    t =    51.35s     Wait for com.bindaynz.app to idle
+    t =    51.36s     Find the "Save" Button
+    t =    51.41s     Check for interrupting elements affecting "Save" Button
+    t =    51.47s     Synthesize event
+    t =    51.77s     Wait for com.bindaynz.app to idle
+    t =    52.54s Waiting 10.0s for "Today" Button to exist
+    t =    53.63s     Checking `Expect predicate `existsNoRetry == 1` for object "Today" Button`
+    t =    53.63s         Checking existence of `"Today" Button`
+    t =    53.69s Terminate com.bindaynz.app:96076
+    t =    54.76s Open com.bindaynz.app
+    t =    54.76s     Launch com.bindaynz.app
+    t =    55.64s         Setting up automation session
+    t =    60.31s         Wait for com.bindaynz.app to idle
+    t =    61.96s Waiting 10.0s for "Today" Button to exist
+    t =    62.99s     Checking `Expect predicate `existsNoRetry == 1` for object "Today" Button`
+    t =    63.00s         Checking existence of `"Today" Button`
+    t =    63.11s Find the "Change schedule" Button
+    t =    63.17s Tap "Change schedule" Button
+    t =    63.17s     Wait for com.bindaynz.app to idle
+    t =    63.17s     Find the "Change schedule" Button
+    t =    63.21s     Check for interrupting elements affecting "Change schedule" Button
+    t =    63.24s     Synthesize event
+    t =    63.54s     Wait for com.bindaynz.app to idle
+    t =    63.58s Tap "Review bin schedule" Button
+    t =    63.58s     Wait for com.bindaynz.app to idle
+    t =    64.45s     Find the "Review bin schedule" Button
+    t =    64.55s     Check for interrupting elements affecting "Review bin schedule" Button
+    t =    64.60s     Synthesize event
+    t =    64.89s     Wait for com.bindaynz.app to idle
+    t =    65.03s Waiting 5.0s for "Your bin schedule" NavigationBar to exist
+    t =    66.08s     Checking `Expect predicate `existsNoRetry == 1` for object "Your bin schedule" NavigationBar`
+    t =    66.08s         Checking existence of `"Your bin schedule" NavigationBar`
+    t =    66.22s Find the "Rubbish" Switch
+    t =    66.32s Get all elements bound by index for: Elements matching predicate 'label BEGINSWITH "Frequency, "'
+    t =    66.40s Find the Button (Element at index 0)
+    t =    66.50s Find the "Rubbish" Switch
+    t =    66.59s Find the "Frequency, Fortnightly" Button
+    t =    66.67s Find the "One-off changes (1)" Button
+    t =    67.76s     Find the "One-off changes (1)" Button (retry 1)
+    t =    68.88s     Find the "One-off changes (1)" Button (retry 2)
+    t =    69.00s Checking existence of `"One-off changes (1)" Button`
+    t =    69.09s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    69.09s     Wait for com.bindaynz.app to idle
+    t =    69.09s     Find the Target Application 'com.bindaynz.app'
+    t =    69.17s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    69.25s     Synthesize event
+    t =    69.25s         Find the Target Application 'com.bindaynz.app'
+    t =    69.33s         Find the Target Application 'com.bindaynz.app'
+    t =    69.40s         Find the Target Application 'com.bindaynz.app'
+    t =    69.49s         Find the Target Application 'com.bindaynz.app'
+    t =    69.56s         Find the Target Application 'com.bindaynz.app'
+    t =    70.83s     Wait for com.bindaynz.app to idle
+    t =    71.28s Find the "One-off changes (1)" Button
+    t =    71.48s Checking existence of `"One-off changes (1)" Button`
+    t =    71.74s Added attachment named '19-persisted-rubbish-change'
+    t =    71.74s Find the "Recycling" Switch
+    t =    71.85s Get all elements bound by index for: Elements matching predicate 'label BEGINSWITH "Frequency, "'
+    t =    71.97s Find the Button (Element at index 0)
+    t =    72.08s Find the "Recycling" Switch
+    t =    72.18s Find the Button (Element at index 1)
+    t =    72.29s Find the "Recycling" Switch
+    t =    72.39s Find the "Frequency, Fortnightly" Button
+    t =    72.49s Find the "Food Scraps" Switch
+    t =    73.59s     Find the "Food Scraps" Switch (retry 1)
+    t =    74.74s     Find the "Food Scraps" Switch (retry 2)
+    t =    74.88s Checking existence of `"Food Scraps" Switch`
+    t =    74.99s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    74.99s     Wait for com.bindaynz.app to idle
+    t =    75.00s     Find the Target Application 'com.bindaynz.app'
+    t =    75.08s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    75.17s     Synthesize event
+    t =    75.17s         Find the Target Application 'com.bindaynz.app'
+    t =    75.25s         Find the Target Application 'com.bindaynz.app'
+    t =    75.32s         Find the Target Application 'com.bindaynz.app'
+    t =    75.39s         Find the Target Application 'com.bindaynz.app'
+    t =    75.47s         Find the Target Application 'com.bindaynz.app'
+    t =    76.74s     Wait for com.bindaynz.app to idle
+    t =    77.45s Find the "Food Scraps" Switch
+    t =    78.58s     Find the "Food Scraps" Switch (retry 1)
+    t =    79.71s     Find the "Food Scraps" Switch (retry 2)
+    t =    79.83s Checking existence of `"Food Scraps" Switch`
+    t =    79.93s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    79.93s     Wait for com.bindaynz.app to idle
+    t =    79.93s     Find the Target Application 'com.bindaynz.app'
+    t =    80.02s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    80.11s     Synthesize event
+    t =    80.11s         Find the Target Application 'com.bindaynz.app'
+    t =    80.19s         Find the Target Application 'com.bindaynz.app'
+    t =    80.27s         Find the Target Application 'com.bindaynz.app'
+    t =    80.35s         Find the Target Application 'com.bindaynz.app'
+    t =    80.43s         Find the Target Application 'com.bindaynz.app'
+    t =    81.71s     Wait for com.bindaynz.app to idle
+    t =    81.81s Find the "Food Scraps" Switch
+    t =    81.94s Get all elements bound by index for: Elements matching predicate 'label BEGINSWITH "Frequency, "'
+    t =    82.04s Find the Button (Element at index 0)
+    t =    82.15s Find the "Food Scraps" Switch
+    t =    82.25s Find the Button (Element at index 1)
+    t =    82.36s Find the "Food Scraps" Switch
+    t =    82.47s Find the "Frequency, Weekly" Button
+    t =    82.64s Added attachment named '20-preserved-other-bins'
+    t =    82.65s Tap "Cancel" Button
+    t =    82.65s     Wait for com.bindaynz.app to idle
+    t =    82.81s     Find the "Cancel" Button
+    t =    82.92s     Check for interrupting elements affecting "Cancel" Button
+    t =    83.03s     Synthesize event
+    t =    83.32s     Wait for com.bindaynz.app to idle
+    t =    84.08s Tap "Cancel" Button
+    t =    84.08s     Wait for com.bindaynz.app to idle
+    t =    84.08s     Find the "Cancel" Button
+    t =    84.15s     Check for interrupting elements affecting "Cancel" Button
+    t =    84.21s     Synthesize event
+    t =    84.51s     Wait for com.bindaynz.app to idle
+    t =    85.27s Tear Down
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testSavedScheduleFrequencyAndOneOffChangePersist]' passed (85.602 seconds).
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testVisibleReminderStatusContrastAudit]' started.
+    t =     0.00s Start Test at 2026-09-07 00:02:11.243
+    t =     0.02s Set Up
+    t =     0.02s     Open com.bindaynz.app
+    t =     0.02s         Launch com.bindaynz.app
+    t =     0.02s             Terminate com.bindaynz.app:96378
+    t =     1.35s             Setting up automation session
+    t =     2.34s             Wait for com.bindaynz.app to idle
+    t =     4.07s Waiting 10.0s for "Today" Button to exist
+    t =     5.14s     Checking `Expect predicate `existsNoRetry == 1` for object "Today" Button`
+    t =     5.14s         Checking existence of `"Today" Button`
+    t =     5.26s Find the "Notifications are not allowed" StaticText
+    t =     5.33s Checking existence of `"Notifications are not allowed" StaticText`
+    t =     5.36s Find the "Notifications are not allowed" StaticText
+    t =     5.40s Find the "Notifications are not allowed" StaticText
+    t =     5.44s Find the Target Application 'com.bindaynz.app'
+    t =     5.47s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =     5.47s     Wait for com.bindaynz.app to idle
+    t =     5.47s     Find the Target Application 'com.bindaynz.app'
+    t =     5.50s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =     5.54s     Synthesize event
+    t =     5.54s         Find the Target Application 'com.bindaynz.app'
+    t =     5.56s         Find the Target Application 'com.bindaynz.app'
+    t =     5.59s         Find the Target Application 'com.bindaynz.app'
+    t =     5.61s         Find the Target Application 'com.bindaynz.app'
+    t =     5.64s         Find the Target Application 'com.bindaynz.app'
+    t =     6.87s     Wait for com.bindaynz.app to idle
+    t =     7.20s Find the "Notifications are not allowed" StaticText
+    t =     7.31s Added attachment named '21-visible-reminder-status'
+    t =     7.57s Find the Any (Descendant with identity binding to AX element pid: 96466, elementOrHash.elementID: 4405375200.72)
+    t =     7.60s Checking existence of `"Rubbish" StaticText`
+    t =     7.63s Find the "Rubbish" StaticText
+<unknown>:0: error: -[BinDayNZUITests.OnboardingFlowUITests testVisibleReminderStatusContrastAudit] : Contrast failed
+    t =     7.71s Tear Down
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testVisibleReminderStatusContrastAudit]' failed (8.032 seconds).
+Test Suite 'OnboardingFlowUITests' failed at 2026-09-07 00:02:19.276.
+	 Executed 2 tests, with 1 failure (0 unexpected) in 93.634 (93.636) seconds
+Test Suite 'BinDayNZUITests.xctest' failed at 2026-09-07 00:02:19.278.
+	 Executed 2 tests, with 1 failure (0 unexpected) in 93.634 (93.638) seconds
+Test Suite 'Selected tests' failed at 2026-09-07 00:02:19.278.
+	 Executed 2 tests, with 1 failure (0 unexpected) in 93.634 (93.639) seconds
+2026-09-07 00:02:38.120 xcodebuild[95991:8247271] [MT] IDETestOperationsObserverDebug: 124.067 elapsed -- Testing started completed.
+2026-09-07 00:02:38.120 xcodebuild[95991:8247271] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-07 00:02:38.120 xcodebuild[95991:8247271] [MT] IDETestOperationsObserverDebug: 124.067 sec, +124.067 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/binday-compact-edit-contrast.xcresult
+
+** TEST EXECUTE FAILED **
+
+Testing started

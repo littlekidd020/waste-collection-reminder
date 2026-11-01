@@ -1,341 +1,126 @@
 import SwiftUI
 import MapKit
 
-/// Address entry — third page of onboarding.
-/// Free-form text field with MapKit autocomplete + collection day zone picker.
 struct AddressSearchView: View {
-    let council: Council?
     @Binding var selectedZone: CollectionZone?
     @Binding var selectedAddress: String?
+    @Binding var selectedCoordinate: CLLocationCoordinate2D?
+    @Binding var scheduleReviewed: Bool
+    let onBack: () -> Void
     let onContinue: () -> Void
-    let onManualSetup: () -> Void
-
-    @StateObject private var searchService = AddressSearchService()
-    @StateObject private var locationManager = LocationManager()
-    @State private var addressText = ""
-    @FocusState private var isFieldFocused: Bool
-
-    private var zones: [CollectionZone] {
-        council?.zones ?? []
-    }
-
-    private var canContinue: Bool {
-        !addressText.trimmingCharacters(in: .whitespaces).isEmpty && selectedZone != nil
-    }
-
-    var body: some View {
-        ZStack {
-            Color(uiColor: .systemGroupedBackground)
-                .ignoresSafeArea()
-
-            VStack(spacing: 24) {
-                // Header
-                if !isFieldFocused {
-                    VStack(spacing: 8) {
-                        Text(L("Find Your Area"))
-                            .font(.title.bold())
-                            .foregroundStyle(.primary)
-                        Text(L("Enter your address and select your collection day"))
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                            .multilineTextAlignment(.center)
-                    }
-                    .padding(.top, 60)
-                } else {
-                    Spacer().frame(height: 20)
-                }
-
-                // Address Input & Suggestions
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(L("Your Address"))
-                        .font(.subheadline.weight(.medium))
-                        .foregroundStyle(.secondary)
-
-                    AddressInputSection(
-                        addressText: $addressText,
-                        isFieldFocused: $isFieldFocused,
-                        locationManager: locationManager,
-                        searchService: searchService,
-                        onUpdateAddress: { newValue in
-                            selectedAddress = newValue.trimmingCharacters(in: .whitespaces)
-                        }
-                    )
-
-                    if !searchService.suggestions.isEmpty {
-                        SuggestionListView(
-                            suggestions: searchService.suggestions,
-                            searchService: searchService,
-                            addressText: $addressText,
-                            selectedAddress: $selectedAddress,
-                            isFieldFocused: $isFieldFocused,
-                            selectedZone: $selectedZone,
-                            zones: zones
-                        )
-                    }
-                }
-                .zIndex(2)
-                .padding(.horizontal, 24)
-
-                // Collection Day Info Box
-                if let zone = selectedZone {
-                    SelectedZoneInfoView(zoneName: zone.name, zoneId: zone.id)
-                        .padding(.horizontal, 24)
-                        .padding(.top, 10)
-                }
-
-                Spacer()
-
-                // Action buttons
-                if !isFieldFocused {
-                    AddressSearchActions(
-                        canContinue: canContinue,
-                        onContinue: onContinue,
-                        onManualSetup: onManualSetup
-                    )
-                }
-            }
-        }
-        .animation(.default, value: isFieldFocused)
-    }
-}
-
-// MARK: - Subviews
-
-private struct AddressInputSection: View {
-    @Binding var addressText: String
-    @FocusState.Binding var isFieldFocused: Bool
-    @ObservedObject var locationManager: LocationManager
-    @ObservedObject var searchService: AddressSearchService
-    let onUpdateAddress: (String) -> Void
-
-    var body: some View {
-        ZStack(alignment: .trailing) {
-            TextField(L("e.g. 12 Queen Street, Auckland"), text: $addressText)
-                .focused($isFieldFocused)
-                .foregroundStyle(.primary)
-                .autocorrectionDisabled()
-                .padding(.leading, 14)
-                .padding(.vertical, 14)
-                .padding(.trailing, 44) // Guaranteed gap for the icon
-                .onChange(of: addressText) { _, newValue in
-                    searchService.search(newValue)
-                    onUpdateAddress(newValue)
-                }
-
-            InputAccessoryView(
-                addressText: $addressText,
-                isFieldFocused: $isFieldFocused,
-                locationManager: locationManager,
-                searchService: searchService
-            )
-            .frame(width: 44)
-        }
-        .background(
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(Color(uiColor: .secondarySystemGroupedBackground))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .strokeBorder(isFieldFocused ? Color.green : Color.clear, lineWidth: 2)
-                )
-        )
-    }
-}
-
-private struct InputAccessoryView: View {
-    @Binding var addressText: String
-    @FocusState.Binding var isFieldFocused: Bool
-    @ObservedObject var locationManager: LocationManager
-    @ObservedObject var searchService: AddressSearchService
-
-    var body: some View {
-        if isFieldFocused {
-            if !addressText.isEmpty {
-                Button {
-                    addressText = ""
-                    searchService.search("")
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundStyle(.tertiary)
-                        .padding(12)
-                }
-            }
-        } else {
-            Button {
-                Task {
-                    if let address = try? await locationManager.requestCurrentLocationAddress() {
-                        addressText = address
-                        searchService.search(address)
-                    }
-                }
-            } label: {
-                if locationManager.isRequestingLocation {
-                    ProgressView()
-                        .padding(12)
-                } else {
-                    Image(systemName: "location.fill")
-                        .foregroundStyle(.green)
-                        .padding(12)
-                }
-            }
-        }
-    }
-}
-
-private struct SuggestionListView: View {
-    let suggestions: [AddressSuggestion]
-    @ObservedObject var searchService: AddressSearchService
-    @Binding var addressText: String
-    @Binding var selectedAddress: String?
-    @FocusState.Binding var isFieldFocused: Bool
-    @Binding var selectedZone: CollectionZone?
-    let zones: [CollectionZone]
+    @State private var showSchedule = false
 
     var body: some View {
         ScrollView {
-            LazyVStack(alignment: .leading, spacing: 0) {
-                ForEach(suggestions) { suggestion in
-                    SuggestionRow(
-                        suggestion: suggestion,
-                        onSelect: {
-                            selectSuggestion(suggestion)
-                        },
-                        isLast: suggestion.id == suggestions.last?.id
-                    )
-                }
-            }
-            .background(
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(Color(uiColor: .secondarySystemGroupedBackground))
-                    .shadow(color: .black.opacity(0.05), radius: 8, y: 4)
-            )
-            .padding(.top, 4)
-        }
-        .frame(maxHeight: 250)
-        .transition(.opacity.combined(with: .move(edge: .top)))
-    }
-
-    private func selectSuggestion(_ suggestion: AddressSuggestion) {
-        Task {
-            if let resolved = await searchService.resolve(suggestion) {
-                addressText = resolved.fullAddress
-                selectedAddress = resolved.fullAddress
-                isFieldFocused = false
-                
-                if let matchedZone = resolved.matchedZone,
-                   zones.contains(where: { $0.id == matchedZone.id }) {
-                    withAnimation(.easeInOut(duration: 0.2)) {
-                        self.selectedZone = matchedZone
-                    }
-                }
-            } else {
-                addressText = suggestion.title
-                selectedAddress = suggestion.title
-                isFieldFocused = false
-            }
-        }
-    }
-}
-
-private struct SuggestionRow: View {
-    let suggestion: AddressSuggestion
-    let onSelect: () -> Void
-    let isLast: Bool
-
-    var body: some View {
-        Button(action: onSelect) {
-            HStack(spacing: 12) {
-                Image(systemName: "mappin.circle.fill")
-                    .font(.title3)
-                    .foregroundStyle(.tertiary)
-                
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(suggestion.title)
-                        .font(.body)
-                        .foregroundStyle(.primary)
-                        .multilineTextAlignment(.leading)
-                    
-                    if !suggestion.subtitle.isEmpty {
-                        Text(suggestion.subtitle)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                            .multilineTextAlignment(.leading)
-                    }
-                }
-                Spacer()
-            }
-            .padding(.vertical, 12)
-            .padding(.horizontal, 16)
-            .contentShape(Rectangle())
-        }
-        
-        if !isLast {
-            Divider()
-                .padding(.leading, 46)
-        }
-    }
-}
-
-private struct SelectedZoneInfoView: View {
-    let zoneName: String
-    let zoneId: String
-
-    var body: some View {
-        HStack(spacing: 12) {
-            Image(systemName: "calendar")
-                .font(.title3)
-                .foregroundStyle(.green)
-                .symbolEffect(.bounce, value: zoneId)
-                
-            Text(L(zoneName))
-                .font(.body.weight(.medium))
-                .foregroundStyle(.primary)
-        }
-        .padding(.horizontal, 24)
-        .padding(.vertical, 12)
-        .background(
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(Color.green.opacity(0.15))
-        )
-        .transition(.opacity.combined(with: .move(edge: .top)))
-    }
-}
-
-private struct AddressSearchActions: View {
-    let canContinue: Bool
-    let onContinue: () -> Void
-    let onManualSetup: () -> Void
-
-    var body: some View {
-        VStack(spacing: 12) {
-            Button(action: onContinue) {
-                Text(L("Continue"))
-                    .font(.headline)
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 16)
-                    .background(
-                        RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .fill(canContinue ? Color.green : Color.gray.opacity(0.3))
-                    )
-            }
-            .disabled(!canContinue)
-            .animation(.default, value: canContinue)
-
-            Button(action: onManualSetup) {
-                Text(L("Set up manually"))
-                    .font(.subheadline)
+            VStack(alignment: .leading, spacing: 24) {
+                OnboardingBackButton(action: onBack)
+                Text(L("Set your collection dates")).font(.title.bold())
+                Text(L("For Auckland Council kerbside collections. Shared bins, private services and island collections may have different arrangements."))
                     .foregroundStyle(.secondary)
+                AddressEntryView(address: Binding(get: { selectedAddress ?? "" }, set: { selectedAddress = $0 }), coordinate: $selectedCoordinate)
+                Button { showSchedule = true } label: {
+                    Label(L(selectedZone == nil ? "Set up manually" : "Review bin schedule"), systemImage: "calendar")
+                        .frame(maxWidth: .infinity, minHeight: 44)
+                }.buttonStyle(.borderedProminent).tint(AppTheme.buttonFill)
+                if let zone = selectedZone {
+                    Label(L(scheduleReviewed ? "User-confirmed schedule" : "Schedule needs confirmation"), systemImage: scheduleReviewed ? "checkmark.circle" : "exclamationmark.circle")
+                    ForEach(zone.schedules) { schedule in
+                        Label(schedule.binType.displayName, systemImage: schedule.binType.systemImage)
+                    }
+                }
+                NavigationLink(L("Privacy and Help")) { PrivacyView() }
+            }
+            .frame(maxWidth: 600, alignment: .leading).padding(24).frame(maxWidth: .infinity)
+        }
+        .background(Color(uiColor: .systemGroupedBackground))
+        .safeAreaInset(edge: .bottom) {
+            VStack(spacing: 12) {
+                Button(L("Continue"), action: onContinue)
+                    .buttonStyle(.borderedProminent).tint(AppTheme.buttonFill).controlSize(.large)
+                    .disabled(selectedZone?.isValid != true || !scheduleReviewed)
+                OnboardingPageIndicator(currentPage: 1)
+            }.frame(maxWidth: .infinity).padding().background(.bar)
+        }
+        .sheet(isPresented: $showSchedule) {
+            ManualScheduleView(initialZone: selectedZone) { selectedZone = $0; scheduleReviewed = true }
+        }
+    }
+}
+
+/// Address is an optional label. A real map appears only for an explicitly resolved location.
+struct AddressEntryView: View {
+    @Binding var address: String
+    @Binding var coordinate: CLLocationCoordinate2D?
+    @StateObject private var search = AddressSearchService()
+    @StateObject private var location = LocationManager()
+    @State private var resolving = false
+    @State private var isVisible = true
+    @State private var showSuggestions = false
+    @State private var error: String?
+    @FocusState private var focused: Bool
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text(L("Address (optional)")).font(.headline)
+            TextField(L("e.g. 12 Queen Street, Auckland"), text: Binding(get: { address }, set: { value in
+                address = value; coordinate = nil; showSuggestions = true; search.search(value)
+            }))
+                .textContentType(.fullStreetAddress).autocorrectionDisabled()
+                .textFieldStyle(.roundedBorder).focused($focused)
+                .disabled(resolving)
+            Text(L("An address labels your schedule. It does not set or verify your collection dates."))
+                .font(.footnote).foregroundStyle(.secondary)
+            if resolving || search.isSearching { ProgressView().accessibilityLabel(L("Finding address")) }
+            if showSuggestions {
+                ForEach(search.suggestions.prefix(5)) { suggestion in
+                    Button {
+                        guard !resolving else { return }
+                        resolving = true
+                        Task { @MainActor in
+                            defer { resolving = false }
+                            do {
+                                let result = try await search.resolve(suggestion)
+                                guard isVisible else { return }
+                                address = result.fullAddress
+                                coordinate = result.coordinate
+                                showSuggestions = false; focused = false; error = nil
+                            } catch { self.error = L("The address could not be found. Enter it yourself or continue without one.") }
+                        }
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text(suggestion.title)
+                            Text(suggestion.subtitle).font(.caption).foregroundStyle(.secondary)
+                        }.frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+                    }.disabled(resolving)
+                }
+            }
+            HStack {
+                Button {
+                    resolving = true
+                    Task { @MainActor in
+                        defer { resolving = false }
+                        do {
+                            guard let value = try await location.requestCurrentLocationAddress() else { throw AddressError.notFound }
+                            guard isVisible else { return }
+                            address = value; coordinate = nil; showSuggestions = true; search.search(value); error = nil
+                        } catch { self.error = error.localizedDescription }
+                    }
+                } label: { Label(L("Use current location"), systemImage: "location") }
+                .disabled(resolving)
+                if !address.isEmpty {
+                    Button(L("Clear")) { address = ""; coordinate = nil; showSuggestions = false; search.search("") }.disabled(resolving)
+                }
+            }.buttonStyle(.bordered).controlSize(.large)
+            if let message = error ?? search.errorMessage {
+                Text(message).font(.footnote).foregroundStyle(.secondary)
+            }
+            if let coordinate {
+                Map(initialPosition: .region(MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))))
+                    .id("\(coordinate.latitude),\(coordinate.longitude)")
+                    .frame(height: 180).clipShape(RoundedRectangle(cornerRadius: 12)).accessibilityHidden(true)
             }
         }
-        .padding(.horizontal, 32)
-
-        // Page indicator
-        HStack(spacing: 8) {
-            Circle().fill(.quaternary).frame(width: 8, height: 8)
-            Circle().fill(.quaternary).frame(width: 8, height: 8)
-            Circle().fill(.secondary).frame(width: 8, height: 8)
-            Circle().fill(.quaternary).frame(width: 8, height: 8)
-        }
-        .padding(.bottom, 20)
+        .onAppear { isVisible = true }
+        .onDisappear { isVisible = false }
     }
 }

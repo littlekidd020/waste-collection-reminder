@@ -1,0 +1,12 @@
+{
+  "report_files": 5,
+  "grouped_findings": 17,
+  "severity_counts": {
+    "P0": 1,
+    "P1": 12,
+    "P2": 4,
+    "P3": 0
+  },
+  "missing_local_links": [],
+  "changed_original_files": []
+}

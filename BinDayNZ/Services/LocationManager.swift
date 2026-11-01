@@ -17,40 +17,46 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     }
 
     func requestCurrentLocationAddress() async throws -> String? {
+        guard !isRequestingLocation else {
+            throw NSError(domain: "LocationManager", code: 2, userInfo: [NSLocalizedDescriptionKey: L("A location request is already in progress.")])
+        }
         isRequestingLocation = true
         locationError = nil
 
-        defer { isRequestingLocation = false }
+        let timeout = Task { @MainActor [weak self] in
+            try? await Task.sleep(for: .seconds(12))
+            guard !Task.isCancelled, let self, let continuation = self.locationContinuation else { return }
+            self.locationContinuation = nil
+            continuation.resume(throwing: AddressError.notFound)
+        }
+        defer { isRequestingLocation = false; timeout.cancel() }
 
         let status = manager.authorizationStatus
         if status == .denied || status == .restricted {
             throw NSError(domain: "LocationManager", code: 1, userInfo: [NSLocalizedDescriptionKey: L("Location access denied. Please enable in Settings.")])
         }
 
-        if status == .notDetermined {
-            manager.requestWhenInUseAuthorization()
-        }
-
         let location: CLLocation? = try await withCheckedThrowingContinuation { continuation in
             self.locationContinuation = continuation
-            manager.requestLocation()
+            if status == .notDetermined { manager.requestWhenInUseAuthorization() }
+            else { manager.requestLocation() }
         }
 
         guard let location = location else { return nil }
 
         let geocoder = CLGeocoder()
+        let geocodeTimeout = Task { @MainActor in
+            try? await Task.sleep(for: .seconds(12))
+            if !Task.isCancelled { geocoder.cancelGeocode() }
+        }
+        defer { geocodeTimeout.cancel() }
         let placemarks = try await geocoder.reverseGeocodeLocation(location)
         guard let placemark = placemarks.first else { return nil }
 
         var addressComponents: [String] = []
 
-        if let subThoroughfare = placemark.subThoroughfare, !subThoroughfare.isEmpty {
-            addressComponents.append(subThoroughfare)
-        }
-
-        if let thoroughfare = placemark.thoroughfare, !thoroughfare.isEmpty, placemark.subThoroughfare == nil {
-            addressComponents.append(thoroughfare)
-        }
+        let street = [placemark.subThoroughfare, placemark.thoroughfare].compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " ")
+        if !street.isEmpty { addressComponents.append(street) }
 
         if let locality = placemark.subLocality ?? placemark.locality, !locality.isEmpty {
             addressComponents.append(locality)

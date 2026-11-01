@@ -1,0 +1,68 @@
+{
+  "resultBundle": "/tmp/binday-compact-edit-contrast.xcresult",
+  "rawAttachments": "/tmp/binday-compact-edit-contrast-attachments",
+  "appearance": "dark",
+  "contentSize": "large",
+  "preserved": [
+    {
+      "file": "20-preserved-other-bins.png",
+      "configurationName": "Test Scheme Action",
+      "deviceId": "82F9EDCF-F739-4434-9EAD-0D1B36F87C0F",
+      "deviceName": "BinDay Audit Compact 0609",
+      "exportedFileName": "C4667B43-85EC-4C46-97E9-22FBFCD06F26.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "20-preserved-other-bins_0_DBDFD7E8-416D-4428-8A03-50E372780371.png",
+      "timestamp": 1788696128.284
+    },
+    {
+      "file": "19-persisted-rubbish-change.png",
+      "configurationName": "Test Scheme Action",
+      "deviceId": "82F9EDCF-F739-4434-9EAD-0D1B36F87C0F",
+      "deviceName": "BinDay Audit Compact 0609",
+      "exportedFileName": "428583AD-1D01-4F0B-95BE-0B6CE9D09EC4.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "19-persisted-rubbish-change_0_E6A4EE7A-3661-45BE-A02A-563507050298.png",
+      "timestamp": 1788696117.376
+    },
+    {
+      "file": "18-added-one-off-change.png",
+      "configurationName": "Test Scheme Action",
+      "deviceId": "82F9EDCF-F739-4434-9EAD-0D1B36F87C0F",
+      "deviceName": "BinDay Audit Compact 0609",
+      "exportedFileName": "8EBF6C09-BD31-45D5-9D25-69846EAAC4B6.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "18-added-one-off-change_0_B4064543-AA07-46C0-A2B3-88D559271163.png",
+      "timestamp": 1788696069.446
+    },
+    {
+      "file": "21-visible-reminder-status.png",
+      "configurationName": "Test Scheme Action",
+      "deviceId": "82F9EDCF-F739-4434-9EAD-0D1B36F87C0F",
+      "deviceName": "BinDay Audit Compact 0609",
+      "exportedFileName": "1E685EFF-72A9-4BDD-992F-4A1FE5E6C4C2.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "21-visible-reminder-status_0_4EBE0DEF-422F-4226-9A7C-C14245956009.png",
+      "timestamp": 1788696138.551
+    },
+    {
+      "file": "contrast-failure-full.png",
+      "configurationName": "Test Scheme Action",
+      "deviceId": "82F9EDCF-F739-4434-9EAD-0D1B36F87C0F",
+      "deviceName": "BinDay Audit Compact 0609",
+      "exportedFileName": "486B8DC8-46ED-425F-B73C-DD5DFC9D2807.png",
+      "isAssociatedWithFailure": true,
+      "suggestedHumanReadableName": "App Screenshot_0_60DA89F1-B9E9-4D47-A2FD-52D9E1E95A18.png",
+      "timestamp": 1788696138.809
+    },
+    {
+      "file": "contrast-failure-element.png",
+      "configurationName": "Test Scheme Action",
+      "deviceId": "82F9EDCF-F739-4434-9EAD-0D1B36F87C0F",
+      "deviceName": "BinDay Audit Compact 0609",
+      "exportedFileName": "CF0DA5E4-8970-4154-8F71-405708A619B7.png",
+      "isAssociatedWithFailure": true,
+      "suggestedHumanReadableName": "Element Screenshot_1_25F83704-1667-45E2-8BC6-7130E4462FDA.png",
+      "timestamp": 1788696138.809
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+PASS: 251 L/WL source keys; 264 translatable catalog keys in all five languages; no missing keys, blank values, copied-English fallbacks or placeholder mismatches. Three brand/interpolation entries are explicitly nontranslatable.

@@ -1,83 +1,36 @@
-# Technovation Submission Preparation — Bin Day NZ
+# Technovation submission notes — Bin Day NZ
 
-Congratulations on getting ready for your Technovation submission! This document outlines the key information from your project that you can use to fill out the submission checklist.
+Updated 6 September 2026. Use this as a preparation guide, not evidence of competition eligibility, a submission already made, or demonstrated household/environmental impact. Check the current programme rules separately before submitting.
 
-## 1. Ideation
+## Project description
 
-### **Project Name**
-**Bin Day NZ**
+Bin Day NZ is a native iPhone and iPad app for Auckland households that want to keep track of their bin days. It saves a reviewed household schedule and presents upcoming collections through the app, widgets and optional reminders or calendars. Source-linked sorting guidance helps people check what belongs in each bin.
 
-### **Description of Your Project**
-*You can use this as your "Elevator Pitch" and detailed description:*
+The project is free to use. Its current focus is dependable dates, clear correction and accessible daily use within a defined Auckland service boundary. National coverage, institutional partnerships and a commercial model have not been established.
 
-**Elevator Pitch:**
-Bin Day NZ is a native iOS app designed to solve a common household frustration: forgetting which bins to put out and when. By providing timely reminders, interactive educational content locally relevant to New Zealand councils, and seamless calendar integration, we empower residents to manage their waste responsibly, reduce landfill contamination, and never miss a collection day again.
+## Demonstrate the actual candidate
 
-**Detailed Description:**
-In New Zealand, different councils have varying schedules and rules for rubbish, recycling, and food scraps. Residents often lose track of fortnightly rotations or are unsure about what's recyclable. Bin Day NZ addresses this with:
-- **Smart Reminders:** Push notifications the evening before and morning of collection.
-- **Native Widgets:** At-a-glance status on the Home and Lock screens.
-- **Educational Hub:** In-app videos and lists detailing "Accepted" vs. "Rejected" items for every bin type.
-- **Offline Reliability:** Works fully offline with bundled data, syncing updates via CloudKit.
-- **Cultural Inclusion:** Full support for Te Reo Māori alongside English.
+- Show an exact-property schedule check and the difference between source information and a user-entered schedule. Demonstrate editing different frequencies and a one-off date change.
+- Show the same date in Today, Schedule and a real widget. Explain that the operating system controls widget refresh and notification delivery.
+- Show reminders and their permission/renewal state. These are scheduled local notifications, not GPS-triggered reminders or a continuously running service.
+- Show optional calendar handling using a synthetic calendar. Explain that exported files are copies; they are not live Council subscriptions.
+- Show the text guide without loading a video, then deliberately open optional media and explain that it makes third-party network requests.
+- Demonstrate large text, screen-reader navigation and language switching. Include actual test evidence; do not say SwiftUI automatically guarantees accessibility or that translations have fluent approval unless they do.
 
-### **Learning Journey**
-*Suggested points to include:*
-- **SwiftUI & SwiftData:** Learning to build a modern, high-performance interface and manage local data storage.
-- **WidgetKit:** Implementing at-a-glance information for the iOS ecosystem.
-- **Localization:** Integrating Te Reo Māori and understanding the importance of cultural representation in software.
-- **UX Design:** Creating a flow that makes adding an address and setting reminders effortless for users of all ages.
-- **Environmental Education:** Researching waste protocols to provide accurate educational content.
+## Technology explanation
 
-### **Ethics**
-- **Data Privacy:** Bin Day NZ prioritizes user privacy. Home addresses and notification times are stored locally on the device or in the user's private iCloud (via CloudKit). We do not collect or sell personal data.
-- **Accessibility:** The app is built with SwiftUI, ensuring it supports system-wide accessibility features like VoiceOver and Dynamic Type.
-- **Cultural Responsibility:** By including Te Reo Māori, we respect the official languages of Aotearoa and ensure the app is inclusive.
-- **Environmental Impact:** Our goal is to reduce waste contamination by educating users on what belongs in which bin, supporting a cleaner New Zealand.
+SwiftUI provides the interface. SwiftData stores the household profile locally. A shared schedule engine calculates anchored recurring dates and explicit exceptions. WidgetKit reads the schedule through an App Group. UserNotifications schedules local reminders; EventKit and `.ics` support optional calendars. Apple mapping/location services and the external Council website need a connection. The candidate does not fetch Council dates automatically; the person checks the source and confirms their own schedule. Optional online videos use web content.
 
-### **2 or More Images**
-Prepare screenshots of:
-1. **Home Screen (Today View):** Showing the "Hero Card" with current bin status.
-2. **Onboarding Flow:** Showing the address search or council selection.
-3. **Info View:** Showing the "Accepted Items" list and educational videos.
+There is no application account, private CloudKit profile sync or implemented national update network. Saved schedules work offline; online lookup, live Council information and videos do not. The app must disclose uncertainty and corrections instead of implying that a locally saved recurrence is permanently authoritative.
 
----
+## Ethics and evidence
 
-## 2. Technical Elements
+Describe actual address, device-location, calendar and video data flows using the [candidate privacy policy](privacy-policy.md). The app does not need a new central address database to test its usefulness. Public app-support reports must omit home addresses and personal calendar information.
 
-### **Coding Language**
-**Swift (SwiftUI)**
+Environmental benefits are a hypothesis: no measured reduction in contamination, landfill volume or missed collections is claimed. Use the [six-week pilot](pilot-and-maintenance.md) to collect consented household observations and maintenance costs. Recruit fluent language reviewers and people who use assistive technology; keep their findings and limitations visible.
 
-### **Technical Additions**
-Your project uses several advanced iOS features:
-1. **WidgetKit:** Provides Small, Medium, and Lock Screen widgets for quick status updates.
-2. **UserNotifications Framework:** Implements location-based and scheduled reminders.
-3. **SwiftData & CloudKit:** Modern data persistence that syncs across the user's devices.
-4. **Xcode String Catalogs:** Professional-grade localization for multi-language support (English & Te Reo Māori).
-5. **EventKit Integration:** Allows users to sync their bin schedule directly to Apple or Google Calendars.
-6. **AVKit:** Native video playback for educational waste management content.
+## Submission assets and claims check
 
----
+Prepare screenshots or clips from the exact candidate: reviewed schedule, edit/recovery, Today/widget agreement, reminders and guidance. Exclude private addresses and accounts. Record the app version, device/OS and test date. Compare every spoken or written feature claim with the [release checklist](release-checklist.md).
 
-## 3. Pitch & Technical Videos (Tips)
-
-### **Pitch Video (3–4 minutes)**
-- **Hook:** Start with a relatable scene—someone waking up to the sound of a garbage truck and realizing they forgot to put the bin out.
-- **Problem:** Mention the confusion of different council schedules and the environmental impact of incorrect recycling.
-- **Solution:** Introduce Bin Day NZ with high-energy shots of the app.
-- **Market/Impact:** Explain why this is needed for all of New Zealand.
-- **Call to Action:** "Let's make NZ cleaner, one bin at a time."
-
-### **Technical Video (2 minutes)**
-- **Architecture:** Mention the SwiftUI/SwiftData stack.
-- **Show Code:** Briefly show `NotificationService.swift` or `BinType.swift` to demonstrate how schedules and educational content are handled.
-- **Widget Demo:** Show the widget updating in real-time.
-- **Language Switch:** Show the app toggling between English and Te Reo Māori to demonstrate the localization implementation.
-
----
-
-## 4. Entrepreneurship
-*Since you've already completed "Your Canvas", make sure to highlight:*
-- **Value Proposition:** Convenience and education.
-- **Customer Segments:** Homeowners, renters, and environmentally conscious residents in NZ.
-- **Key Partners:** Local councils for data accuracy.
+In a pitch, explain the household task, what the candidate currently does, what the pilot has actually shown, and the next bounded validation step. Leave results blank until observed. Do not invent downloads, partners, awards, grants, revenue, accessibility certification or environmental impact.

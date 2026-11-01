@@ -1,0 +1,46 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "82F9EDCF-F739-4434-9EAD-0D1B36F87C0F",
+        "deviceName" : "BinDay Audit Compact 0609",
+        "modelName" : "iPhone SE (3rd generation)",
+        "osBuildNumber" : "23C54",
+        "osVersion" : "26.2",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 0,
+      "passedTests" : 30,
+      "skippedTests" : 1,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "BinDayNZ · Built with macOS 26.5.1",
+  "expectedFailures" : 0,
+  "failedTests" : 0,
+  "finishTime" : 1788695090.765,
+  "passedTests" : 30,
+  "result" : "Passed",
+  "skippedTests" : 1,
+  "startTime" : 1788695051.695,
+  "statistics" : [
+
+  ],
+  "testFailures" : [
+
+  ],
+  "title" : "Test - BinDayNZ",
+  "topInsights" : [
+    {
+      "category" : "Longest Test Runs",
+      "impact" : "44% of duration",
+      "text" : "1 longest test run with outlier durations exceeding 0.27s (three standard deviations)"
+    }
+  ],
+  "totalTestCount" : 31
+}

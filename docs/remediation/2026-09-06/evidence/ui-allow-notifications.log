@@ -1,0 +1,385 @@
+xcodebuild -xctestrun /tmp/bindaynz-final-dd/Build/Products/BinDayNZ-ui-allow.xctestrun -destination platform=iOS Simulator,id=E7B0A682-1912-4538-B8DC-EA62BEA8D745 -parallel-testing-enabled NO -maximum-concurrent-test-simulator-destinations 1 -resultBundlePath /tmp/binday-ui-allow-notifications.xcresult test-without-building
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -xctestrun /tmp/bindaynz-final-dd/Build/Products/BinDayNZ-ui-allow.xctestrun -destination "platform=iOS Simulator,id=E7B0A682-1912-4538-B8DC-EA62BEA8D745" -parallel-testing-enabled NO -maximum-concurrent-test-simulator-destinations 1 -resultBundlePath /tmp/binday-ui-allow-notifications.xcresult test-without-building
+
+2026-09-06 23:53:26.436 xcodebuild[94211:8213540] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+Writing result bundle at path:
+	/tmp/binday-ui-allow-notifications.xcresult
+
+2026-09-06 23:53:26.446 xcodebuild[94211:8213540] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+2026-09-06 23:53:27.824 xcodebuild[94211:8213540] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+2026-09-06 23:53:37.495302+1200 BinDayNZUITests-Runner[94228:8214112] [Default] Running tests...
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'Selected tests' started at 2026-09-06 23:53:41.058.
+Test Suite 'BinDayNZUITests.xctest' started at 2026-09-06 23:53:41.059.
+Test Suite 'OnboardingFlowUITests' started at 2026-09-06 23:53:41.059.
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testConfirmedScheduleRecoveryEditingGuidesAndRelaunch]' started.
+    t =     0.00s Start Test at 2026-09-06 23:53:41.060
+    t =     0.04s Set Up
+    t =     0.07s     Open com.bindaynz.app
+    t =     0.07s         Launch com.bindaynz.app
+    t =    13.02s             Setting up automation session
+    t =    24.41s             Wait for com.bindaynz.app to idle
+    t =    26.13s Waiting 10.0s for "Get Started" Button to exist
+    t =    27.18s     Checking `Expect predicate `existsNoRetry == 1` for object "Get Started" Button`
+    t =    27.18s         Checking existence of `"Get Started" Button`
+    t =    27.39s Added attachment named '01-welcome'
+    t =    27.39s Tap "Get Started" Button
+    t =    27.39s     Wait for com.bindaynz.app to idle
+    t =    27.40s     Find the "Get Started" Button
+    t =    27.42s     Check for interrupting elements affecting "Get Started" Button
+    t =    27.44s     Synthesize event
+    t =    27.74s     Wait for com.bindaynz.app to idle
+    t =    27.74s Waiting 5.0s for "Set up manually" Button to exist
+    t =    28.79s     Checking `Expect predicate `existsNoRetry == 1` for object "Set up manually" Button`
+    t =    28.80s         Checking existence of `"Set up manually" Button`
+    t =    28.93s Added attachment named '02-optional-address'
+    t =    28.93s Tap "Set up manually" Button
+    t =    28.93s     Wait for com.bindaynz.app to idle
+    t =    28.94s     Find the "Set up manually" Button
+    t =    28.96s     Check for interrupting elements affecting "Set up manually" Button
+    t =    28.97s     Synthesize event
+    t =    29.27s     Wait for com.bindaynz.app to idle
+    t =    29.55s Waiting 5.0s for "Your bin schedule" NavigationBar to exist
+    t =    30.60s     Checking `Expect predicate `existsNoRetry == 1` for object "Your bin schedule" NavigationBar`
+    t =    30.60s         Checking existence of `"Your bin schedule" NavigationBar`
+    t =    30.77s Find the "Save" Button
+    t =    31.00s Added attachment named '03-per-bin-editor'
+    t =    31.00s Find the Switch (First Match)
+    t =    32.22s     Find the Switch (First Match) (retry 1)
+    t =    33.37s     Find the Switch (First Match) (retry 2)
+    t =    33.59s Checking existence of `Switch (First Match)`
+    t =    33.78s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    33.78s     Wait for com.bindaynz.app to idle
+    t =    33.79s     Find the Target Application 'com.bindaynz.app'
+    t =    33.85s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    33.92s     Synthesize event
+    t =    33.92s         Find the Target Application 'com.bindaynz.app'
+    t =    33.98s         Find the Target Application 'com.bindaynz.app'
+    t =    34.03s         Find the Target Application 'com.bindaynz.app'
+    t =    34.09s         Find the Target Application 'com.bindaynz.app'
+    t =    34.14s         Find the Target Application 'com.bindaynz.app'
+    t =    35.64s     Wait for com.bindaynz.app to idle
+    t =    35.68s Find the Switch (First Match)
+    t =    37.10s     Find the Switch (First Match) (retry 1)
+    t =    39.31s     Find the Switch (First Match) (retry 2)
+    t =    39.55s Checking existence of `Switch (First Match)`
+    t =    39.75s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    39.75s     Wait for com.bindaynz.app to idle
+    t =    39.75s     Find the Target Application 'com.bindaynz.app'
+    t =    39.81s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    39.88s     Synthesize event
+    t =    39.88s         Find the Target Application 'com.bindaynz.app'
+    t =    39.93s         Find the Target Application 'com.bindaynz.app'
+    t =    39.99s         Find the Target Application 'com.bindaynz.app'
+    t =    40.04s         Find the Target Application 'com.bindaynz.app'
+    t =    40.10s         Find the Target Application 'com.bindaynz.app'
+    t =    41.60s     Wait for com.bindaynz.app to idle
+    t =    42.01s Find the Switch (First Match)
+    t =    43.23s     Find the Switch (First Match) (retry 1)
+    t =    44.39s     Find the Switch (First Match) (retry 2)
+    t =    44.56s Checking existence of `Switch (First Match)`
+    t =    44.72s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    44.72s     Wait for com.bindaynz.app to idle
+    t =    44.73s     Find the Target Application 'com.bindaynz.app'
+    t =    44.79s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    44.86s     Synthesize event
+    t =    44.86s         Find the Target Application 'com.bindaynz.app'
+    t =    44.92s         Find the Target Application 'com.bindaynz.app'
+    t =    44.97s         Find the Target Application 'com.bindaynz.app'
+    t =    45.02s         Find the Target Application 'com.bindaynz.app'
+    t =    45.08s         Find the Target Application 'com.bindaynz.app'
+    t =    46.58s     Wait for com.bindaynz.app to idle
+    t =    46.86s Find the Switch (First Match)
+    t =    47.01s Tap Switch (First Match)
+    t =    47.01s     Wait for com.bindaynz.app to idle
+    t =    47.02s     Find the Switch (First Match)
+    t =    47.16s     Check for interrupting elements affecting "0" Switch
+    t =    47.23s     Synthesize event
+    t =    47.53s     Wait for com.bindaynz.app to idle
+    t =    48.82s Find the "I have checked these dates for my property" Switch
+    t =    48.90s Find the "Save" Button
+    t =    48.97s Tap "Save" Button
+    t =    48.97s     Wait for com.bindaynz.app to idle
+    t =    48.97s     Find the "Save" Button
+    t =    49.04s     Check for interrupting elements affecting "Save" Button
+    t =    49.11s     Synthesize event
+    t =    49.41s     Wait for com.bindaynz.app to idle
+    t =    50.20s Tap "Continue" Button
+    t =    50.20s     Wait for com.bindaynz.app to idle
+    t =    50.20s     Find the "Continue" Button
+    t =    50.23s     Check for interrupting elements affecting "Continue" Button
+    t =    50.25s     Synthesize event
+    t =    50.55s     Wait for com.bindaynz.app to idle
+    t =    50.55s Waiting 5.0s for "Set Up Reminders" StaticText to exist
+    t =    51.61s     Checking `Expect predicate `existsNoRetry == 1` for object "Set Up Reminders" StaticText`
+    t =    51.61s         Checking existence of `"Set Up Reminders" StaticText`
+    t =    51.79s Added attachment named '04-reminders'
+    t =    51.79s Find the "finishSetup" Button
+    t =    52.96s     Find the "finishSetup" Button (retry 1)
+    t =    54.01s     Find the "finishSetup" Button (retry 2)
+    t =    54.04s Checking existence of `"finishSetup" Button`
+    t =    54.08s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    54.08s     Wait for com.bindaynz.app to idle
+    t =    54.09s     Find the Target Application 'com.bindaynz.app'
+    t =    54.11s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    54.15s     Synthesize event
+    t =    54.15s         Find the Target Application 'com.bindaynz.app'
+    t =    54.18s         Find the Target Application 'com.bindaynz.app'
+    t =    54.20s         Find the Target Application 'com.bindaynz.app'
+    t =    54.23s         Find the Target Application 'com.bindaynz.app'
+    t =    54.26s         Find the Target Application 'com.bindaynz.app'
+    t =    55.75s     Wait for com.bindaynz.app to idle
+    t =    55.75s Find the "finishSetup" Button
+    t =    55.80s Tap "finishSetup" Button
+    t =    55.80s     Wait for com.bindaynz.app to idle
+    t =    55.80s     Find the "finishSetup" Button
+    t =    55.85s     Check for interrupting elements affecting "finishSetup" Button
+    t =    55.89s     Synthesize event
+    t =    56.18s     Wait for com.bindaynz.app to idle
+    t =    56.45s Waiting 5.0s for "Allow" Button to exist
+    t =    57.52s     Checking `Expect predicate `existsNoRetry == 1` for object "Allow" Button`
+    t =    57.52s         Checking existence of `"Allow" Button`
+    t =    57.56s Tap "Allow" Button
+    t =    57.56s     Wait for com.apple.springboard to idle
+    t =    57.56s     Find the "Allow" Button
+    t =    57.59s     Check for interrupting elements affecting "Allow" Button
+    t =    57.65s     Synthesize event
+    t =    57.95s     Wait for com.apple.springboard to idle
+    t =    58.74s Waiting 15.0s for "Today" Button to exist
+    t =    59.77s     Checking `Expect predicate `existsNoRetry == 1` for object "Today" Button`
+    t =    59.77s         Checking existence of `"Today" Button`
+    t =    60.10s Added attachment named '05-today'
+    t =    60.10s Find the StaticText (First Match)
+    t =    61.23s     Find the StaticText (First Match) (retry 1)
+    t =    62.40s     Find the StaticText (First Match) (retry 2)
+    t =    62.54s Checking existence of `StaticText (First Match)`
+    t =    62.68s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    62.68s     Wait for com.bindaynz.app to idle
+    t =    62.68s     Find the Target Application 'com.bindaynz.app'
+    t =    62.71s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    62.75s     Synthesize event
+    t =    62.76s         Find the Target Application 'com.bindaynz.app'
+    t =    62.79s         Find the Target Application 'com.bindaynz.app'
+    t =    62.82s         Find the Target Application 'com.bindaynz.app'
+    t =    62.85s         Find the Target Application 'com.bindaynz.app'
+    t =    62.89s         Find the Target Application 'com.bindaynz.app'
+    t =    64.38s     Wait for com.bindaynz.app to idle
+    t =    65.03s Find the StaticText (First Match)
+    t =    66.66s     Find the StaticText (First Match) (retry 1)
+    t =    66.72s Checking existence of `"Reminders scheduled through March 29" StaticText`
+    t =    66.88s Added attachment named '05-reminder-status'
+    t =    66.88s Find the "Change schedule" Button
+    t =    66.93s Tap "Change schedule" Button
+    t =    66.93s     Wait for com.bindaynz.app to idle
+    t =    66.94s     Find the "Change schedule" Button
+    t =    66.98s     Check for interrupting elements affecting "Change schedule" Button
+    t =    67.02s     Synthesize event
+    t =    67.33s     Wait for com.bindaynz.app to idle
+    t =    67.75s Waiting 5.0s for "Change schedule" NavigationBar to exist
+    t =    68.79s     Checking `Expect predicate `existsNoRetry == 1` for object "Change schedule" NavigationBar`
+    t =    68.79s         Checking existence of `"Change schedule" NavigationBar`
+    t =    69.06s Tap "Review bin schedule" Button
+    t =    69.06s     Wait for com.bindaynz.app to idle
+    t =    69.10s     Find the "Review bin schedule" Button
+    t =    69.26s     Check for interrupting elements affecting "Review bin schedule" Button
+    t =    69.39s     Synthesize event
+    t =    69.72s     Wait for com.bindaynz.app to idle
+    t =    69.76s Waiting 5.0s for "Your bin schedule" NavigationBar to exist
+    t =    70.76s     Checking `Expect predicate `existsNoRetry == 1` for object "Your bin schedule" NavigationBar`
+    t =    70.76s         Checking existence of `"Your bin schedule" NavigationBar`
+    t =    70.93s Find the "Save" Button
+    t =    71.24s Added attachment named '06-edit-preserved-schedule'
+    t =    71.26s Tap "Cancel" Button
+    t =    71.26s     Wait for com.bindaynz.app to idle
+    t =    71.27s     Find the "Cancel" Button
+    t =    71.39s     Check for interrupting elements affecting "Cancel" Button
+    t =    71.50s     Synthesize event
+    t =    71.81s     Wait for com.bindaynz.app to idle
+    t =    72.47s Tap "Cancel" Button
+    t =    72.47s     Wait for com.bindaynz.app to idle
+    t =    72.47s     Find the "Cancel" Button
+    t =    72.56s     Check for interrupting elements affecting "Cancel" Button
+    t =    72.64s     Synthesize event
+    t =    72.95s     Wait for com.bindaynz.app to idle
+    t =    73.71s Tap "Schedule" Button
+    t =    73.71s     Wait for com.bindaynz.app to idle
+    t =    73.71s     Find the "Schedule" Button
+    t =    73.77s     Check for interrupting elements affecting "calendar" Button
+    t =    73.84s     Synthesize event
+    t =    74.15s     Wait for com.bindaynz.app to idle
+    t =    75.49s Waiting 5.0s for "Schedule" NavigationBar to exist
+    t =    76.54s     Checking `Expect predicate `existsNoRetry == 1` for object "Schedule" NavigationBar`
+    t =    76.54s         Checking existence of `"Schedule" NavigationBar`
+    t =    76.75s Added attachment named '07-schedule'
+    t =    76.75s Tap "Info" Button
+    t =    76.75s     Wait for com.bindaynz.app to idle
+    t =    76.75s     Find the "Info" Button
+    t =    76.84s     Check for interrupting elements affecting "info.circle" Button
+    t =    76.90s     Synthesize event
+    t =    77.20s     Wait for com.bindaynz.app to idle
+    t =    78.59s Added attachment named '08-info'
+    t =    78.59s Tap Button (First Match)
+    t =    78.59s     Wait for com.bindaynz.app to idle
+    t =    78.59s     Find the Button (First Match)
+    t =    78.70s     Check for interrupting elements affecting "Rubbish, What goes in" Button
+    t =    78.74s     Synthesize event
+    t =    79.04s     Wait for com.bindaynz.app to idle
+    t =    79.50s Waiting 5.0s for "Rubbish" NavigationBar to exist
+    t =    80.56s     Checking `Expect predicate `existsNoRetry == 1` for object "Rubbish" NavigationBar`
+    t =    80.56s         Checking existence of `"Rubbish" NavigationBar`
+    t =    80.63s Checking existence of `WebView (First Match)`
+    t =    80.75s Checking existence of `"Load video" Button`
+    t =    80.93s Added attachment named '08-rubbish-guide'
+    t =    80.93s Tap "Done" Button
+    t =    80.93s     Wait for com.bindaynz.app to idle
+    t =    80.93s     Find the "Done" Button
+    t =    80.99s     Check for interrupting elements affecting "Done" Button
+    t =    81.05s     Synthesize event
+    t =    81.35s     Wait for com.bindaynz.app to idle
+    t =    82.10s Tap Button (First Match)
+    t =    82.10s     Wait for com.bindaynz.app to idle
+    t =    82.10s     Find the Button (First Match)
+    t =    82.24s     Check for interrupting elements affecting "Recycling, What goes in" Button
+    t =    82.29s     Synthesize event
+    t =    82.59s     Wait for com.bindaynz.app to idle
+    t =    83.04s Waiting 5.0s for "Recycling" NavigationBar to exist
+    t =    84.08s     Checking `Expect predicate `existsNoRetry == 1` for object "Recycling" NavigationBar`
+    t =    84.08s         Checking existence of `"Recycling" NavigationBar`
+    t =    84.16s Checking existence of `WebView (First Match)`
+    t =    84.41s Added attachment named '09-recycling-guide'
+    t =    84.41s Tap "Done" Button
+    t =    84.41s     Wait for com.bindaynz.app to idle
+    t =    84.41s     Find the "Done" Button
+    t =    84.49s     Check for interrupting elements affecting "Done" Button
+    t =    84.55s     Synthesize event
+    t =    84.86s     Wait for com.bindaynz.app to idle
+    t =    85.64s Tap "Settings" Button
+    t =    85.64s     Wait for com.bindaynz.app to idle
+    t =    85.64s     Find the "Settings" Button
+    t =    85.68s     Check for interrupting elements affecting "gearshape" Button
+    t =    85.73s     Synthesize event
+    t =    86.03s     Wait for com.bindaynz.app to idle
+    t =    87.65s Added attachment named '10-settings'
+    t =    87.65s Find the "Privacy and Help" Button
+    t =    88.75s     Find the "Privacy and Help" Button (retry 1)
+    t =    89.83s     Find the "Privacy and Help" Button (retry 2)
+    t =    90.05s Checking existence of `"Privacy and Help" Button`
+    t =    90.16s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    90.16s     Wait for com.bindaynz.app to idle
+    t =    90.17s     Find the Target Application 'com.bindaynz.app'
+    t =    90.28s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    90.38s     Synthesize event
+    t =    90.38s         Find the Target Application 'com.bindaynz.app'
+    t =    90.42s         Find the Target Application 'com.bindaynz.app'
+    t =    90.48s         Find the Target Application 'com.bindaynz.app'
+    t =    90.52s         Find the Target Application 'com.bindaynz.app'
+    t =    90.58s         Find the Target Application 'com.bindaynz.app'
+    t =    92.10s     Wait for com.bindaynz.app to idle
+    t =    92.28s Find the "Privacy and Help" Button
+    t =    93.35s     Find the "Privacy and Help" Button (retry 1)
+    t =    94.42s     Find the "Privacy and Help" Button (retry 2)
+    t =    94.48s Checking existence of `"Privacy and Help" Button`
+    t =    94.54s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    94.54s     Wait for com.bindaynz.app to idle
+    t =    94.54s     Find the Target Application 'com.bindaynz.app'
+    t =    94.58s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    94.64s     Synthesize event
+    t =    94.64s         Find the Target Application 'com.bindaynz.app'
+    t =    94.68s         Find the Target Application 'com.bindaynz.app'
+    t =    94.72s         Find the Target Application 'com.bindaynz.app'
+    t =    94.76s         Find the Target Application 'com.bindaynz.app'
+    t =    94.81s         Find the Target Application 'com.bindaynz.app'
+    t =    96.30s     Wait for com.bindaynz.app to idle
+    t =    96.68s Find the "Privacy and Help" Button
+    t =    97.87s     Find the "Privacy and Help" Button (retry 1)
+    t =    98.95s     Find the "Privacy and Help" Button (retry 2)
+    t =    99.00s Checking existence of `"Privacy and Help" Button`
+    t =    99.06s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    99.06s     Wait for com.bindaynz.app to idle
+    t =    99.06s     Find the Target Application 'com.bindaynz.app'
+    t =    99.10s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    99.16s     Synthesize event
+    t =    99.16s         Find the Target Application 'com.bindaynz.app'
+    t =    99.20s         Find the Target Application 'com.bindaynz.app'
+    t =    99.24s         Find the Target Application 'com.bindaynz.app'
+    t =    99.29s         Find the Target Application 'com.bindaynz.app'
+    t =    99.33s         Find the Target Application 'com.bindaynz.app'
+    t =   100.85s     Wait for com.bindaynz.app to idle
+    t =   100.89s Find the "Privacy and Help" Button
+    t =   101.28s Tap "Privacy and Help" Button
+    t =   101.28s     Wait for com.bindaynz.app to idle
+    t =   101.62s     Find the "Privacy and Help" Button
+    t =   101.79s     Check for interrupting elements affecting "Privacy and Help" Button
+    t =   101.88s     Synthesize event
+    t =   102.19s     Wait for com.bindaynz.app to idle
+    t =   103.07s Waiting 5.0s for "Privacy and Help" NavigationBar to exist
+    t =   104.11s     Checking `Expect predicate `existsNoRetry == 1` for object "Privacy and Help" NavigationBar`
+    t =   104.11s         Checking existence of `"Privacy and Help" NavigationBar`
+    t =   104.29s Added attachment named '11-privacy-help'
+    t =   104.29s Tap Button (Element at index 0)
+    t =   104.29s     Wait for com.bindaynz.app to idle
+    t =   104.29s     Find the Button (Element at index 0)
+    t =   104.34s     Check for interrupting elements affecting "BackButton" Button
+    t =   104.38s     Synthesize event
+    t =   104.68s     Wait for com.bindaynz.app to idle
+    t =   105.04s Find the "languagePicker" Button
+    t =   105.11s Tap "languagePicker" Button
+    t =   105.11s     Wait for com.bindaynz.app to idle
+    t =   105.11s     Find the "languagePicker" Button
+    t =   105.17s     Check for interrupting elements affecting "languagePicker" Button
+    t =   105.22s     Synthesize event
+    t =   105.52s     Wait for com.bindaynz.app to idle
+    t =   106.60s Tap "简体中文" Button
+    t =   106.60s     Wait for com.bindaynz.app to idle
+    t =   106.61s     Find the "简体中文" Button
+    t =   106.70s     Check for interrupting elements affecting "简体中文" Button
+    t =   106.77s     Synthesize event
+    t =   107.07s     Wait for com.bindaynz.app to idle
+    t =   108.78s Find the Button (Element at index 3)
+    t =   108.96s Added attachment named '12-language-preserves-tab'
+    t =   108.97s Tap "languagePicker" Button
+    t =   108.97s     Wait for com.bindaynz.app to idle
+    t =   108.97s     Find the "languagePicker" Button
+    t =   109.03s     Check for interrupting elements affecting "languagePicker" Button
+    t =   109.09s     Synthesize event
+    t =   109.39s     Wait for com.bindaynz.app to idle
+    t =   110.67s Tap "English" Button
+    t =   110.68s     Wait for com.bindaynz.app to idle
+    t =   110.68s     Find the "English" Button
+    t =   110.89s     Check for interrupting elements affecting "English" Button
+    t =   110.97s     Synthesize event
+    t =   111.01s         Scroll element to visible
+    t =   111.02s         Find the "English" Button
+    t =   111.13s         Computed hit point {245, 354.66666666666669} after scrolling to visible
+    t =   111.42s     Wait for com.bindaynz.app to idle
+    t =   113.00s Terminate com.bindaynz.app:94275
+    t =   114.11s Open com.bindaynz.app
+    t =   114.11s     Launch com.bindaynz.app
+    t =   116.37s         Setting up automation session
+    t =   117.39s         Wait for com.bindaynz.app to idle
+    t =   119.10s Waiting 10.0s for "Today" Button to exist
+    t =   120.13s     Checking `Expect predicate `existsNoRetry == 1` for object "Today" Button`
+    t =   120.13s         Checking existence of `"Today" Button`
+    t =   120.27s Checking existence of `"Get Started" Button`
+    t =   120.43s Added attachment named '13-relaunch'
+    t =   120.43s Tear Down
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testConfirmedScheduleRecoveryEditingGuidesAndRelaunch]' passed (120.856 seconds).
+Test Suite 'OnboardingFlowUITests' passed at 2026-09-06 23:55:41.916.
+	 Executed 1 test, with 0 failures (0 unexpected) in 120.856 (120.857) seconds
+Test Suite 'BinDayNZUITests.xctest' passed at 2026-09-06 23:55:41.917.
+	 Executed 1 test, with 0 failures (0 unexpected) in 120.856 (120.858) seconds
+Test Suite 'Selected tests' passed at 2026-09-06 23:55:41.917.
+	 Executed 1 test, with 0 failures (0 unexpected) in 120.856 (120.859) seconds
+2026-09-06 23:55:42.732 xcodebuild[94211:8213540] [MT] IDETestOperationsObserverDebug: 134.854 elapsed -- Testing started completed.
+2026-09-06 23:55:42.732 xcodebuild[94211:8213540] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-06 23:55:42.732 xcodebuild[94211:8213540] [MT] IDETestOperationsObserverDebug: 134.854 sec, +134.854 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/binday-ui-allow-notifications.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started
+
+Process exit: 0; elapsed seconds: 137.7

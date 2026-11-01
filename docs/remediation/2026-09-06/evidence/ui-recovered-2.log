@@ -1,0 +1,300 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/bindaynz-ui-dd/Build/Products/BinDayNZ-ui.xctestrun -destination "platform=iOS Simulator,id=E7B0A682-1912-4538-B8DC-EA62BEA8D745" -parallel-testing-enabled NO -resultBundlePath /tmp/binday-ui-recovered-2.xcresult
+
+2026-09-06 23:22:40.715 xcodebuild[83040:8068616] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+Writing result bundle at path:
+	/tmp/binday-ui-recovered-2.xcresult
+
+2026-09-06 23:22:40.724 xcodebuild[83040:8068616] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+2026-09-06 23:22:42.680 xcodebuild[83040:8068616] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+2026-09-06 23:22:48.230135+1200 BinDayNZUITests-Runner[83053:8069129] [Default] Running tests...
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'All tests' started at 2026-09-06 23:22:50.268.
+Test Suite 'BinDayNZUITests.xctest' started at 2026-09-06 23:22:50.269.
+Test Suite 'OnboardingFlowUITests' started at 2026-09-06 23:22:50.269.
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testConfirmedScheduleRecoveryEditingGuidesAndRelaunch]' started.
+    t =     0.00s Start Test at 2026-09-06 23:22:50.270
+    t =     0.05s Set Up
+    t =     0.05s     Open com.bindaynz.app
+    t =     0.05s         Launch com.bindaynz.app
+    t =     1.14s             Setting up automation session
+    t =     2.11s             Wait for com.bindaynz.app to idle
+    t =     3.89s Waiting 10.0s for "Get Started" Button to exist
+    t =     4.94s     Checking `Expect predicate `existsNoRetry == 1` for object "Get Started" Button`
+    t =     4.94s         Checking existence of `"Get Started" Button`
+    t =     5.16s Added attachment named '01-welcome'
+    t =     5.17s Tap "Get Started" Button
+    t =     5.17s     Wait for com.bindaynz.app to idle
+    t =     5.17s     Find the "Get Started" Button
+    t =     5.20s     Check for interrupting elements affecting "Get Started" Button
+    t =     5.22s     Synthesize event
+    t =     5.52s     Wait for com.bindaynz.app to idle
+    t =     5.53s Waiting 5.0s for "Set up manually" Button to exist
+    t =     6.58s     Checking `Expect predicate `existsNoRetry == 1` for object "Set up manually" Button`
+    t =     6.58s         Checking existence of `"Set up manually" Button`
+    t =     6.71s Added attachment named '02-optional-address'
+    t =     6.71s Tap "Set up manually" Button
+    t =     6.71s     Wait for com.bindaynz.app to idle
+    t =     6.71s     Find the "Set up manually" Button
+    t =     6.73s     Check for interrupting elements affecting "Set up manually" Button
+    t =     6.75s     Synthesize event
+    t =     7.04s     Wait for com.bindaynz.app to idle
+    t =     7.40s Waiting 5.0s for "Your bin schedule" NavigationBar to exist
+    t =     8.44s     Checking `Expect predicate `existsNoRetry == 1` for object "Your bin schedule" NavigationBar`
+    t =     8.44s         Checking existence of `"Your bin schedule" NavigationBar`
+    t =     8.55s Find the "Save" Button
+    t =     8.72s Added attachment named '03-per-bin-editor'
+    t =     8.72s Find the "I have checked these dates for my property" Switch
+    t =     9.78s     Find the "I have checked these dates for my property" Switch (retry 1)
+    t =    10.88s     Find the "I have checked these dates for my property" Switch (retry 2)
+    t =    10.94s Swipe up Target Application 'com.bindaynz.app'
+    t =    10.94s     Wait for com.bindaynz.app to idle
+    t =    10.94s     Find the Target Application 'com.bindaynz.app'
+    t =    10.99s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    11.05s     Synthesize event
+    t =    11.47s     Wait for com.bindaynz.app to idle
+    t =    13.63s Find the "I have checked these dates for my property" Switch
+    t =    13.73s Find the "I have checked these dates for my property" Switch
+    t =    13.79s Find the Target Application 'com.bindaynz.app'
+    t =    13.84s Find the "I have checked these dates for my property" Switch
+    t =    13.90s Find the Target Application 'com.bindaynz.app'
+    t =    13.95s Swipe up Target Application 'com.bindaynz.app'
+    t =    13.95s     Wait for com.bindaynz.app to idle
+    t =    13.95s     Find the Target Application 'com.bindaynz.app'
+    t =    13.99s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    14.05s     Synthesize event
+    t =    14.47s     Wait for com.bindaynz.app to idle
+    t =    15.25s Find the "I have checked these dates for my property" Switch
+    t =    15.33s Find the "I have checked these dates for my property" Switch
+    t =    15.39s Find the Target Application 'com.bindaynz.app'
+    t =    15.43s Find the "I have checked these dates for my property" Switch
+    t =    15.50s Find the Target Application 'com.bindaynz.app'
+    t =    15.54s Swipe up Target Application 'com.bindaynz.app'
+    t =    15.54s     Wait for com.bindaynz.app to idle
+    t =    15.54s     Find the Target Application 'com.bindaynz.app'
+    t =    15.59s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    15.64s     Synthesize event
+    t =    16.06s     Wait for com.bindaynz.app to idle
+    t =    16.56s Find the "I have checked these dates for my property" Switch
+    t =    16.64s Find the "I have checked these dates for my property" Switch
+    t =    16.70s Find the Target Application 'com.bindaynz.app'
+    t =    16.75s Find the "I have checked these dates for my property" Switch
+    t =    16.81s Find the Target Application 'com.bindaynz.app'
+    t =    16.86s Swipe up Target Application 'com.bindaynz.app'
+    t =    16.86s     Wait for com.bindaynz.app to idle
+    t =    16.86s     Find the Target Application 'com.bindaynz.app'
+    t =    16.91s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    16.96s     Synthesize event
+    t =    17.39s     Wait for com.bindaynz.app to idle
+    t =    18.13s Find the "I have checked these dates for my property" Switch
+    t =    18.22s Find the "I have checked these dates for my property" Switch
+    t =    18.29s Find the Target Application 'com.bindaynz.app'
+    t =    18.33s Find the "I have checked these dates for my property" Switch
+    t =    18.40s Find the Target Application 'com.bindaynz.app'
+    t =    18.45s Swipe up Target Application 'com.bindaynz.app'
+    t =    18.45s     Wait for com.bindaynz.app to idle
+    t =    18.45s     Find the Target Application 'com.bindaynz.app'
+    t =    18.50s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    18.56s     Synthesize event
+    t =    18.98s     Wait for com.bindaynz.app to idle
+    t =    19.60s Find the "I have checked these dates for my property" Switch
+    t =    19.69s Find the "I have checked these dates for my property" Switch
+    t =    19.75s Find the Target Application 'com.bindaynz.app'
+    t =    19.79s Find the "I have checked these dates for my property" Switch
+    t =    19.85s Find the Target Application 'com.bindaynz.app'
+    t =    19.90s Swipe up Target Application 'com.bindaynz.app'
+    t =    19.90s     Wait for com.bindaynz.app to idle
+    t =    19.90s     Find the Target Application 'com.bindaynz.app'
+    t =    19.95s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    20.00s     Synthesize event
+    t =    20.42s     Wait for com.bindaynz.app to idle
+    t =    21.18s Find the "I have checked these dates for my property" Switch
+    t =    21.28s Find the "I have checked these dates for my property" Switch
+    t =    21.35s Find the Target Application 'com.bindaynz.app'
+    t =    21.40s Find the "I have checked these dates for my property" Switch
+    t =    21.47s Find the Target Application 'com.bindaynz.app'
+    t =    21.52s Swipe up Target Application 'com.bindaynz.app'
+    t =    21.52s     Wait for com.bindaynz.app to idle
+    t =    21.52s     Find the Target Application 'com.bindaynz.app'
+    t =    21.56s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    21.62s     Synthesize event
+    t =    22.04s     Wait for com.bindaynz.app to idle
+    t =    22.66s Find the "I have checked these dates for my property" Switch
+    t =    22.75s Find the "I have checked these dates for my property" Switch
+    t =    22.81s Find the Target Application 'com.bindaynz.app'
+    t =    22.86s Find the "I have checked these dates for my property" Switch
+    t =    22.92s Find the Target Application 'com.bindaynz.app'
+    t =    22.97s Swipe up Target Application 'com.bindaynz.app'
+    t =    22.97s     Wait for com.bindaynz.app to idle
+    t =    22.97s     Find the Target Application 'com.bindaynz.app'
+    t =    23.02s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    23.08s     Synthesize event
+    t =    23.50s     Wait for com.bindaynz.app to idle
+    t =    24.08s Find the "I have checked these dates for my property" Switch
+    t =    24.18s Find the "I have checked these dates for my property" Switch
+    t =    24.25s Find the Target Application 'com.bindaynz.app'
+    t =    24.29s Find the "I have checked these dates for my property" Switch
+    t =    24.36s Find the Target Application 'com.bindaynz.app'
+    t =    24.40s Swipe up Target Application 'com.bindaynz.app'
+    t =    24.40s     Wait for com.bindaynz.app to idle
+    t =    24.40s     Find the Target Application 'com.bindaynz.app'
+    t =    24.45s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    24.50s     Synthesize event
+    t =    24.92s     Wait for com.bindaynz.app to idle
+    t =    25.60s Find the "I have checked these dates for my property" Switch
+    t =    25.68s Tap Switch (First Match)
+    t =    25.68s     Wait for com.bindaynz.app to idle
+    t =    25.69s     Find the Switch (First Match)
+    t =    25.86s     Check for interrupting elements affecting "0" Switch
+    t =    25.93s     Synthesize event
+    t =    26.22s     Wait for com.bindaynz.app to idle
+    t =    27.51s Find the "I have checked these dates for my property" Switch
+    t =    27.60s Find the "Save" Button
+    t =    27.66s Tap "Save" Button
+    t =    27.66s     Wait for com.bindaynz.app to idle
+    t =    27.67s     Find the "Save" Button
+    t =    27.74s     Check for interrupting elements affecting "Save" Button
+    t =    27.80s     Synthesize event
+    t =    28.10s     Wait for com.bindaynz.app to idle
+    t =    28.89s Tap "Continue" Button
+    t =    28.89s     Wait for com.bindaynz.app to idle
+    t =    28.90s     Find the "Continue" Button
+    t =    28.92s     Check for interrupting elements affecting "Continue" Button
+    t =    28.94s     Synthesize event
+    t =    29.23s     Wait for com.bindaynz.app to idle
+    t =    29.24s Waiting 5.0s for "Set Up Reminders" StaticText to exist
+    t =    30.29s     Checking `Expect predicate `existsNoRetry == 1` for object "Set Up Reminders" StaticText`
+    t =    30.29s         Checking existence of `"Set Up Reminders" StaticText`
+    t =    30.44s Added attachment named '04-reminders'
+    t =    30.44s Find the "finishSetup" Button
+    t =    31.48s     Find the "finishSetup" Button (retry 1)
+    t =    32.54s     Find the "finishSetup" Button (retry 2)
+    t =    32.57s Swipe up Target Application 'com.bindaynz.app'
+    t =    32.57s     Wait for com.bindaynz.app to idle
+    t =    32.58s     Find the Target Application 'com.bindaynz.app'
+    t =    32.60s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    32.63s     Synthesize event
+    t =    33.05s     Wait for com.bindaynz.app to idle
+    t =    33.60s Find the "finishSetup" Button
+    t =    33.66s Find the "finishSetup" Button
+    t =    33.69s Find the Target Application 'com.bindaynz.app'
+    t =    33.71s Find the "finishSetup" Button
+    t =    33.75s Find the Target Application 'com.bindaynz.app'
+    t =    33.77s Tap "finishSetup" Button
+    t =    33.77s     Wait for com.bindaynz.app to idle
+    t =    33.78s     Find the "finishSetup" Button
+    t =    33.81s     Check for interrupting elements affecting "finishSetup" Button
+    t =    33.85s     Synthesize event
+    t =    34.14s     Wait for com.bindaynz.app to idle
+    t =    34.38s Waiting 3.0s for "Don’t Allow" Button to exist
+    t =    35.44s     Checking `Expect predicate `existsNoRetry == 1` for object "Don’t Allow" Button`
+    t =    35.44s         Checking existence of `"Don’t Allow" Button`
+    t =    35.60s Tap "Don’t Allow" Button
+    t =    35.60s     Wait for com.apple.springboard to idle
+    t =    35.60s     Find the "Don’t Allow" Button
+    t =    35.63s     Check for interrupting elements affecting "Don’t Allow" Button
+    t =    35.67s     Synthesize event
+    t =    35.96s     Wait for com.apple.springboard to idle
+    t =    36.22s Waiting 15.0s for "Today" Button to exist
+    t =    37.24s     Checking `Expect predicate `existsNoRetry == 1` for object "Today" Button`
+    t =    37.24s         Checking existence of `"Today" Button`
+    t =    37.50s Added attachment named '05-today'
+    t =    37.50s Find the "Notifications are not allowed" StaticText
+    t =    37.55s Find the "Notifications are not allowed" StaticText
+    t =    37.59s Find the Target Application 'com.bindaynz.app'
+    t =    37.63s Find the "Notifications are not allowed" StaticText
+    t =    37.67s Find the Target Application 'com.bindaynz.app'
+    t =    37.70s Checking existence of `"Notifications are not allowed" StaticText`
+    t =    37.74s Find the "Change schedule" Button
+    t =    37.79s Find the "Change schedule" Button
+    t =    37.83s Find the Target Application 'com.bindaynz.app'
+    t =    37.86s Find the "Change schedule" Button
+    t =    37.90s Find the Target Application 'com.bindaynz.app'
+    t =    37.93s Tap "Change schedule" Button
+    t =    37.93s     Wait for com.bindaynz.app to idle
+    t =    37.93s     Find the "Change schedule" Button
+    t =    37.97s     Check for interrupting elements affecting "Change schedule" Button
+    t =    38.01s     Synthesize event
+    t =    38.30s     Wait for com.bindaynz.app to idle
+    t =    38.72s Waiting 5.0s for "Change schedule" NavigationBar to exist
+    t =    39.75s     Checking `Expect predicate `existsNoRetry == 1` for object "Change schedule" NavigationBar`
+    t =    39.75s         Checking existence of `"Change schedule" NavigationBar`
+    t =    39.82s Tap "Review bin schedule" Button
+    t =    39.82s     Wait for com.bindaynz.app to idle
+    t =    39.83s     Find the "Review bin schedule" Button
+    t =    39.88s     Check for interrupting elements affecting "Review bin schedule" Button
+    t =    39.94s     Synthesize event
+    t =    40.23s     Wait for com.bindaynz.app to idle
+    t =    40.94s Waiting 5.0s for "Your bin schedule" NavigationBar to exist
+    t =    41.96s     Checking `Expect predicate `existsNoRetry == 1` for object "Your bin schedule" NavigationBar`
+    t =    41.96s         Checking existence of `"Your bin schedule" NavigationBar`
+    t =    42.08s Find the "Save" Button
+    t =    42.18s     Collecting debug information to assist test failure triage
+    t =    42.18s         Requesting snapshot of accessibility hierarchy for app with pid 83136
+    t =    42.35s     Requesting snapshot of accessibility hierarchy for app with pid 83136
+    t =    42.49s     Find: Descendants matching type NavigationBar
+    t =    42.49s     Find: Descendants matching type Button
+    t =    42.49s     Find: Elements matching predicate '"Save" IN identifiers'
+    t =    42.54s     Requesting snapshot of accessibility hierarchy for app with pid 83136
+    t =    42.68s     Find: Descendants matching type NavigationBar
+    t =    42.68s     Find: Descendants matching type Button
+    t =    42.68s     Find: Elements matching predicate '"Save" IN identifiers'
+    t =    42.69s     Requesting snapshot of accessibility hierarchy for app with pid 83136
+    t =    42.83s     Find: Descendants matching type NavigationBar
+    t =    42.83s     Find: Descendants matching type Button
+    t =    42.83s     Requesting snapshot of accessibility hierarchy for app with pid 83136
+    t =    42.97s     Find: Descendants matching type NavigationBar
+    t =    42.98s     Requesting snapshot of accessibility hierarchy for app with pid 83136
+    t =    43.15s     Requesting snapshot of accessibility hierarchy for app with pid 83136
+<unknown>:0: error: -[BinDayNZUITests.OnboardingFlowUITests testConfirmedScheduleRecoveryEditingGuidesAndRelaunch] : Failed to get matching snapshot: Find single matching element. Multiple matching elements found for <XCUIElementQuery: 0x6000021411d0>.
+Sparse tree of matches:
+→Application, pid: 83136, label: 'Bin Day NZ'
+  ↳Window (Main)
+    ↳Other
+    ⋅ ↳Other
+    ⋅   ↳Other
+    ⋅     ↳Other
+    ⋅       ↳Other
+    ⋅         ↳Other
+    ⋅           ↳Other
+    ⋅             ↳NavigationBar, identifier: 'Change schedule'
+    ⋅               ↳Other, label: 'Save'
+    ⋅                 ↳Other
+    ⋅                   ↳Button, label: 'Save', Disabled
+    ↳Other
+      ↳Other
+        ↳Other
+          ↳Other
+            ↳Other
+              ↳Other
+                ↳Other
+                  ↳NavigationBar, identifier: 'Your bin schedule'
+                    ↳Other, label: 'Save'
+                      ↳Other
+                        ↳Button, label: 'Save', Disabled
+Possibly caused by runtime issues:
+Automation type mismatch: computed Button from legacy attributes vs Link from modern attribute. Input attributes and values: {
+    "XC_kAXXCAttributeAutomationType" = 42;
+    "XC_kAXXCAttributeElementBaseType" = UIResponder;
+    "XC_kAXXCAttributeElementType" = "SwiftUI.AccessibilityNode";
+    "XC_kAXXCAttributeTraits" = 8589934595;
+}
+See test report attachments for more detail.
+    t =    43.35s Tear Down
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testConfirmedScheduleRecoveryEditingGuidesAndRelaunch]' failed (43.895 seconds).
+Test Suite 'OnboardingFlowUITests' failed at 2026-09-06 23:23:34.164.
+	 Executed 1 test, with 1 failure (0 unexpected) in 43.895 (43.895) seconds
+Test Suite 'BinDayNZUITests.xctest' failed at 2026-09-06 23:23:34.165.
+	 Executed 1 test, with 1 failure (0 unexpected) in 43.895 (43.896) seconds
+Test Suite 'All tests' failed at 2026-09-06 23:23:34.165.
+	 Executed 1 test, with 1 failure (0 unexpected) in 43.895 (43.897) seconds
+2026-09-06 23:24:01.899 xcodebuild[83040:8068616] [MT] IDETestOperationsObserverDebug: 79.170 elapsed -- Testing started completed.
+2026-09-06 23:24:01.899 xcodebuild[83040:8068616] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-06 23:24:01.899 xcodebuild[83040:8068616] [MT] IDETestOperationsObserverDebug: 79.170 sec, +79.170 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/binday-ui-recovered-2.xcresult
+
+** TEST EXECUTE FAILED **
+
+Testing started

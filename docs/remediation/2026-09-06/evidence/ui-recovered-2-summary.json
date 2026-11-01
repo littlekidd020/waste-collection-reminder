@@ -1,0 +1,49 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "E7B0A682-1912-4538-B8DC-EA62BEA8D745",
+        "deviceName" : "BinDay Audit 0609",
+        "modelName" : "iPhone 17",
+        "osBuildNumber" : "23C54",
+        "osVersion" : "26.2",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 1,
+      "passedTests" : 0,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "BinDayNZ · Built with macOS 26.5.1",
+  "expectedFailures" : 0,
+  "failedTests" : 1,
+  "finishTime" : 1788693841.92,
+  "passedTests" : 0,
+  "result" : "Failed",
+  "skippedTests" : 0,
+  "startTime" : 1788693760.726,
+  "statistics" : [
+
+  ],
+  "testFailures" : [
+    {
+      "failureText" : "Failed to get matching snapshot: Find single matching element. Multiple matching elements found for <XCUIElementQuery: 0x6000021411d0>.\nSparse tree of matches:\n→Application, pid: 83136, label: 'Bin Day NZ'\n  ↳Window (Main)\n    ↳Other\n    ⋅ ↳Other\n    ⋅   ↳Other\n    ⋅     ↳Other\n    ⋅       ↳Other\n    ⋅         ↳Other\n    ⋅           ↳Other\n    ⋅             ↳NavigationBar, identifier: 'Change schedule'\n    ⋅               ↳Other, label: 'Save'\n    ⋅                 ↳Other\n    ⋅                   ↳Button, label: 'Save', Disabled\n    ↳Other\n      ↳Other\n        ↳Other\n          ↳Other\n            ↳Other\n              ↳Other\n                ↳Other\n                  ↳NavigationBar, identifier: 'Your bin schedule'\n                    ↳Other, label: 'Save'\n                      ↳Other\n                        ↳Button, label: 'Save', Disabled\nPossibly caused by runtime issues:\nAutomation type mismatch: computed Button from legacy attributes vs Link from modern attribute. Input attributes and values: {\n    \"XC_kAXXCAttributeAutomationType\" = 42;\n    \"XC_kAXXCAttributeElementBaseType\" = UIResponder;\n    \"XC_kAXXCAttributeElementType\" = \"SwiftUI.AccessibilityNode\";\n    \"XC_kAXXCAttributeTraits\" = 8589934595;\n}\nSee test report attachments for more detail.",
+      "targetName" : "BinDayNZUITests",
+      "testIdentifier" : 1,
+      "testIdentifierString" : "OnboardingFlowUITests/testConfirmedScheduleRecoveryEditingGuidesAndRelaunch()",
+      "testIdentifierURL" : "test://com.apple.xcode/BinDayNZ/BinDayNZUITests/OnboardingFlowUITests/testConfirmedScheduleRecoveryEditingGuidesAndRelaunch",
+      "testName" : "testConfirmedScheduleRecoveryEditingGuidesAndRelaunch()"
+    }
+  ],
+  "title" : "Test - BinDayNZ",
+  "topInsights" : [
+
+  ],
+  "totalTestCount" : 1
+}

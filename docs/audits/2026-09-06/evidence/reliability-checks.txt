@@ -1,0 +1,12 @@
+BinDayNZ deterministic reliability audit — fixed dates, host Foundation; no notifications/calendar/widget process invoked
+FAIL fortnightly-odd-year-rollover: dates=["2026-12-14", "2026-12-28", "2027-01-04", "2027-01-18", "2027-02-01"]; gaps=[14, 7, 14, 14] days
+FAIL fortnightly-even-year-rollover: dates=["2026-12-21", "2027-01-11", "2027-01-25", "2027-02-08", "2027-02-22"]; gaps=[21, 14, 14, 14] days
+FAIL device-locale-independence: 2027-01-04: NZ week=2, firstWeekday=2, minimumDays=1, bins=[]; US week=2, firstWeekday=1, minimumDays=1, bins=[]; GB week=1, firstWeekday=2, minimumDays=4, bins=["recycling"]
+FAIL NZ-calendar-fortnightly-odd-year-rollover: dates=["2028-12-11", "2028-12-25", "2029-01-01", "2029-01-15", "2029-01-29"]; gaps=[14, 7, 14, 14] days
+FAIL NZ-calendar-fortnightly-even-year-rollover: dates=["2028-12-18", "2029-01-08", "2029-01-22", "2029-02-05", "2029-02-19"]; gaps=[21, 14, 14, 14] days
+PASS DST-end: dates=["2026-03-30", "2026-04-06"]; calendar gap=7 days; elapsed=169.0 hours; midnight preserved
+PASS DST-start: dates=["2026-09-21", "2026-09-28"]; calendar gap=7 days; elapsed=167.0 hours; midnight preserved
+FAIL property-timezone-independence: same instant is NZ 2026-09-07 / LA 2026-09-06; NZ bins=["recycling"]; LA bins=[]; product must define home-vs-device timezone policy
+FAIL widget-payload-covers-ongoing-schedule: snapshot 2026-09-06 has 12 bin events; last stored=2026-10-05; on 2026-10-06 stored future=0, actual future=3; next actual=2026-10-12
+OBSERVATION notification-generation: 60 collection entries generate 120 one-shot requests; last collection=2027-02-22; current-OS pending retention NOT tested
+RESULT 2/9 desired invariants pass; 7 failures reproduced. Exit status 1 indicates failed invariants.

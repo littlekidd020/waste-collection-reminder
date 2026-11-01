@@ -18,7 +18,7 @@ final class LanguageManager {
 
     private init() {
         // On first load, check if user had a saved preference
-        if let saved = UserDefaults.standard.stringArray(forKey: "AppleLanguages")?.first {
+        if let saved = UserDefaults.standard.string(forKey: "appLanguageCode") {
             apply(saved)
         }
     }
@@ -26,7 +26,7 @@ final class LanguageManager {
     /// Switch to a new language. Updates the bundle immediately.
     func apply(_ code: String) {
         currentCode = code
-        UserDefaults.standard.set([code], forKey: "AppleLanguages")
+        UserDefaults.standard.set(code, forKey: "appLanguageCode")
 
         if let path = Bundle.main.path(forResource: code, ofType: "lproj"),
            let langBundle = Bundle(path: path) {

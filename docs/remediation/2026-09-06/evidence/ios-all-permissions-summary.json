@@ -1,0 +1,46 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "E7B0A682-1912-4538-B8DC-EA62BEA8D745",
+        "deviceName" : "BinDay Audit 0609",
+        "modelName" : "iPhone 17",
+        "osBuildNumber" : "23C54",
+        "osVersion" : "26.2",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 0,
+      "passedTests" : 31,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "BinDayNZ · Built with macOS 26.5.1",
+  "expectedFailures" : 0,
+  "failedTests" : 0,
+  "finishTime" : 1788696134.071,
+  "passedTests" : 31,
+  "result" : "Passed",
+  "skippedTests" : 0,
+  "startTime" : 1788696115.034,
+  "statistics" : [
+
+  ],
+  "testFailures" : [
+
+  ],
+  "title" : "Test - BinDayNZ",
+  "topInsights" : [
+    {
+      "category" : "Longest Test Runs",
+      "impact" : "54% of duration",
+      "text" : "1 longest test run with outlier durations exceeding 2.75s (three standard deviations)"
+    }
+  ],
+  "totalTestCount" : 31
+}

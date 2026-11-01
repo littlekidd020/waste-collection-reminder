@@ -1,0 +1,58 @@
+[
+  {
+    "bundle": "com.bindaynz.app",
+    "version": "1.2",
+    "build": "3",
+    "families": [
+      1,
+      2
+    ],
+    "minOS": "17.0",
+    "languages": [
+      "en.lproj",
+      "hi.lproj",
+      "ko.lproj",
+      "mi.lproj",
+      "zh-Hans.lproj"
+    ],
+    "privacy": {
+      "NSPrivacyAccessedAPITypes": [
+        {
+          "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+          "NSPrivacyAccessedAPITypeReasons": [
+            "CA92.1",
+            "1C8F.1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "bundle": "com.bindaynz.app.widget",
+    "version": "1.2",
+    "build": "3",
+    "families": [
+      1,
+      2
+    ],
+    "minOS": "17.0",
+    "languages": [
+      "en.lproj",
+      "hi.lproj",
+      "ko.lproj",
+      "mi.lproj",
+      "zh-Hans.lproj"
+    ],
+    "privacy": {
+      "NSPrivacyAccessedAPITypes": [
+        {
+          "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+          "NSPrivacyAccessedAPITypeReasons": [
+            "CA92.1",
+            "1C8F.1"
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,510 @@
+xcodebuild -xctestrun /tmp/bindaynz-final-dd/Build/Products/BinDayNZ-isolated.xctestrun -destination platform=iOS Simulator,id=82F9EDCF-F739-4434-9EAD-0D1B36F87C0F -parallel-testing-enabled NO -maximum-concurrent-test-simulator-destinations 1 -resultBundlePath /tmp/binday-compact-final-unit-tests-2.xcresult test-without-building
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -xctestrun /tmp/bindaynz-final-dd/Build/Products/BinDayNZ-isolated.xctestrun -destination "platform=iOS Simulator,id=82F9EDCF-F739-4434-9EAD-0D1B36F87C0F" -parallel-testing-enabled NO -maximum-concurrent-test-simulator-destinations 1 -resultBundlePath /tmp/binday-compact-final-unit-tests-2.xcresult test-without-building
+
+2026-09-06 23:44:11.678 xcodebuild[91870:8174046] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+Writing result bundle at path:
+	/tmp/binday-compact-final-unit-tests-2.xcresult
+
+2026-09-06 23:44:11.688 xcodebuild[91870:8174046] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+2026-09-06 23:44:12.898 xcodebuild[91870:8174046] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+2026-09-06 23:44:26.344054+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Failed to stat path '/Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application/DE7B9688-4FDC-46DB-B6DD-579F4AF5094C/Library/Application Support/default.store', errno 2 / No such file or directory.
+CoreData: error: Failed to stat path '/Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application/DE7B9688-4FDC-46DB-B6DD-579F4AF5094C/Library/Application Support/default.store', errno 2 / No such file or directory.
+2026-09-06 23:44:26.344238+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Executing as effective user 501
+CoreData: error: Executing as effective user 501
+2026-09-06 23:44:26.344400+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Failed to statfs file; errno 2 / No such file or directory.
+CoreData: error: Failed to statfs file; errno 2 / No such file or directory.
+2026-09-06 23:44:26.344500+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Logging status information for directory path: /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application/DE7B9688-4FDC-46DB-B6DD-579F4AF5094C/Library/Application Support
+CoreData: error: Logging status information for directory path: /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application/DE7B9688-4FDC-46DB-B6DD-579F4AF5094C/Library/Application Support
+2026-09-06 23:44:26.344583+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Executing as effective user 501
+CoreData: error: Executing as effective user 501
+2026-09-06 23:44:26.344661+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Information for /
+CoreData: error: Information for /
+2026-09-06 23:44:26.344709+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Device ID: 	0
+CoreData: error:   File Device ID: 	0
+2026-09-06 23:44:26.349068+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   Device ID: 		16777230
+CoreData: error:   Device ID: 		16777230
+2026-09-06 23:44:26.349143+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Size: 		704 bytes
+CoreData: error:   File Size: 		704 bytes
+2026-09-06 23:44:26.349195+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File inode: 		2
+CoreData: error:   File inode: 		2
+2026-09-06 23:44:26.349260+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File user ID: 		0
+CoreData: error:   File user ID: 		0
+2026-09-06 23:44:26.349320+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File group ID: 		0
+CoreData: error:   File group ID: 		0
+2026-09-06 23:44:26.349374+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Permissions:
+CoreData: error:   File Permissions: 	
+2026-09-06 23:44:26.349416+1200 BinDayNZ[91894:8174862] [error] CoreData: error: d
+CoreData: error: d
+2026-09-06 23:44:26.349464+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   755
+CoreData: error:   755
+2026-09-06 23:44:26.350677+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not a symbolic link
+CoreData: error:   component is not a symbolic link
+2026-09-06 23:44:26.350768+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is readable
+CoreData: error:   component is readable
+2026-09-06 23:44:26.350829+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not writeable with errno 30
+CoreData: error:   component is not writeable with errno 30
+2026-09-06 23:44:26.350891+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Information for /Users
+CoreData: error: Information for /Users
+2026-09-06 23:44:26.350935+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Device ID: 	0
+CoreData: error:   File Device ID: 	0
+2026-09-06 23:44:26.350988+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   Device ID: 		16777230
+CoreData: error:   Device ID: 		16777230
+2026-09-06 23:44:26.351029+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Size: 		160 bytes
+CoreData: error:   File Size: 		160 bytes
+2026-09-06 23:44:26.351738+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File inode: 		16968
+CoreData: error:   File inode: 		16968
+2026-09-06 23:44:26.351789+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File user ID: 		0
+CoreData: error:   File user ID: 		0
+2026-09-06 23:44:26.351840+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File group ID: 		80
+CoreData: error:   File group ID: 		80
+2026-09-06 23:44:26.351883+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Permissions:
+CoreData: error:   File Permissions: 	
+2026-09-06 23:44:26.351928+1200 BinDayNZ[91894:8174862] [error] CoreData: error: d
+CoreData: error: d
+2026-09-06 23:44:26.351971+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   755
+CoreData: error:   755
+2026-09-06 23:44:26.352082+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not a symbolic link
+CoreData: error:   component is not a symbolic link
+2026-09-06 23:44:26.352506+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is readable
+CoreData: error:   component is readable
+2026-09-06 23:44:26.352571+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not writeable with errno 13
+CoreData: error:   component is not writeable with errno 13
+2026-09-06 23:44:26.352649+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Information for /Users/kexinli
+CoreData: error: Information for /Users/kexinli
+2026-09-06 23:44:26.352720+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Device ID: 	0
+CoreData: error:   File Device ID: 	0
+2026-09-06 23:44:26.352776+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   Device ID: 		16777230
+CoreData: error:   Device ID: 		16777230
+2026-09-06 23:44:26.352824+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Size: 		3648 bytes
+CoreData: error:   File Size: 		3648 bytes
+2026-09-06 23:44:26.352860+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File inode: 		27070
+CoreData: error:   File inode: 		27070
+2026-09-06 23:44:26.354293+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File user ID: 		501
+CoreData: error:   File user ID: 		501
+2026-09-06 23:44:26.354362+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File group ID: 		20
+CoreData: error:   File group ID: 		20
+2026-09-06 23:44:26.354421+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Permissions:
+CoreData: error:   File Permissions: 	
+2026-09-06 23:44:26.354461+1200 BinDayNZ[91894:8174862] [error] CoreData: error: d
+CoreData: error: d
+2026-09-06 23:44:26.354511+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   750
+CoreData: error:   750
+2026-09-06 23:44:26.354552+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not a symbolic link
+CoreData: error:   component is not a symbolic link
+2026-09-06 23:44:26.354621+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is readable
+CoreData: error:   component is readable
+2026-09-06 23:44:26.358590+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is writeable
+CoreData: error:   component is writeable
+2026-09-06 23:44:26.358730+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Information for /Users/kexinli/Library
+CoreData: error: Information for /Users/kexinli/Library
+2026-09-06 23:44:26.358817+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Device ID: 	0
+CoreData: error:   File Device ID: 	0
+2026-09-06 23:44:26.358869+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   Device ID: 		16777230
+CoreData: error:   Device ID: 		16777230
+2026-09-06 23:44:26.358922+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Size: 		3200 bytes
+CoreData: error:   File Size: 		3200 bytes
+2026-09-06 23:44:26.358966+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File inode: 		27077
+CoreData: error:   File inode: 		27077
+2026-09-06 23:44:26.359025+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File user ID: 		501
+CoreData: error:   File user ID: 		501
+2026-09-06 23:44:26.368366+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File group ID: 		20
+CoreData: error:   File group ID: 		20
+2026-09-06 23:44:26.368472+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Permissions:
+CoreData: error:   File Permissions: 	
+2026-09-06 23:44:26.368542+1200 BinDayNZ[91894:8174862] [error] CoreData: error: d
+CoreData: error: d
+2026-09-06 23:44:26.368606+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   700
+CoreData: error:   700
+2026-09-06 23:44:26.368669+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not a symbolic link
+CoreData: error:   component is not a symbolic link
+2026-09-06 23:44:26.368775+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is readable
+CoreData: error:   component is readable
+2026-09-06 23:44:26.368846+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is writeable
+CoreData: error:   component is writeable
+2026-09-06 23:44:26.368924+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Information for /Users/kexinli/Library/Developer
+CoreData: error: Information for /Users/kexinli/Library/Developer
+2026-09-06 23:44:26.370508+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Device ID: 	0
+CoreData: error:   File Device ID: 	0
+2026-09-06 23:44:26.370581+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   Device ID: 		16777230
+CoreData: error:   Device ID: 		16777230
+2026-09-06 23:44:26.370635+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Size: 		256 bytes
+CoreData: error:   File Size: 		256 bytes
+2026-09-06 23:44:26.370682+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File inode: 		82423180
+CoreData: error:   File inode: 		82423180
+2026-09-06 23:44:26.370736+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File user ID: 		501
+CoreData: error:   File user ID: 		501
+2026-09-06 23:44:26.370787+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File group ID: 		20
+CoreData: error:   File group ID: 		20
+2026-09-06 23:44:26.380503+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Permissions:
+CoreData: error:   File Permissions: 	
+2026-09-06 23:44:26.380619+1200 BinDayNZ[91894:8174862] [error] CoreData: error: d
+CoreData: error: d
+2026-09-06 23:44:26.380675+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   755
+CoreData: error:   755
+2026-09-06 23:44:26.380716+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not a symbolic link
+CoreData: error:   component is not a symbolic link
+2026-09-06 23:44:26.380874+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is readable
+CoreData: error:   component is readable
+2026-09-06 23:44:26.380980+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is writeable
+CoreData: error:   component is writeable
+2026-09-06 23:44:26.381048+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator
+CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator
+2026-09-06 23:44:26.424238+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Device ID: 	0
+CoreData: error:   File Device ID: 	0
+2026-09-06 23:44:26.424365+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   Device ID: 		16777230
+CoreData: error:   Device ID: 		16777230
+2026-09-06 23:44:26.424471+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Size: 		160 bytes
+CoreData: error:   File Size: 		160 bytes
+2026-09-06 23:44:26.424530+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File inode: 		82426958
+CoreData: error:   File inode: 		82426958
+2026-09-06 23:44:26.424582+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File user ID: 		501
+CoreData: error:   File user ID: 		501
+2026-09-06 23:44:26.424633+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File group ID: 		20
+CoreData: error:   File group ID: 		20
+2026-09-06 23:44:26.424689+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Permissions:
+CoreData: error:   File Permissions: 	
+2026-09-06 23:44:26.425419+1200 BinDayNZ[91894:8174862] [error] CoreData: error: d
+CoreData: error: d
+2026-09-06 23:44:26.425519+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   755
+CoreData: error:   755
+2026-09-06 23:44:26.425574+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not a symbolic link
+CoreData: error:   component is not a symbolic link
+2026-09-06 23:44:26.425672+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is readable
+CoreData: error:   component is readable
+2026-09-06 23:44:26.425752+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is writeable
+CoreData: error:   component is writeable
+2026-09-06 23:44:26.425833+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices
+CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices
+2026-09-06 23:44:26.425880+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Device ID: 	0
+CoreData: error:   File Device ID: 	0
+2026-09-06 23:44:26.426739+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   Device ID: 		16777230
+CoreData: error:   Device ID: 		16777230
+2026-09-06 23:44:26.426798+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Size: 		672 bytes
+CoreData: error:   File Size: 		672 bytes
+2026-09-06 23:44:26.426840+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File inode: 		82427063
+CoreData: error:   File inode: 		82427063
+2026-09-06 23:44:26.426920+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File user ID: 		501
+CoreData: error:   File user ID: 		501
+2026-09-06 23:44:26.426961+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File group ID: 		20
+CoreData: error:   File group ID: 		20
+2026-09-06 23:44:26.426999+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Permissions:
+CoreData: error:   File Permissions: 	
+2026-09-06 23:44:26.427034+1200 BinDayNZ[91894:8174862] [error] CoreData: error: d
+CoreData: error: d
+2026-09-06 23:44:26.427067+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   755
+CoreData: error:   755
+2026-09-06 23:44:26.454504+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not a symbolic link
+CoreData: error:   component is not a symbolic link
+2026-09-06 23:44:26.454630+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is readable
+CoreData: error:   component is readable
+2026-09-06 23:44:26.454717+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is writeable
+CoreData: error:   component is writeable
+2026-09-06 23:44:26.454799+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F
+CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F
+2026-09-06 23:44:26.454848+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Device ID: 	0
+CoreData: error:   File Device ID: 	0
+2026-09-06 23:44:26.454886+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   Device ID: 		16777230
+CoreData: error:   Device ID: 		16777230
+2026-09-06 23:44:26.455558+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Size: 		160 bytes
+CoreData: error:   File Size: 		160 bytes
+2026-09-06 23:44:26.455623+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File inode: 		138389105
+CoreData: error:   File inode: 		138389105
+2026-09-06 23:44:26.455722+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File user ID: 		501
+CoreData: error:   File user ID: 		501
+2026-09-06 23:44:26.455789+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File group ID: 		20
+CoreData: error:   File group ID: 		20
+2026-09-06 23:44:26.455835+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Permissions:
+CoreData: error:   File Permissions: 	
+2026-09-06 23:44:26.455875+1200 BinDayNZ[91894:8174862] [error] CoreData: error: d
+CoreData: error: d
+2026-09-06 23:44:26.455924+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   755
+CoreData: error:   755
+2026-09-06 23:44:26.457869+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not a symbolic link
+CoreData: error:   component is not a symbolic link
+2026-09-06 23:44:26.458003+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is readable
+CoreData: error:   component is readable
+2026-09-06 23:44:26.458095+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is writeable
+CoreData: error:   component is writeable
+2026-09-06 23:44:26.458180+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data
+CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data
+2026-09-06 23:44:26.458258+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Device ID: 	0
+CoreData: error:   File Device ID: 	0
+2026-09-06 23:44:26.458327+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   Device ID: 		16777230
+CoreData: error:   Device ID: 		16777230
+2026-09-06 23:44:26.470280+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Size: 		384 bytes
+CoreData: error:   File Size: 		384 bytes
+2026-09-06 23:44:26.470356+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File inode: 		138389106
+CoreData: error:   File inode: 		138389106
+2026-09-06 23:44:26.470398+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File user ID: 		501
+CoreData: error:   File user ID: 		501
+2026-09-06 23:44:26.470434+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File group ID: 		20
+CoreData: error:   File group ID: 		20
+2026-09-06 23:44:26.470479+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Permissions:
+CoreData: error:   File Permissions: 	
+2026-09-06 23:44:26.470555+1200 BinDayNZ[91894:8174862] [error] CoreData: error: d
+CoreData: error: d
+2026-09-06 23:44:26.470611+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   775
+CoreData: error:   775
+2026-09-06 23:44:26.479683+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not a symbolic link
+CoreData: error:   component is not a symbolic link
+2026-09-06 23:44:26.479831+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is readable
+CoreData: error:   component is readable
+2026-09-06 23:44:26.479911+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is writeable
+CoreData: error:   component is writeable
+2026-09-06 23:44:26.479987+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers
+CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers
+2026-09-06 23:44:26.480033+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Device ID: 	0
+CoreData: error:   File Device ID: 	0
+2026-09-06 23:44:26.480073+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   Device ID: 		16777230
+CoreData: error:   Device ID: 		16777230
+2026-09-06 23:44:26.481213+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Size: 		224 bytes
+CoreData: error:   File Size: 		224 bytes
+2026-09-06 23:44:26.481285+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File inode: 		138391512
+CoreData: error:   File inode: 		138391512
+2026-09-06 23:44:26.481336+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File user ID: 		501
+CoreData: error:   File user ID: 		501
+2026-09-06 23:44:26.481388+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File group ID: 		20
+CoreData: error:   File group ID: 		20
+2026-09-06 23:44:26.481430+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Permissions:
+CoreData: error:   File Permissions: 	
+2026-09-06 23:44:26.481470+1200 BinDayNZ[91894:8174862] [error] CoreData: error: d
+CoreData: error: d
+2026-09-06 23:44:26.481510+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   755
+CoreData: error:   755
+2026-09-06 23:44:26.481547+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not a symbolic link
+CoreData: error:   component is not a symbolic link
+2026-09-06 23:44:26.482269+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is readable
+CoreData: error:   component is readable
+2026-09-06 23:44:26.482356+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is writeable
+CoreData: error:   component is writeable
+2026-09-06 23:44:26.482449+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data
+CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data
+2026-09-06 23:44:26.482501+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Device ID: 	0
+CoreData: error:   File Device ID: 	0
+2026-09-06 23:44:26.482552+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   Device ID: 		16777230
+CoreData: error:   Device ID: 		16777230
+2026-09-06 23:44:26.482591+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Size: 		192 bytes
+CoreData: error:   File Size: 		192 bytes
+2026-09-06 23:44:26.482632+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File inode: 		138391521
+CoreData: error:   File inode: 		138391521
+2026-09-06 23:44:26.482674+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File user ID: 		501
+CoreData: error:   File user ID: 		501
+2026-09-06 23:44:26.482708+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File group ID: 		20
+CoreData: error:   File group ID: 		20
+2026-09-06 23:44:26.482785+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Permissions:
+CoreData: error:   File Permissions: 	
+2026-09-06 23:44:26.482891+1200 BinDayNZ[91894:8174862] [error] CoreData: error: d
+CoreData: error: d
+2026-09-06 23:44:26.482968+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   755
+CoreData: error:   755
+2026-09-06 23:44:26.483145+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not a symbolic link
+CoreData: error:   component is not a symbolic link
+2026-09-06 23:44:26.483286+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is readable
+CoreData: error:   component is readable
+2026-09-06 23:44:26.483395+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is writeable
+CoreData: error:   component is writeable
+2026-09-06 23:44:26.483563+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application
+CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application
+2026-09-06 23:44:26.483617+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Device ID: 	0
+CoreData: error:   File Device ID: 	0
+2026-09-06 23:44:26.485750+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   Device ID: 		16777230
+CoreData: error:   Device ID: 		16777230
+2026-09-06 23:44:26.485903+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Size: 		4672 bytes
+CoreData: error:   File Size: 		4672 bytes
+2026-09-06 23:44:26.485969+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File inode: 		138391859
+CoreData: error:   File inode: 		138391859
+2026-09-06 23:44:26.486007+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File user ID: 		501
+CoreData: error:   File user ID: 		501
+2026-09-06 23:44:26.486044+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File group ID: 		20
+CoreData: error:   File group ID: 		20
+2026-09-06 23:44:26.486091+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Permissions:
+CoreData: error:   File Permissions: 	
+2026-09-06 23:44:26.486172+1200 BinDayNZ[91894:8174862] [error] CoreData: error: d
+CoreData: error: d
+2026-09-06 23:44:26.486259+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   755
+CoreData: error:   755
+2026-09-06 23:44:26.486681+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not a symbolic link
+CoreData: error:   component is not a symbolic link
+2026-09-06 23:44:26.486882+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is readable
+CoreData: error:   component is readable
+2026-09-06 23:44:26.487006+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is writeable
+CoreData: error:   component is writeable
+2026-09-06 23:44:26.487116+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application/DE7B9688-4FDC-46DB-B6DD-579F4AF5094C
+CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application/DE7B9688-4FDC-46DB-B6DD-579F4AF5094C
+2026-09-06 23:44:26.487203+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Device ID: 	0
+CoreData: error:   File Device ID: 	0
+2026-09-06 23:44:26.487287+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   Device ID: 		16777230
+CoreData: error:   Device ID: 		16777230
+2026-09-06 23:44:26.487384+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Size: 		224 bytes
+CoreData: error:   File Size: 		224 bytes
+2026-09-06 23:44:26.487530+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File inode: 		138793588
+CoreData: error:   File inode: 		138793588
+2026-09-06 23:44:26.487652+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File user ID: 		501
+CoreData: error:   File user ID: 		501
+2026-09-06 23:44:26.487700+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File group ID: 		20
+CoreData: error:   File group ID: 		20
+2026-09-06 23:44:26.487744+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Permissions:
+CoreData: error:   File Permissions: 	
+2026-09-06 23:44:26.487786+1200 BinDayNZ[91894:8174862] [error] CoreData: error: d
+CoreData: error: d
+2026-09-06 23:44:26.487829+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   755
+CoreData: error:   755
+2026-09-06 23:44:26.487868+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not a symbolic link
+CoreData: error:   component is not a symbolic link
+2026-09-06 23:44:26.487965+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is readable
+CoreData: error:   component is readable
+2026-09-06 23:44:26.488050+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is writeable
+CoreData: error:   component is writeable
+2026-09-06 23:44:26.488126+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application/DE7B9688-4FDC-46DB-B6DD-579F4AF5094C/Library
+CoreData: error: Information for /Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application/DE7B9688-4FDC-46DB-B6DD-579F4AF5094C/Library
+2026-09-06 23:44:26.488183+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Device ID: 	0
+CoreData: error:   File Device ID: 	0
+2026-09-06 23:44:26.488220+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   Device ID: 		16777230
+CoreData: error:   Device ID: 		16777230
+2026-09-06 23:44:26.488250+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Size: 		160 bytes
+CoreData: error:   File Size: 		160 bytes
+2026-09-06 23:44:26.488284+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File inode: 		138793590
+CoreData: error:   File inode: 		138793590
+2026-09-06 23:44:26.488340+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File user ID: 		501
+CoreData: error:   File user ID: 		501
+2026-09-06 23:44:26.488455+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File group ID: 		20
+CoreData: error:   File group ID: 		20
+2026-09-06 23:44:26.488605+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   File Permissions:
+CoreData: error:   File Permissions: 	
+2026-09-06 23:44:26.488664+1200 BinDayNZ[91894:8174862] [error] CoreData: error: d
+CoreData: error: d
+2026-09-06 23:44:26.488707+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   755
+CoreData: error:   755
+2026-09-06 23:44:26.488747+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is not a symbolic link
+CoreData: error:   component is not a symbolic link
+2026-09-06 23:44:26.488841+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is readable
+CoreData: error:   component is readable
+2026-09-06 23:44:26.488915+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   component is writeable
+CoreData: error:   component is writeable
+2026-09-06 23:44:26.488990+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Failed to stat path '/Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application/DE7B9688-4FDC-46DB-B6DD-579F4AF5094C/Library/Application Support', errno 2 / No such file or directory.
+CoreData: error: Failed to stat path '/Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application/DE7B9688-4FDC-46DB-B6DD-579F4AF5094C/Library/Application Support', errno 2 / No such file or directory.
+2026-09-06 23:44:26.489053+1200 BinDayNZ[91894:8174862] [error] CoreData: error:   Sandbox access to file-write-create denied
+CoreData: error:   Sandbox access to file-write-create denied
+2026-09-06 23:44:26.489347+1200 BinDayNZ[91894:8174862] [error] CoreData: error: addPersistentStoreWithType:configuration:URL:options:error: returned error NSCocoaErrorDomain (512)
+CoreData: error: addPersistentStoreWithType:configuration:URL:options:error: returned error NSCocoaErrorDomain (512)
+2026-09-06 23:44:26.489612+1200 BinDayNZ[91894:8174862] [error] CoreData: error: userInfo:
+CoreData: error: userInfo:
+2026-09-06 23:44:26.489676+1200 BinDayNZ[91894:8174862] [error] CoreData: error: 	reason : Failed to create file; code = 2
+CoreData: error: 	reason : Failed to create file; code = 2
+2026-09-06 23:44:26.489747+1200 BinDayNZ[91894:8174862] [error] CoreData: error: storeType: SQLite
+CoreData: error: storeType: SQLite
+2026-09-06 23:44:26.489861+1200 BinDayNZ[91894:8174862] [error] CoreData: error: configuration: default
+CoreData: error: configuration: default
+2026-09-06 23:44:26.489963+1200 BinDayNZ[91894:8174862] [error] CoreData: error: URL: file:///Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application/DE7B9688-4FDC-46DB-B6DD-579F4AF5094C/Library/Application%20Support/default.store
+CoreData: error: URL: file:///Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application/DE7B9688-4FDC-46DB-B6DD-579F4AF5094C/Library/Application%20Support/default.store
+CoreData: annotation: options:
+CoreData: annotation: 	NSMigratePersistentStoresAutomaticallyOption : 1
+CoreData: annotation: 	NSInferMappingModelAutomaticallyOption : 1
+CoreData: annotation: 	NSPersistentStoreRemoteChangeNotificationOptionKey : 1
+CoreData: annotation: 	NSPersistentHistoryTrackingKey : 1
+2026-09-06 23:44:26.493391+1200 BinDayNZ[91894:8174862] [error] CoreData: error: <NSPersistentStoreCoordinator: 0x600002c08a80>: Attempting recovery from error encountered during addPersistentStore: 0x600000c05050 Error Domain=NSCocoaErrorDomain Code=512 "The file couldn’t be saved." UserInfo={reason=Failed to create file; code = 2}
+CoreData: error: <NSPersistentStoreCoordinator: 0x600002c08a80>: Attempting recovery from error encountered during addPersistentStore: 0x600000c05050 Error Domain=NSCocoaErrorDomain Code=512 "The file couldn’t be saved." UserInfo={reason=Failed to create file; code = 2}
+2026-09-06 23:44:26.493698+1200 BinDayNZ[91894:8174862] [error] CoreData: error: During recovery, parent directory path reported as missing
+CoreData: error: During recovery, parent directory path reported as missing
+2026-09-06 23:44:26.500913+1200 BinDayNZ[91894:8174862] [error] CoreData: error: Recovery attempt while adding <NSPersistentStoreDescription: 0x600000c05050> (type: SQLite, url: file:///Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application/DE7B9688-4FDC-46DB-B6DD-579F4AF5094C/Library/Application%20Support/default.store) was successful!
+CoreData: error: Recovery attempt while adding <NSPersistentStoreDescription: 0x600000c05050> (type: SQLite, url: file:///Users/kexinli/Library/Developer/CoreSimulator/Devices/82F9EDCF-F739-4434-9EAD-0D1B36F87C0F/data/Containers/Data/Application/DE7B9688-4FDC-46DB-B6DD-579F4AF5094C/Library/Application%20Support/default.store) was successful!
+Test Suite 'All tests' started at 2026-09-06 23:44:49.458.
+Test Suite 'BinDayNZTests.xctest' started at 2026-09-06 23:44:49.458.
+Test Suite 'CalendarSafetyTests' started at 2026-09-06 23:44:49.458.
+Test Case '-[BinDayNZTests.CalendarSafetyTests testCalendarReminderEventsKeepNZClockTimesAcrossDST]' started.
+Test Case '-[BinDayNZTests.CalendarSafetyTests testCalendarReminderEventsKeepNZClockTimesAcrossDST]' passed (0.002 seconds).
+Test Case '-[BinDayNZTests.CalendarSafetyTests testICSHasRequiredFieldsAndIncludesChangedDates]' started.
+Test Case '-[BinDayNZTests.CalendarSafetyTests testICSHasRequiredFieldsAndIncludesChangedDates]' passed (0.010 seconds).
+Test Case '-[BinDayNZTests.CalendarSafetyTests testICSTextEscapingAndUTF8FoldingPreventMalformedContent]' started.
+Test Case '-[BinDayNZTests.CalendarSafetyTests testICSTextEscapingAndUTF8FoldingPreventMalformedContent]' passed (0.002 seconds).
+Test Case '-[BinDayNZTests.CalendarSafetyTests testNativeSeriesSplitsForMoveAndSkipWithoutChangingFortnightlyCadence]' started.
+Test Case '-[BinDayNZTests.CalendarSafetyTests testNativeSeriesSplitsForMoveAndSkipWithoutChangingFortnightlyCadence]' passed (0.001 seconds).
+Test Case '-[BinDayNZTests.CalendarSafetyTests testOwnershipRequiresBothSavedCalendarAndInstallationMarker]' started.
+Test Case '-[BinDayNZTests.CalendarSafetyTests testOwnershipRequiresBothSavedCalendarAndInstallationMarker]' passed (0.003 seconds).
+Test Case '-[BinDayNZTests.CalendarSafetyTests testSharedValidationRejectsCollisionBeforeProducingCalendarChanges]' started.
+Test Case '-[BinDayNZTests.CalendarSafetyTests testSharedValidationRejectsCollisionBeforeProducingCalendarChanges]' passed (0.010 seconds).
+Test Suite 'CalendarSafetyTests' passed at 2026-09-06 23:44:49.490.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.028 (0.031) seconds
+Test Suite 'IconographyTests' started at 2026-09-06 23:44:49.490.
+Test Case '-[BinDayNZTests.IconographyTests testBinTypeSymbolsUseOutlineVariants]' started.
+Test Case '-[BinDayNZTests.IconographyTests testBinTypeSymbolsUseOutlineVariants]' passed (0.001 seconds).
+Test Suite 'IconographyTests' passed at 2026-09-06 23:44:49.491.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'ManualScheduleTests' started at 2026-09-06 23:44:49.491.
+Test Case '-[BinDayNZTests.ManualScheduleTests testCollisionsAreRejectedButAnExplicitlyVacatedDateAndNoOpAreValid]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testCollisionsAreRejectedButAnExplicitlyVacatedDateAndNoOpAreValid]' passed (0.010 seconds).
+Test Case '-[BinDayNZTests.ManualScheduleTests testEachBinSupportsWeeklyAndFortnightlyWithIndependentDates]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testEachBinSupportsWeeklyAndFortnightlyWithIndependentDates]' passed (0.004 seconds).
+Test Case '-[BinDayNZTests.ManualScheduleTests testFortnightlyDatesStayFourteenDaysApartAcrossBothYearBoundaries]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testFortnightlyDatesStayFourteenDaysApartAcrossBothYearBoundaries]' passed (0.002 seconds).
+Test Case '-[BinDayNZTests.ManualScheduleTests testInvalidAndNonfiniteDatesNeverBecomeCollections]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testInvalidAndNonfiniteDatesNeverBecomeCollections]' passed (0.001 seconds).
+Test Case '-[BinDayNZTests.ManualScheduleTests testMovesAndSkipsPreserveFutureCadenceAndMonthOutput]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testMovesAndSkipsPreserveFutureCadenceAndMonthOutput]' passed (0.007 seconds).
+Test Case '-[BinDayNZTests.ManualScheduleTests testNZPropertyDateSurvivesDeviceTimeZoneAndLocaleWeekRules]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testNZPropertyDateSurvivesDeviceTimeZoneAndLocaleWeekRules]' passed (0.006 seconds).
+Test Case '-[BinDayNZTests.ManualScheduleTests testSchedulesDoNotExpireAtAnArbitraryLookaheadOrBeforeTheirAnchor]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testSchedulesDoNotExpireAtAnArbitraryLookaheadOrBeforeTheirAnchor]' passed (0.001 seconds).
+Test Case '-[BinDayNZTests.ManualScheduleTests testWeeklyDatesPreserveMidnightThroughNZDST]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testWeeklyDatesPreserveMidnightThroughNZDST]' passed (0.001 seconds).
+Test Suite 'ManualScheduleTests' passed at 2026-09-06 23:44:49.526.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.033 (0.035) seconds
+Test Suite 'SchedulePersistenceAndReminderTests' started at 2026-09-06 23:44:49.527.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testConfirmedScheduleAndChangesSurviveSwiftDataSaveAndFetch]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testConfirmedScheduleAndChangesSurviveSwiftDataSaveAndFetch]' passed (0.028 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testCoordinatorIgnoresDetachedAndDeletedProfilesWithoutTouchingOutputs]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testCoordinatorIgnoresDetachedAndDeletedProfilesWithoutTouchingOutputs]' passed (0.013 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testIsolatedCalendarSyncPreservesUnrelatedEventsAndIsIdempotent]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testIsolatedCalendarSyncPreservesUnrelatedEventsAndIsIdempotent]' passed (0.421 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testIsolatedNotificationsRetainCompleteBatchAndCancelIt]' started.
+/Users/kexinli/My Drive/AI Projects/waste collection reminder/BinDayNZTests/ChangeAddressMapTests.swift:369: -[BinDayNZTests.SchedulePersistenceAndReminderTests testIsolatedNotificationsRetainCompleteBatchAndCancelIt] : Test skipped - Grant notifications on the disposable simulator before running.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testIsolatedNotificationsRetainCompleteBatchAndCancelIt]' skipped (0.015 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testMissingCorruptLegacyAndInvalidProfilesRequireScheduleConfirmation]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testMissingCorruptLegacyAndInvalidProfilesRequireScheduleConfirmation]' passed (0.003 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testNotificationTimesRemainNZWallClockAcrossBothDSTTransitionsAndTravel]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testNotificationTimesRemainNZWallClockAcrossBothDSTTransitionsAndTravel]' passed (0.035 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testReminderCapacityGroupsAllBinsAndNeverSplitsTheFinalCollectionDay]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testReminderCapacityGroupsAllBinsAndNeverSplitsTheFinalCollectionDay]' passed (0.176 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testReminderPlanRejectsInvalidInputsAndOmitsElapsedReminders]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testReminderPlanRejectsInvalidInputsAndOmitsElapsedReminders]' passed (0.086 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testReminderPlanUsesMovedDatesAndSkipsOnlyTheAffectedBin]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testReminderPlanUsesMovedDatesAndSkipsOnlyTheAffectedBin]' passed (0.074 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testRemindersCanStartBeyondTheOldSixMonthWindow]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testRemindersCanStartBeyondTheOldSixMonthWindow]' passed (0.016 seconds).
+Test Suite 'SchedulePersistenceAndReminderTests' passed at 2026-09-06 23:44:50.399.
+	 Executed 10 tests, with 1 test skipped and 0 failures (0 unexpected) in 0.869 (0.873) seconds
+Test Suite 'VideoSourceTests' started at 2026-09-06 23:44:50.400.
+Test Case '-[BinDayNZTests.VideoSourceTests testGuidesKeepTheReviewedFoodAndInorganicExceptions]' started.
+Test Case '-[BinDayNZTests.VideoSourceTests testGuidesKeepTheReviewedFoodAndInorganicExceptions]' passed (0.001 seconds).
+Test Case '-[BinDayNZTests.VideoSourceTests testOptionalVideosUsePrivateEmbedsAndASeparateExternalURL]' started.
+Test Case '-[BinDayNZTests.VideoSourceTests testOptionalVideosUsePrivateEmbedsAndASeparateExternalURL]' passed (0.001 seconds).
+Test Case '-[BinDayNZTests.VideoSourceTests testRubbishDoesNotShowTheRecyclingVideo]' started.
+Test Case '-[BinDayNZTests.VideoSourceTests testRubbishDoesNotShowTheRecyclingVideo]' passed (0.001 seconds).
+Test Suite 'VideoSourceTests' passed at 2026-09-06 23:44:50.404.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.003 (0.004) seconds
+Test Suite 'WidgetSnapshotTests' started at 2026-09-06 23:44:50.404.
+Test Case '-[BinDayNZTests.WidgetSnapshotTests testOldDateCacheAndInvalidSnapshotsCannotConfigureTheWidget]' started.
+Test Case '-[BinDayNZTests.WidgetSnapshotTests testOldDateCacheAndInvalidSnapshotsCannotConfigureTheWidget]' passed (0.013 seconds).
+Test Case '-[BinDayNZTests.WidgetSnapshotTests testSavedRecurrenceSurvivesDaylightSavingAndHasNoFiniteDateHorizon]' started.
+Test Case '-[BinDayNZTests.WidgetSnapshotTests testSavedRecurrenceSurvivesDaylightSavingAndHasNoFiniteDateHorizon]' passed (0.001 seconds).
+Test Case '-[BinDayNZTests.WidgetSnapshotTests testSnapshotRoundTripPreservesTheConfirmedScheduleAndChangedDate]' started.
+Test Case '-[BinDayNZTests.WidgetSnapshotTests testSnapshotRoundTripPreservesTheConfirmedScheduleAndChangedDate]' passed (0.005 seconds).
+Test Suite 'WidgetSnapshotTests' passed at 2026-09-06 23:44:50.425.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.020 (0.021) seconds
+Test Suite 'BinDayNZTests.xctest' passed at 2026-09-06 23:44:50.425.
+	 Executed 31 tests, with 1 test skipped and 0 failures (0 unexpected) in 0.953 (0.967) seconds
+Test Suite 'All tests' passed at 2026-09-06 23:44:50.425.
+	 Executed 31 tests, with 1 test skipped and 0 failures (0 unexpected) in 0.953 (0.967) seconds
+2026-09-06 23:44:50.736 xcodebuild[91870:8174046] [MT] IDETestOperationsObserverDebug: 37.771 elapsed -- Testing started completed.
+2026-09-06 23:44:50.736 xcodebuild[91870:8174046] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-06 23:44:50.736 xcodebuild[91870:8174046] [MT] IDETestOperationsObserverDebug: 37.771 sec, +37.771 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/binday-compact-final-unit-tests-2.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started
+
+Process exit: 0; elapsed seconds: 41.2

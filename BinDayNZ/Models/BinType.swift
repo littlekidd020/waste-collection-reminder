@@ -28,6 +28,23 @@ enum BinType: String, Codable, CaseIterable, Identifiable {
         }
     }
 
+    /// High-contrast foreground for content placed directly on the bin gradient.
+    var gradientForeground: Color {
+        switch self {
+        case .rubbish: return .white
+        case .recycling, .foodScraps, .inorganic: return Color.black.opacity(0.85)
+        }
+    }
+
+    var rgbComponents: (red: Double, green: Double, blue: Double) {
+        switch self {
+        case .rubbish: return (0.85, 0.2, 0.2)
+        case .recycling: return (0.95, 0.8, 0.1)
+        case .foodScraps: return (0.2, 0.75, 0.3)
+        case .inorganic: return (0.9, 0.6, 0.1)
+        }
+    }
+
     /// A darker shade for text/icons on light backgrounds
     var darkColor: Color {
         switch self {
@@ -75,31 +92,34 @@ enum BinType: String, Codable, CaseIterable, Identifiable {
 
     var systemImage: String {
         switch self {
-        case .rubbish: return "trash.fill"
+        case .rubbish: return "trash"
         case .recycling: return "arrow.3.trianglepath"
-        case .foodScraps: return "leaf.fill"
-        case .inorganic: return "shippingbox.fill"
+        case .foodScraps: return "leaf"
+        case .inorganic: return "shippingbox"
         }
     }
 
-    /// Items accepted in this bin type
+    /// Reviewed against the linked Auckland Council guidance.
+    static let guideReviewDate = DateComponents(
+        calendar: Calendar(identifier: .gregorian), year: 2026, month: 9, day: 6
+    ).date!
+
     var acceptedItems: [String] {
         switch self {
         case .rubbish:
             return [
                 L("Nappies and sanitary products"),
-                L("Polystyrene and bubble wrap"),
-                L("Broken crockery and ceramics"),
-                L("Vacuum cleaner dust"),
-                L("Cold ashes")
+                L("Plastic and foil wraps"),
+                L("Disposable cups, plates and cutlery"),
+                L("Polystyrene food containers and trays"),
+                L("Broken glass, securely wrapped")
             ]
         case .recycling:
             return [
                 L("Paper and cardboard (flattened)"),
                 L("Plastic bottles and containers (#1, #2, #5)"),
                 L("Glass bottles and jars"),
-                L("Steel and aluminium cans"),
-                L("Tin cans (rinsed)")
+                L("Tin, steel and aluminium cans")
             ]
         case .foodScraps:
             return [
@@ -107,75 +127,108 @@ enum BinType: String, Codable, CaseIterable, Identifiable {
                 L("Meat, fish, and bones"),
                 L("Dairy products"),
                 L("Bread, rice, and pasta"),
-                L("Tea bags and coffee grounds")
+                L("Loose tea leaves and coffee grounds"),
+                L("Certified home-compostable bin liners")
             ]
         case .inorganic:
             return [
-                L("Old furniture"),
-                L("Whiteware (fridges, washing machines)"),
-                L("Mattresses"),
-                L("Scrap metal"),
-                L("Carpet and underlay")
+                L("Furniture, including beds and couches"),
+                L("Empty fridges, washing machines and small appliances"),
+                L("Carpet in manageable pieces"),
+                L("Timber under two metres, with no exposed nails"),
+                L("Electronics with batteries removed")
             ]
         }
     }
 
-    /// Items commonly mistakenly placed in this bin
     var rejectedItems: [String] {
         switch self {
         case .rubbish:
             return [
-                L("Recyclable items (use yellow bin)"),
-                L("Food scraps (use green bin)"),
+                L("Recyclable items"),
                 L("Hazardous waste (paint, chemicals)"),
-                L("E-waste (batteries, electronics)")
+                L("Batteries and electronics"),
+                L("Hot ashes"),
+                L("Garden waste and building materials")
             ]
         case .recycling:
             return [
                 L("Plastic bags and soft plastics"),
-                L("Food-contaminated containers"),
+                L("Food waste and unemptied containers"),
                 L("Drinking glasses and ceramics"),
                 L("Styrofoam and polystyrene"),
-                L("Nappies")
+                L("Lids, foil, aerosol cans and drink cartons"),
+                L("Nappies, batteries and electronics")
             ]
         case .foodScraps:
             return [
-                L("Plastic bags (even compostable)"),
-                L("Liquids and cooking oil"),
+                L("Tea bags"),
+                L("Plastic bags and compostable food packaging"),
                 L("Garden waste"),
-                L("Pet waste")
+                L("Pet waste"),
+                L("Cling film, waxed paper and foil")
             ]
         case .inorganic:
             return [
-                L("Hazardous materials (paint, gas bottles)"),
+                L("Batteries, paint, chemicals and gas bottles"),
                 L("Car parts and tyres"),
-                L("Building materials (concrete, timber)"),
-                L("Green waste")
+                L("Concrete, tiles and plasterboard"),
+                L("Asbestos-containing materials"),
+                L("Garden waste, glass and clothing")
             ]
         }
     }
 
-    var localVideoName: String {
+    var guideNotes: [String] {
         switch self {
-        case .rubbish: return "rubbish"
-        case .recycling: return "recycling"
-        case .foodScraps: return "food-scraps"
-        case .inorganic: return "inorganic"
+        case .rubbish:
+            return [L("Use your food scraps service where it is available. Check your property's collection instructions for exceptions.")]
+        case .recycling:
+            return [
+                L("Empty and rinse containers, then place them loose in your recycling bin."),
+                L("Remove all lids and put them in the rubbish."),
+                L("Containers must be wider than 5 cm and smaller than 4 litres. On Aotea / Great Barrier Island, the limit is 5 litres."),
+                L("Flat paper and cardboard must be larger than 10 × 14 cm. On Aotea, bundle paper and cardboard beside your recycling crate.")
+            ]
+        case .foodScraps:
+            return [
+                L("Use a certified home-compostable bin liner, newspaper or a paper bag if you need a liner. Compostable food packaging is not accepted."),
+                L("Apartment and shared-bin collections may have special arrangements. Check with your property manager.")
+            ]
+        case .inorganic:
+            return [
+                L("Book with Auckland Council first. Items are collected from inside your property boundary, not the kerbside."),
+                L("Put out no more than one cubic metre. Each item must weigh no more than 55 kg and be safe for two people to lift."),
+                L("Remove batteries from devices. Keep access clear and follow the date and placement instructions in your booking.")
+            ]
         }
     }
 
-    var videoURL: String {
-        // We'll prioritize the local video file once it's added to the bundle
-        if let localURL = Bundle.main.url(forResource: localVideoName, withExtension: "mp4") {
-            return localURL.absoluteString
-        }
-        
-        // Fallback to YouTube
+    var guideSourceURL: URL {
+        let address: String
         switch self {
-        case .rubbish: return "https://www.youtube.com/watch?v=AIkjD2vszQo"
-        case .recycling: return "https://www.youtube.com/watch?v=42dWHzAqO7E"
-        case .foodScraps: return "https://www.youtube.com/watch?v=fCk0RGm-xK8"
-        case .inorganic: return "https://www.youtube.com/watch?v=vq5rAaNrevA"
+        case .rubbish:
+            address = "https://new.aucklandcouncil.govt.nz/en/rubbish-recycling/bin-requests/what-put-your-rubbish.html"
+        case .recycling:
+            address = "https://new.aucklandcouncil.govt.nz/en/rubbish-recycling/bin-requests/what-put-your-recycling.html"
+        case .foodScraps:
+            address = "https://www.aucklandcouncil.govt.nz/rubbish-recycling/Documents/food-scraps-collection-service.pdf"
+        case .inorganic:
+            address = "https://new.aucklandcouncil.govt.nz/en/rubbish-recycling/inorganic-collections/what-put-out-inorganic-collection.html"
         }
+        return URL(string: address)!
+    }
+
+    var youTubeVideoID: String? {
+        switch self {
+        case .rubbish: return nil
+        case .recycling: return "42dWHzAqO7E"
+        case .foodScraps: return "fCk0RGm-xK8"
+        case .inorganic: return "vq5rAaNrevA"
+        }
+    }
+
+    var videoURL: URL? {
+        youTubeVideoID.flatMap { URL(string: "https://www.youtube.com/watch?v=\($0)") }
     }
 }

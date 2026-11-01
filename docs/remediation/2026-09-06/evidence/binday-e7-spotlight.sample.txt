@@ -1,0 +1,54 @@
+Analysis of sampling xpcproxy_sim (pid 73277) every 1 millisecond
+Process:         xpcproxy_sim [73277]
+Path:            /Volumes/VOLUME/*/xpcproxy_sim
+Load Address:    0x104e90000
+Identifier:      xpcproxy_sim
+Version:         ???
+Code Type:       ARM64
+Platform:        iOS Simulator
+Parent Process:  launchd_sim [73108]
+Target Type:     live task
+
+Date/Time:       2026-09-06 23:02:50.465 +1200
+Launch Time:     2026-09-06 22:57:29.492 +1200
+OS Version:      macOS 26.5.1 (25F80)
+Report Version:  7
+Analysis Tool:   /usr/bin/sample
+
+Physical footprint:         7042K
+Physical footprint (peak):  7042K
+Idle exit:                  untracked
+----
+
+Call graph:
+    2541 Thread_7963450: Main Thread   DispatchQueue_<multiple>
+      2541 start  (in dyld) + 6732  [0x10501fcfc]
+        2541 dyld4::start(dyld4::KernelArgs*, void*, void*, unsigned long long)::$_1::operator()() const  (in dyld) + 320  [0x10502044c]
+          2541 dyld4::prepare(dyld4::APIs&, mach_o::UnsafeHeader const*)  (in dyld) + 340  [0x1050205bc]
+            2541 dyld4::prepareSim(dyld4::RuntimeState&, char const*)  (in dyld) + 1300  [0x10502201c]
+              2541 _dyld_sim_prepare  (in dyld_sim) + 836  [0x105141344]
+                2541 dyld4::prepare(dyld4::APIs&, mach_o::Header const*)  (in dyld_sim) + 1084  [0x1051418e4]
+                  2541 dyld4::JustInTimeLoader::applyFixups(Diagnostics&, dyld4::RuntimeState&, dyld4::DyldCacheDataConstLazyScopedWriter&, bool, lsl::Vector<std::pair<dyld4::Loader const*, char const*>>*) const  (in dyld_sim) + 84  [0x105156d18]
+                    2541 dyld4::Loader::applyFixupsCheckCachePatching(dyld4::RuntimeState&, dyld4::DyldCacheDataConstLazyScopedWriter&) const  (in dyld_sim) + 96  [0x105154468]
+                      1356 dyld4::Loader::applyCachePatchesTo(dyld4::RuntimeState&, dyld4::Loader const*, dyld4::DyldCacheDataConstLazyScopedWriter&) const  (in dyld_sim) + 96  [0x1051544e4]
+                      + 851 dyld4::Loader::applyCachePatchesToOverride(dyld4::RuntimeState&, dyld4::Loader const*, unsigned short, dyld4::Loader::DylibPatch const*, dyld4::DyldCacheDataConstLazyScopedWriter&) const  (in dyld_sim) + 264  [0x10515409c]
+                      + ! 851 DyldSharedCache::forEachPatchableExport(unsigned int, void (unsigned int, char const*, PatchKind) block_pointer) const  (in dyld_sim) + 328  [0x1051678ac]
+                      + !   851 PatchTableV2::forEachPatchableExport(unsigned int, void (unsigned int, char const*, PatchKind) block_pointer) const  (in dyld_sim) + 156  [0x10515a490]
+                      + !     851 invocation function for block in dyld4::Loader::applyCachePatchesToOverride(dyld4::RuntimeState&, dyld4::Loader const*, unsigned short, dyld4::Loader::DylibPatch const*, dyld4::DyldCacheDataConstLazyScopedWriter&) const  (in dyld_sim) + 248  [0x105154228]
+                      + !       851 DyldSharedCache::forEachPatchableUseOfExportInImage(unsigned int, unsigned int, unsigned int, void (unsigned int, dyld3::MachOFile::PointerMetaData, unsigned long long, bool) block_pointer) const  (in dyld_sim) + 972  [0x105167cec]
+                      + !         847 PatchTableV4::forEachPatchableUseOfExportInImage(unsigned int, unsigned int, unsigned int, void (unsigned int, dyld3::MachOFile::PointerMetaData, unsigned long long, bool) block_pointer) const  (in dyld_sim) + 52  [0x10515a63c]
+                      + !         : 847 PatchTableV2::clientsExportsForImageAndClient(unsigned int, unsigned int) const  (in dyld_sim) + 108  [0x10515ade0]
+                      + !         4 PatchTableV4::forEachPatchableUseOfExportInImage(unsigned int, unsigned int, unsigned int, void (unsigned int, dyld3::MachOFile::PointerMetaData, unsigned long long, bool) block_pointer) const  (in dyld_sim) + 104  [0x10515a670]
+                      + 505 dyld4::Loader::applyCachePatchesToOverride(dyld4::RuntimeState&, dyld4::Loader const*, unsigned short, dyld4::Loader::DylibPatch const*, dyld4::DyldCacheDataConstLazyScopedWriter&) const  (in dyld_sim) + 304  [0x1051540c4]
+                      1185 dyld4::Loader::applyCachePatchesTo(dyld4::RuntimeState&, dyld4::Loader const*, dyld4::DyldCacheDataConstLazyScopedWriter&) const  (in dyld_sim) + 60  [0x1051544c0]
+                        1185 dyld4::Loader::overridesDylibInCache(dyld4::Loader::DylibPatch const*&, unsigned short&) const  (in dyld_sim) + 0  [0x10514de00]
+
+Total number in stack (recursive counted multiple, when >=5):
+
+Sort by top of stack, same collapsed (when >= 5):
+        dyld4::Loader::overridesDylibInCache(dyld4::Loader::DylibPatch const*&, unsigned short&) const  (in dyld_sim)        1185
+        PatchTableV2::clientsExportsForImageAndClient(unsigned int, unsigned int) const  (in dyld_sim)        847
+        dyld4::Loader::applyCachePatchesToOverride(dyld4::RuntimeState&, dyld4::Loader const*, unsigned short, dyld4::Loader::DylibPatch const*, dyld4::DyldCacheDataConstLazyScopedWriter&) const  (in dyld_sim)        505
+
+Binary images description not available
+

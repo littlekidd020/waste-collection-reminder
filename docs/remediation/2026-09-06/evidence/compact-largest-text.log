@@ -1,0 +1,163 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/bindaynz-ui-dd/Build/Products/BinDayNZ-ui.xctestrun -destination "platform=iOS Simulator,id=82F9EDCF-F739-4434-9EAD-0D1B36F87C0F" -parallel-testing-enabled NO "-only-testing:BinDayNZUITests/OnboardingFlowUITests/testSavedScheduleVisualEvidence" "-only-testing:BinDayNZUITests/OnboardingFlowUITests/testSavedScheduleDescriptionAudit" "-only-testing:BinDayNZUITests/OnboardingFlowUITests/testSavedScheduleDynamicTypeAudit" "-only-testing:BinDayNZUITests/OnboardingFlowUITests/testSavedScheduleTextClippedAudit" -resultBundlePath /tmp/binday-compact-largest-text.xcresult
+
+2026-09-07 00:03:58.213 xcodebuild[96847:8263959] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+Writing result bundle at path:
+	/tmp/binday-compact-largest-text.xcresult
+
+2026-09-07 00:03:58.221 xcodebuild[96847:8263959] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+2026-09-07 00:03:59.242 xcodebuild[96847:8263959] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+2026-09-07 00:04:04.668386+1200 BinDayNZUITests-Runner[96861:8264322] [Default] Running tests...
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'Selected tests' started at 2026-09-07 00:04:06.374.
+Test Suite 'BinDayNZUITests.xctest' started at 2026-09-07 00:04:06.375.
+Test Suite 'OnboardingFlowUITests' started at 2026-09-07 00:04:06.375.
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testSavedScheduleDescriptionAudit]' started.
+    t =     0.00s Start Test at 2026-09-07 00:04:06.376
+    t =     0.04s Set Up
+    t =     0.04s     Open com.bindaynz.app
+    t =     0.04s         Launch com.bindaynz.app
+    t =     3.12s             Setting up automation session
+    t =     3.95s             Wait for com.bindaynz.app to idle
+    t =     5.93s Waiting 10.0s for "Today" Button to exist
+    t =     6.98s     Checking `Expect predicate `existsNoRetry == 1` for object "Today" Button`
+    t =     6.98s         Checking existence of `"Today" Button`
+    t =     7.35s Tap "Schedule" Button
+    t =     7.35s     Wait for com.bindaynz.app to idle
+    t =     7.35s     Find the "Schedule" Button
+    t =     7.40s     Check for interrupting elements affecting "Schedule" Button
+    t =     7.44s     Synthesize event
+    t =     7.74s     Wait for com.bindaynz.app to idle
+    t =     9.19s Waiting 5.0s for "Schedule" NavigationBar to exist
+    t =    10.26s     Checking `Expect predicate `existsNoRetry == 1` for object "Schedule" NavigationBar`
+    t =    10.27s         Checking existence of `"Schedule" NavigationBar`
+    t =    10.54s Tear Down
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testSavedScheduleDescriptionAudit]' passed (10.786 seconds).
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testSavedScheduleDynamicTypeAudit]' started.
+    t =     0.00s Start Test at 2026-09-07 00:04:17.163
+    t =     0.03s Set Up
+    t =     0.03s     Open com.bindaynz.app
+    t =     0.03s         Launch com.bindaynz.app
+    t =     0.03s             Terminate com.bindaynz.app:96899
+    t =     5.29s             Setting up automation session
+    t =     6.23s             Wait for com.bindaynz.app to idle
+    t =     7.99s Waiting 10.0s for "Today" Button to exist
+    t =     9.02s     Checking `Expect predicate `existsNoRetry == 1` for object "Today" Button`
+    t =     9.03s         Checking existence of `"Today" Button`
+    t =    10.79s Tap "Schedule" Button
+    t =    10.79s     Wait for com.bindaynz.app to idle
+    t =    11.54s     Find the "Schedule" Button
+    t =    11.58s     Check for interrupting elements affecting "Schedule" Button
+    t =    11.62s     Synthesize event
+    t =    11.91s     Wait for com.bindaynz.app to idle
+    t =    13.32s Waiting 5.0s for "Schedule" NavigationBar to exist
+    t =    14.36s     Checking `Expect predicate `existsNoRetry == 1` for object "Schedule" NavigationBar`
+    t =    14.37s         Checking existence of `"Schedule" NavigationBar`
+    t =    16.12s Tear Down
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testSavedScheduleDynamicTypeAudit]' passed (16.403 seconds).
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testSavedScheduleTextClippedAudit]' started.
+    t =     0.00s Start Test at 2026-09-07 00:04:33.567
+    t =     0.03s Set Up
+    t =     0.03s     Open com.bindaynz.app
+    t =     0.03s         Launch com.bindaynz.app
+    t =     0.03s             Terminate com.bindaynz.app:96962
+    t =     1.31s             Setting up automation session
+    t =     2.25s             Wait for com.bindaynz.app to idle
+    t =     4.05s Waiting 10.0s for "Today" Button to exist
+    t =     5.09s     Checking `Expect predicate `existsNoRetry == 1` for object "Today" Button`
+    t =     5.09s         Checking existence of `"Today" Button`
+    t =     6.86s Tap "Schedule" Button
+    t =     6.86s     Wait for com.bindaynz.app to idle
+    t =     7.60s     Find the "Schedule" Button
+    t =     7.65s     Check for interrupting elements affecting "Schedule" Button
+    t =     7.69s     Synthesize event
+    t =     7.99s     Wait for com.bindaynz.app to idle
+    t =     9.41s Waiting 5.0s for "Schedule" NavigationBar to exist
+    t =    10.45s     Checking `Expect predicate `existsNoRetry == 1` for object "Schedule" NavigationBar`
+    t =    10.45s         Checking existence of `"Schedule" NavigationBar`
+    t =    12.18s Tear Down
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testSavedScheduleTextClippedAudit]' passed (12.443 seconds).
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testSavedScheduleVisualEvidence]' started.
+    t =     0.00s Start Test at 2026-09-07 00:04:46.012
+    t =     0.02s Set Up
+    t =     0.02s     Open com.bindaynz.app
+    t =     0.03s         Launch com.bindaynz.app
+    t =     0.03s             Terminate com.bindaynz.app:97003
+    t =     1.33s             Setting up automation session
+    t =     2.28s             Wait for com.bindaynz.app to idle
+    t =     4.03s Waiting 10.0s for "Today" Button to exist
+    t =     5.08s     Checking `Expect predicate `existsNoRetry == 1` for object "Today" Button`
+    t =     5.08s         Checking existence of `"Today" Button`
+    t =     5.25s Added attachment named '14-saved-today'
+    t =     5.25s Tap "Schedule" Button
+    t =     5.25s     Wait for com.bindaynz.app to idle
+    t =     5.26s     Find the "Schedule" Button
+    t =     5.29s     Check for interrupting elements affecting "Schedule" Button
+    t =     5.34s     Synthesize event
+    t =     5.64s     Wait for com.bindaynz.app to idle
+    t =     7.04s Waiting 5.0s for "Schedule" NavigationBar to exist
+    t =     8.07s     Checking `Expect predicate `existsNoRetry == 1` for object "Schedule" NavigationBar`
+    t =     8.08s         Checking existence of `"Schedule" NavigationBar`
+    t =     8.17s Added attachment named '15-saved-schedule'
+    t =     8.17s Checking existence of `"List" Button`
+    t =     8.20s Find the Button (First Match)
+    t =     8.28s Checking existence of `"Tuesday, September 8, Rubbish" Button`
+    t =     8.34s Find the "Tuesday, September 8, Rubbish" Button
+    t =     8.41s Find the "Tuesday, September 8, Rubbish" Button
+    t =     8.48s Find the Target Application 'com.bindaynz.app'
+    t =     8.50s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =     8.50s     Wait for com.bindaynz.app to idle
+    t =     8.50s     Find the Target Application 'com.bindaynz.app'
+    t =     8.52s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =     8.56s     Synthesize event
+    t =     8.56s         Find the Target Application 'com.bindaynz.app'
+    t =     8.58s         Find the Target Application 'com.bindaynz.app'
+    t =     8.61s         Find the Target Application 'com.bindaynz.app'
+    t =     8.63s         Find the Target Application 'com.bindaynz.app'
+    t =     8.65s         Find the Target Application 'com.bindaynz.app'
+    t =     9.88s     Wait for com.bindaynz.app to idle
+    t =     9.95s Find the "Tuesday, September 8, Rubbish" Button
+    t =    10.04s Checking existence of `"Tuesday, September 8, Rubbish" Button`
+    t =    10.12s Find the "Tuesday, September 8, Rubbish" Button
+    t =    10.20s Find the "Tuesday, September 8, Rubbish" Button
+    t =    10.26s Find the Target Application 'com.bindaynz.app'
+    t =    10.29s Press Target Application 'com.bindaynz.app'[0.50, 0.72] for 0.1 seconds, then drag to Target Application 'com.bindaynz.app'[0.50, 0.42] with velocity of 250.00 pixels per second, and then hold for 0.1 seconds 
+    t =    10.29s     Wait for com.bindaynz.app to idle
+    t =    10.29s     Find the Target Application 'com.bindaynz.app'
+    t =    10.32s     Check for interrupting elements affecting "Bin Day NZ" Application
+    t =    10.35s     Synthesize event
+    t =    10.35s         Find the Target Application 'com.bindaynz.app'
+    t =    10.37s         Find the Target Application 'com.bindaynz.app'
+    t =    10.40s         Find the Target Application 'com.bindaynz.app'
+    t =    10.42s         Find the Target Application 'com.bindaynz.app'
+    t =    10.45s         Find the Target Application 'com.bindaynz.app'
+    t =    11.68s     Wait for com.bindaynz.app to idle
+    t =    12.75s Find the "Tuesday, September 8, Rubbish" Button
+    t =    12.84s Tap "Tuesday, September 8, Rubbish" Button
+    t =    12.84s     Wait for com.bindaynz.app to idle
+    t =    12.84s     Find the "Tuesday, September 8, Rubbish" Button
+    t =    12.91s     Check for interrupting elements affecting "Tuesday, September 8, Rubbish" Button
+    t =    12.95s     Synthesize event
+    t =    13.25s     Wait for com.bindaynz.app to idle
+    t =    14.58s Waiting 5.0s for "Collection details" NavigationBar to exist
+    t =    15.64s     Checking `Expect predicate `existsNoRetry == 1` for object "Collection details" NavigationBar`
+    t =    15.64s         Checking existence of `"Collection details" NavigationBar`
+    t =    15.75s Added attachment named '17-saved-day-detail'
+    t =    15.75s Tear Down
+Test Case '-[BinDayNZUITests.OnboardingFlowUITests testSavedScheduleVisualEvidence]' passed (15.984 seconds).
+Test Suite 'OnboardingFlowUITests' passed at 2026-09-07 00:05:01.995.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 55.616 (55.620) seconds
+Test Suite 'BinDayNZUITests.xctest' passed at 2026-09-07 00:05:01.998.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 55.616 (55.623) seconds
+Test Suite 'Selected tests' passed at 2026-09-07 00:05:01.999.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 55.616 (55.624) seconds
+2026-09-07 00:05:02.350 xcodebuild[96847:8263959] [MT] IDETestOperationsObserverDebug: 63.055 elapsed -- Testing started completed.
+2026-09-07 00:05:02.350 xcodebuild[96847:8263959] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-07 00:05:02.350 xcodebuild[96847:8263959] [MT] IDETestOperationsObserverDebug: 63.055 sec, +63.055 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/binday-compact-largest-text.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

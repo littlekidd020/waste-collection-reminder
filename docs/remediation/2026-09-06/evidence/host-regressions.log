@@ -1,0 +1,110 @@
+Sun Sep  6 11:03:07 UTC 2026
+swift-driver version: 1.127.15 Apple Swift version 6.2.4 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
+Target: arm64-apple-macosx26.0
+c8d4f2293e4f768dfffc6b2ef8c58667afc16acfd71f6cdb7840aa006362bd47  BinDayNZ/Models/BinType.swift
+e172d15a6a81f45bf6f5dfcc5347fff408d8379cfb208ad0d6a964739499618a  BinDayNZ/Models/CollectionSchedule.swift
+aff83a590afeb238ddc676bd5bec1efb59fb0fc3b914029fc467dc450e5bd648  BinDayNZ/Models/CollectionZone.swift
+c4b16dcf7df4db4cf2000ed46e81098caffc1ee5fbe324be54a10d73c8370c55  BinDayNZ/Models/UpcomingCollection.swift
+cc281e81cf234d168b024dd9a3e15bbe16af975fa5bcdc71eb113924f7b2c49b  BinDayNZ/Models/Council.swift
+5a171ce4b633cf093a08184361c48b60814039b0704ac333010da39235f618fc  BinDayNZ/Models/UserProfile.swift
+7e696675be637e773b2c262dd3b161c893b74f1e0997409e2bae11420925d396  BinDayNZ/Services/ScheduleEngine.swift
+0ea54eef057e550716cf6a8506d769d0d3e05c83fca9c6134cc60ee217278ac7  BinDayNZ/Services/CalendarService.swift
+41fdd84ab2549f921f85135f5c81282c5d2edb5d30202a1dbb7a03af66b4857b  BinDayNZ/Services/DataService.swift
+b784932f1b901a09d7ae63fc5d76c31e5db893deb541560578c46566f9c6980f  BinDayNZ/Services/LanguageManager.swift
+020773407fa9a170c620a1f7df497ac39df7f2fd3f9cbfd4beda2f61b8e5df0a  BinDayNZTests/ManualScheduleTests.swift
+b18f69b82cbcb24d9a8882781a9611316c11ad44c2f722d3912ee94f9b257fa7  BinDayNZTests/ChangeAddressMapTests.swift
+148e815a40f9afed6d166c4a1e77d83cc974209e51d97d59a1d688efef9183de  BinDayNZTests/CalendarSafetyTests.swift
+5bd1e46b8ef59ee39f424fc5250bd884bbcb97d75653a8ca8b940371a2d928ac  BinDayNZTests/WidgetSnapshotTests.swift
+92538127fe013a87c2f1434fd24e5140a258288b8ea60bf2294e2747c3fc1c57  BinDayNZTests/VideoSourceTests.swift
+99a272e49d7012167db2e377c95a881a6d0e64fec11af7ccf39aaf47a76e7693  BinDayNZTests/IconographyTests.swift
+576cad06b4da2aaa1e87ebb6e9aa036f033d8549cb4e9b00991ce55f9a85d57c  BinDayNZ/Services/NotificationService.swift
+df0750405d4813ac8516b6574706b63dc56ddc6ac27c964b9ac0fa42d2a7d894  BinDayNZ/Views/Info/YouTubePlayerView.swift
++ swiftc -emit-library -emit-module -module-name BinDayNZ -enable-testing -module-cache-path /tmp/bindaynz-host-regressions.ckX0eT/modules -emit-module-path /tmp/bindaynz-host-regressions.ckX0eT/BinDayNZ.swiftmodule -o /tmp/bindaynz-host-regressions.ckX0eT/libBinDayNZ.dylib BinDayNZ/Models/BinType.swift BinDayNZ/Models/CollectionSchedule.swift BinDayNZ/Models/CollectionZone.swift BinDayNZ/Models/UpcomingCollection.swift BinDayNZ/Models/Council.swift BinDayNZ/Models/UserProfile.swift BinDayNZ/Services/ScheduleEngine.swift BinDayNZ/Services/CalendarService.swift BinDayNZ/Services/DataService.swift BinDayNZ/Services/LanguageManager.swift /tmp/bindaynz-host-regressions.ckX0eT/NotificationPlan.swift /tmp/bindaynz-host-regressions.ckX0eT/YouTubeRequest.swift
++ swiftc -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -I /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -L /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -I /tmp/bindaynz-host-regressions.ckX0eT -L /tmp/bindaynz-host-regressions.ckX0eT -lBinDayNZ -Xlinker -rpath -Xlinker /tmp/bindaynz-host-regressions.ckX0eT -Xlinker -rpath -Xlinker /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -Xlinker -rpath -Xlinker /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -module-cache-path /tmp/bindaynz-host-regressions.ckX0eT/modules BinDayNZTests/ManualScheduleTests.swift BinDayNZTests/ChangeAddressMapTests.swift BinDayNZTests/CalendarSafetyTests.swift BinDayNZTests/WidgetSnapshotTests.swift BinDayNZTests/VideoSourceTests.swift BinDayNZTests/IconographyTests.swift /tmp/bindaynz-host-regressions.ckX0eT/main.swift -o /tmp/bindaynz-host-regressions.ckX0eT/HostRegression.app/Contents/MacOS/HostRegression
++ DYLD_FRAMEWORK_PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks
++ /tmp/bindaynz-host-regressions.ckX0eT/HostRegression.app/Contents/MacOS/HostRegression
+Test Suite 'BinDayNZ host regressions' started at 2026-09-06 23:03:35.369.
+Test Suite 'ManualScheduleTests' started at 2026-09-06 23:03:35.370.
+Test Case '-[HostRegression.ManualScheduleTests testCollisionsAreRejectedButAnExplicitlyVacatedDateAndNoOpAreValid]' started.
+Test Case '-[HostRegression.ManualScheduleTests testCollisionsAreRejectedButAnExplicitlyVacatedDateAndNoOpAreValid]' passed (0.004 seconds).
+Test Case '-[HostRegression.ManualScheduleTests testEachBinSupportsWeeklyAndFortnightlyWithIndependentDates]' started.
+Test Case '-[HostRegression.ManualScheduleTests testEachBinSupportsWeeklyAndFortnightlyWithIndependentDates]' passed (0.004 seconds).
+Test Case '-[HostRegression.ManualScheduleTests testFortnightlyDatesStayFourteenDaysApartAcrossBothYearBoundaries]' started.
+Test Case '-[HostRegression.ManualScheduleTests testFortnightlyDatesStayFourteenDaysApartAcrossBothYearBoundaries]' passed (0.002 seconds).
+Test Case '-[HostRegression.ManualScheduleTests testInvalidAndNonfiniteDatesNeverBecomeCollections]' started.
+Test Case '-[HostRegression.ManualScheduleTests testInvalidAndNonfiniteDatesNeverBecomeCollections]' passed (0.000 seconds).
+Test Case '-[HostRegression.ManualScheduleTests testMovesAndSkipsPreserveFutureCadenceAndMonthOutput]' started.
+Test Case '-[HostRegression.ManualScheduleTests testMovesAndSkipsPreserveFutureCadenceAndMonthOutput]' passed (0.005 seconds).
+Test Case '-[HostRegression.ManualScheduleTests testNZPropertyDateSurvivesDeviceTimeZoneAndLocaleWeekRules]' started.
+Test Case '-[HostRegression.ManualScheduleTests testNZPropertyDateSurvivesDeviceTimeZoneAndLocaleWeekRules]' passed (0.002 seconds).
+Test Case '-[HostRegression.ManualScheduleTests testSchedulesDoNotExpireAtAnArbitraryLookaheadOrBeforeTheirAnchor]' started.
+Test Case '-[HostRegression.ManualScheduleTests testSchedulesDoNotExpireAtAnArbitraryLookaheadOrBeforeTheirAnchor]' passed (0.001 seconds).
+Test Case '-[HostRegression.ManualScheduleTests testWeeklyDatesPreserveMidnightThroughNZDST]' started.
+Test Case '-[HostRegression.ManualScheduleTests testWeeklyDatesPreserveMidnightThroughNZDST]' passed (0.000 seconds).
+Test Suite 'ManualScheduleTests' passed at 2026-09-06 23:03:35.390.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.019 (0.020) seconds
+Test Suite 'SchedulePersistenceAndReminderTests' started at 2026-09-06 23:03:35.390.
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testConfirmedScheduleAndChangesSurviveSwiftDataSaveAndFetch]' started.
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testConfirmedScheduleAndChangesSurviveSwiftDataSaveAndFetch]' passed (0.053 seconds).
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testIsolatedCalendarSyncPreservesUnrelatedEventsAndIsIdempotent]' started.
+/Users/kexinli/My Drive/AI Projects/waste collection reminder/BinDayNZTests/ChangeAddressMapTests.swift:234: -[HostRegression.SchedulePersistenceAndReminderTests testIsolatedCalendarSyncPreservesUnrelatedEventsAndIsIdempotent] : Test skipped - This test never accesses a physical device or host user's calendars.
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testIsolatedCalendarSyncPreservesUnrelatedEventsAndIsIdempotent]' skipped (0.007 seconds).
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testIsolatedNotificationsRetainCompleteBatchAndCancelIt]' started.
+/Users/kexinli/My Drive/AI Projects/waste collection reminder/BinDayNZTests/ChangeAddressMapTests.swift:297: -[HostRegression.SchedulePersistenceAndReminderTests testIsolatedNotificationsRetainCompleteBatchAndCancelIt] : Test skipped - This test never changes a physical device or host user's notifications.
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testIsolatedNotificationsRetainCompleteBatchAndCancelIt]' skipped (0.001 seconds).
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testMissingCorruptLegacyAndInvalidProfilesRequireScheduleConfirmation]' started.
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testMissingCorruptLegacyAndInvalidProfilesRequireScheduleConfirmation]' passed (0.001 seconds).
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testNotificationTimesRemainNZWallClockAcrossBothDSTTransitionsAndTravel]' started.
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testNotificationTimesRemainNZWallClockAcrossBothDSTTransitionsAndTravel]' passed (0.041 seconds).
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testReminderCapacityGroupsAllBinsAndNeverSplitsTheFinalCollectionDay]' started.
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testReminderCapacityGroupsAllBinsAndNeverSplitsTheFinalCollectionDay]' passed (0.190 seconds).
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testReminderPlanRejectsInvalidInputsAndOmitsElapsedReminders]' started.
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testReminderPlanRejectsInvalidInputsAndOmitsElapsedReminders]' passed (0.578 seconds).
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testReminderPlanUsesMovedDatesAndSkipsOnlyTheAffectedBin]' started.
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testReminderPlanUsesMovedDatesAndSkipsOnlyTheAffectedBin]' passed (0.098 seconds).
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testRemindersCanStartBeyondTheOldSixMonthWindow]' started.
+Test Case '-[HostRegression.SchedulePersistenceAndReminderTests testRemindersCanStartBeyondTheOldSixMonthWindow]' passed (0.015 seconds).
+Test Suite 'SchedulePersistenceAndReminderTests' passed at 2026-09-06 23:03:36.378.
+	 Executed 9 tests, with 2 tests skipped and 0 failures (0 unexpected) in 0.984 (0.988) seconds
+Test Suite 'CalendarSafetyTests' started at 2026-09-06 23:03:36.378.
+Test Case '-[HostRegression.CalendarSafetyTests testCalendarReminderEventsKeepNZClockTimesAcrossDST]' started.
+Test Case '-[HostRegression.CalendarSafetyTests testCalendarReminderEventsKeepNZClockTimesAcrossDST]' passed (0.002 seconds).
+Test Case '-[HostRegression.CalendarSafetyTests testICSHasRequiredFieldsAndIncludesChangedDates]' started.
+Test Case '-[HostRegression.CalendarSafetyTests testICSHasRequiredFieldsAndIncludesChangedDates]' passed (0.011 seconds).
+Test Case '-[HostRegression.CalendarSafetyTests testICSTextEscapingAndUTF8FoldingPreventMalformedContent]' started.
+Test Case '-[HostRegression.CalendarSafetyTests testICSTextEscapingAndUTF8FoldingPreventMalformedContent]' passed (0.000 seconds).
+Test Case '-[HostRegression.CalendarSafetyTests testNativeSeriesSplitsForMoveAndSkipWithoutChangingFortnightlyCadence]' started.
+Test Case '-[HostRegression.CalendarSafetyTests testNativeSeriesSplitsForMoveAndSkipWithoutChangingFortnightlyCadence]' passed (0.000 seconds).
+Test Case '-[HostRegression.CalendarSafetyTests testOwnershipRequiresBothSavedCalendarAndInstallationMarker]' started.
+Test Case '-[HostRegression.CalendarSafetyTests testOwnershipRequiresBothSavedCalendarAndInstallationMarker]' passed (0.001 seconds).
+Test Case '-[HostRegression.CalendarSafetyTests testSharedValidationRejectsCollisionBeforeProducingCalendarChanges]' started.
+Test Case '-[HostRegression.CalendarSafetyTests testSharedValidationRejectsCollisionBeforeProducingCalendarChanges]' passed (0.000 seconds).
+Test Suite 'CalendarSafetyTests' passed at 2026-09-06 23:03:36.393.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.014 (0.014) seconds
+Test Suite 'WidgetSnapshotTests' started at 2026-09-06 23:03:36.393.
+Test Case '-[HostRegression.WidgetSnapshotTests testOldDateCacheAndInvalidSnapshotsCannotConfigureTheWidget]' started.
+Test Case '-[HostRegression.WidgetSnapshotTests testOldDateCacheAndInvalidSnapshotsCannotConfigureTheWidget]' passed (0.004 seconds).
+Test Case '-[HostRegression.WidgetSnapshotTests testSavedRecurrenceSurvivesDaylightSavingAndHasNoFiniteDateHorizon]' started.
+Test Case '-[HostRegression.WidgetSnapshotTests testSavedRecurrenceSurvivesDaylightSavingAndHasNoFiniteDateHorizon]' passed (0.001 seconds).
+Test Case '-[HostRegression.WidgetSnapshotTests testSnapshotRoundTripPreservesTheConfirmedScheduleAndChangedDate]' started.
+Test Case '-[HostRegression.WidgetSnapshotTests testSnapshotRoundTripPreservesTheConfirmedScheduleAndChangedDate]' passed (0.003 seconds).
+Test Suite 'WidgetSnapshotTests' passed at 2026-09-06 23:03:36.401.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.008 (0.008) seconds
+Test Suite 'VideoSourceTests' started at 2026-09-06 23:03:36.401.
+Test Case '-[HostRegression.VideoSourceTests testGuidesKeepTheReviewedFoodAndInorganicExceptions]' started.
+Test Case '-[HostRegression.VideoSourceTests testGuidesKeepTheReviewedFoodAndInorganicExceptions]' passed (0.002 seconds).
+Test Case '-[HostRegression.VideoSourceTests testOptionalVideosUsePrivateEmbedsAndASeparateExternalURL]' started.
+Test Case '-[HostRegression.VideoSourceTests testOptionalVideosUsePrivateEmbedsAndASeparateExternalURL]' passed (0.001 seconds).
+Test Case '-[HostRegression.VideoSourceTests testRubbishDoesNotShowTheRecyclingVideo]' started.
+Test Case '-[HostRegression.VideoSourceTests testRubbishDoesNotShowTheRecyclingVideo]' passed (0.000 seconds).
+Test Suite 'VideoSourceTests' passed at 2026-09-06 23:03:36.404.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.003 (0.003) seconds
+Test Suite 'IconographyTests' started at 2026-09-06 23:03:36.404.
+Test Case '-[HostRegression.IconographyTests testBinTypeSymbolsUseOutlineVariants]' started.
+Test Case '-[HostRegression.IconographyTests testBinTypeSymbolsUseOutlineVariants]' passed (0.000 seconds).
+Test Suite 'IconographyTests' passed at 2026-09-06 23:03:36.404.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.000 (0.000) seconds
+Test Suite 'BinDayNZ host regressions' passed at 2026-09-06 23:03:36.404.
+	 Executed 30 tests, with 2 tests skipped and 0 failures (0 unexpected) in 1.028 (1.036) seconds
+Isolated host bundle: com.bindaynz.regressionhost.8a890141baee468da40ec2037dbdfcda
+REGRESSION RESULT: 30 executed, 0 failures, 2 skipped

@@ -1,0 +1,138 @@
+getpwuid_r did not find a match for uid 501
+Timestamp               Ty Process[PID:TID]
+2026-09-06 22:33:00.029 Df SpringBoard[59742:779144] [com.apple.launchservices:progress] #LSInstallProgressList add subscriber: <_NSProgressSubscriber: 0x600000eda2e0> publishingString: com.bindaynz.app
+2026-09-06 22:33:00.030 Df SpringBoard[59742:779144] [com.apple.launchservices:progress] Subscribing to progress for app com.bindaynz.app,
+2026-09-06 22:33:12.172 Df CoreSimulatorBridge[59674:7777f9] Requesting launch of com.bindaynz.app with options: {
+    environment =     {
+        TERM = dumb;
+    };
+}
+2026-09-06 22:33:12.180 Df CoreSimulatorBridge[59674:7777f9] Beginning launch sequence for bundle 'com.bindaynz.app'
+	retryTimeout: 120.000000 (default write com.apple.CoreSimulatorBridge LaunchRetryTimeout <value>)
+	bootTimeout: 300.000000 (default write com.apple.CoreSimulatorBridge BootRetryTimeout <value>)
+	bootLeeway: 120.000000 (default write com.apple.CoreSimulatorBridge BootLeeway <value>)
+	Note: Use 'xcrun simctl spawn booted defaults write <domain> <key> <value>' to modify defaults in the booted Simulator device.
+Simulator booted at: Sun Sep  6 22:30:28 2026
+Current time: Sun Sep  6 22:33:12 2026
+Within boot leeway: NO
+2026-09-06 22:33:12.183 Df CoreSimulatorBridge[59674:7777f9] Launch attempt #0 for bundle 'com.bindaynz.app', have been trying to launch for 0 seconds.
+2026-09-06 22:33:12.190 Df CoreSimulatorBridge[59674:7777f9] Got LSBundleProxy for 'com.bindaynz.app', sequenceNumber 676, cacheGUID 23D49100-0B61-4C6F-B509-7044DDF248E4
+2026-09-06 22:33:12.192 Df CoreSimulatorBridge[59674:7777f9] [com.apple.FrontBoard:Common] [FBSSystemService][0xc520] Sending request to open "com.bindaynz.app"
+2026-09-06 22:34:48.180 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:Icon] Icon tapped: <SBIconView: 0x1058b1400; frame: {{215.66666666666666, 190.33333333333334}, {64, 78}}; icon: <SBApplicationIcon: 0x6000033133e0; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app>; location: SBIconLocationRoot; isHighlighted: YES; contentVisibility: "visible (transitioning)">
+2026-09-06 22:34:48.181 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:Icon] Telling delegate to launch with actions: <SBIconView: 0x1058b1400; frame: {{215.66666666666666, 190.33333333333334}, {64, 78}}; icon: <SBApplicationIcon: 0x6000033133e0; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app>; location: SBIconLocationRoot; isHighlighted: YES; contentVisibility: "visible (transitioning)"> modifierFlags: 0
+2026-09-06 22:34:48.182 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:Icon] Initiating launch from icon view: <SBIconView: 0x1058b1400; frame: {{215.66666666666666, 190.33333333333334}, {64, 78}}; icon: <SBApplicationIcon: 0x6000033133e0; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app>; location: SBIconLocationRoot; isHighlighted: YES; contentVisibility: "visible (transitioning)">
+2026-09-06 22:34:48.182 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:Icon] Launching application com.bindaynz.app from icon <SBApplicationIcon: 0x6000033133e0; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app>, location: SBIconLocationRoot
+2026-09-06 22:34:48.186 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:UIController] Activate application <SBApplication: 0x600003d70d20; com.bindaynz.app> {
+} from icon <SBApplicationIcon: 0x6000033133e0; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app> location SBIconLocationRoot
+2026-09-06 22:34:48.213 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:TraitsArbiter] [SwitcherOrientation] outSwitcherOrientation: portrait (1), outElementsOrientations: {
+    "sceneID:com.bindaynz.app-default" = 1;
+}
+2026-09-06 22:34:48.214 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:Transaction] Running <SBAppToAppWorkspaceTransaction: 0x1052853c0> for transition request:
+<SBMainWorkspaceTransitionRequest: 0x600003301c20; eventLabel: SBUIApplicationIconLaunchEventLabel; display: Main; source: HomeScreen> {
+    applicationContext = <SBWorkspaceApplicationSceneTransitionContext: 0x1052a9690; background: NO> entities = {
+        SBLayoutRolePrimary = <SBDeviceApplicationSceneEntity: 0x60000223f0c0; ID: sceneID:com.bindaynz.app-default; layoutRole: primary>;
+    };
+}
+2026-09-06 22:34:48.215 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:Common] Generating initialization context on main thread for: com.bindaynz.app
+2026-09-06 22:34:48.215 Df SpringBoard[59742:77b3f5] [com.apple.FrontBoard:Process] Asked to bootstrap a new process with identity: app<com.bindaynz.app((null))>
+2026-09-06 22:34:48.215 Df SpringBoard[59742:77b3f5] [com.apple.FrontBoard:Process] Creating process (sync=true) with identity: app<com.bindaynz.app((null))>
+2026-09-06 22:34:48.215 Df SpringBoard[59742:77b3f5] [com.apple.FrontBoard:ProcessWorkspace] Created <FBWorkspace: 0x600003033de0; <FBApplicationProcess: 0x104e5f190; app<com.bindaynz.app>:<invalid>>>
+2026-09-06 22:34:48.215 Df SpringBoard[59742:77b3f5] [com.apple.FrontBoard:Process] Bootstrapping app<com.bindaynz.app> with intent foreground-interactive
+2026-09-06 22:34:48.218 Df runningboardd[59646:77b25b] [com.apple.runningboard:ttl] Acquiring assertion targeting app<com.bindaynz.app((null))> from originator [osservice<com.apple.SpringBoard>:59742] with description <RBSAssertionDescriptor| "FBApplicationProcess" ID:59646-59742-172 target:app<com.bindaynz.app((null))> attributes:[
+	<RBSDomainAttribute| domain:"com.apple.frontboard" name:"SuspendableLPRunReason-Resume" sourceEnvironment:"(null)">,
+	<RBSDomainAttribute| domain:"com.apple.frontboard" name:"Visibility" sourceEnvironment:"(null)">,
+	<RBSDomainAttribute| domain:"com.apple.frontboard" name:"SuspendableRole-UIFocal" sourceEnvironment:"(null)">,
+	<RBSDomainAttribute| domain:"com.apple.frontboard" name:"SuspendableJetsamPriority-Foreground" sourceEnvironment:"(null)">,
+	<RBSDomainAttribute| domain:"com.apple.frontboard" name:"SuspendableBootstrapping" sourceEnvironment:"(null)">
+	]>
+2026-09-06 22:34:48.218 Df runningboardd[59646:77b25b] [com.apple.runningboard:ttl] Assertion 59646-59742-172 (target:app<com.bindaynz.app((null))>) will be created as active
+2026-09-06 22:34:48.225 Df SpringBoard[59742:7778ee] [com.apple.SplashBoard:Capture] Synchronously generating image for request: <XBLaunchStateRequest: 0x600002a1e220; groupID: com.bindaynz.app - {DEFAULT GROUP}; statusBar: normal; refSize: {402, 874}; orientation: Portrait; userInterfaceStyle: Light>
+2026-09-06 22:34:50.325 E  SpringBoard[59742:77b414] [com.apple.SplashBoard:Capture] Request to splashboardd has timed out -- invalidating the connection for com.bindaynz.app.
+2026-09-06 22:34:50.325 E  SpringBoard[59742:7778ee] [com.apple.SplashBoard:Capture] Snapshot generation resulted in an error with code: 8 for app bundleID: com.bindaynz.app
+2026-09-06 22:34:50.357 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:AppSwitcher] <SBFullScreenSwitcherLiveContentOverlayCoordinator: 0x600002d3d080> Adding SwitcherScene overlay for: <SBAppLayout: 0x600002c94c00; primary: com.bindaynz.app:default; environment: main>, animated: NO
+2026-09-06 22:34:50.368 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:ZStack] _updatePreferences <Switcher>: {
+    activationPolicyForParticipantsBelow: AtMostBG;
+    homeAffordanceDrawingSuppression: Default;
+    associatedSceneIdentifiersToSuppressInSystemAperture: (
+        sceneID:com.bindaynz.app-default
+    );
+    associatedBundleIdentifiersToSuppressInSystemAperture: (
+        com.bindaynz.app
+    );
+    allowsDimmingWhenForegroundInactive: No;
+}
+2026-09-06 22:34:50.374 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:SystemApertureController] Invalidating promoted elements with coversheet suppression NO liquid detection suppression NO proximity reader suppression NO system chrome suppression NO bundleIDs {(
+    "com.bindaynz.app"
+)} sceneIds {(
+    "sceneID:com.bindaynz.app-default"
+)}
+2026-09-06 22:34:50.375 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:ZStack] Resolved Stack (update(Switcher)) [
+    Highest: ⬇ ,
+    SystemAperture: ⬇ ,
+    BannerItems: ⬇ ,
+    HUD: ⬇ ,
+    TransientOverlayPresentation: ⬇ ,
+    CoverSheet: ⬇ ,
+    Switcher: ownsHomeGesture; FGActive; homeAffordanceDrawingSuppressed: Y->N; suppressedBundles: (none)->com.bindaynz.app; suppressedScenes: 0->1,
+    HomeScreen: FGActive->BG
+]
+2026-09-06 22:34:50.376 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:TraitsArbiter] [DeviceSceneHandle] Did set interfaceOrientation[1] on scene with identifier[sceneID:com.bindaynz.app-default]
+2026-09-06 22:34:50.377 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:ContinuitySession] modifying scene setting userInterfaceStyle to Light displayIdentity: Main forSceneManagers: Main <SBDeviceApplicationSceneHandle: 0x105499ff0; sceneID: sceneID:com.bindaynz.app-default; scenePointer: 0x0>
+2026-09-06 22:34:50.377 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:Common] No capture application found for the com.bindaynz.app, launchCameraCapture: NO, isCaptureApplication: NO
+2026-09-06 22:34:50.381 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:AppSwitcher] [Main (EmbeddedDisplay)] dispatch event:
+<SBTransitionSwitcherModifierEvent: 0x1052b2740; type: MainTransition; transitionID: 775F9900-D1AF-4CF9-A4CC-7821F540D984; phase: Prepare; animated: YES; fromAppLayout: 0x0; toAppLayout: <SBAppLayout: 0x600002c94c00; primary: com.bindaynz.app:default; environment: main>; fromEnvironmentMode: home-screen; toEnvironmentMode: application; fromSpaceConfiguration: undefined; toSpaceConfiguration: full; pendingTermination: {(
+)}; activating: <SBAppLayout: 0x600002c94c00; primary: com.bindaynz.app:default; environment: main>; morphingPIPLayoutRole: undefined; previousDesktopItems: {(
+)}>
+2026-09-06 22:34:50.386 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:AppSwitcher] [Main (EmbeddedDisplay)] handle response:
+<SBSwitcherModifierEventResponse: 0x600000eb0cf0> {
+    <SBSwitcherModifierEventResponse: 0x600000eb0570> {
+	    <SBSwitcherModifierEventResponse: 0x600000d57720> {
+		    <SBTimerEventSwitcherEventResponse: 0x600000c521c0; delay: 0.240000; reason: kSBTransitionModifierInvalidateAsyncRenderingReason>;
+		    <SBInvalidateAdjustedAppLayoutsSwitcherEventResponse: 0x600000c514a0>;
+		};
+	    <SBTimerEventSwitcherEventResponse: 0x600000eb0ed0; delay: 0.060000; reason: kSBFullScreenToHomeCornerRadiusDelayReason>;
+	};
+    <SBSwitcherModifierEventResponse: 0x600000eb3090> {
+	    <SBUpdateLayoutSwitcherEventResponse: 0x60000183b940; updateVisibleItems; layout; style; mode: None>;
+	    <SBRequestFolderSnapshotsSwitcherEventResponse: 0x600000ea9560; snapshotRequested: YES>;
+	    <SBIconOverlayVisibilitySwitcherEventResponse: 0x6000017f8240; visible: YES; appLayout: <SBAppLayout: 0x600002c94c00; primary: com.bindaynz.app:default; environment: main>>;
+	    <SBIconViewVisibilitySwitcherE
+2026-09-06 22:34:50.540 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:AppSwitcher] [Main (EmbeddedDisplay)] dispatch event:
+<SBTransitionSwitcherModifierEvent: 0x104fb62a0; type: MainTransition; transitionID: 775F9900-D1AF-4CF9-A4CC-7821F540D984; phase: Animate; animated: YES; fromAppLayout: 0x0; toAppLayout: <SBAppLayout: 0x600002c94c00; primary: com.bindaynz.app:default; environment: main>; fromEnvironmentMode: home-screen; toEnvironmentMode: application; fromSpaceConfiguration: undefined; toSpaceConfiguration: full; pendingTermination: {(
+)}; activating: <SBAppLayout: 0x600002c94c00; primary: com.bindaynz.app:default; environment: main>; morphingPIPLayoutRole: undefined; previousDesktopItems: {(
+)}>
+2026-09-06 22:34:50.551 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:AppSwitcher] [Main (EmbeddedDisplay)] dispatch event:
+<SBSceneReadySwitcherModifierEvent: 0x600000f08330; type: SceneReady; appLayout: <SBAppLayout: 0x600002c94c00; primary: com.bindaynz.app:default; environment: main> {
+    configuration = full;
+    environment = main;
+    centerConfiguration = undefined;
+    preferredDisplayOrdinal = 0;
+    continuousExposeIdentifier = com.bindaynz.app;
+    layoutItems = {
+        primary = <SBDisplayItem: 0x60000180c380; type: App; bundleIdentifier: com.bindaynz.app; uniqueIdentifier: sceneID:com.bindaynz.app-default>;
+    }
+}>
+2026-09-06 22:34:50.552 Df SpringBoard[59742:7778ee] [com.apple.FrontBoard:Process] Asked to bootstrap a new process with identity: app<com.bindaynz.app((null))>
+2026-09-06 22:34:50.552 Df SpringBoard[59742:7778ee] [com.apple.FrontBoard:Process] Did not create a new process: A pending process for app<com.bindaynz.app((null))> already exists.
+2026-09-06 22:34:50.975 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:AppSwitcher] [Main (EmbeddedDisplay)] dispatch event:
+<SBTransitionSwitcherModifierEvent: 0x104fa5c90; type: MainTransition; transitionID: 775F9900-D1AF-4CF9-A4CC-7821F540D984; phase: Complete; animated: YES; fromAppLayout: 0x0; toAppLayout: <SBAppLayout: 0x600002c94c00; primary: com.bindaynz.app:default; environment: main>; fromEnvironmentMode: home-screen; toEnvironmentMode: application; fromSpaceConfiguration: undefined; toSpaceConfiguration: full; pendingTermination: {(
+)}; activating: <SBAppLayout: 0x600002c94c00; primary: com.bindaynz.app:default; environment: main>; morphingPIPLayoutRole: undefined; previousDesktopItems: {(
+)}>
+2026-09-06 22:34:50.975 Df SpringBoard[59742:7778ee] [com.apple.SpringBoard:AppSwitcher] [Main (EmbeddedDisplay)] handle response:
+<SBSwitcherModifierEventResponse: 0x600000f02220> {
+    <SBPreemptAnimationSwitcherEventResponse: 0x600000f006f0>;
+    <SBSwitcherModifierEventResponse: 0x600000f036c0> {
+	    <SBInvalidateAdjustedAppLayoutsSwitcherEventResponse: 0x600000f00720>;
+	    <SBSwitcherModifierEventResponse: 0x600000f00810> {
+		    <SBRequestFolderSnapshotsSwitcherEventResponse: 0x600000f030c0; snapshotRequested: NO>;
+		    <SBIconOverlayVisibilitySwitcherEventResponse: 0x600001843fc0; visible: NO; appLayout: <SBAppLayout: 0x600002c94c00; primary: com.bindaynz.app:default; environment: main>>;
+		    <SBIconViewVisibilitySwitcherEventResponse: 0x600002250550; visible: YES; animationSettings: 0x0; appLayout: <SBAppLayout: 0x600002c94c00; primary: com.bindaynz.app:default; environment: main>>;
+		    <SBMatchMoveToIconViewSwitcherEventResponse: 0x6000026b1020; active: NO; appLayout: <SBAppLayout: 0x600002c94c00; primary: com.bindaynz.app:default; environment: main>>;
+		};
+	};
+}
+2026-09-06 22:34:56.910 Df SpringBoard[59742:779126] [com.apple.SplashBoard:SnapshotReaper] <XBApplicationSnapshotManifestImpl: 0x600002c6ee80> [com.bindaynz.app] Reaping invalid snapshot <XBApplicationSnapshot: 0x104fab4c0; …3643A5E54031> [com.bindaynz.app]
+ invalidReason: expired. expirationDate: 0001-01-01 00:00:00 +0000; how long ago (seconds): 63924460496.914780
+2026-09-06 22:34:56.911 Df SpringBoard[59742:779126] [com.apple.SplashBoard:FileManifest] <XBApplicationSnapshotManifestImpl: 0x600002c6ee80> [com.bindaynz.app] Deleting snapshot <XBApplicationSnapshot: 0x104fab4c0; …3643A5E54031> [com.bindaynz.app] for reason: _contentType: GeneratedDefault(1)
+2026-09-06 22:34:56.913 Df SpringBoard[59742:779126] [com.apple.SplashBoard:FileManifest] <XBApplicationSnapshotManifestImpl: 0x600002c6ee80> [com.bindaynz.app] We don't have any snapshots, so we're clearing our manifest data.
+2026-09-06 22:34:58.013 Df SpringBoard[59742:77b885] [com.apple.SplashBoard:FileManifest] <XBApplicationSnapshotManifestImpl: 0x600002c6ee80> [com.bindaynz.app] We don't have any snapshots, so we're clearing our manifest data.

@@ -27,8 +27,6 @@
 	</dict>
 	<key>UILaunchScreen</key>
 	<dict>
-		<key>UIColorName</key>
-		<string>LaunchBackground</string>
 	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
@@ -38,8 +36,6 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSCalendarsUsageDescription</key>
-	<string>Bin Day NZ needs calendar access to add your collection schedule to your calendar.</string>
 	<key>NSCalendarsFullAccessUsageDescription</key>
 	<string>Bin Day NZ needs full calendar access to create and manage your bin collection events.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

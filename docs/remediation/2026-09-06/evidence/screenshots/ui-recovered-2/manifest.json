@@ -1,0 +1,56 @@
+{
+  "resultBundle": "/tmp/binday-ui-recovered-2.xcresult",
+  "rawAttachments": "/tmp/binday-ui-raw-attachments/ui-recovered-2",
+  "preserved": [
+    {
+      "file": "05-today.png",
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E7B0A682-1912-4538-B8DC-EA62BEA8D745",
+      "deviceName": "BinDay Audit 0609",
+      "exportedFileName": "EE257991-DE83-4C67-A8B7-C2F43DC19D20.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "05-today_0_EBDFD8F5-8D4D-4E5E-9E55-FB231F7F0395.png",
+      "timestamp": 1788693807.767
+    },
+    {
+      "file": "04-reminders.png",
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E7B0A682-1912-4538-B8DC-EA62BEA8D745",
+      "deviceName": "BinDay Audit 0609",
+      "exportedFileName": "CDE7F71D-C6E0-419C-A361-F3354341581A.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "04-reminders_0_AA2144A9-559E-4021-9DB7-390AFF66DF2F.png",
+      "timestamp": 1788693800.712
+    },
+    {
+      "file": "03-per-bin-editor.png",
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E7B0A682-1912-4538-B8DC-EA62BEA8D745",
+      "deviceName": "BinDay Audit 0609",
+      "exportedFileName": "87700105-0866-44E8-AFF6-6E568711B12F.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "03-per-bin-editor_0_B0F8B7FC-9AD1-4FCE-AE47-4D13AEFB9189.png",
+      "timestamp": 1788693778.989
+    },
+    {
+      "file": "02-optional-address.png",
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E7B0A682-1912-4538-B8DC-EA62BEA8D745",
+      "deviceName": "BinDay Audit 0609",
+      "exportedFileName": "769E5675-8C8E-4C2E-BE98-47E809EE09A2.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "02-optional-address_0_8E6772F6-665C-4D3F-8FD9-EB18674E5D75.png",
+      "timestamp": 1788693776.978
+    },
+    {
+      "file": "01-welcome.png",
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E7B0A682-1912-4538-B8DC-EA62BEA8D745",
+      "deviceName": "BinDay Audit 0609",
+      "exportedFileName": "7105BBBF-757F-44B1-95DA-85ECB7BDB7A4.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "01-welcome_0_74E5B8A3-C66B-442C-9D60-A6C334E1A2E8.png",
+      "timestamp": 1788693775.434
+    }
+  ]
+}

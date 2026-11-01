@@ -1,0 +1,8 @@
+['xcrun', 'simctl', 'shutdown', 'all']
+exit=0
+
+['killall', '-TERM', 'Simulator']
+exit=0
+
+['killall', '-TERM', 'com.apple.CoreSimulator.CoreSimulatorService']
+exit=0

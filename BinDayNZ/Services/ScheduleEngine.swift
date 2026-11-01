@@ -1,106 +1,70 @@
 import Foundation
 
-/// Core engine that calculates waste collection dates.
-/// Determines which bins are collected on any given date for a specific zone.
 final class ScheduleEngine {
-
-    private let calendar: Calendar
-
-    init(calendar: Calendar = .current) {
-        self.calendar = calendar
+    static var collectionCalendar: Calendar {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(identifier: "Pacific/Auckland")!
+        calendar.firstWeekday = 2
+        return calendar
     }
 
-    // MARK: - Public API
-
-    /// Returns the next N upcoming collections for a zone, starting from a given date.
-    func upcomingCollections(for zone: CollectionZone, from startDate: Date, count: Int) -> [UpcomingCollection] {
-        var results: [UpcomingCollection] = []
-        let startOfDay = calendar.startOfDay(for: startDate)
-
-        for dayOffset in 0..<180 { // Look ahead up to 6 months
-            guard let date = calendar.date(byAdding: .day, value: dayOffset, to: startOfDay) else { continue }
-            let bins = binsCollectedOn(date: date, zone: zone)
-            for bin in bins {
-                results.append(UpcomingCollection(binType: bin, date: date))
-            }
-            if results.count >= count { break }
-        }
-
-        return Array(results.prefix(count))
-    }
-
-    /// Returns which bin types are collected on a specific date for a zone.
     func binsCollectedOn(date: Date, zone: CollectionZone) -> [BinType] {
-        let weekday = calendar.component(.weekday, from: date)
-        // Convert Apple's Sunday=1..Saturday=7 to ISO Monday=1..Sunday=7
-        let isoDayOfWeek = weekday == 1 ? 7 : weekday - 1
-
-        return zone.schedules.compactMap { schedule in
-            guard schedule.dayOfWeek == isoDayOfWeek else { return nil }
-
-            switch schedule.frequency {
-            case .weekly:
+        guard date.timeIntervalSince1970.isFinite, zone.isValid else { return [] }
+        let calendar = Self.collectionCalendar
+        return zone.schedules.filter(\.isValid).compactMap { schedule in
+            if schedule.changes.contains(where: { $0.replacementDate.map { calendar.isDate($0, inSameDayAs: date) } ?? false }) {
                 return schedule.binType
-            case .fortnightly:
-                let weekOfYear = calendar.component(.weekOfYear, from: date)
-                let isEvenWeek = weekOfYear % 2 == 0
-                if let pattern = schedule.weekPattern {
-                    if (pattern == .even && isEvenWeek) || (pattern == .odd && !isEvenWeek) {
-                        return schedule.binType
-                    }
+            }
+            if schedule.changes.contains(where: { calendar.isDate($0.originalDate, inSameDayAs: date) }) { return nil }
+            return schedule.isRegularCollection(on: date) ? schedule.binType : nil
+        }.sorted { $0.rawValue < $1.rawValue }
+    }
+
+    func upcomingCollections(for zone: CollectionZone, from startDate: Date, count: Int) -> [UpcomingCollection] {
+        guard count > 0, startDate.timeIntervalSince1970.isFinite, zone.isValid else { return [] }
+        let calendar = Self.collectionCalendar
+        let start = calendar.startOfDay(for: startDate)
+        var dates = Set<Date>()
+        for schedule in zone.schedules {
+            let anchor = calendar.startOfDay(for: schedule.anchorDate)
+            let elapsed = max(0, calendar.dateComponents([.day], from: anchor, to: start).day ?? 0)
+            let offset = ((elapsed + schedule.frequency.intervalDays - 1) / schedule.frequency.intervalDays) * schedule.frequency.intervalDays
+            // Each removed occurrence needs one extra candidate; replacements are added below.
+            for index in 0..<(count + schedule.changes.count) {
+                if let date = calendar.date(byAdding: .day, value: offset + index * schedule.frequency.intervalDays, to: anchor), date >= start {
+                    dates.insert(date)
                 }
-                return nil
+            }
+            for change in schedule.changes {
+                if let date = change.replacementDate.map({ calendar.startOfDay(for: $0) }), date >= start { dates.insert(date) }
             }
         }
+        return dates.sorted().flatMap { date in
+            binsCollectedOn(date: date, zone: zone).map { UpcomingCollection(binType: $0, date: date) }
+        }.prefix(count).map { $0 }
     }
 
-    /// Returns the single next collection for a zone.
     func nextCollection(for zone: CollectionZone, from date: Date = Date()) -> UpcomingCollection? {
-        return upcomingCollections(for: zone, from: date, count: 1).first
+        upcomingCollections(for: zone, from: date, count: 1).first
     }
 
-    /// Returns all collections on a specific date, grouped for display.
     func collectionsOnDate(_ date: Date, zone: CollectionZone) -> [UpcomingCollection] {
-        let bins = binsCollectedOn(date: date, zone: zone)
-        return bins.map { UpcomingCollection(binType: $0, date: date) }
+        binsCollectedOn(date: date, zone: zone).map { UpcomingCollection(binType: $0, date: date) }
     }
 
-    /// Returns collections for an entire month, keyed by day of month.
     func collectionsForMonth(year: Int, month: Int, zone: CollectionZone) -> [Int: [BinType]] {
-        var result: [Int: [BinType]] = [:]
-
-        var components = DateComponents()
-        components.year = year
-        components.month = month
-        components.day = 1
-
-        guard let firstDay = calendar.date(from: components),
-              let range = calendar.range(of: .day, in: .month, for: firstDay) else {
-            return result
-        }
-
-        for day in range {
-            components.day = day
-            guard let date = calendar.date(from: components) else { continue }
+        let calendar = Self.collectionCalendar
+        guard let first = calendar.date(from: DateComponents(year: year, month: month, day: 1)),
+              let days = calendar.range(of: .day, in: .month, for: first) else { return [:] }
+        return Dictionary(uniqueKeysWithValues: days.compactMap { day in
+            guard let date = calendar.date(byAdding: .day, value: day - 1, to: first) else { return nil }
             let bins = binsCollectedOn(date: date, zone: zone)
-            if !bins.isEmpty {
-                result[day] = bins
-            }
-        }
-
-        return result
+            return bins.isEmpty ? nil : (day, bins)
+        })
     }
 
-    /// Returns today's collections for quick widget/notification display.
-    func todaysCollections(zone: CollectionZone) -> [BinType] {
-        return binsCollectedOn(date: Date(), zone: zone)
-    }
-
-    /// Returns tomorrow's collections for evening reminder.
+    func todaysCollections(zone: CollectionZone) -> [BinType] { binsCollectedOn(date: Date(), zone: zone) }
     func tomorrowsCollections(zone: CollectionZone) -> [BinType] {
-        guard let tomorrow = calendar.date(byAdding: .day, value: 1, to: Date()) else {
-            return []
-        }
-        return binsCollectedOn(date: tomorrow, zone: zone)
+        binsCollectedOn(date: Self.collectionCalendar.date(byAdding: .day, value: 1, to: Date())!, zone: zone)
     }
 }

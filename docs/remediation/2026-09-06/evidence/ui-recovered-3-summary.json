@@ -1,0 +1,49 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "E7B0A682-1912-4538-B8DC-EA62BEA8D745",
+        "deviceName" : "BinDay Audit 0609",
+        "modelName" : "iPhone 17",
+        "osBuildNumber" : "23C54",
+        "osVersion" : "26.2",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 1,
+      "passedTests" : 0,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "BinDayNZ · Built with macOS 26.5.1",
+  "expectedFailures" : 0,
+  "failedTests" : 1,
+  "finishTime" : 1788694053.123,
+  "passedTests" : 0,
+  "result" : "Failed",
+  "skippedTests" : 0,
+  "startTime" : 1788693931.913,
+  "statistics" : [
+
+  ],
+  "testFailures" : [
+    {
+      "failureText" : "Failed to tap \"Rubbish\" Button: No matches found for Elements matching predicate '\"Rubbish\" IN identifiers' from input {(\n    Button, identifier: 'house.fill', label: 'Today',\n    Button, identifier: 'calendar', label: 'Schedule',\n    Button, identifier: 'info.circle', label: 'Info', Selected,\n    Button, identifier: 'gearshape', label: 'Settings',\n    Button, label: 'Auckland Council Website',\n    Button, label: 'Report a missed collection',\n    Button, label: 'Find where an item goes',\n    Button, label: 'Privacy and Help',\n    Button, label: 'Rubbish, What goes in',\n    Button, label: 'Recycling, What goes in',\n    Button, label: 'Food Scraps, What goes in',\n    Button, label: 'Inorganic Collection, Book a collection'\n)}\nPossibly caused by runtime issues:\nAutomation type mismatch: computed Button from legacy attributes vs Link from modern attribute. Input attributes and values: {\n    \"XC_kAXXCAttributeAutomationType\" = 42;\n    \"XC_kAXXCAttributeElementBaseType\" = UIResponder;\n    \"XC_kAXXCAttributeElementType\" = \"SwiftUI.AccessibilityNode\";\n    \"XC_kAXXCAttributeTraits\" = 8589934595;\n}\nSee test report attachments for more detail.",
+      "targetName" : "BinDayNZUITests",
+      "testIdentifier" : 1,
+      "testIdentifierString" : "OnboardingFlowUITests/testConfirmedScheduleRecoveryEditingGuidesAndRelaunch()",
+      "testIdentifierURL" : "test://com.apple.xcode/BinDayNZ/BinDayNZUITests/OnboardingFlowUITests/testConfirmedScheduleRecoveryEditingGuidesAndRelaunch",
+      "testName" : "testConfirmedScheduleRecoveryEditingGuidesAndRelaunch()"
+    }
+  ],
+  "title" : "Test - BinDayNZ",
+  "topInsights" : [
+
+  ],
+  "totalTestCount" : 1
+}

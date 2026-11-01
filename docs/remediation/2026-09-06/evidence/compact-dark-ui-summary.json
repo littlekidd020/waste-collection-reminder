@@ -1,0 +1,49 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "82F9EDCF-F739-4434-9EAD-0D1B36F87C0F",
+        "deviceName" : "BinDay Audit Compact 0609",
+        "modelName" : "iPhone SE (3rd generation)",
+        "osBuildNumber" : "23C54",
+        "osVersion" : "26.2",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 1,
+      "passedTests" : 0,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "BinDayNZ · Built with macOS 26.5.1",
+  "expectedFailures" : 0,
+  "failedTests" : 1,
+  "finishTime" : 1788695288.099,
+  "passedTests" : 0,
+  "result" : "Failed",
+  "skippedTests" : 0,
+  "startTime" : 1788695174.387,
+  "statistics" : [
+
+  ],
+  "testFailures" : [
+    {
+      "failureText" : "XCTAssertTrue failed - Control must remain reachable: \"Notifications are not allowed\" StaticText",
+      "targetName" : "BinDayNZUITests",
+      "testIdentifier" : 1,
+      "testIdentifierString" : "OnboardingFlowUITests/testConfirmedScheduleRecoveryEditingGuidesAndRelaunch()",
+      "testIdentifierURL" : "test://com.apple.xcode/BinDayNZ/BinDayNZUITests/OnboardingFlowUITests/testConfirmedScheduleRecoveryEditingGuidesAndRelaunch",
+      "testName" : "testConfirmedScheduleRecoveryEditingGuidesAndRelaunch()"
+    }
+  ],
+  "title" : "Test - BinDayNZ",
+  "topInsights" : [
+
+  ],
+  "totalTestCount" : 1
+}

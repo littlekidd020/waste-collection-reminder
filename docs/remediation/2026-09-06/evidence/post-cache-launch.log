@@ -1,0 +1,16 @@
+shutdown exit 0
+
+boot exit 0
+
+bootstatus exit 0
+Monitoring boot status for BinDay Audit 0609 (E7B0A682-1912-4538-B8DC-EA62BEA8D745).
+[2026-09-06 11:10:52 +0000] Status=1, isTerminal=NO, Elapsed=00:02.
+	Waiting on BackBoard
+
+[2026-09-06 11:11:14 +0000] Status=4294967295, isTerminal=YES, Elapsed=00:24.
+	Finished
+
+
+install exit 0
+
+launch timed out after45seconds

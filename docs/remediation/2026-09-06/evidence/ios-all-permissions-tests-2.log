@@ -1,0 +1,108 @@
+xcodebuild -xctestrun /tmp/bindaynz-final-dd/Build/Products/BinDayNZ-isolated.xctestrun -destination platform=iOS Simulator,id=E7B0A682-1912-4538-B8DC-EA62BEA8D745 -parallel-testing-enabled NO -maximum-concurrent-test-simulator-destinations 1 -resultBundlePath /tmp/binday-ios-all-permissions-tests-2.xcresult test-without-building
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -xctestrun /tmp/bindaynz-final-dd/Build/Products/BinDayNZ-isolated.xctestrun -destination "platform=iOS Simulator,id=E7B0A682-1912-4538-B8DC-EA62BEA8D745" -parallel-testing-enabled NO -maximum-concurrent-test-simulator-destinations 1 -resultBundlePath /tmp/binday-ios-all-permissions-tests-2.xcresult test-without-building
+
+2026-09-07 00:01:55.022 xcodebuild[96409:8253149] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+Writing result bundle at path:
+	/tmp/binday-ios-all-permissions-tests-2.xcresult
+
+2026-09-07 00:01:55.031 xcodebuild[96409:8253149] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+2026-09-07 00:01:56.026 xcodebuild[96409:8253149] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+Test Suite 'All tests' started at 2026-09-07 00:02:06.285.
+Test Suite 'BinDayNZTests.xctest' started at 2026-09-07 00:02:06.285.
+Test Suite 'CalendarSafetyTests' started at 2026-09-07 00:02:06.285.
+Test Case '-[BinDayNZTests.CalendarSafetyTests testCalendarReminderEventsKeepNZClockTimesAcrossDST]' started.
+Test Case '-[BinDayNZTests.CalendarSafetyTests testCalendarReminderEventsKeepNZClockTimesAcrossDST]' passed (0.001 seconds).
+Test Case '-[BinDayNZTests.CalendarSafetyTests testICSHasRequiredFieldsAndIncludesChangedDates]' started.
+Test Case '-[BinDayNZTests.CalendarSafetyTests testICSHasRequiredFieldsAndIncludesChangedDates]' passed (0.009 seconds).
+Test Case '-[BinDayNZTests.CalendarSafetyTests testICSTextEscapingAndUTF8FoldingPreventMalformedContent]' started.
+Test Case '-[BinDayNZTests.CalendarSafetyTests testICSTextEscapingAndUTF8FoldingPreventMalformedContent]' passed (0.001 seconds).
+Test Case '-[BinDayNZTests.CalendarSafetyTests testNativeSeriesSplitsForMoveAndSkipWithoutChangingFortnightlyCadence]' started.
+Test Case '-[BinDayNZTests.CalendarSafetyTests testNativeSeriesSplitsForMoveAndSkipWithoutChangingFortnightlyCadence]' passed (0.001 seconds).
+Test Case '-[BinDayNZTests.CalendarSafetyTests testOwnershipRequiresBothSavedCalendarAndInstallationMarker]' started.
+Test Case '-[BinDayNZTests.CalendarSafetyTests testOwnershipRequiresBothSavedCalendarAndInstallationMarker]' passed (0.001 seconds).
+Test Case '-[BinDayNZTests.CalendarSafetyTests testSharedValidationRejectsCollisionBeforeProducingCalendarChanges]' started.
+Test Case '-[BinDayNZTests.CalendarSafetyTests testSharedValidationRejectsCollisionBeforeProducingCalendarChanges]' passed (0.018 seconds).
+Test Suite 'CalendarSafetyTests' passed at 2026-09-07 00:02:06.317.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.030 (0.032) seconds
+Test Suite 'IconographyTests' started at 2026-09-07 00:02:06.317.
+Test Case '-[BinDayNZTests.IconographyTests testBinTypeSymbolsUseOutlineVariants]' started.
+Test Case '-[BinDayNZTests.IconographyTests testBinTypeSymbolsUseOutlineVariants]' passed (0.001 seconds).
+Test Suite 'IconographyTests' passed at 2026-09-07 00:02:06.318.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'ManualScheduleTests' started at 2026-09-07 00:02:06.318.
+Test Case '-[BinDayNZTests.ManualScheduleTests testCollisionsAreRejectedButAnExplicitlyVacatedDateAndNoOpAreValid]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testCollisionsAreRejectedButAnExplicitlyVacatedDateAndNoOpAreValid]' passed (0.002 seconds).
+Test Case '-[BinDayNZTests.ManualScheduleTests testEachBinSupportsWeeklyAndFortnightlyWithIndependentDates]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testEachBinSupportsWeeklyAndFortnightlyWithIndependentDates]' passed (0.003 seconds).
+Test Case '-[BinDayNZTests.ManualScheduleTests testFortnightlyDatesStayFourteenDaysApartAcrossBothYearBoundaries]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testFortnightlyDatesStayFourteenDaysApartAcrossBothYearBoundaries]' passed (0.001 seconds).
+Test Case '-[BinDayNZTests.ManualScheduleTests testInvalidAndNonfiniteDatesNeverBecomeCollections]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testInvalidAndNonfiniteDatesNeverBecomeCollections]' passed (0.001 seconds).
+Test Case '-[BinDayNZTests.ManualScheduleTests testMovesAndSkipsPreserveFutureCadenceAndMonthOutput]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testMovesAndSkipsPreserveFutureCadenceAndMonthOutput]' passed (0.006 seconds).
+Test Case '-[BinDayNZTests.ManualScheduleTests testNZPropertyDateSurvivesDeviceTimeZoneAndLocaleWeekRules]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testNZPropertyDateSurvivesDeviceTimeZoneAndLocaleWeekRules]' passed (0.008 seconds).
+Test Case '-[BinDayNZTests.ManualScheduleTests testSchedulesDoNotExpireAtAnArbitraryLookaheadOrBeforeTheirAnchor]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testSchedulesDoNotExpireAtAnArbitraryLookaheadOrBeforeTheirAnchor]' passed (0.001 seconds).
+Test Case '-[BinDayNZTests.ManualScheduleTests testWeeklyDatesPreserveMidnightThroughNZDST]' started.
+Test Case '-[BinDayNZTests.ManualScheduleTests testWeeklyDatesPreserveMidnightThroughNZDST]' passed (0.001 seconds).
+Test Suite 'ManualScheduleTests' passed at 2026-09-07 00:02:06.342.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.022 (0.024) seconds
+Test Suite 'SchedulePersistenceAndReminderTests' started at 2026-09-07 00:02:06.343.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testConfirmedScheduleAndChangesSurviveSwiftDataSaveAndFetch]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testConfirmedScheduleAndChangesSurviveSwiftDataSaveAndFetch]' passed (0.015 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testCoordinatorIgnoresDetachedAndDeletedProfilesWithoutTouchingOutputs]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testCoordinatorIgnoresDetachedAndDeletedProfilesWithoutTouchingOutputs]' passed (2.661 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testIsolatedCalendarSyncPreservesUnrelatedEventsAndIsIdempotent]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testIsolatedCalendarSyncPreservesUnrelatedEventsAndIsIdempotent]' passed (0.295 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testIsolatedNotificationsRetainCompleteBatchAndCancelIt]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testIsolatedNotificationsRetainCompleteBatchAndCancelIt]' passed (4.043 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testMissingCorruptLegacyAndInvalidProfilesRequireScheduleConfirmation]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testMissingCorruptLegacyAndInvalidProfilesRequireScheduleConfirmation]' passed (0.007 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testNotificationTimesRemainNZWallClockAcrossBothDSTTransitionsAndTravel]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testNotificationTimesRemainNZWallClockAcrossBothDSTTransitionsAndTravel]' passed (0.035 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testReminderCapacityGroupsAllBinsAndNeverSplitsTheFinalCollectionDay]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testReminderCapacityGroupsAllBinsAndNeverSplitsTheFinalCollectionDay]' passed (0.165 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testReminderPlanRejectsInvalidInputsAndOmitsElapsedReminders]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testReminderPlanRejectsInvalidInputsAndOmitsElapsedReminders]' passed (0.083 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testReminderPlanUsesMovedDatesAndSkipsOnlyTheAffectedBin]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testReminderPlanUsesMovedDatesAndSkipsOnlyTheAffectedBin]' passed (0.074 seconds).
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testRemindersCanStartBeyondTheOldSixMonthWindow]' started.
+Test Case '-[BinDayNZTests.SchedulePersistenceAndReminderTests testRemindersCanStartBeyondTheOldSixMonthWindow]' passed (0.016 seconds).
+Test Suite 'SchedulePersistenceAndReminderTests' passed at 2026-09-07 00:02:13.739.
+	 Executed 10 tests, with 0 failures (0 unexpected) in 7.393 (7.396) seconds
+Test Suite 'VideoSourceTests' started at 2026-09-07 00:02:13.740.
+Test Case '-[BinDayNZTests.VideoSourceTests testGuidesKeepTheReviewedFoodAndInorganicExceptions]' started.
+Test Case '-[BinDayNZTests.VideoSourceTests testGuidesKeepTheReviewedFoodAndInorganicExceptions]' passed (0.001 seconds).
+Test Case '-[BinDayNZTests.VideoSourceTests testOptionalVideosUsePrivateEmbedsAndASeparateExternalURL]' started.
+Test Case '-[BinDayNZTests.VideoSourceTests testOptionalVideosUsePrivateEmbedsAndASeparateExternalURL]' passed (0.002 seconds).
+Test Case '-[BinDayNZTests.VideoSourceTests testRubbishDoesNotShowTheRecyclingVideo]' started.
+Test Case '-[BinDayNZTests.VideoSourceTests testRubbishDoesNotShowTheRecyclingVideo]' passed (0.001 seconds).
+Test Suite 'VideoSourceTests' passed at 2026-09-07 00:02:13.745.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.004 (0.005) seconds
+Test Suite 'WidgetSnapshotTests' started at 2026-09-07 00:02:13.745.
+Test Case '-[BinDayNZTests.WidgetSnapshotTests testOldDateCacheAndInvalidSnapshotsCannotConfigureTheWidget]' started.
+Test Case '-[BinDayNZTests.WidgetSnapshotTests testOldDateCacheAndInvalidSnapshotsCannotConfigureTheWidget]' passed (0.008 seconds).
+Test Case '-[BinDayNZTests.WidgetSnapshotTests testSavedRecurrenceSurvivesDaylightSavingAndHasNoFiniteDateHorizon]' started.
+Test Case '-[BinDayNZTests.WidgetSnapshotTests testSavedRecurrenceSurvivesDaylightSavingAndHasNoFiniteDateHorizon]' passed (0.001 seconds).
+Test Case '-[BinDayNZTests.WidgetSnapshotTests testSnapshotRoundTripPreservesTheConfirmedScheduleAndChangedDate]' started.
+Test Case '-[BinDayNZTests.WidgetSnapshotTests testSnapshotRoundTripPreservesTheConfirmedScheduleAndChangedDate]' passed (0.004 seconds).
+Test Suite 'WidgetSnapshotTests' passed at 2026-09-07 00:02:13.760.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.014 (0.015) seconds
+Test Suite 'BinDayNZTests.xctest' passed at 2026-09-07 00:02:13.760.
+	 Executed 31 tests, with 0 failures (0 unexpected) in 7.464 (7.475) seconds
+Test Suite 'All tests' passed at 2026-09-07 00:02:13.761.
+	 Executed 31 tests, with 0 failures (0 unexpected) in 7.464 (7.476) seconds
+2026-09-07 00:02:14.055 xcodebuild[96409:8253149] [MT] IDETestOperationsObserverDebug: 17.982 elapsed -- Testing started completed.
+2026-09-07 00:02:14.055 xcodebuild[96409:8253149] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-07 00:02:14.055 xcodebuild[96409:8253149] [MT] IDETestOperationsObserverDebug: 17.982 sec, +17.982 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/binday-ios-all-permissions-tests-2.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started
+
+Process exit: 0; elapsed seconds: 20.2

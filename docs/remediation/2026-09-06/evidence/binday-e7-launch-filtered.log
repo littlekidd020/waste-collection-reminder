@@ -1,0 +1,789 @@
+Timestamp               Ty Process[PID:TID]
+2026-09-06 22:57:17.120 Df runningboardd[73118:797cd0] [com.apple.runningboard:connection] Received termination request from [osservice<com.apple.backboardd>:73137] on All Managed Processes with context <RBSTerminateContext| explanation:/Library/Developer/CoreSimulator/Volumes/iOS_23C54/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.2.simruntime/Contents/Resources/RuntimeRoot/usr/libexec/backboardd respawn reportType:None maxTerminationResistance:Interactive>
+2026-09-06 22:57:17.120 Df runningboardd[73118:797cd0] [com.apple.runningboard:process] [osservice<com.apple.SpringBoard>:73113] Terminating with context: <RBSTerminateContext| explanation:/Library/Developer/CoreSimulator/Volumes/iOS_23C54/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.2.simruntime/Contents/Resources/RuntimeRoot/usr/libexec/backboardd respawn reportType:None maxTerminationResistance:Interactive>
+2026-09-06 22:57:18.281 E  runningboardd[73118:797cd1] [com.apple.runningboard:process] [osservice<com.apple.AccessibilityUIServer>:73186] Memorystatus failed with unexpected error: Operation not permitted (1)
+2026-09-06 22:57:18.282 E  runningboardd[73118:797cd1] [com.apple.runningboard:process] [osservice<com.apple.AccessibilityUIServer>:73186] Memorystatus failed with unexpected error: Invalid argument (22)
+2026-09-06 22:57:19.395 Df runningboardd[73118:797ccd] [com.apple.runningboard:assertion] Assertion did invalidate due to timeout: 73118-73118-1 (target:[osservice<com.apple.runningboardd>:73118])
+2026-09-06 22:57:22.109 Df runningboardd[73118:797ccb] [com.apple.libxpc.OSLaunchdJob:all] copyJobWithPid:72772 failed with error 113: Could not find specified service
+2026-09-06 22:57:22.111 Df runningboardd[73118:797cd1] [com.apple.libxpc.OSLaunchdJob:all] copyJobWithPid:72964 failed with error 113: Could not find specified service
+2026-09-06 22:57:22.113 Df runningboardd[73118:797ccd] [com.apple.libxpc.OSLaunchdJob:all] copyJobWithPid:72768 failed with error 113: Could not find specified service
+2026-09-06 22:57:22.115 Df runningboardd[73118:797ccd] [com.apple.libxpc.OSLaunchdJob:all] copyJobWithPid:72764 failed with error 113: Could not find specified service
+2026-09-06 22:57:22.117 Df runningboardd[73118:797ccb] [com.apple.libxpc.OSLaunchdJob:all] copyJobWithPid:72971 failed with error 113: Could not find specified service
+2026-09-06 22:57:22.118 Df runningboardd[73118:797ccf] [com.apple.libxpc.OSLaunchdJob:all] copyJobWithPid:72760 failed with error 113: Could not find specified service
+2026-09-06 22:57:22.120 Df runningboardd[73118:797ccb] [com.apple.libxpc.OSLaunchdJob:all] copyJobWithPid:72802 failed with error 113: Could not find specified service
+2026-09-06 22:57:22.122 Df runningboardd[73118:797cca] [com.apple.libxpc.OSLaunchdJob:all] copyJobWithPid:72825 failed with error 113: Could not find specified service
+2026-09-06 22:57:22.123 Df runningboardd[73118:797cca] [com.apple.libxpc.OSLaunchdJob:all] copyJobWithPid:72786 failed with error 113: Could not find specified service
+2026-09-06 22:57:22.125 Df runningboardd[73118:797ccf] [com.apple.libxpc.OSLaunchdJob:all] copyJobWithPid:72807 failed with error 113: Could not find specified service
+2026-09-06 22:57:22.126 Df runningboardd[73118:797ccf] [com.apple.libxpc.OSLaunchdJob:all] copyJobWithPid:72872 failed with error 113: Could not find specified service
+2026-09-06 22:57:22.127 Df runningboardd[73118:797ccf] [com.apple.libxpc.OSLaunchdJob:all] copyJobWithPid:72939 failed with error 113: Could not find specified service
+2026-09-06 22:57:22.129 Df runningboardd[73118:797ccf] [com.apple.libxpc.OSLaunchdJob:all] copyJobWithPid:72776 failed with error 113: Could not find specified service
+2026-09-06 22:57:22.130 Df runningboardd[73118:797ccf] [com.apple.libxpc.OSLaunchdJob:all] copyJobWithPid:72845 failed with error 113: Could not find specified service
+2026-09-06 22:57:22.178 E  SpringBoard[73234:797f33] [com.apple.FrontBoard:Common] Failed to set darkboot state ->  [-1: Unknown error: -1] : do you have the entitlement (com.apple.private.kernel.darkboot)?
+2026-09-06 22:57:22.409 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100c0e700] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:22.409 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100c0e700] invalidated after a failed init
+2026-09-06 22:57:22.411 Df SpringBoard[73234:797f7d] [com.apple.xpc:connection] [0x100e0aa10] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:22.411 Df SpringBoard[73234:797f7d] [com.apple.xpc:connection] [0x100e0aa10] invalidated after a failed init
+2026-09-06 22:57:22.412 E  SpringBoard[73234:797f7d] [com.apple.CoreTelephony:Client] Updating selectors failed with: Error Domain=NSCocoaErrorDomain Code=4099 "The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process." UserInfo={NSDebugDescription=The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process.}
+2026-09-06 22:57:22.412 E  SpringBoard[73234:797f7d] [com.apple.CoreTelephony:Client] Updating selectors after delegate addition failed with: Error Domain=NSCocoaErrorDomain Code=4099 "The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process." UserInfo={NSDebugDescription=The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process.}
+2026-09-06 22:57:22.412 E  SpringBoard[73234:797f7d] [com.apple.CoreTelephony:Client] Remote object proxy returned error: Error Domain=NSCocoaErrorDomain Code=4099 "The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process." UserInfo={NSDebugDescription=The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process.}
+2026-09-06 22:57:22.412 Df SpringBoard[73234:797f92] [com.apple.SystemStatus:TelephonyState] [STTelephonyStateProvider]: failed to get new subscription info -- manager: <STTelephonyStateProvider: 0x600002c09d00> {
+    dualSIMEnabled = NO;
+    slot1SubscriptionInfo = <STMutableTelephonySubscriptionInfo: 0x60000300c3f0> {
+        SIMStatus = 0x0;
+        registrationStatus = unknown;
+        cellularRegistrationStatus = unknown;
+        dataConnectionType = noConnection;
+        signalStrengthBars = 0;
+        isPreferredForDataConnections = NO;
+        isProvidingDataConnection = NO;
+        operatorName = 0x0;
+    };
+    slot2SubscriptionInfo = <STMutableTelephonySubscriptionInfo: 0x60000300c5a0> {
+        SIMStatus = 0x0;
+        registrationStatus = unknown;
+        cellularRegistrationStatus = unknown;
+        dataConnectionType = noConnection;
+        signalStrengthBars = 0;
+        isPreferredForDataConnections = NO;
+        isProvidingDataConnection = NO;
+        operatorName = 0x0;
+    };
+}
+2026-09-06 22:57:22.465 Df SpringBoard[73234:797f92] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=1
+2026-09-06 22:57:22.466 Df SpringBoard[73234:797f92] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=2
+2026-09-06 22:57:22.470 Df SpringBoard[73234:797f92] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=3
+2026-09-06 22:57:22.481 Df SpringBoard[73234:797f94] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=1
+2026-09-06 22:57:22.481 Df SpringBoard[73234:797f94] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=2
+2026-09-06 22:57:22.481 Df SpringBoard[73234:797f94] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=3
+2026-09-06 22:57:22.482 E  SpringBoard[73234:797f94] [com.apple.SpringBoard:AVSystemControllerCache] Failed to get active category name: (null), dataProvider: (null)
+2026-09-06 22:57:22.482 E  SpringBoard[73234:797f94] [com.apple.SpringBoard:AVSystemControllerCache] Failed to get active category name: (null), dataProvider: (null)
+2026-09-06 22:57:22.483 Df SpringBoard[73234:797f33] (libMobileGestalt.dylib) Failed to copy EDT property for volume-up-button-location
+2026-09-06 22:57:22.483 Df SpringBoard[73234:797f33] (libMobileGestalt.dylib) Failed to copy EDT property for volume-down-button-location
+2026-09-06 22:57:22.483 Df SpringBoard[73234:797f94] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=1
+2026-09-06 22:57:22.483 Df SpringBoard[73234:797f94] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=2
+2026-09-06 22:57:22.483 Df SpringBoard[73234:797f94] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=3
+2026-09-06 22:57:22.572 Df SpringBoard[73234:797f79] [com.apple.xpc:connection] [0x100b12e70] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:22.572 Df SpringBoard[73234:797f79] [com.apple.xpc:connection] [0x100b12e70] invalidated after a failed init
+2026-09-06 22:57:22.578 E  SpringBoard[73234:797f79] [com.apple.coreduet:context] error in setObject 0 for keyPath /device/siri/isActive : Error Domain=NSCocoaErrorDomain Code=4099 "The connection to service named com.apple.coreduetd.context was invalidated: Connection init failed at lookup with error 3 - No such process." UserInfo={NSDebugDescription=The connection to service named com.apple.coreduetd.context was invalidated: Connection init failed at lookup with error 3 - No such process.}
+2026-09-06 22:57:22.746 Df SpringBoard[73234:797f33] [com.apple.frontboard.ApplicationLibrary:default] Added application: <SBApplicationInfo: 0x100927450; com.bindaynz.app (Bin Day NZ)>
+2026-09-06 22:57:22.811 Df SpringBoard[73234:797f33] [com.apple.appinstallation:TransactionLog] com.bindaynz.app/Unknown Persona:10:10:3:1:Application added
+2026-09-06 22:57:22.827 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Icon] <<SBLeafIcon:0x600003328000 [com.bindaynz.app]>> Changing active data source: <SBApplicationIcon: 0x600003328000; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app>
+2026-09-06 22:57:22.827 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Icon] <<SBLeafIcon:0x600003328000 [com.bindaynz.app]>> Changing from data souce: (null) to data source:com.bindaynz.app.
+2026-09-06 22:57:22.841 Df SpringBoard[73234:797f33] [com.apple.SplashBoard:FileManifest] com.bindaynz.app Manifest is empty; purging everything at /Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Data/Application/E6252A7D-9B64-4404-9953-55B1071656AD/Library/SplashBoard/Snapshots
+2026-09-06 22:57:22.846 Df SpringBoard[73234:797f94] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=1
+2026-09-06 22:57:22.846 Df SpringBoard[73234:797f94] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=2
+2026-09-06 22:57:22.846 Df SpringBoard[73234:797f94] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=3
+2026-09-06 22:57:22.846 Df SpringBoard[73234:797f94] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=1
+2026-09-06 22:57:22.846 Df SpringBoard[73234:797f94] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=2
+2026-09-06 22:57:22.846 Df SpringBoard[73234:797f94] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=3
+2026-09-06 22:57:22.847 Df SpringBoard[73234:797f95] [com.apple.xpc:connection] [0x100d39de0] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:22.847 Df SpringBoard[73234:797f95] [com.apple.xpc:connection] [0x100d39de0] invalidated after a failed init
+2026-09-06 22:57:22.849 E  SpringBoard[73234:797f94] [com.apple.CoreTelephony:Client] Synchronous remote object proxy returned error: Error Domain=NSCocoaErrorDomain Code=4099 "The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process." UserInfo={NSDebugDescription=The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process.}
+2026-09-06 22:57:22.849 E  SpringBoard[73234:797f95] [com.apple.CoreTelephony:Client] Updating selectors failed with: Error Domain=NSCocoaErrorDomain Code=4099 "The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process." UserInfo={NSDebugDescription=The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process.}
+2026-09-06 22:57:22.849 E  SpringBoard[73234:797f95] [com.apple.CoreTelephony:Client] Updating selectors after delegate addition failed with: Error Domain=NSCocoaErrorDomain Code=4099 "The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process." UserInfo={NSDebugDescription=The connection to service named com.apple.commcenter.coretelephony.xpc was invalidated: Connection init failed at lookup with error 3 - No such process.}
+2026-09-06 22:57:22.854 Df SpringBoard[73234:797f94] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=1
+2026-09-06 22:57:22.854 Df SpringBoard[73234:797f94] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=2
+2026-09-06 22:57:22.854 Df SpringBoard[73234:797f94] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=3
+2026-09-06 22:57:22.898 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100f15f60] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:22.898 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100f15f60] invalidated after a failed init
+2026-09-06 22:57:23.495 E  SpringBoard[73234:797f7c] [com.apple.FrontBoard:Common] FBSDisplayLayoutService: timed out waiting for initial layout update from com.apple.SpringBoard.continuity-display; publishing nil.
+2026-09-06 22:57:23.619 E  SpringBoard[73234:797f94] [com.apple.FrontBoard:Common] FBSDisplayLayoutService: timed out waiting for initial layout update from com.apple.CarPlayApp.Dashboard; publishing nil.
+2026-09-06 22:57:23.739 E  runningboardd[73118:797ccd] [com.apple.runningboard:process] [osservice<com.apple.PosterBoard>:73240] Memorystatus failed with unexpected error: Operation not permitted (1)
+2026-09-06 22:57:23.739 E  runningboardd[73118:797ccd] [com.apple.runningboard:process] [osservice<com.apple.PosterBoard>:73240] Memorystatus failed with unexpected error: Invalid argument (22)
+2026-09-06 22:57:23.855 Df SpringBoard[73234:797f7c] [com.apple.SplashBoard:FileManifest] <XBApplicationSnapshotManifestImpl: 0x600002cada80> [com.bindaynz.app] We don't have any snapshots, so we're clearing our manifest data.
+2026-09-06 22:57:23.992 E  SpringBoard[73234:797f33] [com.apple.SpringBoard:DashBoard] [User Presence Monitor] Failed to cancel poll for attention with error: Error Domain=NSPOSIXErrorDomain Code=57 "Socket is not connected" UserInfo={NSLocalizedDescription= Not connected to server}
+2026-09-06 22:57:23.999 Df runningboardd[73118:797ccd] [com.apple.runningboard:job_oversize] 'ADB6C769-3DD9-4793-8876-7176D33C1525' Submitting extension overlay (host PID 73166, path /Library/Developer/CoreSimulator/Volumes/iOS_23C54/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.2.simruntime/Contents/Resources/RuntimeRoot/Applications/AdaptiveMusicApp.app/PlugIns/AdaptiveMusicControl.appex/AdaptiveMusicControl):
+<dictionary: 0x600002618a20> { count = 2, transaction: 0, voucher = 0x0, contents =
+	"XPCService" => <dictionary: 0x600002619680> { count = 16, transaction: 0, voucher = 0x0, contents =
+		"_ManagedBy" => <string: 0x600000c10360> { string cache = 0x0, length = 22, contents = "com.apple.runningboard" }
+		"RunLoopType" => <string: 0x600000c11920> { string cache = 0x0, length = 9, contents = "NSRunLoop" }
+		"Platform" => <int64: 0x82ef4b64aeeca16f>: 7
+		"JoinExistingSession" => <bool: 0x1e5760410>: false
+		"_SandboxProfile" => <string: 0x600000c13510> { string cache = 0x0, length = 6, contents = "plugin" }
+		"_LaunchWatchdogTimeOut" => <int64: 0x82ef4b64aeeca157>: 0
+		"_AdditionalSubServices" => <dictionary: 0x6000026191a0> { count = 1, transaction: 0, voucher = 0x0, contents =
+			"xpc-session" => <bool: 0x1e57603f0>: true
+		}
+		"_ProcessType" => <string: 0x600000c10c60> { string cache = 0x0, length = 8, contents = "AppNonUI" }
+		"_AdditionalProperties" => <dictionary: 0x6000026190e0> { count = 1, transaction: 0, voucher = 0x0, contents =
+			"RunningBoard" => <dictionary: 0x600002618f60> { count = 3, transaction: 0, voucher = 0x0, contents =
+				"RunningBoardLaunchedIdentity" => <dictionary: 0x6000026187e0> { count = 6, transaction: 0, voucher = 0x0, contents =
+					"TYPE" => <int64: 0x82ef4b64aeeca177>: 4
+					"v" => <data: 0x60000173b3c0>: { length = 106 bytes, contents = 0x7b226164646974696f6e616c456e7669726f6e6d656e7456... }
+					"h" => <int64: 0x82ef4b64aee44f27>: 73166
+					"i" => <string: 0x600000c13450> { string cache = 0x0, length = 47, contents = "com.apple.AdaptiveMusicApp.AdaptiveMusicControl" }
+					"r" => <int64: 0x82ef4b64aeeca147>: 2
+					"H" => <dictionary: 0x600002618a80> { count = 4, transaction: 0, voucher = 0x0, contents =
+						"l" => <string: 0x600000c13a80> { string cache = 0x0, length = 17, contents = "com.apple.chronod" }
+						"t" => <int64: 0x82ef4b64aeeca147>: 2
+						"TYPE" => <int64: 0x82ef4b64aeeca167>: 6
+						"p" => <int64: 0x82ef4b64aeeca157>: 0
+					}
+				}
+				"RunningBoardLaunched" => <bool: 0x1e57603f0>: true
+				"LaunchRequestEndpointIdentifiers" => <dictionary: 0x600002618360> { count = 2, transaction: 0, voucher = 0x0, contents =
+					"com.apple.AdaptiveMusicApp.AdaptiveMusicControl" => <bool: 0x1e57603f0>: true
+					"com.apple.AdaptiveMusicApp.AdaptiveMusicControl.xpc-session" => <bool: 0x1e57603f0>: true
+				}
+			}
+		}
+		"EnvironmentVariables" => <dictionary: 0x6000026181e0> { count = 2, transaction: 0, voucher = 0x0, contents =
+			"EXTENSION_KIT_EXTENSION_TYPE" => <string: 0x600000c106c0> { string cache = 0x0, length = 1, contents = "1" }
+			"BSServiceDomains" => <string: 0x600000c13480> { string cache = 0x0, length = 46, contents = "{"XPCService":{"Services":{"MainService":{}}}}" }
+		}
+		"_OmitSandboxParameters" => <bool: 0x1e5760410>: false
+		"_AbandonCoalition" => <bool: 0x1e57603f0>: true
+		"_MultipleInstances" => <bool: 0x1e57603f0>: true
+		"ServiceType" => <string: 0x600000c11bf0> { string cache = 0x0, length = 11, contents = "Application" }
+		"_ManagedBy_Services" => <array: 0x600000c121c0> { count = 2, capacity = 8, contents =
+			0: <string: 0x600000c12be0> { string cache = 0x0, length = 47, contents = "com.apple.AdaptiveMusicApp.AdaptiveMusicControl" }
+			1: <string: 0x600000c11350> { string cache = 0x0, length = 59, contents = "com.apple.AdaptiveMusicApp.AdaptiveMusicControl.xpc-session" }
+		}
+		"ProgramArguments" => <array: 0x600000c11290> { count = 3, capacity = 8, contents =
+			0: <string: 0x600000c10570> { string cache = 0x0, length = 241, contents = "/Library/Developer/CoreSimulator/Volumes/iOS_23C54/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.2.simruntime/Contents/Resources/RuntimeRoot/Applications/AdaptiveMusicApp.app/PlugIns/AdaptiveMusicControl.appex/AdaptiveMusicControl" }
+			1: <string: 0x600000c13390> { string cache = 0x0, length = 16, contents = "-LaunchArguments" }
+			2: <string: 0x600000c13300> { string cache = 0x0, length = 132, contents = "eyJlbmhhbmNlZFNlY3VyaXR5IjpmYWxzZSwidHlwZSI6MSwic2VydmljZU5hbWUiOiJjb20uYXBwbGUuQWRhcHRpdmVNdXNpY0FwcC5BZGFwdGl2ZU11c2ljQ29udHJvbCJ9" }
+		}
+	}
+	"CFBundlePackageType" => <string: 0x600000c105d0> { string cache = 0x0, length = 4, contents = "XPC!" }
+}
+2026-09-06 22:57:24.023 E  SpringBoard[73234:797f33] [com.apple.BaseBoard:Common] [BSBlockSentinel:UIViewController(BaseBoardUI)] failed!
+2026-09-06 22:57:24.065 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100d57440] listener failed to activate: xpc_error=[1: Operation not permitted]
+2026-09-06 22:57:24.065 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100d57440] invalidated after a failed init
+2026-09-06 22:57:24.075 Df SpringBoard[73234:797f94] [com.apple.xpc:connection] [0x10084f130] listener failed to activate: xpc_error=[1: Operation not permitted]
+2026-09-06 22:57:24.075 Df SpringBoard[73234:797f94] [com.apple.xpc:connection] [0x10084f130] invalidated after a failed init
+2026-09-06 22:57:24.080 E  SpringBoard[73234:797f94] [com.apple.coreduet:context] error getting value for /device/push/bluelist : Error Domain=NSCocoaErrorDomain Code=4099 "The connection to service named com.apple.coreduetd.context was invalidated: Connection init failed at lookup with error 3 - No such process." UserInfo={NSDebugDescription=The connection to service named com.apple.coreduetd.context was invalidated: Connection init failed at lookup with error 3 - No such process.}
+2026-09-06 22:57:24.081 Df SpringBoard[73234:797f91] [com.apple.xpc:connection] [0x100d584e0] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:24.081 Df SpringBoard[73234:797f91] [com.apple.xpc:connection] [0x100d584e0] invalidated after a failed init
+2026-09-06 22:57:24.081 Df SpringBoard[73234:797f91] [com.apple.Registration:Warning]   Failed to build remote object for listener: com.apple.springboard
+2026-09-06 22:57:24.208 Df SpringBoard[73234:797f94] [com.apple.UserNotifications:DataStore] Creating library mapping from com.bindaynz.app to A47A2E3F-D84A-4D04-89C3-67A2AAA08F03
+2026-09-06 22:57:24.282 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:IdleTimer] _setIdleTimerWithDescriptor:<SBIdleTimerDescriptor: 0x6000021c8050; mode: Disabled; samplingStartBeforeFirstTimeout: 12.0s; quickUnwarn: 0.0s> reason:"SBDisableAutoDim user default."]
+2026-09-06 22:57:24.282 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:IdleTimer] -> dsc:0x6000021c8050 <mode: Disabled; samplingStartBeforeFirstTimeout: 12.0s; quickUnwarn: 0.0s> final
+2026-09-06 22:57:24.298 Df SpringBoard[73234:798065] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=1
+2026-09-06 22:57:24.298 Df SpringBoard[73234:798065] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=2
+2026-09-06 22:57:24.298 Df SpringBoard[73234:798065] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=3
+2026-09-06 22:57:24.298 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:IdleTimer] not applying updated idle timer descriptor: <SBIdleTimerDescriptor: 0x6000021add60; mode: Auto; samplingStartBeforeFirstTimeout: 12.0s; quickUnwarn: 42.0s; warn: 40.0s; total: 60.0s> reason:StartupAfterMainSceneConnect
+2026-09-06 22:57:24.298 E  SpringBoard[73234:798065] [com.apple.siri:Client] -[SASBluetoothEndpointUtility _registerListenersAndSetEndpointTypeWithNotification:] Failed to subscribe to AVSystemController notifications due to error: (null)
+2026-09-06 22:57:24.298 Df SpringBoard[73234:79809b] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=1
+2026-09-06 22:57:24.298 Df SpringBoard[73234:79809b] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=2
+2026-09-06 22:57:24.300 Df SpringBoard[73234:79809b] [com.apple.coremedia:] -AVSystemController- +[AVSystemController sharedInstance]: Failed to allocate AVSystemController, numberOfAttempts=3
+2026-09-06 22:57:24.313 Df SpringBoard[73234:797fcf] [com.apple.SpringBoard:IdleTimer] attention client RESET <AWAttentionAwarenessConfiguration: 0x6000033341e0> (identifier: com.apple.SpringBoard.HomeGrabberView-1 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.313 Df SpringBoard[73234:797fcf] [com.apple.SpringBoard:IdleTimer] attention client RESUME <AWAttentionAwarenessConfiguration: 0x6000033341e0> (identifier: com.apple.SpringBoard.HomeGrabberView-1 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.314 Df SpringBoard[73234:797fcf] [com.apple.SpringBoard:IdleTimer] attention client SUSPEND <AWAttentionAwarenessConfiguration: 0x6000033341e0> (identifier: com.apple.SpringBoard.HomeGrabberView-1 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.425 E  SpringBoard[73234:797fcf] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.facetime-notification.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.facetime.bundle.(null).(null).17.0.cpbitmap.1gBPjE
+2026-09-06 22:57:24.429 E  SpringBoard[73234:797f83] [com.apple.UserNotificationsKit:Dispatch] Failed to retrieve bundle record for application ID 'com.apple.Home' – Attempting retrieval via bundle ID.
+2026-09-06 22:57:24.429 E  SpringBoard[73234:797f83] [com.apple.UserNotificationsKit:Dispatch] Failed to retrieve bundle record for bundle ID 'com.apple.Home': Error Domain=NSOSStatusErrorDomain Code=-10814 "(null)" UserInfo={_LSLine=156, _LSFunction=+[LSBundleRecord bundleRecordWithBundleIdentifier:allowPlaceholder:error:], _LSFile=LSBundleRecord.mm, NSUnderlyingError=0x600000dc69d0 {Error Domain=NSOSStatusErrorDomain Code=-10814 "Unable to find this application extension record in the Launch Services database." UserInfo={_LSLine=652, _LSFunction=_LSPluginFindWithPlatformInfo, _LSFile=LSPluginBundle.mm, NSDebugDescription=Unable to find this application extension record in the Launch Services database., SK=com.apple.Home, IS=false}}}
+2026-09-06 22:57:24.429 E  SpringBoard[73234:797f83] [com.apple.UserNotificationsKit:Dispatch] Failed to retrieve application record for application ID 'com.apple.Home'
+2026-09-06 22:57:24.431 Df SpringBoard[73234:797fcf] [com.apple.SpringBoard:IdleTimer] attention client RESET <AWAttentionAwarenessConfiguration: 0x6000033341e0> (identifier: com.apple.SpringBoard.HomeGrabberView-1 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.431 Df SpringBoard[73234:797fcf] [com.apple.SpringBoard:IdleTimer] attention client RESUME <AWAttentionAwarenessConfiguration: 0x6000033341e0> (identifier: com.apple.SpringBoard.HomeGrabberView-1 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.438 Df SpringBoard[73234:797f83] [com.apple.NanoPreferencesSync:DomainAccessor] Failed to resolve pairing ID ((null)) or data store ((null)) for active device
+2026-09-06 22:57:24.455 Df SpringBoard[73234:797f83] [com.apple.NanoPreferencesSync:DomainAccessor] Failed to resolve pairing ID ((null)) or data store ((null)) for active device
+2026-09-06 22:57:24.484 Df SpringBoard[73234:797f33] [com.apple.SpringBoard.buttons:Camera] settings update longPressTimeout:0.25 cancelAfter:2 pocketDetectEnabled:NO
+2026-09-06 22:57:24.485 Df SpringBoard[73234:797f33] [com.apple.SpringBoard.buttons:Action] <SBActionHardwareButton: 0x60000269a040>) button arbiter longPressTimeout: 0.400000
+2026-09-06 22:57:24.496 E  SpringBoard[73234:797fd1] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.phone-notification.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.mobilephone.bundle.(null).(null).17.0.cpbitmap.QIRCCT
+2026-09-06 22:57:24.497 Df SpringBoard[73234:797fd1] [com.apple.SpringBoard:IdleTimer] attention client RESET <AWAttentionAwarenessConfiguration: 0x600003302440> (identifier: com.apple.SpringBoard.HomeGrabberView-2 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.497 Df SpringBoard[73234:797fd1] [com.apple.SpringBoard:IdleTimer] attention client RESUME <AWAttentionAwarenessConfiguration: 0x600003302440> (identifier: com.apple.SpringBoard.HomeGrabberView-2 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.498 Df SpringBoard[73234:797fd1] [com.apple.SpringBoard:IdleTimer] attention client SUSPEND <AWAttentionAwarenessConfiguration: 0x600003302440> (identifier: com.apple.SpringBoard.HomeGrabberView-2 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.498 Df SpringBoard[73234:797fd1] [com.apple.SpringBoard:IdleTimer] attention client RESET <AWAttentionAwarenessConfiguration: 0x600003302440> (identifier: com.apple.SpringBoard.HomeGrabberView-2 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.498 Df SpringBoard[73234:797fd1] [com.apple.SpringBoard:IdleTimer] attention client RESUME <AWAttentionAwarenessConfiguration: 0x600003302440> (identifier: com.apple.SpringBoard.HomeGrabberView-2 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.501 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100b663e0] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:24.501 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100b663e0] invalidated after a failed init
+2026-09-06 22:57:24.537 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100e5e970] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:24.537 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100e5e970] invalidated after a failed init
+2026-09-06 22:57:24.612 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:CA173A03-A74B-4627-8672-7A5F4586BD74, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004246a0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.612 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobilecal: fetched config data for key: icon-config:133D3C9E-700C-4385-B9C9-077C1D460E86, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000436060; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.612 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.news: fetched config data for key: icon-config:1ED86F28-C2B3-4217-982A-325D642855A1, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x60000040e3a0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.613 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobileslideshow: fetched config data for key: icon-config:9749C034-9949-4388-9F40-E8ED88BEDC1A, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000438360; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.613 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobilecal: fetched config data for key: icon-config:A68DBA8D-DBFA-430C-B8CD-E90113E3EE2B, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000438200; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.613 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Batteries: fetched config data for key: icon-config:7C235C5C-A018-419C-9F7B-69C382725A04, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004381c0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.613 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.news: fetched config data for key: icon-config:88DE918A-A606-4F3B-A0F3-ED783252BDBF, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004381e0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.613 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:325A841B-0AAB-4B81-92AA-9A6BBC7806E3, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000436200; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.613 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.ScreenTimeWidgetApplication: fetched config data for key: icon-config:7141E074-02FC-4227-8550-5E846A5D7BAD, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000438360; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.629 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:ProactiveAppLibrary] Initialized app library w/ persisted library category map: <SBHLibraryMutableCategoryMap: 0x600001898940; generatedDate: 2026-09-06 10:32:17 +0000; uniqueIdentifier: B8CFA6D0-8A9F-4D08-AA8E-80B2E0E9117E; loadedFromDisk: YES; _localizedCategoryNameByCategoryIdentifier: (empty)> categoryIdentifiers = {
+    3001;
+    3000;
+}
+sortedApplicationIdentifiersByCategoryIdentifier = {
+    <SBHLibraryCategoryIdentifier: 0x600000e28ed0; localizedDisplayName: " System"> = {
+        com.apple.Bridge;
+        com.apple.DocumentsApp;
+        com.apple.Fitness;
+        com.apple.Health;
+        com.apple.Maps;
+        com.apple.MobileAddressBook;
+        com.apple.MobileSMS;
+        com.apple.Passbook;
+        com.apple.Passwords;
+        com.apple.Preferences;
+        com.apple.Preview;
+        com.apple.mobilecal;
+        com.apple.mobilesafari;
+        com.apple.mobileslideshow;
+        com.apple.news;
+        com.apple.reminders;
+        com.apple.shortcuts;
+    }
+    <SBHLibraryCategoryIdentifier: 0x600000e28f00; localizedDisplayName: Other> = {
+        com.bindaynz.a
+2026-09-06 22:57:24.629 Df SpringBoard[73234:79809b] [com.apple.SpringBoard:IdleTimer] attention client RESET <AWAttentionAwarenessConfiguration: 0x6000033137a0> (identifier: com.apple.SpringBoard.HomeGrabberView-3 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.630 Df SpringBoard[73234:79809b] [com.apple.SpringBoard:IdleTimer] attention client RESUME <AWAttentionAwarenessConfiguration: 0x6000033137a0> (identifier: com.apple.SpringBoard.HomeGrabberView-3 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.631 Df SpringBoard[73234:79809b] [com.apple.SpringBoard:IdleTimer] attention client SUSPEND <AWAttentionAwarenessConfiguration: 0x6000033137a0> (identifier: com.apple.SpringBoard.HomeGrabberView-3 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.636 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100f51e90] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:24.636 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100f51e90] invalidated after a failed init
+2026-09-06 22:57:24.695 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Library] Installing category map <SBHLibraryMutableCategoryMap: 0x600001898940; generatedDate: 2026-09-06 10:32:17 +0000; uniqueIdentifier: B8CFA6D0-8A9F-4D08-AA8E-80B2E0E9117E; loadedFromDisk: YES; _localizedCategoryNameByCategoryIdentifier: (empty)> categoryIdentifiers = {
+    3001;
+    3000;
+}
+sortedApplicationIdentifiersByCategoryIdentifier = {
+    <SBHLibraryCategoryIdentifier: 0x600000e28ed0; localizedDisplayName: " System"> = {
+        com.apple.Bridge;
+        com.apple.DocumentsApp;
+        com.apple.Fitness;
+        com.apple.Health;
+        com.apple.Maps;
+        com.apple.MobileAddressBook;
+        com.apple.MobileSMS;
+        com.apple.Passbook;
+        com.apple.Passwords;
+        com.apple.Preferences;
+        com.apple.Preview;
+        com.apple.mobilecal;
+        com.apple.mobilesafari;
+        com.apple.mobileslideshow;
+        com.apple.news;
+        com.apple.reminders;
+        com.apple.shortcuts;
+    }
+    <SBHLibraryCategoryIdentifier: 0x600000e28f00; localizedDisplayName: Other> = {
+        com.bindaynz.a - animated <decode: missing data>
+2026-09-06 22:57:24.716 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:CA173A03-A74B-4627-8672-7A5F4586BD74, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000455760; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.716 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobilecal: fetched config data for key: icon-config:133D3C9E-700C-4385-B9C9-077C1D460E86, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000455760; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.716 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.news: fetched config data for key: icon-config:1ED86F28-C2B3-4217-982A-325D642855A1, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004553c0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.717 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobileslideshow: fetched config data for key: icon-config:9749C034-9949-4388-9F40-E8ED88BEDC1A, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004601a0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.717 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobilecal: fetched config data for key: icon-config:A68DBA8D-DBFA-430C-B8CD-E90113E3EE2B, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004554a0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.717 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Batteries: fetched config data for key: icon-config:7C235C5C-A018-419C-9F7B-69C382725A04, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x60000043da00; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.718 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.news: fetched config data for key: icon-config:88DE918A-A606-4F3B-A0F3-ED783252BDBF, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x60000045c320; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.718 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:325A841B-0AAB-4B81-92AA-9A6BBC7806E3, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x60000045c320; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.718 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.ScreenTimeWidgetApplication: fetched config data for key: icon-config:7141E074-02FC-4227-8550-5E846A5D7BAD, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000450f60; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.729 Df SpringBoard[73234:797f91] [com.apple.SpringBoard:IdleTimer] attention client RESET <AWAttentionAwarenessConfiguration: 0x600003313de0> (identifier: com.apple.SpringBoard.HomeGrabberView-4 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.730 Df SpringBoard[73234:797f91] [com.apple.SpringBoard:IdleTimer] attention client RESUME <AWAttentionAwarenessConfiguration: 0x600003313de0> (identifier: com.apple.SpringBoard.HomeGrabberView-4 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.840 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:CA173A03-A74B-4627-8672-7A5F4586BD74, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000415ea0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.841 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobilecal: fetched config data for key: icon-config:133D3C9E-700C-4385-B9C9-077C1D460E86, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000472640; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.842 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.news: fetched config data for key: icon-config:1ED86F28-C2B3-4217-982A-325D642855A1, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000479bc0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.842 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobileslideshow: fetched config data for key: icon-config:9749C034-9949-4388-9F40-E8ED88BEDC1A, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000479bc0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.844 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobilecal: fetched config data for key: icon-config:A68DBA8D-DBFA-430C-B8CD-E90113E3EE2B, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x60000048d860; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.844 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Batteries: fetched config data for key: icon-config:7C235C5C-A018-419C-9F7B-69C382725A04, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x60000048d860; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.845 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.news: fetched config data for key: icon-config:88DE918A-A606-4F3B-A0F3-ED783252BDBF, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000415ea0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.845 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:325A841B-0AAB-4B81-92AA-9A6BBC7806E3, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004940c0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.846 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.ScreenTimeWidgetApplication: fetched config data for key: icon-config:7141E074-02FC-4227-8550-5E846A5D7BAD, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x60000048d880; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.852 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:CA173A03-A74B-4627-8672-7A5F4586BD74, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000491500; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.852 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobilecal: fetched config data for key: icon-config:133D3C9E-700C-4385-B9C9-077C1D460E86, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000491500; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.852 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:CA173A03-A74B-4627-8672-7A5F4586BD74, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000491500; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.853 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobilecal: fetched config data for key: icon-config:133D3C9E-700C-4385-B9C9-077C1D460E86, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x60000047a780; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.864 Df SpringBoard[73234:79809f] [com.apple.SpringBoard:IdleTimer] attention client RESET <AWAttentionAwarenessConfiguration: 0x6000033137a0> (identifier: com.apple.SpringBoard.HomeGrabberView-3 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.864 Df SpringBoard[73234:79809f] [com.apple.SpringBoard:IdleTimer] attention client RESUME <AWAttentionAwarenessConfiguration: 0x6000033137a0> (identifier: com.apple.SpringBoard.HomeGrabberView-3 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.901 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x10087dec0] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:24.901 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x10087dec0] invalidated after a failed init
+2026-09-06 22:57:24.902 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:AmbientAuthentication] Updating attention client with configuration <AWAttentionAwarenessConfiguration: 0x60000333c460> (identifier: com.apple.SpringBoard.AmbientAuthentication samplingInterval:       4.00000, samplingDelay:       4.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       8.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask AttentionLost|Button|Keyboard|Digitizer|Pointer|Remote|GameController|FaceDetect|DigitalCrown|MesaTouch|RemoteProximity|GenericGesture attentionLostEventMask NONE digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.917 Df SpringBoard[73234:797f33] [com.apple.chrono:WidgetHosts] [Ambient-Infograph-0x6000018f09c0]: Configuration changed: <identifier: Ambient-Infograph; activationState: activated; configuration: <CHSWidgetConfiguration: 0x6000018ebbc0; containerCount: 0; widgets: 0; metrics: <CHSWidgetMetricsSpecification: 0x60000045da60; families: (systemSmall)>; rateLimitCount: 2; replicationPredicate: none; expirationTimeout: 1800.0s>>
+2026-09-06 22:57:24.920 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:AmbientDeviceState] <SBAmbientWirelessChargingIdleTimer: 0x6000018e9f80>: Updating attention client with configuration <AWAttentionAwarenessConfiguration: 0x60000332e940> (identifier: com.apple.SpringBoard.AmbientWirelessCharging samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:   14400.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask AttentionLost|Button|Keyboard|Digitizer|Pointer|Remote|GameController|DigitalCrown|MesaTouch|RemoteProximity|GenericGesture attentionLostEventMask NONE digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.926 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x1009969a0] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:24.926 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x1009969a0] invalidated after a failed init
+2026-09-06 22:57:24.927 Df SpringBoard[73234:7980d6] [com.apple.SpringBoard:IdleTimer] attention client RESUME <AWAttentionAwarenessConfiguration: 0x60000332ec60> (identifier: com.apple.SpringBoard.AppSuggestionManager samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       0.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask AttentionLost|Button|Keyboard|Digitizer|Pointer|Remote|GameController|DigitalCrown|MesaTouch|RemoteProximity|GenericGesture attentionLostEventMask AttentionLost|Button|Keyboard|Digitizer|Pointer|Remote|GameController|DigitalCrown|MesaTouch|RemoteProximity|GenericGesture digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:24.934 E  SpringBoard[73234:798065] [com.apple.SpringBoard:AmbientPresentation] Failed to fetch default proactive widget stacks with error:(null)
+2026-09-06 22:57:24.943 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:IdleTimer] not applying updated idle timer descriptor: <SBIdleTimerDescriptor: 0x6000022205f0; mode: Auto; samplingStartBeforeFirstTimeout: 12.0s; quickUnwarn: 42.0s; warn: 40.0s; total: 60.0s> reason:Startup
+2026-09-06 22:57:24.944 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x1009961d0] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:24.944 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x1009961d0] invalidated after a failed init
+2026-09-06 22:57:24.980 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Batteries: fetched config data for key: icon-config:7C235C5C-A018-419C-9F7B-69C382725A04, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004e11e0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.994 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Batteries: fetched config data for key: icon-config:7C235C5C-A018-419C-9F7B-69C382725A04, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004cc320; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:24.999 E  SpringBoard[73234:797f33] [com.apple.imageio:SpringBoard] createImageAtIndex:2185: *** ERROR: createImageAtIndex[0] - 'n/a ' - failed to create image [-62]
+2026-09-06 22:57:24.999 E  SpringBoard[73234:797f33] [com.apple.imageio:SpringBoard] CGImageSourceCreateImageAtIndex:5179: *** ERROR: CGImageSourceCreateImageAtIndex[0] - 'n/a ' - failed to create image [-62]
+2026-09-06 22:57:25.011 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.news: fetched config data for key: icon-config:88DE918A-A606-4F3B-A0F3-ED783252BDBF, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004db0a0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.013 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.news: fetched config data for key: icon-config:88DE918A-A606-4F3B-A0F3-ED783252BDBF, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004ceb20; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.016 E  SpringBoard[73234:797f33] [com.apple.imageio:SpringBoard] createImageAtIndex:2185: *** ERROR: createImageAtIndex[0] - 'n/a ' - failed to create image [-62]
+2026-09-06 22:57:25.016 E  SpringBoard[73234:797f33] [com.apple.imageio:SpringBoard] CGImageSourceCreateImageAtIndex:5179: *** ERROR: CGImageSourceCreateImageAtIndex[0] - 'n/a ' - failed to create image [-62]
+2026-09-06 22:57:25.022 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:325A841B-0AAB-4B81-92AA-9A6BBC7806E3, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004cf9a0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.024 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:325A841B-0AAB-4B81-92AA-9A6BBC7806E3, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004dbda0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.027 E  SpringBoard[73234:797f33] [com.apple.imageio:SpringBoard] createImageAtIndex:2185: *** ERROR: createImageAtIndex[0] - 'n/a ' - failed to create image [-62]
+2026-09-06 22:57:25.027 E  SpringBoard[73234:797f33] [com.apple.imageio:SpringBoard] CGImageSourceCreateImageAtIndex:5179: *** ERROR: CGImageSourceCreateImageAtIndex[0] - 'n/a ' - failed to create image [-62]
+2026-09-06 22:57:25.043 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:CA173A03-A74B-4627-8672-7A5F4586BD74, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004f1740; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.044 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:CA173A03-A74B-4627-8672-7A5F4586BD74, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004f1900; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.046 E  SpringBoard[73234:797f33] [com.apple.imageio:SpringBoard] createImageAtIndex:2185: *** ERROR: createImageAtIndex[0] - 'n/a ' - failed to create image [-62]
+2026-09-06 22:57:25.046 E  SpringBoard[73234:797f33] [com.apple.imageio:SpringBoard] CGImageSourceCreateImageAtIndex:5179: *** ERROR: CGImageSourceCreateImageAtIndex[0] - 'n/a ' - failed to create image [-62]
+2026-09-06 22:57:25.056 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobilecal: fetched config data for key: icon-config:133D3C9E-700C-4385-B9C9-077C1D460E86, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004ca020; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.057 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobilecal: fetched config data for key: icon-config:133D3C9E-700C-4385-B9C9-077C1D460E86, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004d68e0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.059 E  SpringBoard[73234:797f33] [com.apple.imageio:SpringBoard] createImageAtIndex:2185: *** ERROR: createImageAtIndex[0] - 'n/a ' - failed to create image [-62]
+2026-09-06 22:57:25.059 E  SpringBoard[73234:797f33] [com.apple.imageio:SpringBoard] CGImageSourceCreateImageAtIndex:5179: *** ERROR: CGImageSourceCreateImageAtIndex[0] - 'n/a ' - failed to create image [-62]
+2026-09-06 22:57:25.221 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:CA173A03-A74B-4627-8672-7A5F4586BD74, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x60000051ef40; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.221 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobilecal: fetched config data for key: icon-config:133D3C9E-700C-4385-B9C9-077C1D460E86, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004e5d80; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.221 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.news: fetched config data for key: icon-config:1ED86F28-C2B3-4217-982A-325D642855A1, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004e5d80; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.221 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobileslideshow: fetched config data for key: icon-config:9749C034-9949-4388-9F40-E8ED88BEDC1A, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004db260; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.221 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobilecal: fetched config data for key: icon-config:A68DBA8D-DBFA-430C-B8CD-E90113E3EE2B, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004db1e0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.222 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Batteries: fetched config data for key: icon-config:7C235C5C-A018-419C-9F7B-69C382725A04, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004e6180; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.222 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.news: fetched config data for key: icon-config:88DE918A-A606-4F3B-A0F3-ED783252BDBF, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004e60c0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.222 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:325A841B-0AAB-4B81-92AA-9A6BBC7806E3, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004e6440; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.222 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.ScreenTimeWidgetApplication: fetched config data for key: icon-config:7141E074-02FC-4227-8550-5E846A5D7BAD, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000004db240; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:25.452 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:IdleTimer] not applying updated idle timer descriptor: <SBIdleTimerDescriptor: 0x60000219f390; mode: Auto; samplingStartBeforeFirstTimeout: 12.0s; quickUnwarn: 42.0s; warn: 40.0s; total: 60.0s> reason:SBHomeScreen
+2026-09-06 22:57:25.453 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100c846e0] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:25.453 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100c846e0] invalidated after a failed init
+2026-09-06 22:57:25.454 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100b70a20] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:25.454 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100b70a20] invalidated after a failed init
+2026-09-06 22:57:25.455 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x10081eee0] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:25.455 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x10081eee0] invalidated after a failed init
+2026-09-06 22:57:25.460 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100c39b90] failed to do a bootstrap look-up: xpc_error=[3: No such process]
+2026-09-06 22:57:25.461 Df SpringBoard[73234:797f33] [com.apple.xpc:connection] [0x100c39b90] invalidated after a failed init
+2026-09-06 22:57:25.549 Df SpringBoard[73234:797f33] [com.apple.UIKit:UIFocus] Failed to update focus with context <UIFocusUpdateContext: 0x600003039cb0; previouslyFocusedItem: (nil); nextFocusedItem: (nil); focusHeading: None>. No additional info available.
+2026-09-06 22:57:25.603 Df SpringBoard[73234:797f33] [com.apple.UIKit:UIFocus] Failed to update focus with context <UIFocusUpdateContext: 0x600003042c70; previouslyFocusedItem: (nil); nextFocusedItem: (nil); focusHeading: None>. No additional info available.
+2026-09-06 22:57:25.662 Df SpringBoard[73234:797f33] [com.apple.UIKit:UIFocus] Failed to update focus with context <UIFocusUpdateContext: 0x600003042c70; previouslyFocusedItem: (nil); nextFocusedItem: (nil); focusHeading: None>. No additional info available.
+2026-09-06 22:57:25.693 Df SpringBoard[73234:797f94] [com.apple.UserNotifications:DataProviderFactory] [com.bindaynz.app] Application installed using default data provider
+2026-09-06 22:57:25.740 Df SpringBoard[73234:797f7c] [com.apple.SpringBoard:IdleTimer] attention client SUSPEND <AWAttentionAwarenessConfiguration: 0x600003313de0> (identifier: com.apple.SpringBoard.HomeGrabberView-4 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:25.795 E  runningboardd[73118:797cca] [com.apple.runningboard:process] [xpcservice<com.apple.AdaptiveMusicApp.AdaptiveMusicControl([osservice<com.apple.chronod>:73166])>{vt hash: 19026499}[uuid:ADB6C769-3DD9-4793-8876-7176D33C1525]{definition:com.apple.AdaptiveMusicApp.AdaptiveMusicControl[extension][client]}:73249] Memorystatus failed with unexpected error: Operation not permitted (1)
+2026-09-06 22:57:25.795 E  runningboardd[73118:797cca] [com.apple.runningboard:process] [xpcservice<com.apple.AdaptiveMusicApp.AdaptiveMusicControl([osservice<com.apple.chronod>:73166])>{vt hash: 19026499}[uuid:ADB6C769-3DD9-4793-8876-7176D33C1525]{definition:com.apple.AdaptiveMusicApp.AdaptiveMusicControl[extension][client]}:73249] Memorystatus failed with unexpected error: Invalid argument (22)
+2026-09-06 22:57:25.798 Df SpringBoard[73234:797f7d] [com.apple.BacklightServices:assertions] 0x600002942a00 will acquire assertion:<BLSAssertion: 0x600002a1e300; state: requestAcquire; requested: 9130091605006 approx:22:57:25.798; waited: 0s 0ms; descriptor: <BLSAssertionDescriptor: 0x6000004f0320; explanation: "NotificationUI update for count"> attributes = {
+    <BLSRequestGlobalUnrestrictedFramerateAttribute: 0x60000005e380>;
+    <BLSTimeoutDurationAttribute: 0x60000005e300; duration: 2s>;
+    <BLSInvalidOnSystemSleepAttribute: 0x60000005e3a0>;
+}; identifier: <BLSAssertionIdentifier: 0x600000534d80; clientPid: 73234; hostPid: 73234; count: 6>; service: 0x600002942a00; observerCount: 1>
+2026-09-06 22:57:25.799 Df SpringBoard[73234:797f7d] [com.apple.BacklightServices:assertions] 0x600002942a00 will cancel assertion:<BLSAssertion: 0x600002a1e300; state: requestCanceled; acquired: 9130091617647 approx:22:57:25.799; duration: 0s 1ms; descriptor: <BLSAssertionDescriptor: 0x6000004f0320; explanation: "NotificationUI update for count"> attributes = {
+    <BLSRequestGlobalUnrestrictedFramerateAttribute: 0x60000005e380>;
+    <BLSTimeoutDurationAttribute: 0x60000005e300; duration: 2s>;
+    <BLSInvalidOnSystemSleepAttribute: 0x60000005e3a0>;
+}; identifier: <BLSAssertionIdentifier: 0x600000534d80; clientPid: 73234; hostPid: 73234; count: 6>; service: 0x600002942a00; observerCount: 1> wasPaused:NO
+2026-09-06 22:57:25.896 Df SpringBoard[73234:797f94] [com.apple.UserNotifications:Settings] Getting sectionInfos for section identifiers: {(
+    "com.apple.Sharing.WatchRemoteNotifications",
+    "com.apple.ScreenTimeDowntimeNotifications",
+    "com.bindaynz.app",
+    "com.apple.Passbook",
+    "com.apple.SoundDetectionNotifications",
+    "com.apple.mobileslideshow",
+    "com.apple.Home",
+    "com.apple.CarPlayApp",
+    "com.apple.EscrowSecurityAlert",
+    "com.apple.MusicKit.UI",
+    "com.apple.Maps",
+    "com.apple.voicebanking.usernotifications",
+    "com.apple.VoiceOverNotifications",
+    "com.apple.LiveListenNotifications",
+    "com.apple.CarPlayTemplateUIHost",
+    "com.apple.NanoUniverse.AegirProxyApp",
+    "com.apple.VoiceOverTouch",
+    "com.apple.Health",
+    "com.apple.Fitness",
+    "com.apple.UIKit.OverlayUI",
+    "com.apple.springboard",
+    "com.apple.ScreenTimeEnabledNotifications",
+    "com.apple.ctnotifytool",
+    "com.apple.livetranscriptionui",
+    "com.apple.ScreenTimeNotifications",
+    "com.apple.Passwords",
+    "com.apple.ShortcutsActions",
+    "com.apple.FindMySafetyAlertsNotifications",
+    "com.apple.Sharing.TVR
+2026-09-06 22:57:25.897 Df SpringBoard[73234:798067] [com.apple.UserNotifications:Settings] [{(
+    "com.apple.Sharing.WatchRemoteNotifications",
+    "com.apple.ScreenTimeDowntimeNotifications",
+    "com.bindaynz.app",
+    "com.apple.Passbook",
+    "com.apple.SoundDetectionNotifications",
+    "com.apple.mobileslideshow",
+    "com.apple.Home",
+    "com.apple.CarPlayApp",
+    "com.apple.EscrowSecurityAlert",
+    "com.apple.MusicKit.UI",
+    "com.apple.Maps",
+    "com.apple.voicebanking.usernotifications",
+    "com.apple.VoiceOverNotifications",
+    "com.apple.LiveListenNotifications",
+    "com.apple.CarPlayTemplateUIHost",
+    "com.apple.NanoUniverse.AegirProxyApp",
+    "com.apple.VoiceOverTouch",
+    "com.apple.Health",
+    "com.apple.Fitness",
+    "com.apple.UIKit.OverlayUI",
+    "com.apple.springboard",
+    "com.apple.ScreenTimeEnabledNotifications",
+    "com.apple.ctnotifytool",
+    "com.apple.livetranscriptionui",
+    "com.apple.ScreenTimeNotifications",
+    "com.apple.Passwords",
+    "com.apple.ShortcutsActions",
+    "com.apple.FindMySafetyAlertsNotifications",
+    "com.apple.Sharing.TVR] Got section infos [ hasResult: <decode: missing data> ]
+2026-09-06 22:57:25.993 Df SpringBoard[73234:7980fc] [com.apple.SpringBoard:IdleTimer] attention client RESET <AWAttentionAwarenessConfiguration: 0x600003313de0> (identifier: com.apple.SpringBoard.HomeGrabberView-4 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:25.994 Df SpringBoard[73234:7980fc] [com.apple.SpringBoard:IdleTimer] attention client RESUME <AWAttentionAwarenessConfiguration: 0x600003313de0> (identifier: com.apple.SpringBoard.HomeGrabberView-4 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:57:26.226 Df SpringBoard[73234:797f33] [com.apple.UIKit:UIFocus] Failed to update focus with context <UIFocusUpdateContext: 0x600003036400; previouslyFocusedItem: (nil); nextFocusedItem: (nil); focusHeading: None>. No additional info available.
+2026-09-06 22:57:27.485 Df SpringBoard[73234:797f33] [com.apple.SpringBoard.buttons:Action] <SBActionHardwareButton: 0x60000269a040>) button arbiter longPressTimeout: 0.400000
+2026-09-06 22:57:27.987 E  SpringBoard[73234:7980f1] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.DefaultIcon.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.appleaccount.notifications.bundle.(null).(null).17.0.cpbitmap.201QRn
+2026-09-06 22:57:28.002 E  SpringBoard[73234:798065] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.AppleTVIcon.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.RPUserNotificationAppSignIn.bundle.(null).(null).17.0.cpbitmap.PLqxYI
+2026-09-06 22:57:28.033 E  SpringBoard[73234:7980f1] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.icon-default.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.iCloudSettingsNotification.bundle.(null).(null).17.0.cpbitmap.DHzn89
+2026-09-06 22:57:28.051 E  SpringBoard[73234:7980f0] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.HomePod_Glyph.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.Sharing.HomePodRemoteNotifications.bundle.(null).(null).17.0.cpbitmap.1fXMpk
+2026-09-06 22:57:28.085 E  SpringBoard[73234:798065] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.AirDropUI-Notification-Icon.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.Sharing.AirDropUIRemoteNotifications.bundle.(null).(null).17.0.cpbitmap.340OFN
+2026-09-06 22:57:28.118 E  SpringBoard[73234:798065] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.AppIcon.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.mobiletimer.bundle.(null).(null).17.0.cpbitmap.nAf4Ni
+2026-09-06 22:57:28.131 E  runningboardd[73118:797cca] [com.apple.runningboard:process] [xpcservice<com.apple.ShortcutsActions.ShortcutsTopHitsExtension([osservice<com.apple.linkd>:73237])>{vt hash: 258932905}{definition:com.apple.ShortcutsActions.ShortcutsTopHitsExtension[extension][client]}:73261] Memorystatus failed with unexpected error: Operation not permitted (1)
+2026-09-06 22:57:28.131 E  runningboardd[73118:797cca] [com.apple.runningboard:process] [xpcservice<com.apple.ShortcutsActions.ShortcutsTopHitsExtension([osservice<com.apple.linkd>:73237])>{vt hash: 258932905}{definition:com.apple.ShortcutsActions.ShortcutsTopHitsExtension[extension][client]}:73261] Memorystatus failed with unexpected error: Invalid argument (22)
+2026-09-06 22:57:28.136 Df runningboardd[73118:797ccf] [com.apple.runningboard:job_oversize] 'app<com.apple.chrono.WidgetRenderer-Default((null))>' Constructed job description:
+<dictionary: 0x600002601740> { count = 19, transaction: 0, voucher = 0x0, contents =
+	"ProcessType" => <string: 0x600000c406c0> { string cache = 0x0, length = 9, contents = "SystemApp" }
+	"EnableTransactions" => <bool: 0x1e5760410>: false
+	"_ManagedBy" => <string: 0x600000c407e0> { string cache = 0x0, length = 22, contents = "com.apple.runningboard" }
+	"RootedSimulatorPath" => <bool: 0x1e57603f0>: true
+	"CFBundleIdentifier" => <string: 0x600000c40360> { string cache = 0x0, length = 39, contents = "com.apple.chrono.WidgetRenderer-Default" }
+	"_ResourceCoalition" => <string: 0x600000c40300> { string cache = 0x0, length = 52, contents = "app<com.apple.chrono.WidgetRenderer-Default((null))>" }
+	"ThrottleInterval" => <int64: 0x82ef4b6751135eaf>: 2147483647
+	"MachServices" => <dictionary: 0x600002601e60> { count = 0, transaction: 0, voucher = 0x0, contents =
+	}
+	"EnablePressuredExit" => <bool: 0x1e5760410>: false
+	"InitialTaskRole" => <int64: 0x82ef4b64aeeca15f>: 1
+	"UserName" => <string: 0x600000c40960> { string cache = 0x0, length = 6, contents = "mobile" }
+	"EnvironmentVariables" => <dictionary: 0x600002601e00> { count = 3, transaction: 0, voucher = 0x0, contents =
+		"TMPDIR" => <string: 0x600000c40240> { string cache = 0x0, length = 165, contents = "/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Data/Application/5E225264-1CCF-4D53-A956-442E950B0D77/tmp" }
+		"HOME" => <string: 0x600000c40a50> { string cache = 0x0, length = 161, contents = "/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Data/Application/5E225264-1CCF-4D53-A956-442E950B0D77" }
+		"CFFIXED_USER_HOME" => <string: 0x600000c40db0> { string cache = 0x0, length = 161, contents = "/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Data/Application/5E225264-1CCF-4D53-A956-442E950B0D77" }
+	}
+	"_AdditionalProperties" => <dictionary: 0x600002600c60> { count = 1, transaction: 0, voucher = 0x0, contents =
+		"RunningBoard" => <dictionary: 0x600002601080> { count = 3, transaction: 0, voucher = 0x0, contents =
+			"Managed" => <bool: 0x1e57603f0>: true
+			"RunningBoardLaunchedIdentity" => <dictionary: 0x600002601980> { count = 2, transaction: 0, voucher = 0x0, contents =
+				"TYPE" => <int64: 0x82ef4b64aeeca147>: 2
+				"EAI" => <string: 0x600000c40de0> { string cache = 0x0, length = 39, contents = "com.apple.chrono.WidgetRenderer-Default" }
+			}
+			"RunningBoardLaunched" => <bool: 0x1e57603f0>: true
+		}
+	}
+	"ExitTimeOut" => <int64: 0x82ef4b64aeeca15f>: 1
+	"Label" => <string: 0x600000c408d0> { string cache = 0x0, length = 73, contents = "UIKitApplication:com.apple.chrono.WidgetRenderer-Default[3e76][rb-legacy]" }
+	"MaterializeDatalessFiles" => <bool: 0x1e57603f0>: true
+	"_LaunchType" => <int64: 0x82ef4b64aeeca14f>: 3
+	"ProgramArguments" => <array: 0x600000c40630> { count = 1, capacity = 8, contents =
+		0: <string: 0x600000c408a0> { string cache = 0x0, length = 214, contents = "/Library/Developer/CoreSimulator/Volumes/iOS_23C54/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.2.simruntime/Contents/Resources/RuntimeRoot/Applications/WidgetRenderer_Default.app/WidgetRenderer_Default" }
+	}
+	"Program" => <string: 0x600000c40b70> { string cache = 0x0, length = 214, contents = "/Library/Developer/CoreSimulator/Volumes/iOS_23C54/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.2.simruntime/Contents/Resources/RuntimeRoot/Applications/WidgetRenderer_Default.app/WidgetRenderer_Default" }
+}
+2026-09-06 22:57:28.253 Df runningboardd[73118:797cd4] [com.apple.runningboard:assertion] Assertion did invalidate due to timeout: 73118-73234-44 (target:app<com.apple.Spotlight((null))>)
+2026-09-06 22:57:28.274 E  runningboardd[73118:797cca] [com.apple.runningboard:process] [app<com.apple.chrono.WidgetRenderer-Default((null))>:73272] Memorystatus failed with unexpected error: Operation not permitted (1)
+2026-09-06 22:57:28.274 E  runningboardd[73118:797cca] [com.apple.runningboard:process] [app<com.apple.chrono.WidgetRenderer-Default((null))>:73272] Memorystatus failed with unexpected error: Invalid argument (22)
+2026-09-06 22:57:28.274 E  runningboardd[73118:797cca] [com.apple.runningboard:process] [app<com.apple.chrono.WidgetRenderer-Default((null))>:73272] Memorystatus failed with unexpected error: Operation not permitted (1)
+2026-09-06 22:57:28.276 Df runningboardd[73118:797cd2] [com.apple.runningboard:job_oversize] 'ADB6C769-3DD9-4793-8876-7176D33C1525' Submitting extension overlay (host PID 73166, path /Library/Developer/CoreSimulator/Volumes/iOS_23C54/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.2.simruntime/Contents/Resources/RuntimeRoot/Applications/Fitness.app/PlugIns/MirroredWidgetExtension.appex/MirroredWidgetExtension):
+<dictionary: 0x600002620420> { count = 2, transaction: 0, voucher = 0x0, contents =
+	"XPCService" => <dictionary: 0x6000026202a0> { count = 16, transaction: 0, voucher = 0x0, contents =
+		"_ManagedBy" => <string: 0x600000c00870> { string cache = 0x0, length = 22, contents = "com.apple.runningboard" }
+		"RunLoopType" => <string: 0x600000c015f0> { string cache = 0x0, length = 9, contents = "NSRunLoop" }
+		"Platform" => <int64: 0x82ef4b64aeeca16f>: 7
+		"JoinExistingSession" => <bool: 0x1e5760410>: false
+		"_SandboxProfile" => <string: 0x600000c01680> { string cache = 0x0, length = 6, contents = "plugin" }
+		"_LaunchWatchdogTimeOut" => <int64: 0x82ef4b64aeeca157>: 0
+		"_AdditionalSubServices" => <dictionary: 0x6000026204e0> { count = 1, transaction: 0, voucher = 0x0, contents =
+			"xpc-session" => <bool: 0x1e57603f0>: true
+		}
+		"_ProcessType" => <string: 0x600000c00e40> { string cache = 0x0, length = 8, contents = "AppNonUI" }
+		"_AdditionalProperties" => <dictionary: 0x600002620540> { count = 1, transaction: 0, voucher = 0x0, contents =
+			"RunningBoard" => <dictionary: 0x6000026205a0> { count = 3, transaction: 0, voucher = 0x0, contents =
+				"RunningBoardLaunchedIdentity" => <dictionary: 0x600002620480> { count = 6, transaction: 0, voucher = 0x0, contents =
+					"TYPE" => <int64: 0x82ef4b64aeeca177>: 4
+					"v" => <data: 0x600001700440>: { length = 91 bytes, contents = 0x7b226164646974696f6e616c456e7669726f6e6d656e7456... }
+					"h" => <int64: 0x82ef4b64aee44f27>: 73166
+					"i" => <string: 0x600000c01350> { string cache = 0x0, length = 32, contents = "com.apple.Fitness.MirroredWidget" }
+					"r" => <int64: 0x82ef4b64aeeca147>: 2
+					"H" => <dictionary: 0x6000026206c0> { count = 4, transaction: 0, voucher = 0x0, contents =
+						"l" => <string: 0x600000c01020> { string cache = 0x0, length = 17, contents = "com.apple.chronod" }
+						"t" => <int64: 0x82ef4b64aeeca147>: 2
+						"TYPE" => <int64: 0x82ef4b64aeeca167>: 6
+						"p" => <int64: 0x82ef4b64aeeca157>: 0
+					}
+				}
+				"RunningBoardLaunched" => <bool: 0x1e57603f0>: true
+				"LaunchRequestEndpointIdentifiers" => <dictionary: 0x600002620600> { count = 2, transaction: 0, voucher = 0x0, contents =
+					"com.apple.Fitness.MirroredWidget.xpc-session" => <bool: 0x1e57603f0>: true
+					"com.apple.Fitness.MirroredWidget" => <bool: 0x1e57603f0>: true
+				}
+			}
+		}
+		"EnvironmentVariables" => <dictionary: 0x600002620240> { count = 2, transaction: 0, voucher = 0x0, contents =
+			"EXTENSION_KIT_EXTENSION_TYPE" => <string: 0x600000c01620> { string cache = 0x0, length = 1, contents = "1" }
+			"BSServiceDomains" => <string: 0x600000c00f60> { string cache = 0x0, length = 46, contents = "{"XPCService":{"Services":{"MainService":{}}}}" }
+		}
+		"_OmitSandboxParameters" => <bool: 0x1e5760410>: false
+		"_AbandonCoalition" => <bool: 0x1e57603f0>: true
+		"_MultipleInstances" => <bool: 0x1e57603f0>: true
+		"ServiceType" => <string: 0x600000c00f00> { string cache = 0x0, length = 11, contents = "Application" }
+		"_ManagedBy_Services" => <array: 0x600000c00f30> { count = 2, capacity = 8, contents =
+			0: <string: 0x600000c00ed0> { string cache = 0x0, length = 32, contents = "com.apple.Fitness.MirroredWidget" }
+			1: <string: 0x600000c00ea0> { string cache = 0x0, length = 44, contents = "com.apple.Fitness.MirroredWidget.xpc-session" }
+		}
+		"ProgramArguments" => <array: 0x600000c01650> { count = 3, capacity = 8, contents =
+			0: <string: 0x600000c00ba0> { string cache = 0x0, length = 238, contents = "/Library/Developer/CoreSimulator/Volumes/iOS_23C54/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.2.simruntime/Contents/Resources/RuntimeRoot/Applications/Fitness.app/PlugIns/MirroredWidgetExtension.appex/MirroredWidgetExtension" }
+			1: <string: 0x600000c014d0> { string cache = 0x0, length = 16, contents = "-LaunchArguments" }
+			2: <string: 0x600000c01710> { string cache = 0x0, length = 112, contents = "eyJzZXJ2aWNlTmFtZSI6ImNvbS5hcHBsZS5GaXRuZXNzLk1pcnJvcmVkV2lkZ2V0IiwidHlwZSI6MSwiZW5oYW5jZWRTZWN1cml0eSI6ZmFsc2V9" }
+		}
+	}
+	"CFBundlePackageType" => <string: 0x600000c015c0> { string cache = 0x0, length = 4, contents = "XPC!" }
+}
+2026-09-06 22:57:28.327 E  SpringBoard[73234:7980f1] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.atv-icon.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.CompanionNotifications.bundle.(null).(null).17.0.cpbitmap.EWj0KX
+2026-09-06 22:57:28.341 E  SpringBoard[73234:7980fc] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.SettingsIcon.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.GameControllerNotifications.bundle.(null).(null).17.0.cpbitmap.9aYAOR
+2026-09-06 22:57:28.353 E  SpringBoard[73234:7980f1] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.SOS_80_masked.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.sosd.usernotification.bundle.(null).(null).17.0.cpbitmap.N6exNC
+2026-09-06 22:57:28.359 E  SpringBoard[73234:7980fc] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.Shortcuts.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.shortcuts.AutomationLockscreenNotifications.bundle.(null).(null).17.0.cpbitmap.yYK62Y
+2026-09-06 22:57:28.383 E  SpringBoard[73234:7980fc] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.firewall.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.identityservicesd.firewall.bundle.(null).(null).17.0.cpbitmap.NLq8ti
+2026-09-06 22:57:28.394 E  SpringBoard[73234:7980fc] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.icon.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.askpermission.notifications.bundle.(null).(null).17.0.cpbitmap.r8zx9s
+2026-09-06 22:57:28.432 E  SpringBoard[73234:7980d6] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.ClassProgressIconDefault.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.ClassKitProgressNotifications.bundle.(null).(null).17.0.cpbitmap.wqvPjv
+2026-09-06 22:57:28.460 E  SpringBoard[73234:797f95] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.78C22122-4FAA-4FD2-AEB4-2A1A8F00AED5.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.Sharing.b7ce1794a1c8766816fc7b7500742862.bundle.(null).(null).17.0.cpbitmap.E5tGa3
+2026-09-06 22:57:28.474 E  SpringBoard[73234:7980e8] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.SettingsSheet.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.iCloud.FollowUp.bundle.(null).(null).17.0.cpbitmap.wpgBMN
+2026-09-06 22:57:28.487 E  SpringBoard[73234:7980f1] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.AccountNotification.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.accountnotifications.bundle.(null).(null).17.0.cpbitmap.wnDtMU
+2026-09-06 22:57:28.500 E  SpringBoard[73234:7980fc] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.FamilyNotification.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.familynotifications.bundle.(null).(null).17.0.cpbitmap.EsbPb6
+2026-09-06 22:57:28.525 E  SpringBoard[73234:797fcf] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.icon-default.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.AppleMediaServicesUI.engagement.notifications.bundle.(null).(null).17.0.cpbitmap.ZfmwM6
+2026-09-06 22:57:28.541 E  SpringBoard[73234:79809c] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.safetyCheckIcon.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.safetycheckd.notifications.bundle.(null).(null).17.0.cpbitmap.qVblto
+2026-09-06 22:57:28.559 E  SpringBoard[73234:79809f] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.SoundsHaptics.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.coreaudio.adam.hae.bundle.(null).(null).17.0.cpbitmap.ouG9Ye
+2026-09-06 22:57:28.567 E  SpringBoard[73234:79809f] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.ClassroomIconDefault.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.studentd.notifications.bundle.(null).(null).17.0.cpbitmap.AxEVFP
+2026-09-06 22:57:28.583 E  SpringBoard[73234:797fd1] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.PasswordsIcon.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.Safari.PasswordBreachNotifications.bundle.(null).(null).17.0.cpbitmap.JEA8bS
+2026-09-06 22:57:28.603 E  SpringBoard[73234:797f95] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.music-recognition-196.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.ShazamNotifications.bundle.(null).(null).17.0.cpbitmap.M5sQRw
+2026-09-06 22:57:28.622 E  SpringBoard[73234:7980f9] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.SiriNotification.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.siri.NotificationSource.bundle.(null).(null).17.0.cpbitmap.132hy7
+2026-09-06 22:57:28.685 E  SpringBoard[73234:797fd1] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.ThreatNotificationIcon.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.ThreatNotification.FollowUp.bundle.(null).(null).17.0.cpbitmap.kUW4bg
+2026-09-06 22:57:28.688 E  SpringBoard[73234:797fd1] [com.apple.BaseBoard:Common]  **** failed to open fd at tempPath=/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/tmp/sectionInfoIcon.emergency-20.%2FLibrary%2FDeveloper%2FCoreSimulator%2FVolumes%2FiOS_23C54%2FLibrary%2FDeveloper%2FCoreSimulator%2FProfiles%2FRuntimes%2FiOS 26.2.simruntime%2FContents%2FResources%2FRuntimeRoot%2FSystem%2FLibrary%2FUserNotifications%2FBundles%2Fcom.apple.cmas.bundle.(null).(null).17.1.cpbitmap.AVIN1p
+2026-09-06 22:57:28.691 E  SpringBoard[73234:797f83] [com.apple.UserNotificationsKit:Dispatch] Failed to retrieve bundle record for application ID 'com.apple.Home' – Attempting retrieval via bundle ID.
+2026-09-06 22:57:28.692 E  SpringBoard[73234:797f83] [com.apple.UserNotificationsKit:Dispatch] Failed to retrieve bundle record for bundle ID 'com.apple.Home': Error Domain=NSOSStatusErrorDomain Code=-10814 "(null)" UserInfo={_LSLine=156, _LSFunction=+[LSBundleRecord bundleRecordWithBundleIdentifier:allowPlaceholder:error:], _LSFile=LSBundleRecord.mm, NSUnderlyingError=0x600000eebe10 {Error Domain=NSOSStatusErrorDomain Code=-10814 "Unable to find this application extension record in the Launch Services database." UserInfo={_LSLine=652, _LSFunction=_LSPluginFindWithPlatformInfo, _LSFile=LSPluginBundle.mm, NSDebugDescription=Unable to find this application extension record in the Launch Services database., SK=com.apple.Home, IS=false}}}
+2026-09-06 22:57:28.692 E  SpringBoard[73234:797f83] [com.apple.UserNotificationsKit:Dispatch] Failed to retrieve application record for application ID 'com.apple.Home'
+2026-09-06 22:57:29.070 Df SpringBoard[73234:7980f9] [com.apple.BacklightServices:assertions] 0x600002942a00 will acquire assertion:<BLSAssertion: 0x60000293b790; state: requestAcquire; requested: 9130170131888 approx:22:57:29.070; waited: 0s 0ms; descriptor: <BLSAssertionDescriptor: 0x6000004e19a0; explanation: "NotificationUI update for count"> attributes = {
+    <BLSRequestGlobalUnrestrictedFramerateAttribute: 0x6000000549e0>;
+    <BLSTimeoutDurationAttribute: 0x600000054be0; duration: 2s>;
+    <BLSInvalidOnSystemSleepAttribute: 0x600000054c90>;
+}; identifier: <BLSAssertionIdentifier: 0x6000002d51e0; clientPid: 73234; hostPid: 73234; count: 7>; service: 0x600002942a00; observerCount: 1>
+2026-09-06 22:57:29.071 Df SpringBoard[73234:7980f9] [com.apple.BacklightServices:assertions] 0x600002942a00 will cancel assertion:<BLSAssertion: 0x60000293b790; state: requestCanceled; acquired: 9130170144255 approx:22:57:29.071; duration: 0s 1ms; descriptor: <BLSAssertionDescriptor: 0x6000004e19a0; explanation: "NotificationUI update for count"> attributes = {
+    <BLSRequestGlobalUnrestrictedFramerateAttribute: 0x6000000549e0>;
+    <BLSTimeoutDurationAttribute: 0x600000054be0; duration: 2s>;
+    <BLSInvalidOnSystemSleepAttribute: 0x600000054c90>;
+}; identifier: <BLSAssertionIdentifier: 0x6000002d51e0; clientPid: 73234; hostPid: 73234; count: 7>; service: 0x600002942a00; observerCount: 1> wasPaused:NO
+2026-09-06 22:57:29.160 Df SpringBoard[73234:797f33] [com.apple.UIKit:UIFocus] Failed to update focus with context <UIFocusUpdateContext: 0x60000302f960; previouslyFocusedItem: (nil); nextFocusedItem: (nil); focusHeading: None>. No additional info available.
+2026-09-06 22:57:29.381 E  runningboardd[73118:797cd4] [com.apple.runningboard:process] [xpcservice<com.apple.ShortcutsActions.ShortcutsTopHitsExtension([osservice<com.apple.linkd>:73237])>{vt hash: 258932905}{definition:com.apple.ShortcutsActions.ShortcutsTopHitsExtension[extension][client]}:73261] pid_suspend() failed with error 1: Operation not permitted
+2026-09-06 22:57:29.490 E  runningboardd[73118:797cca] [com.apple.runningboard:process] [xpcservice<com.apple.Fitness.MirroredWidget([osservice<com.apple.chronod>:73166])>{vt hash: 51881375}[uuid:ADB6C769-3DD9-4793-8876-7176D33C1525]{definition:com.apple.Fitness.MirroredWidget[extension][client]}:73274] Memorystatus failed with unexpected error: Operation not permitted (1)
+2026-09-06 22:57:29.490 E  runningboardd[73118:797cca] [com.apple.runningboard:process] [xpcservice<com.apple.Fitness.MirroredWidget([osservice<com.apple.chronod>:73166])>{vt hash: 51881375}[uuid:ADB6C769-3DD9-4793-8876-7176D33C1525]{definition:com.apple.Fitness.MirroredWidget[extension][client]}:73274] Memorystatus failed with unexpected error: Invalid argument (22)
+2026-09-06 22:57:29.491 Df runningboardd[73118:797cd1] [com.apple.runningboard:job_oversize] 'app<com.apple.Spotlight((null))>' Constructed job description:
+<dictionary: 0x600002609d40> { count = 19, transaction: 0, voucher = 0x0, contents =
+	"ProcessType" => <string: 0x600000c0e070> { string cache = 0x0, length = 9, contents = "SystemApp" }
+	"EnableTransactions" => <bool: 0x1e5760410>: false
+	"_ManagedBy" => <string: 0x600000c0edf0> { string cache = 0x0, length = 22, contents = "com.apple.runningboard" }
+	"RootedSimulatorPath" => <bool: 0x1e57603f0>: true
+	"CFBundleIdentifier" => <string: 0x600000c0fed0> { string cache = 0x0, length = 19, contents = "com.apple.Spotlight" }
+	"_ResourceCoalition" => <string: 0x600000c0de90> { string cache = 0x0, length = 32, contents = "app<com.apple.Spotlight((null))>" }
+	"ThrottleInterval" => <int64: 0x82ef4b6751135eaf>: 2147483647
+	"MachServices" => <dictionary: 0x600002609ce0> { count = 0, transaction: 0, voucher = 0x0, contents =
+	}
+	"EnablePressuredExit" => <bool: 0x1e5760410>: false
+	"InitialTaskRole" => <int64: 0x82ef4b64aeeca167>: 6
+	"UserName" => <string: 0x600000c0ca80> { string cache = 0x0, length = 6, contents = "mobile" }
+	"EnvironmentVariables" => <dictionary: 0x600002608c00> { count = 0, transaction: 0, voucher = 0x0, contents =
+	}
+	"_AdditionalProperties" => <dictionary: 0x600002609860> { count = 1, transaction: 0, voucher = 0x0, contents =
+		"RunningBoard" => <dictionary: 0x600002609560> { count = 3, transaction: 0, voucher = 0x0, contents =
+			"Managed" => <bool: 0x1e57603f0>: true
+			"RunningBoardLaunchedIdentity" => <dictionary: 0x600002608e40> { count = 2, transaction: 0, voucher = 0x0, contents =
+				"TYPE" => <int64: 0x82ef4b64aeeca147>: 2
+				"EAI" => <string: 0x600000c0d680> { string cache = 0x0, length = 19, contents = "com.apple.Spotlight" }
+			}
+			"RunningBoardLaunched" => <bool: 0x1e57603f0>: true
+		}
+	}
+	"ExitTimeOut" => <int64: 0x82ef4b64aeeca15f>: 1
+	"Label" => <string: 0x600000c0d9b0> { string cache = 0x0, length = 53, contents = "UIKitApplication:com.apple.Spotlight[e30d][rb-legacy]" }
+	"MaterializeDatalessFiles" => <bool: 0x1e57603f0>: true
+	"_LaunchType" => <int64: 0x82ef4b64aeeca14f>: 3
+	"ProgramArguments" => <array: 0x600000c0dbc0> { count = 1, capacity = 8, contents =
+		0: <string: 0x600000c0c960> { string cache = 0x0, length = 188, contents = "/Library/Developer/CoreSimulator/Volumes/iOS_23C54/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.2.simruntime/Contents/Resources/RuntimeRoot/Applications/Spotlight.app/Spotlight" }
+	}
+	"Program" => <string: 0x600000c0f450> { string cache = 0x0, length = 188, contents = "/Library/Developer/CoreSimulator/Volumes/iOS_23C54/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.2.simruntime/Contents/Resources/RuntimeRoot/Applications/Spotlight.app/Spotlight" }
+}
+2026-09-06 22:57:32.632 Df runningboardd[73118:797ccf] [com.apple.runningboard:assertion] Assertion did invalidate due to timeout: 73118-73166-61 (target:[xpcservice<com.apple.AdaptiveMusicApp.AdaptiveMusicControl([osservice<com.apple.chronod>:73166])>{vt hash: 19026499}[uuid:ADB6C769-3DD9-4793-8876-7176D33C1525]{definition:com.apple.AdaptiveMusicApp.AdaptiveMusicControl[extension][client]}:73249])
+2026-09-06 22:57:34.679 Df runningboardd[73118:797cd1] [com.apple.runningboard:connection] Received termination request from [osservice<com.apple.installcoordinationd>:73278] on <RBSProcessPredicate <RBSProcessBundleIdentifierPredicate "com.bindaynz.app">> with context <RBSTerminateContext| explanation:installcoordinationd app:[com.bindaynz.app/Invalid/[system-defined]] uuid:62A67211-04FF-46E6-99D2-49E7D5AA1B3B isPlaceholder:Y reportType:None maxTerminationResistance:Absolute attrs:[
+	<RBSPreventLaunchLimitation| <RBSProcessPredicate <RBSProcessBundleIdentifierPredicate "com.bindaynz.app">> allow:(null)>
+	]>
+2026-09-06 22:57:34.679 Df runningboardd[73118:797cd1] [com.apple.runningboard:general] Found 1 extensions contained in com.bindaynz.app
+2026-09-06 22:57:34.679 Df runningboardd[73118:797cd1] [com.apple.runningboard:connection] expanding termination predicate from <RBSProcessPredicate <RBSProcessBundleIdentifierPredicate "com.bindaynz.app">> to <RBSProcessPredicate <RBSProcessBundleIdentifiersPredicate| {(
+    "com.bindaynz.app",
+    "com.bindaynz.app.widget"
+)}>>
+2026-09-06 22:57:34.680 Df runningboardd[73118:797cd1] [com.apple.PlugInKit:holds] <PKManager:0x60000021fb80> hold request for [/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Bundle/Application/9DEB4CF5-1B7B-44FF-9D4E-FAF78E7FEDFA/BinDayNZ.app] with flags: 0x4
+2026-09-06 22:57:34.693 Df runningboardd[73118:797cd1] [com.apple.PlugInKit:holds] <PKManager:0x60000021fb80> hold request for [/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Bundle/Application/9DEB4CF5-1B7B-44FF-9D4E-FAF78E7FEDFA/BinDayNZ.app] with flags: 0x4 completed with hold token: [E1774BEC-59F5-48FE-A6B1-797BC2032831]
+2026-09-06 22:57:34.694 Df runningboardd[73118:797cd1] [com.apple.runningboard:ttl] Acquiring assertion targeting system from originator [osservice<com.apple.installcoordinationd>:73278] with description <RBSAssertionDescriptor| "installcoordinationd app:[com.bindaynz.app/Invalid/[system-defined]] uuid:62A67211-04FF-46E6-99D2-49E7D5AA1B3B isPlaceholder:Y" ID:73118-73278-73 target:system attributes:[
+	<RBSPreventLaunchLimitation| <RBSProcessPredicate <RBSProcessBundleIdentifiersPredicate| {(
+    "com.bindaynz.app",
+    "com.bindaynz.app.widget"
+)}>> allow:(null)>
+	]>
+2026-09-06 22:57:34.694 Df runningboardd[73118:797cd1] [com.apple.runningboard:process] Executing termination request for: <RBSProcessPredicate <RBSProcessBundleIdentifiersPredicate| {(
+    "com.bindaynz.app",
+    "com.bindaynz.app.widget"
+)}>>
+2026-09-06 22:57:36.649 Df runningboardd[73118:797cd4] [com.apple.runningboard:assertion] Assertion did invalidate due to timeout: 73118-73166-69 (target:[xpcservice<com.apple.Fitness.MirroredWidget([osservice<com.apple.chronod>:73166])>{vt hash: 51881375}[uuid:ADB6C769-3DD9-4793-8876-7176D33C1525]{definition:com.apple.Fitness.MirroredWidget[extension][client]}:73274])
+2026-09-06 22:57:40.233 Df runningboardd[73118:7981ba] [com.apple.runningboard:assertion] Assertion did invalidate due to timeout: 73118-73118-70 (target:[osservice<com.apple.chronod>:73166])
+2026-09-06 22:57:40.233 Df runningboardd[73118:7981ba] [com.apple.runningboard:assertion] Assertion did invalidate due to timeout: 73118-73166-33 (target:[osservice<com.apple.chronod>:73166])
+2026-09-06 22:57:42.493 Df SpringBoard[73234:797f92] [com.apple.launchservices:appinstallation] LaunchServices observer: Installed plugins (
+    "<LSPlugInKitProxy: 0x600003d8f930> pluginID=com.bindaynz.app.widget UUID=D1569281-BAA9-4FF9-B91E-94D5D20F3E38 version=1.2"
+)
+2026-09-06 22:57:42.566 Df SpringBoard[73234:79809d] [com.apple.launchservices:appinstallation] LaunchServices observer: InstallsStarted (
+    "<LSApplicationProxy: 0x6000037c1d40> com.bindaynz.app file:///Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Bundle/Application/9DEB4CF5-1B7B-44FF-9D4E-FAF78E7FEDFA/com.apple.mobileinstallation.placeholder/ <com.bindaynz.app <placeholder >:1>"
+)
+2026-09-06 22:57:42.566 Df SpringBoard[73234:79809d] [com.apple.frontboard.ApplicationLibrary:observer] -[FBSApplicationLibrary applicationInstallsDidStart:] com.bindaynz.app
+2026-09-06 22:57:42.566 Df SpringBoard[73234:79809d] [com.apple.frontboard.ApplicationLibrary:default] Added placeholder: <SBApplicationPlaceholderProxy: 0x600002d02480; com.bindaynz.app (Bin Day NZ); LSInstallType: StoreDownload>
+2026-09-06 22:57:42.567 Df SpringBoard[73234:797f33] [com.apple.frontboard.ApplicationLibrary:sb.placeholder] App placeholder proxies added: (
+    "<SBApplicationPlaceholderProxy: 0x600002d02480; com.bindaynz.app (Bin Day NZ); LSInstallType: StoreDownload>"
+), currentlyKnownExistingPlaceholders: {
+}
+2026-09-06 22:57:42.567 Df SpringBoard[73234:797f33] [com.apple.appinstallation:TransactionLog] com.bindaynz.app/Unknown Persona:10:0:1:1:Placeholder add BEGIN
+2026-09-06 22:57:42.651 Df runningboardd[73118:797ccb] [com.apple.launchservices:appinstallation] LaunchServices observer: InstallsStarted (
+    "<LSApplicationProxy: 0x600003710300> com.bindaynz.app file:///Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Bundle/Application/9DEB4CF5-1B7B-44FF-9D4E-FAF78E7FEDFA/com.apple.mobileinstallation.placeholder/ <com.bindaynz.app <placeholder >:1>"
+)
+2026-09-06 22:57:42.653 Df SpringBoard[73234:797f92] [com.apple.launchservices:progress] #LSInstallProgressList add subscriber: <_NSProgressSubscriber: 0x600000d4dbf0> publishingString: com.bindaynz.app
+2026-09-06 22:57:42.653 Df SpringBoard[73234:797f92] [com.apple.launchservices:progress] Subscribing to progress for app com.bindaynz.app,
+2026-09-06 22:57:42.653 E  SpringBoard[73234:797f92] [com.apple.frontboard.ApplicationLibrary:placeholder] Non-demoted placeholder for com.bindaynz.app has no associated NSProgress!
+2026-09-06 22:57:42.654 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Icon] <<SBLeafIcon:0x600003328000 [com.bindaynz.app]>> Changing active data source: <SBApplicationIcon: 0x600003328000; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app>
+2026-09-06 22:57:42.654 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Icon] <<SBLeafIcon:0x600003328000 [com.bindaynz.app]>> Changing from data souce: com.bindaynz.app to data source:com.bindaynz.app.
+2026-09-06 22:57:42.654 Df SpringBoard[73234:797f33] [com.apple.appinstallation:TransactionLog] com.bindaynz.app/Unknown Persona:10:1:3:1:Created icon for placeholder.
+2026-09-06 22:57:42.656 Df SpringBoard[73234:797f33] [com.apple.frontboard.ApplicationLibrary:sb.placeholder] Placeholders added: (
+    "<SBApplicationPlaceholder: 0x600000dfe850; bundleIdentifier: com.bindaynz.app; displayName: Bin Day NZ>"
+), modified: (
+), removed: (null)
+2026-09-06 22:57:42.656 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Widgets] handleRemovedDataSource:<SBApplicationPlaceholder: 0x600000dfe850; bundleIdentifier: com.bindaynz.app; displayName: Bin Day NZ> ofIcon:<SBApplicationIcon: 0x600003328000; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app>
+2026-09-06 22:57:42.656 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Icon] <<SBLeafIcon:0x600003328000 [com.bindaynz.app]>> Changing active data source: <SBApplicationIcon: 0x600003328000; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app>
+2026-09-06 22:57:42.656 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Icon] <<SBLeafIcon:0x600003328000 [com.bindaynz.app]>> Changing from data souce: (null) to data source:com.bindaynz.app.
+2026-09-06 22:57:42.656 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Icon] <<SBLeafIcon:0x600003328000 [com.bindaynz.app]>> Changing active data source: <SBApplicationIcon: 0x600003328000; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app>
+2026-09-06 22:57:42.656 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Icon] <<SBLeafIcon:0x600003328000 [com.bindaynz.app]>> Changing from data souce: com.bindaynz.app to data source:com.bindaynz.app.
+2026-09-06 22:57:42.656 Df SpringBoard[73234:797f33] [com.apple.launchservices:progress] Got progress <NSProgress: com.bindaynz.app phase=InstallingPlaceholder; state=Waiting; finalPhase=Installing; fractionCompleted=0.000000> for app com.bindaynz.app,
+2026-09-06 22:57:42.657 Df SpringBoard[73234:797f33] [com.apple.appinstallation:TransactionLog] com.bindaynz.app/Unknown Persona:10:2:3:1:Reloading icon image.
+2026-09-06 22:57:42.664 Df SpringBoard[73234:797f33] [com.apple.installcoordination:framework] +[IXAppInstallCoordinator removabilityForAppWithIdentity:error:]: Returning locally read removability, PossibleAndAllowed, for identity:[com.bindaynz.app/Invalid/[system-defined]]
+2026-09-06 22:57:42.664 Df SpringBoard[73234:797f33] [com.apple.appinstallation:TransactionLog] com.bindaynz.app/Unknown Persona:10:2:3:1:Reloading icon image.
+2026-09-06 22:57:42.727 Df runningboardd[73118:7981ba] [com.apple.runningboard:connection] Received termination request from [osservice<com.apple.installcoordinationd>:73278] on <RBSProcessPredicate <RBSProcessBundleIdentifierPredicate "com.bindaynz.app">> with context <RBSTerminateContext| explanation:installcoordinationd app:[com.bindaynz.app/Invalid/[system-defined]] uuid:62A67211-04FF-46E6-99D2-49E7D5AA1B3B isPlaceholder:N reportType:None maxTerminationResistance:Absolute attrs:[
+	<RBSPreventLaunchLimitation| <RBSProcessPredicate <RBSProcessBundleIdentifierPredicate "com.bindaynz.app">> allow:(null)>
+	]>
+2026-09-06 22:57:42.744 Df runningboardd[73118:7981ba] [com.apple.runningboard:general] Found 1 extensions contained in com.bindaynz.app
+2026-09-06 22:57:42.747 Df runningboardd[73118:7981ba] [com.apple.runningboard:connection] expanding termination predicate from <RBSProcessPredicate <RBSProcessBundleIdentifierPredicate "com.bindaynz.app">> to <RBSProcessPredicate <RBSProcessBundleIdentifiersPredicate| {(
+    "com.bindaynz.app",
+    "com.bindaynz.app.widget"
+)}>>
+2026-09-06 22:57:42.757 Df runningboardd[73118:7981ba] [com.apple.PlugInKit:holds] <PKManager:0x60000021fb80> hold request for [/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Bundle/Application/9DEB4CF5-1B7B-44FF-9D4E-FAF78E7FEDFA/BinDayNZ.app] with flags: 0x4
+2026-09-06 22:57:42.814 Df runningboardd[73118:7981ba] [com.apple.PlugInKit:holds] <PKManager:0x60000021fb80> hold request for [/Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Bundle/Application/9DEB4CF5-1B7B-44FF-9D4E-FAF78E7FEDFA/BinDayNZ.app] with flags: 0x4 completed with hold token: [1B60376E-C2EC-4359-ABE4-2A38B671E92D]
+2026-09-06 22:57:42.816 Df runningboardd[73118:7981ba] [com.apple.runningboard:ttl] Acquiring assertion targeting system from originator [osservice<com.apple.installcoordinationd>:73278] with description <RBSAssertionDescriptor| "installcoordinationd app:[com.bindaynz.app/Invalid/[system-defined]] uuid:62A67211-04FF-46E6-99D2-49E7D5AA1B3B isPlaceholder:N" ID:73118-73278-77 target:system attributes:[
+	<RBSPreventLaunchLimitation| <RBSProcessPredicate <RBSProcessBundleIdentifiersPredicate| {(
+    "com.bindaynz.app",
+    "com.bindaynz.app.widget"
+)}>> allow:(null)>
+	]>
+2026-09-06 22:57:42.822 Df runningboardd[73118:7981ba] [com.apple.runningboard:process] Executing termination request for: <RBSProcessPredicate <RBSProcessBundleIdentifiersPredicate| {(
+    "com.bindaynz.app",
+    "com.bindaynz.app.widget"
+)}>>
+2026-09-06 22:57:42.842 Df runningboardd[73118:797ccb] [com.apple.launchservices:appinstallation] LaunchServices observer: MetadataUpdate (
+    "com.bindaynz.app"
+)
+2026-09-06 22:57:42.847 Df SpringBoard[73234:7980f4] [com.apple.launchservices:appinstallation] LaunchServices observer: MetadataUpdate (
+    "com.bindaynz.app"
+)
+2026-09-06 22:57:42.893 Df SpringBoard[73234:7980ed] [com.apple.launchservices:appinstallation] LaunchServices observer: InstallsStarted (
+    "<LSApplicationProxy: 0x6000037c2640> com.bindaynz.app file:///Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Bundle/Application/9DEB4CF5-1B7B-44FF-9D4E-FAF78E7FEDFA/com.apple.mobileinstallation.placeholder/ <com.bindaynz.app <placeholder >:1>"
+)
+2026-09-06 22:57:42.893 Df SpringBoard[73234:7980ed] [com.apple.frontboard.ApplicationLibrary:observer] -[FBSApplicationLibrary applicationInstallsDidStart:] com.bindaynz.app
+2026-09-06 22:57:42.896 Df SpringBoard[73234:797f33] [com.apple.appinstallation:TransactionLog] com.bindaynz.app/Unknown Persona:10:2:3:1:Reloading icon image.
+2026-09-06 22:57:42.908 Df runningboardd[73118:797ccb] [com.apple.launchservices:appinstallation] LaunchServices observer: InstallsStarted (
+    "<LSApplicationProxy: 0x60000370c480> com.bindaynz.app file:///Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Bundle/Application/9DEB4CF5-1B7B-44FF-9D4E-FAF78E7FEDFA/com.apple.mobileinstallation.placeholder/ <com.bindaynz.app <placeholder >:1>"
+)
+2026-09-06 22:57:43.006 Df SpringBoard[73234:797f92] [com.apple.launchservices:appinstallation] LaunchServices observer: Will install (
+    "<LSApplicationProxy: 0x6000037c5980> com.bindaynz.app file:///Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Bundle/Application/9DEB4CF5-1B7B-44FF-9D4E-FAF78E7FEDFA/BinDayNZ.app/ <com.bindaynz.app <installed >:0>"
+)
+2026-09-06 22:57:43.006 Df SpringBoard[73234:797f92] [com.apple.frontboard.ApplicationLibrary:observer] -[FBSApplicationLibrary applicationsWillInstall:] com.bindaynz.app
+2026-09-06 22:57:43.012 Df runningboardd[73118:797ccb] [com.apple.launchservices:appinstallation] LaunchServices observer: Will install (
+    "<LSApplicationProxy: 0x600003704180> com.bindaynz.app file:///Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Bundle/Application/9DEB4CF5-1B7B-44FF-9D4E-FAF78E7FEDFA/BinDayNZ.app/ <com.bindaynz.app <installed >:0>"
+)
+2026-09-06 22:57:44.078 Df runningboardd[73118:797ccb] [com.apple.runningboard:assertion] Assertion did invalidate due to timeout: 73118-73272-60 (target:[app<com.apple.chrono.WidgetRenderer-Default((null))>:73272])
+2026-09-06 22:57:44.242 Df SpringBoard[73234:797f93] [com.apple.launchservices:appinstallation] LaunchServices observer: Uninstalled plugins (
+    "<LSPlugInKitProxy: 0x600003d66760> pluginID=com.bindaynz.app.widget UUID=05D8E689-867D-4D9B-8112-795BAE2AF702 version=1.2"
+)
+2026-09-06 22:57:44.248 Df SpringBoard[73234:7980f4] [com.apple.launchservices:appinstallation] LaunchServices observer: Installed plugins (
+    "<LSPlugInKitProxy: 0x600003d61e00> pluginID=com.bindaynz.app.widget UUID=137FB7E0-1FCC-4BF1-A47B-F7AD9C0DAA75 version=1.2"
+)
+2026-09-06 22:57:44.255 Df runningboardd[73118:797cd4] [com.apple.launchservices:appinstallation] Received applicationsDidInstall:(
+    "<LSApplicationProxy: 0x600003704300> com.bindaynz.app file:///Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Bundle/Application/945B8738-5FF1-48F8-9FF8-EC533125035C/BinDayNZ.app/ <com.bindaynz.app <installed >:0>"
+)
+2026-09-06 22:57:44.258 Df SpringBoard[73234:797f33] [com.apple.launchservices:progress] Unpublishing progress block called for app com.bindaynz.app
+2026-09-06 22:57:44.258 Df SpringBoard[73234:797f93] [com.apple.launchservices:progress] #LSInstallProgressList remove subscriber: <_NSProgressSubscriber: 0x600000d4dbf0> publishingString: com.bindaynz.app
+2026-09-06 22:57:44.259 Df SpringBoard[73234:7980ed] [com.apple.launchservices:appinstallation] Received applicationsDidInstall:(
+    "<LSApplicationProxy: 0x6000037b58c0> com.bindaynz.app file:///Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Bundle/Application/945B8738-5FF1-48F8-9FF8-EC533125035C/BinDayNZ.app/ <com.bindaynz.app <installed >:0>"
+)
+2026-09-06 22:57:44.275 Df SpringBoard[73234:7980ed] [com.apple.appinstallation:TransactionLog] com.bindaynz.app/Unknown Persona:5:8:3:1:applicationsDidInstall <LSApplicationProxy: 0x60000376bd80> com.bindaynz.app file:///Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Bundle/Application/945B8738-5FF1-48F8-9FF8-EC533125035C/BinDayNZ.app/ <com.bindaynz.app <installed >:0>
+2026-09-06 22:57:44.275 Df SpringBoard[73234:7980ed] [com.apple.frontboard.ApplicationLibrary:observer] -[FBSApplicationLibrary applicationsDidInstall:] com.bindaynz.app
+2026-09-06 22:57:44.275 Df SpringBoard[73234:7980ed] [com.apple.frontboard.ApplicationLibrary:default] Removed placeholder: <SBApplicationPlaceholderProxy: 0x600002d02480; com.bindaynz.app (Bin Day NZ); LSInstallType: StoreDownload>
+2026-09-06 22:57:44.275 Df SpringBoard[73234:7980ed] [com.apple.frontboard.ApplicationLibrary:default] Regenerating application com.bindaynz.app due to bundle path mismatch
+2026-09-06 22:57:44.275 Df SpringBoard[73234:7980ed] [com.apple.frontboard.ApplicationLibrary:default] Removed application: <SBApplicationInfo: 0x100927450; com.bindaynz.app (Bin Day NZ)>
+2026-09-06 22:57:44.275 Df runningboardd[73118:797cd4] [com.apple.appinstallation:TransactionLog] com.bindaynz.app/Unknown Persona:5:8:3:1:applicationsDidInstall <LSApplicationProxy: 0x6000037103c0> com.bindaynz.app file:///Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Bundle/Application/945B8738-5FF1-48F8-9FF8-EC533125035C/BinDayNZ.app/ <com.bindaynz.app <installed >:0>
+2026-09-06 22:57:44.276 Df SpringBoard[73234:7980ed] [com.apple.frontboard.ApplicationLibrary:default] Added application: <SBApplicationInfo: 0x100e83b80; com.bindaynz.app (Bin Day NZ)>
+2026-09-06 22:57:44.276 Df SpringBoard[73234:797f33] [com.apple.frontboard.ApplicationLibrary:sb.placeholder] App placeholder proxies installed: (
+    "<SBApplicationPlaceholderProxy: 0x600002d02480; com.bindaynz.app (Bin Day NZ); LSInstallType: StoreDownload>"
+)
+2026-09-06 22:57:44.276 Df SpringBoard[73234:797f33] [com.apple.appinstallation:TransactionLog] com.bindaynz.app/Unknown Persona:10:4:1:1:Placeholder remove BEGIN
+2026-09-06 22:57:44.276 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Widgets] handleRemovedDataSource:<SBApplication: 0x600003d32b20; com.bindaynz.app> {
+} ofIcon:<SBApplicationIcon: 0x600003328000; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app>
+2026-09-06 22:57:44.276 Df SpringBoard[73234:797f33] [com.apple.appinstallation:TransactionLog] com.bindaynz.app/Unknown Persona:10:11:3:1:Application replaced
+2026-09-06 22:57:44.280 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Common] Installed apps did change.
+Added: {(
+)}
+Removed: {(
+)}
+Replaced: {(
+    "com.bindaynz.app"
+)}
+Updated: (null)
+2026-09-06 22:57:44.281 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Widgets] handleRemovedDataSource:<SBApplicationPlaceholder: 0x600000dfe850; bundleIdentifier: com.bindaynz.app; displayName: Bin Day NZ; progress: 100%; state: Finished> ofIcon:<SBApplicationIcon: 0x600003328000; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app>
+2026-09-06 22:57:44.281 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Icon] <<SBLeafIcon:0x600003328000 [com.bindaynz.app]>> Changing active data source: <SBApplicationIcon: 0x600003328000; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app>
+2026-09-06 22:57:44.281 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Icon] <<SBLeafIcon:0x600003328000 [com.bindaynz.app]>> Changing from data souce: (null) to data source:com.bindaynz.app.
+2026-09-06 22:57:44.281 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Icon] 0x60000332dea0-SBHLibraryPodCategoryIcon Data source did change: <SBHLibraryCategory: 0x600002676160; icons: (
+    "<SBApplicationIcon: 0x600003328000; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app>"
+); categoryIdentifier: <SBHLibraryCategoryIdentifier: 0x600000e289f0; localizedDisplayName: Other; predictionCategoryID: 3001>; additionalItemsIndicatorIcon: 0x60000332dfe0> (SBHLibraryCategory)
+2026-09-06 22:57:44.282 Df SpringBoard[73234:797f33] [com.apple.frontboard.ApplicationLibrary:sb.placeholder] Placeholders added: (null), modified: (null), removed: (
+    "<SBApplicationPlaceholder: 0x600000dfe850; bundleIdentifier: com.bindaynz.app; displayName: Bin Day NZ; progress: 100%; state: Finished>"
+)
+2026-09-06 22:57:44.282 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Widgets] handleRemovedDataSource:<SBApplication: 0x600003d73a20; com.bindaynz.app> {
+} ofIcon:<SBApplicationIcon: 0x600003328000; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app>
+2026-09-06 22:57:44.282 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Icon] <<SBLeafIcon:0x600003328000 [com.bindaynz.app]>> Changing active data source: <SBApplicationIcon: 0x600003328000; nodeID: com.bindaynz.app; bundleID: com.bindaynz.app>
+2026-09-06 22:57:44.282 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:Icon] <<SBLeafIcon:0x600003328000 [com.bindaynz.app]>> Changing from data souce: (null) to data source:com.bindaynz.app.
+2026-09-06 22:57:44.283 Df SpringBoard[73234:7980ed] [com.apple.SplashBoard:FileManifest] Applications were replaced. Updating launch images for: (
+    "com.bindaynz.app"
+)
+2026-09-06 22:57:44.285 Df SpringBoard[73234:7980ed] [com.apple.SplashBoard:FileManifest] com.bindaynz.app Manifest is empty; purging everything at /Users/kexinli/Library/Developer/CoreSimulator/Devices/E7B0A682-1912-4538-B8DC-EA62BEA8D745/data/Containers/Data/Application/42732F90-D9AC-4D0C-8A9E-783955FC256E/Library/SplashBoard/Snapshots
+2026-09-06 22:57:44.297 Df SpringBoard[73234:7980ed] [com.apple.SplashBoard:Capture] Processing launch request <XBLaunchStateRequest: 0x600002944700> for app: com.bindaynz.app.
+2026-09-06 22:57:44.297 Df SpringBoard[73234:7980ed] [com.apple.SplashBoard:Capture] Processing launch request <XBLaunchStateRequest: 0x6000029451f0> for app: com.bindaynz.app.
+2026-09-06 22:57:44.297 Df SpringBoard[73234:7980f4] [com.apple.SplashBoard:Capture] Asynchronously generating image data for request: <XBLaunchStateRequest: 0x600002944700; groupID: com.bindaynz.app - {DEFAULT GROUP}; statusBar: normal; refSize: {402, 874}; orientation: Portrait; userInterfaceStyle: Light>
+2026-09-06 22:57:44.298 Df SpringBoard[73234:797f92] [com.apple.UserNotifications:DataProviderFactory] [com.bindaynz.app] Application installed using default data provider
+2026-09-06 22:57:44.299 Df SpringBoard[73234:797f92] [com.apple.UserNotifications:Settings] Getting sectionInfos for section identifiers: {(
+    "com.bindaynz.app"
+)}
+2026-09-06 22:57:44.299 Df SpringBoard[73234:797f92] [com.apple.UserNotifications:Settings] [{(
+    "com.bindaynz.app"
+)}] Got section infos [ hasResult: 1 ]
+2026-09-06 22:57:45.357 Df SpringBoard[73234:79809d] [com.apple.SplashBoard:FileManifest] <XBApplicationSnapshotManifestImpl: 0x600002cf2b00> [com.bindaynz.app] We don't have any snapshots, so we're clearing our manifest data.
+2026-09-06 22:57:54.925 Df runningboardd[73118:7981ba] [com.apple.runningboard:assertion] Assertion did invalidate due to timeout: 73118-73118-89 (target:[osservice<com.apple.weatherd>:73198])
+2026-09-06 22:57:54.925 Df runningboardd[73118:7981ba] [com.apple.runningboard:assertion] Assertion did invalidate due to timeout: 73118-73198-5 (target:[osservice<com.apple.weatherd>:73198])
+2026-09-06 22:57:55.600 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:CA173A03-A74B-4627-8672-7A5F4586BD74, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x60000054dce0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:55.601 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobilecal: fetched config data for key: icon-config:133D3C9E-700C-4385-B9C9-077C1D460E86, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x600000527340; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:55.601 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.news: fetched config data for key: icon-config:1ED86F28-C2B3-4217-982A-325D642855A1, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000005273a0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:55.602 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobileslideshow: fetched config data for key: icon-config:9749C034-9949-4388-9F40-E8ED88BEDC1A, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000005273e0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:55.602 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.mobilecal: fetched config data for key: icon-config:A68DBA8D-DBFA-430C-B8CD-E90113E3EE2B, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x60000054df00; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:55.603 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Batteries: fetched config data for key: icon-config:7C235C5C-A018-419C-9F7B-69C382725A04, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000003b72e0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:55.603 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.news: fetched config data for key: icon-config:88DE918A-A606-4F3B-A0F3-ED783252BDBF, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000003b49e0; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:55.603 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.Maps: fetched config data for key: icon-config:325A841B-0AAB-4B81-92AA-9A6BBC7806E3, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000003b6b80; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:55.604 Df SpringBoard[73234:797f33] [com.apple.SpringBoard:WidgetIntent] com.apple.ScreenTimeWidgetApplication: fetched config data for key: icon-config:7141E074-02FC-4227-8550-5E846A5D7BAD, result: 0 bytes with keybag state: <SBFMutableMobileKeyBagState: 0x6000003b6a40; lockState: Disabled; isEffectivelyLocked: NO; permanentlyBlocked: NO; shouldWipe: NO; recoveryRequired: NO; recoveryPossible: YES; backOffTime: 0; failedAttemptCount: 0; escrowCount: 0>.
+2026-09-06 22:57:55.618 Df SpringBoard[73234:797f33] [com.apple.chrono:WidgetHosts] [SpringBoard-Homescreen-0x60000192f540]: Configuration changed: <identifier: SpringBoard-Homescreen; activationState: activated; configuration: <CHSWidgetConfiguration: 0x600001865980; containerCount: 7; widgets: 9; metrics: <CHSWidgetMetricsSpecification: 0x6000003b6fa0; families: "(systemSmall, systemMedium, systemLarge, systemExtraLargePortrait)">; rateLimitCount: 0; replicationPredicate: none; expirationTimeout: 1800.0s>>
+2026-09-06 22:58:01.542 E  SpringBoard[73234:7980fb] (ProactiveEventTracker) Failed to initialize PETEventTracker2.
+2026-09-06 22:58:50.370 Df runningboardd[73118:798d63] [com.apple.runningboard:assertion] Assertion did invalidate due to timeout: 73118-73118-105 (target:[osservice<com.apple.fitcore>:73223])
+2026-09-06 22:58:50.370 Df runningboardd[73118:798d63] [com.apple.runningboard:assertion] Assertion did invalidate due to timeout: 73118-73223-96 (target:[osservice<com.apple.fitcore>:73223])
+2026-09-06 22:59:01.702 E  SpringBoard[73234:799767] [com.apple.SplashBoard:Capture] Request to splashboardd has timed out -- invalidating the connection for com.apple.Preferences.
+2026-09-06 22:59:01.815 Df SpringBoard[73234:799797] [com.apple.SpringBoard:IdleTimer] attention client RESET <AWAttentionAwarenessConfiguration: 0x600003347020> (identifier: com.apple.SpringBoard.HomeGrabberView-5 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:59:01.815 Df SpringBoard[73234:799797] [com.apple.SpringBoard:IdleTimer] attention client RESUME <AWAttentionAwarenessConfiguration: 0x600003347020> (identifier: com.apple.SpringBoard.HomeGrabberView-5 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:59:01.816 Df SpringBoard[73234:799797] [com.apple.SpringBoard:IdleTimer] attention client SUSPEND <AWAttentionAwarenessConfiguration: 0x600003347020> (identifier: com.apple.SpringBoard.HomeGrabberView-5 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:59:01.816 Df SpringBoard[73234:799797] [com.apple.SpringBoard:IdleTimer] attention client RESET <AWAttentionAwarenessConfiguration: 0x600003347020> (identifier: com.apple.SpringBoard.HomeGrabberView-5 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:59:01.816 Df SpringBoard[73234:799797] [com.apple.SpringBoard:IdleTimer] attention client RESUME <AWAttentionAwarenessConfiguration: 0x600003347020> (identifier: com.apple.SpringBoard.HomeGrabberView-5 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:59:01.816 Df SpringBoard[73234:799797] [com.apple.SpringBoard:IdleTimer] attention client SUSPEND <AWAttentionAwarenessConfiguration: 0x600003347020> (identifier: com.apple.SpringBoard.HomeGrabberView-5 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:59:01.875 Df SpringBoard[73234:7998a1] [com.apple.SpringBoard:IdleTimer] attention client SUSPEND <AWAttentionAwarenessConfiguration: 0x60000332ec60> (identifier: com.apple.SpringBoard.AppSuggestionManager samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       0.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask AttentionLost|Button|Keyboard|Digitizer|Pointer|Remote|GameController|DigitalCrown|MesaTouch|RemoteProximity|GenericGesture attentionLostEventMask AttentionLost|Button|Keyboard|Digitizer|Pointer|Remote|GameController|DigitalCrown|MesaTouch|RemoteProximity|GenericGesture digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:59:02.342 Df SpringBoard[73234:7998a2] [com.apple.SpringBoard:IdleTimer] attention client RESET <AWAttentionAwarenessConfiguration: 0x600003347020> (identifier: com.apple.SpringBoard.HomeGrabberView-5 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:59:02.342 Df SpringBoard[73234:7998a2] [com.apple.SpringBoard:IdleTimer] attention client RESUME <AWAttentionAwarenessConfiguration: 0x600003347020> (identifier: com.apple.SpringBoard.HomeGrabberView-5 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:59:03.343 Df SpringBoard[73234:7998a2] [com.apple.SpringBoard:IdleTimer] attention client SUSPEND <AWAttentionAwarenessConfiguration: 0x600003347020> (identifier: com.apple.SpringBoard.HomeGrabberView-5 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:59:03.609 Df SpringBoard[73234:7998a1] [com.apple.SpringBoard:IdleTimer] attention client RESET <AWAttentionAwarenessConfiguration: 0x600003347020> (identifier: com.apple.SpringBoard.HomeGrabberView-5 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:59:03.609 Df SpringBoard[73234:7998a1] [com.apple.SpringBoard:IdleTimer] attention client RESUME <AWAttentionAwarenessConfiguration: 0x600003347020> (identifier: com.apple.SpringBoard.HomeGrabberView-5 samplingInterval:       0.00000, samplingDelay:       0.00000, sampleWhileAbsent: false, retroactiveTimeoutMode: false, pollingFilter: false, continuousFaceDetectMode: false, activateAttentionDetection: true, activateEyeRelief: false, activateMotionDetection: false, unityStream: false, attentionLostTimeouts:       1.00000 nonSampledAttentionLostTimeoutEnable: false nonSampledAttentionLostTimeout:       0.00000 notificationMask NONE mask Digitizer attentionLostEventMask Digitizer digitizerDisplayUUIDs (null) buttonDisplayUUIDs (null) keyboardDisplayUUIDs (null) tagIndex 0 (nil tag))
+2026-09-06 22:59:32.960 Df runningboardd[73118:7999e9] [com.apple.runningboard:assertion] Assertion did invalidate due to timeout: 73118-73198-115 (target:[osservice<com.apple.weatherd>:73198])
+2026-09-06 23:00:14.142 Df runningboardd[73118:79a5aa] [com.apple.runningboard:assertion] Assertion did invalidate due to timeout: 73118-73370-117 (target:[osservice<com.apple.storekitd>:73370])
+getpwuid_r did not find a match for uid 501

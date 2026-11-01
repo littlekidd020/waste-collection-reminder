@@ -1,0 +1,43 @@
+{
+  "checked_at_utc": "2026-09-06T09:43:17.623912+00:00",
+  "samples": "Two app sample strings, one deliberately nonexistent address, one unit variant; no user profile read.",
+  "regex_note": "Python regex uses the exact pattern from current Swift source; no Apple MapKit resolution or Swift async HTTP stack executed.",
+  "results": [
+    {
+      "query": "12 Queen Street, Auckland",
+      "property_api": {
+        "url": "https://experience.aucklandcouncil.govt.nz/nextapi/property?query=12+Queen+Street%2C+Auckland&pageSize=5",
+        "status": 401,
+        "error": "HTTP Error 401: Unauthorized",
+        "body_excerpt": "{\"error\":\"Authorisation error. Current IP address logged.\"}"
+      }
+    },
+    {
+      "query": "4 Figaro Street, Ponsonby",
+      "property_api": {
+        "url": "https://experience.aucklandcouncil.govt.nz/nextapi/property?query=4+Figaro+Street%2C+Ponsonby&pageSize=5",
+        "status": 401,
+        "error": "HTTP Error 401: Unauthorized",
+        "body_excerpt": "{\"error\":\"Authorisation error. Current IP address logged.\"}"
+      }
+    },
+    {
+      "query": "999999 Audit Example Road, Auckland",
+      "property_api": {
+        "url": "https://experience.aucklandcouncil.govt.nz/nextapi/property?query=999999+Audit+Example+Road%2C+Auckland&pageSize=5",
+        "status": 401,
+        "error": "HTTP Error 401: Unauthorized",
+        "body_excerpt": "{\"error\":\"Authorisation error. Current IP address logged.\"}"
+      }
+    },
+    {
+      "query": "1/12 Queen Street, Auckland",
+      "property_api": {
+        "url": "https://experience.aucklandcouncil.govt.nz/nextapi/property?query=1%2F12+Queen+Street%2C+Auckland&pageSize=5",
+        "status": 401,
+        "error": "HTTP Error 401: Unauthorized",
+        "body_excerpt": "{\"error\":\"Authorisation error. Current IP address logged.\"}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+Updating dyld shared cache if needed for runtime: iOS 26.2 (26.2 - 23C54) - com.apple.CoreSimulator.SimRuntime.iOS-26-2.
+dyld shared cache is usable at path: '/Library/Developer/CoreSimulator/Caches/dyld/25F80/com.apple.CoreSimulator.SimRuntime.iOS-26-2.23C54/'.

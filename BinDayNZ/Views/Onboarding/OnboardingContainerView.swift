@@ -1,61 +1,66 @@
 import SwiftUI
 import SwiftData
+import CoreLocation
 
-/// Container view that manages the onboarding flow as a paged experience.
 struct OnboardingContainerView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var profiles: [UserProfile]
+    @Bindable var profile: UserProfile
     @State private var currentPage = 0
-    @State private var selectedCouncil: Council?
     @State private var selectedZone: CollectionZone?
+    @State private var scheduleReviewed = false
     @State private var selectedAddress: String?
-
-    private let dataService = DataService.shared
-
-    private var profile: UserProfile {
-        if let existing = profiles.first {
-            return existing
-        }
-        let newProfile = UserProfile()
-        modelContext.insert(newProfile)
-        return newProfile
-    }
+    @State private var selectedCoordinate: CLLocationCoordinate2D?
 
     var body: some View {
-        TabView(selection: $currentPage) {
-            WelcomeView(onContinue: { currentPage = 1 })
-                .tag(0)
-
-            CouncilPickerView(
-                selectedCouncil: $selectedCouncil,
-                onContinue: { currentPage = 2 }
-            )
-            .tag(1)
-
-            AddressSearchView(
-                council: selectedCouncil,
-                selectedZone: $selectedZone,
-                selectedAddress: $selectedAddress,
-                onContinue: { currentPage = 3 },
-                onManualSetup: { currentPage = 3 }
-            )
-            .tag(2)
-
-            NotificationSetupView(onComplete: {
-                completeOnboarding()
-            })
-            .tag(3)
+        NavigationStack {
+            VStack(spacing: 0) {
+                if profile.hasCompletedOnboarding {
+                    Text(L("Please review your saved collection dates before continuing."))
+                        .font(.footnote).padding()
+                    if let message = profile.integrationMessage { Text(message).font(.footnote).foregroundStyle(.red).padding() }
+                }
+                Group {
+                switch currentPage {
+                case 0:
+                    WelcomeView(language: $profile.language, onContinue: { currentPage = 1 })
+                case 1:
+                    AddressSearchView(selectedZone: $selectedZone, selectedAddress: $selectedAddress, selectedCoordinate: $selectedCoordinate, scheduleReviewed: $scheduleReviewed, onBack: { currentPage = 0 }, onContinue: { currentPage = 2 })
+                default:
+                    if let zone = selectedZone {
+                        NotificationSetupView(profile: profile, zone: zone, address: selectedAddress ?? "", coordinate: selectedCoordinate, onBack: { currentPage = 1 })
+                    }
+                }
+                }
+            }
         }
-        .tabViewStyle(.page(indexDisplayMode: .never))
-        .animation(.easeInOut, value: currentPage)
-        .ignoresSafeArea()
+        .onChange(of: selectedAddress) { _, _ in
+            scheduleReviewed = false
+            if currentPage == 2 { currentPage = 1 }
+        }
+        .onAppear {
+            selectedAddress = profile.address
+            if let latitude = profile.latitude, let longitude = profile.longitude { selectedCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude) }
+            // Existing ambiguous/parity-only data requires review; it is never guessed into an anchor.
+            if profile.hasCompletedOnboarding { currentPage = 1 }
+        }
     }
+}
 
-    private func completeOnboarding() {
-        profile.councilId = selectedCouncil?.id
-        profile.zoneId = selectedZone?.id
-        profile.address = selectedAddress
-        profile.hasCompletedOnboarding = true
-        try? modelContext.save()
+struct OnboardingPageIndicator: View {
+    let currentPage: Int
+    var body: some View {
+        HStack(spacing: 8) {
+            ForEach(0..<3, id: \.self) { page in
+                Circle().fill(page == currentPage ? AnyShapeStyle(.secondary) : AnyShapeStyle(.quaternary)).frame(width: 8, height: 8)
+            }
+        }.accessibilityElement(children: .ignore).accessibilityLabel(L("Page %d of %d", currentPage + 1, 3))
+    }
+}
+
+struct OnboardingBackButton: View {
+    let action: () -> Void
+    var body: some View {
+        Button(action: action) {
+            Label(L("Back"), systemImage: "chevron.left").frame(minWidth: 44, minHeight: 44, alignment: .leading)
+        }.accessibilityHint(L("Return to the previous setup step"))
     }
 }

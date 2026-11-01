@@ -1,0 +1,45 @@
+ M BinDayNZ.xcodeproj/project.pbxproj
+ M BinDayNZ.xcodeproj/project.xcworkspace/xcuserdata/kexinli.xcuserdatad/UserInterfaceState.xcuserstate
+ M BinDayNZ/App/ContentView.swift
+ D BinDayNZ/Assets.xcassets/AppIcon.appiconset/AppIcon.png
+ M BinDayNZ/Assets.xcassets/AppIcon.appiconset/Contents.json
+ M BinDayNZ/Assets.xcassets/AppIcon.appiconset/icon-152.png
+ M BinDayNZ/Assets.xcassets/AppIcon.appiconset/icon-167.png
+ D BinDayNZ/Assets.xcassets/AppIcon.appiconset/icon-20.png
+ D BinDayNZ/Assets.xcassets/AppIcon.appiconset/icon-29.png
+ D BinDayNZ/Assets.xcassets/AppIcon.appiconset/icon-76.png
+ M BinDayNZ/BinDayNZ.entitlements
+ M BinDayNZ/Models/BinType.swift
+ M BinDayNZ/Models/UserProfile.swift
+ M BinDayNZ/Resources/Localizable.xcstrings
+ D BinDayNZ/Resources/Videos/food-scraps.mp4
+ D BinDayNZ/Resources/Videos/inorganic.mp4
+ D BinDayNZ/Resources/Videos/recycling.mp4
+ D BinDayNZ/Resources/Videos/rubbish.mp4
+ M BinDayNZ/Services/AddressSearchService.swift
+ M BinDayNZ/Services/CalendarService.swift
+ M BinDayNZ/Services/DataService.swift
+ M BinDayNZ/Views/Info/InfoView.swift
+ M BinDayNZ/Views/Info/YouTubePlayerView.swift
+ M BinDayNZ/Views/Onboarding/AddressSearchView.swift
+ M BinDayNZ/Views/Onboarding/CouncilPickerView.swift
+ M BinDayNZ/Views/Onboarding/NotificationSetupView.swift
+ M BinDayNZ/Views/Onboarding/OnboardingContainerView.swift
+ M BinDayNZ/Views/Onboarding/WelcomeView.swift
+ M BinDayNZ/Views/Schedule/ScheduleView.swift
+ M BinDayNZ/Views/Settings/SettingsView.swift
+ M BinDayNZ/Views/Today/ChangeAddressView.swift
+ M BinDayNZ/Views/Today/CollectionDayPreview.swift
+ M BinDayNZ/Views/Today/TodayView.swift
+ M BinDayNZWidget/BinDayNZWidget.swift
+ M BinDayNZWidget/BinDayNZWidgetExtension.entitlements
+ M BinDayNZWidget/WidgetViews.swift
+ M project.yml
+?? .DS_Store
+?? BinDayNZ/Services/WidgetDataService.swift
+?? BinDayNZ/Views/Onboarding/ManualScheduleView.swift
+?? BinDayNZTests/
+?? BinDayNZUITests/
+?? BinDayNZ_SourceCode.zip
+?? design-audit/
+?? docs/audits/
