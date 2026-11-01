@@ -1,22 +1,22 @@
 # Bin Day NZ — release checklist
 
-Candidate defaults: **1.2 (3)**, iPhone and iPad, iOS 17+. This is an uncompleted checklist, not a release certificate. Keep the audit of 6 September unchanged and attach new evidence for each repaired finding.
+Candidate defaults: **1.2 (4)**, iPhone and iPad, iOS 17+. This is a working checklist, not a release certificate; the record below covers the 1.2 (4) submission candidate. Keep the audit of 6 September unchanged and attach new evidence for each repaired finding.
 
 Release record:
 
 | Field | Value to record |
 |---|---|
-| Date and responsible reviewer | Not recorded |
-| Commit / working-tree state | Not recorded |
-| Generated project / tool versions | Not recorded |
-| Archive version and build | Not recorded |
-| Devices and OS versions | Not recorded |
-| Automated results and screenshots | Not recorded |
-| Remaining limitations and decision | Not recorded |
+| Date and responsible reviewer | 2 November 2026 (NZDT), Kexin Li; prepared with Claude Code |
+| Commit / working-tree state | `8976382` on `main` plus this record and the `ITSAppUsesNonExemptEncryption` key; tree clean at archive time apart from that key |
+| Generated project / tool versions | XcodeGen from `project.yml`; Xcode 26 toolchain on macOS 26; asc CLI 6.3.0 |
+| Archive version and build | 1.2 (4), archived from a Release build with automatic development signing, exported with manual Apple Distribution signing and the "Bin Day NZ App Store 2026-11-02" / "Bin Day NZ Widget App Store 2026-11-02" profiles (App Groups and Time Sensitive Notifications verified in the signed app) |
+| Devices and OS versions | Unit tests and UI journey on iPhone 17 Pro and 17 Pro Max simulators (iOS 26); no physical-device delivery run recorded for this build |
+| Automated results and screenshots | 34 unit tests pass (2 skipped by design); onboarding UI journey passes; CI green on `main`; store screenshots are the March 2026 set carried over from 1.1 |
+| Remaining limitations and decision | Build 4 uploaded and attached to App Store version 1.2 (`441472dc…`), export compliance set to exempt, readiness validation clean. App Privacy publish state is not verifiable via API. Review submission pending the owner's go-ahead. |
 
 ## Build, signing and metadata
 
-- [ ] Generate from `project.yml`; confirm generation does not introduce unexplained configuration drift. Both app and widget use version 1.2/build 3, family 1,2 and the expected App Group.
+- [ ] Generate from `project.yml`; confirm generation does not introduce unexplained configuration drift. Both app and widget use version 1.2/build 4, family 1,2 and the expected App Group.
 - [ ] Build and run unit/UI tests on an isolated simulator. Verify shared scheme target membership and bundled resources, including permission translations and app/widget privacy manifests.
 - [ ] Produce a signed release archive. Inspect the actual archive's version, device family, entitlements, required-reason declarations and privacy report; simulator signing bypasses do not establish this.
 - [ ] Check latest App Store processing/validation requirements before upload. Record the result only after a real validation. No upload or submission is implied by checking this document.
