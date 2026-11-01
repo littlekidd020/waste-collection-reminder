@@ -16,7 +16,7 @@ final class ScheduleCoordinator {
         let json = try DataService.shared.encodedManualSchedules(from: zone)
         profile.manualSchedulesJSON = json
         profile.zoneId = DataService.manualZoneID
-        profile.councilId = DataService.auckland.id
+        profile.councilId = DataService.aucklandCouncilID
         profile.address = address?.trimmingCharacters(in: .whitespacesAndNewlines).nilIfEmpty
         profile.latitude = coordinate?.latitude
         profile.longitude = coordinate?.longitude

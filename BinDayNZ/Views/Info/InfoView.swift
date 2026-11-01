@@ -55,6 +55,11 @@ struct InfoView: View {
                             resourceLabel(L("Find where an item goes"), icon: "magnifyingglass")
                         }
                         NavigationLink {
+                            HowItWorksView()
+                        } label: {
+                            resourceLabel(L("How Bin Day works"), icon: "questionmark.circle")
+                        }
+                        NavigationLink {
                             PrivacyView()
                         } label: {
                             resourceLabel(L("Privacy and Help"), icon: "hand.raised")

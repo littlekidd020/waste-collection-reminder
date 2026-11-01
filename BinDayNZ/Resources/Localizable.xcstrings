@@ -9096,6 +9096,482 @@
           }
         }
       }
+    },
+    "Bins out tonight": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bins out tonight"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今晚请把垃圾桶推出去"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Whakaputaina ngā ipu para i tēnei pō"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "오늘 밤 쓰레기통을 내놓으세요"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "आज रात डिब्बे बाहर रखें"
+          }
+        }
+      }
+    },
+    "Collection today": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Collection today"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今天收集"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kohinga i tēnei rā"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "오늘 수거일"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "आज संग्रह है"
+          }
+        }
+      }
+    },
+    "Reminders on": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reminders on"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "提醒已开启"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kei te mahi ngā whakamaharatanga"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "알림 켜짐"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "रिमाइंडर चालू हैं"
+          }
+        }
+      }
+    },
+    "Schedule options": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schedule options"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日程选项"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngā kōwhiringa rārangi wā"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "일정 옵션"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "शेड्यूल विकल्प"
+          }
+        }
+      }
+    },
+    "How Bin Day works": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How Bin Day works"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bin Day 的工作方式"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Me pēhea te mahi a Bin Day"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bin Day 작동 방식"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bin Day कैसे काम करता है"
+          }
+        }
+      }
+    },
+    "Schedule and reminder details": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schedule and reminder details"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日程和提醒详情"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngā taipitopito rārangi wā me ngā whakamaharatanga"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "일정 및 알림 세부 정보"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "शेड्यूल और रिमाइंडर विवरण"
+          }
+        }
+      }
+    },
+    "Bin Day NZ shows the schedule you saved. Auckland Council's website is the source for your property's collection dates.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bin Day NZ shows the schedule you saved. Auckland Council's website is the source for your property's collection dates."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bin Day NZ 显示您保存的日程。您房产的收集日期以奥克兰市议会网站为准。"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ka whakaatu Bin Day NZ i te rārangi wā i tiakina e koe. Ko te paetukutuku a Auckland Council te pūtake mō ngā rā kohinga o tōu whare."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bin Day NZ는 저장한 일정을 표시합니다. 거주지의 수거 날짜는 오클랜드 시의회 웹사이트가 기준입니다."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bin Day NZ आपके द्वारा सहेजा गया शेड्यूल दिखाता है। आपकी संपत्ति की संग्रह तारीखों का स्रोत ऑकलैंड काउंसिल की वेबसाइट है।"
+          }
+        }
+      }
+    },
+    "Coverage": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coverage"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "覆盖范围"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Te horahanga"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "적용 범위"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "कवरेज"
+          }
+        }
+      }
+    },
+    "Widgets": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Widgets"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小组件"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngā widget"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "위젯"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "विजेट"
+          }
+        }
+      }
+    },
+    "These dates look right": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "These dates look right"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这些日期正确"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "He tika ēnei rā"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 날짜가 맞습니다"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ये तारीखें सही हैं"
+          }
+        }
+      }
+    },
+    "Know which bins go out tonight": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Know which bins go out tonight"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "知道今晚该推出哪些垃圾桶"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kia mōhio ko ēhea ipu ka puta i tēnei pō"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "오늘 밤 내놓을 쓰레기통 확인"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "जानें आज रात कौन से डिब्बे बाहर जाएंगे"
+          }
+        }
+      }
+    },
+    "Get a nudge the evening before": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Get a nudge the evening before"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "前一晚收到提醒"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kia whakamaharatia i te ahiahi i mua"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "전날 저녁에 알림 받기"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "एक शाम पहले रिमाइंडर पाएं"
+          }
+        }
+      }
+    },
+    "See it on your lock screen": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See it on your lock screen"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在锁屏上查看"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tirohia i tō mata raka"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "잠금 화면에서 확인"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "अपनी लॉक स्क्रीन पर देखें"
+          }
+        }
+      }
+    },
+    "To avoid duplicate alerts, turn off app notifications if you use calendar alerts.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "To avoid duplicate alerts, turn off app notifications if you use calendar alerts."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "为避免重复提醒，如果您使用日历提醒，请关闭应用通知。"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kia kore ai e tāruarua ngā whakaoho, whakawetohia ngā pānui taupānga mēnā ka whakamahi koe i ngā whakaoho maramataka."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "알림이 중복되지 않도록 캘린더 알림을 사용하는 경우 앱 알림을 끄세요."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "दोहरे अलर्ट से बचने के लिए, यदि आप कैलेंडर अलर्ट का उपयोग करते हैं तो ऐप सूचनाएँ बंद कर दें।"
+          }
+        }
+      }
     }
   },
   "version": "1.1"

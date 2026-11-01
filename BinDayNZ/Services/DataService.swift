@@ -5,17 +5,28 @@ final class DataService {
     static let shared = DataService()
     static let manualZoneID = "manual"
     static let collectionURL = URL(string: "https://www.aucklandcouncil.govt.nz/en/rubbish-recycling/rubbish-recycling-collections/rubbish-recycling-collection-days.html")!
-    static let auckland = Council(id: "auckland-council", name: "Auckland Council", region: "Auckland", binTypes: [.rubbish, .recycling, .foodScraps], zones: [])
+    static let aucklandCouncilID = "auckland-council"
     private init() {}
 
-    func council(withId id: String) -> Council? { id == Self.auckland.id ? Self.auckland : nil }
+    /// Views read the saved schedule on every body evaluation; decode each JSON value once.
+    private let cacheLock = NSLock()
+    private var cachedJSON: String?
+    private var cachedLanguage: String?
+    private var cachedZone: CollectionZone?
 
     func zone(for profile: UserProfile) -> CollectionZone? {
-        guard let json = profile.manualSchedulesJSON,
-              let data = json.data(using: .utf8),
-              let schedules = try? JSONDecoder().decode([CollectionSchedule].self, from: data) else { return nil }
-        let zone = manualZone(schedules: schedules)
-        return zone.isValid ? zone : nil
+        guard let json = profile.manualSchedulesJSON else { return nil }
+        let language = LanguageManager.shared.currentCode
+        cacheLock.lock(); defer { cacheLock.unlock() }
+        if json == cachedJSON, language == cachedLanguage { return cachedZone }
+        var zone: CollectionZone?
+        if let data = json.data(using: .utf8),
+           let schedules = try? JSONDecoder().decode([CollectionSchedule].self, from: data) {
+            let candidate = manualZone(schedules: schedules)
+            zone = candidate.isValid ? candidate : nil
+        }
+        cachedJSON = json; cachedLanguage = language; cachedZone = zone
+        return zone
     }
 
     func manualZone(schedules: [CollectionSchedule]) -> CollectionZone {

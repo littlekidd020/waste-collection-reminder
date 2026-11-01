@@ -49,14 +49,16 @@ struct WelcomeView: View {
                     .multilineTextAlignment(.center)
 
                 VStack(alignment: .leading, spacing: 18) {
-                    featureRow(icon: "bell", text: L("Smart reminders"))
-                    featureRow(icon: "calendar", text: L("Calendar integration"))
-                    featureRow(icon: "rectangle.on.rectangle", text: L("Home screen widget"))
+                    featureRow(icon: "trash", text: L("Know which bins go out tonight"))
+                    featureRow(icon: "bell", text: L("Get a nudge the evening before"))
+                    featureRow(icon: "lock.rectangle", text: L("See it on your lock screen"))
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 16)
             }
             .padding(24)
+            .frame(maxWidth: 600)
+            .frame(maxWidth: .infinity)
             .opacity(contentVisible || reduceMotion ? 1 : 0)
             .offset(y: contentVisible || reduceMotion ? 0 : 12)
         }
@@ -75,8 +77,10 @@ struct WelcomeView: View {
 
                 OnboardingPageIndicator(currentPage: 0)
             }
+            .frame(maxWidth: 600)
             .padding(.horizontal, 32)
             .padding(.vertical, 12)
+            .frame(maxWidth: .infinity)
             .background(.bar)
         }
         .onAppear {

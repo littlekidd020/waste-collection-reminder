@@ -40,12 +40,12 @@
 		A11D38F256991120E1CFF3BE /* OnboardingFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C01CBED6D096060B0AD672 /* OnboardingFlowUITests.swift */; };
 		A3C9FF54690FC1B5DAB50A8F /* IconographyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3FF0D355A1E34BC674B9A9 /* IconographyTests.swift */; };
 		A925571945FBC88DF949F057 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0540C34F907DEA5778E8B893 /* LocationManager.swift */; };
+		AABF4FF329E8231AC9EE4ABF /* HowItWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D178E60E1478050531170C3 /* HowItWorksView.swift */; };
 		B183C1B5DF59057C379EDB41 /* CalendarSafetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96436C5B41C44A9334497A0B /* CalendarSafetyTests.swift */; };
 		B1F70522EB5F06CEE21501BD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8198819FA539DE5E1BC01095 /* DataService.swift */; };
 		C239A772D542C2F70232AB1A /* NotificationSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D767777DC0FBB857780378 /* NotificationSetupView.swift */; };
 		C6F3F62A522E4844B4BEDE9F /* ChangeAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795E5ABEDEE853158CDDD5A6 /* ChangeAddressView.swift */; };
 		C7C7E62F89F506DDAF218CE3 /* BinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63FC860715FB04548D4018 /* BinType.swift */; };
-		D3ADB5AA57A69C0FFBDAAFFB /* Council.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CAC95B09A5F5A84E48D8E5 /* Council.swift */; };
 		D3D97E7763801229DBA16BF3 /* WidgetDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F8E851134A06FD1218E62 /* WidgetDataService.swift */; };
 		E61055A92FD976DE88D302F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079C527AB8285CC13EC2D3A9 /* Assets.xcassets */; };
 		E67835E50514A813A8D17FC9 /* ManualScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D876C6B543CB4D429F85BD0 /* ManualScheduleTests.swift */; };
@@ -118,6 +118,7 @@
 		3E7F1DE590C656A3B5B1C84F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		40BA1B37C5F1B9EAAFFD0CE4 /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
 		4C1D865B0B57CE06228046D6 /* BinDayNZWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = BinDayNZWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D178E60E1478050531170C3 /* HowItWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowItWorksView.swift; sourceTree = "<group>"; };
 		5F3FF0D355A1E34BC674B9A9 /* IconographyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconographyTests.swift; sourceTree = "<group>"; };
 		608758E1855EB60D44D82BC4 /* BinDayNZUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = BinDayNZUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		640F8E851134A06FD1218E62 /* WidgetDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDataService.swift; sourceTree = "<group>"; };
@@ -146,7 +147,6 @@
 		BCF0EBB5534BAAFC527436D4 /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
 		C5212870E41E8360D0D4DE7B /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		E18EB3CD492EB680A9ED55C5 /* ManualScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualScheduleView.swift; sourceTree = "<group>"; };
-		E6CAC95B09A5F5A84E48D8E5 /* Council.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Council.swift; sourceTree = "<group>"; };
 		E933392050D92A2A4AAC3C67 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		E9EB0C7B256FD11353256705 /* BinDayNZTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = BinDayNZTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFBEC462C449EA3CF1E9DFB8 /* ChangeAddressMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAddressMapTests.swift; sourceTree = "<group>"; };
@@ -273,6 +273,7 @@
 		8AB5F8F54E83B1B6412BF01A /* Info */ = {
 			isa = PBXGroup;
 			children = (
+				4D178E60E1478050531170C3 /* HowItWorksView.swift */,
 				0C27F35021B72FEF1E003734 /* InfoView.swift */,
 				F0634A68C6DBF935F256A55F /* PrivacyView.swift */,
 				884D920A1591CACFDFC73236 /* YouTubePlayerView.swift */,
@@ -294,7 +295,6 @@
 				7F63FC860715FB04548D4018 /* BinType.swift */,
 				7E9A60E42058263ACDAEBFB1 /* CollectionSchedule.swift */,
 				8E642DD6D95F4AFE57B88231 /* CollectionZone.swift */,
-				E6CAC95B09A5F5A84E48D8E5 /* Council.swift */,
 				054562B446E399A964099556 /* UpcomingCollection.swift */,
 				E933392050D92A2A4AAC3C67 /* UserProfile.swift */,
 			);
@@ -524,8 +524,8 @@
 				37983968D045BF4BB40D50D6 /* CollectionSchedule.swift in Sources */,
 				25DD0C6D7435B3873ABE4EA3 /* CollectionZone.swift in Sources */,
 				9F5164613747F9C8B43B76EC /* ContentView.swift in Sources */,
-				D3ADB5AA57A69C0FFBDAAFFB /* Council.swift in Sources */,
 				B1F70522EB5F06CEE21501BD /* DataService.swift in Sources */,
+				AABF4FF329E8231AC9EE4ABF /* HowItWorksView.swift in Sources */,
 				8D75249E866957AAEA25559E /* InfoView.swift in Sources */,
 				0114F0D655C6F1879C080AB0 /* LanguageManager.swift in Sources */,
 				A925571945FBC88DF949F057 /* LocationManager.swift in Sources */,
@@ -609,7 +609,6 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = BinDayNZ/Info.plist;
 				INFOPLIST_KEY_CFBundleIconName = AppIcon;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -824,7 +823,6 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = BinDayNZ/Info.plist;
 				INFOPLIST_KEY_CFBundleIconName = AppIcon;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

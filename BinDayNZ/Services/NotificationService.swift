@@ -74,7 +74,7 @@ final class NotificationService {
             for reminder in plan {
                 let names = reminder.bins.map(\.displayName).joined(separator: ", ")
                 let content = UNMutableNotificationContent()
-                content.title = L(reminder.isEvening ? "Bins out tonight" : "Collection today")
+                content.title = reminder.isEvening ? L("Bins out tonight") : L("Collection today")
                 content.body = names
                 content.sound = .default
                 try await center.add(request(id: reminder.id, date: reminder.date, content: content))

@@ -67,8 +67,6 @@ private struct SettingsFormView: View {
                 } else if !profile.reminderPreferences.isEnabled {
                     Text(L("App reminders are off."))
                 }
-                Text(L("Reminder times stay in New Zealand time, including when you travel."))
-                Text(L("App reminders have a limited window. Open Bin Day NZ regularly to renew them; the app also schedules a renewal reminder. Settings shows the last scheduled collection date."))
                 if let message = profile.integrationMessage { Text(message).foregroundStyle(.red) }
                 Button(L("Refresh reminders and calendar")) {
                     Task { await coordinator.refresh(profile: profile, context: modelContext) }
@@ -79,13 +77,11 @@ private struct SettingsFormView: View {
                 Toggle(L("Sync to Calendar"), isOn: $profile.calendarSyncEnabled)
                 if profile.calendarSyncEnabled {
                     Toggle(L("Calendar reminder events"), isOn: $profile.calendarRemindersEnabled)
-                    Text(L("Collection events repeat without reopening Bin Day NZ. One-off changes update when you save your schedule. Calendar reminder events add alerts at both chosen times. To avoid duplicate alerts, turn off app notifications if you use calendar alerts."))
+                    Text(L("To avoid duplicate alerts, turn off app notifications if you use calendar alerts."))
                         .font(.footnote).foregroundStyle(.secondary)
                 }
                 Button(L("Export 90-day calendar file"), action: exportICS)
                     .disabled(zone == nil)
-                Text(L("An exported file is a separate 90-day snapshot. It does not update automatically and importing it again may create duplicates."))
-                    .font(.footnote).foregroundStyle(.secondary)
             } header: { Text(L("Calendar")) }
             .disabled(coordinator.isUpdating)
 
@@ -96,6 +92,7 @@ private struct SettingsFormView: View {
             }
             Section(L("About")) {
                 LabeledContent(L("Version"), value: version)
+                NavigationLink(L("How Bin Day works")) { HowItWorksView() }
                 NavigationLink(L("Privacy and Help")) { PrivacyView() }
                 Link(L("Auckland Council Website"), destination: URL(string: "https://www.aucklandcouncil.govt.nz/rubbish-recycling")!)
                 Text(L("Made with ♥ in Aotearoa"))

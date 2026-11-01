@@ -20,11 +20,6 @@ struct CollectionSchedule: Codable, Identifiable, Hashable {
     var anchorDate: Date
     var changes: [CollectionDateChange] = []
 
-    var dayOfWeek: Int {
-        let day = ScheduleEngine.collectionCalendar.component(.weekday, from: anchorDate)
-        return day == 1 ? 7 : day - 1
-    }
-
     func isRegularCollection(on date: Date) -> Bool {
         guard anchorDate.timeIntervalSince1970.isFinite, date.timeIntervalSince1970.isFinite else { return false }
         let calendar = ScheduleEngine.collectionCalendar

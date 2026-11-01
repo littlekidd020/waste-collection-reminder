@@ -1,12 +1,13 @@
 import Foundation
 
 final class ScheduleEngine {
-    static var collectionCalendar: Calendar {
+    /// Built once. `Calendar` is a value type, so sharing it across call sites and threads is safe.
+    static let collectionCalendar: Calendar = {
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(identifier: "Pacific/Auckland")!
         calendar.firstWeekday = 2
         return calendar
-    }
+    }()
 
     func binsCollectedOn(date: Date, zone: CollectionZone) -> [BinType] {
         guard date.timeIntervalSince1970.isFinite, zone.isValid else { return [] }
@@ -17,7 +18,7 @@ final class ScheduleEngine {
             }
             if schedule.changes.contains(where: { calendar.isDate($0.originalDate, inSameDayAs: date) }) { return nil }
             return schedule.isRegularCollection(on: date) ? schedule.binType : nil
-        }.sorted { $0.rawValue < $1.rawValue }
+        }.sorted { BinType.allCases.firstIndex(of: $0)! < BinType.allCases.firstIndex(of: $1)! }
     }
 
     func upcomingCollections(for zone: CollectionZone, from startDate: Date, count: Int) -> [UpcomingCollection] {
@@ -48,10 +49,6 @@ final class ScheduleEngine {
         upcomingCollections(for: zone, from: date, count: 1).first
     }
 
-    func collectionsOnDate(_ date: Date, zone: CollectionZone) -> [UpcomingCollection] {
-        binsCollectedOn(date: date, zone: zone).map { UpcomingCollection(binType: $0, date: date) }
-    }
-
     func collectionsForMonth(year: Int, month: Int, zone: CollectionZone) -> [Int: [BinType]] {
         let calendar = Self.collectionCalendar
         guard let first = calendar.date(from: DateComponents(year: year, month: month, day: 1)),
@@ -61,10 +58,5 @@ final class ScheduleEngine {
             let bins = binsCollectedOn(date: date, zone: zone)
             return bins.isEmpty ? nil : (day, bins)
         })
-    }
-
-    func todaysCollections(zone: CollectionZone) -> [BinType] { binsCollectedOn(date: Date(), zone: zone) }
-    func tomorrowsCollections(zone: CollectionZone) -> [BinType] {
-        binsCollectedOn(date: Self.collectionCalendar.date(byAdding: .day, value: 1, to: Date())!, zone: zone)
     }
 }

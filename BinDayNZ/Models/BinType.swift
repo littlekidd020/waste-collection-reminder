@@ -28,59 +28,6 @@ enum BinType: String, Codable, CaseIterable, Identifiable {
         }
     }
 
-    /// High-contrast foreground for content placed directly on the bin gradient.
-    var gradientForeground: Color {
-        switch self {
-        case .rubbish: return .white
-        case .recycling, .foodScraps, .inorganic: return Color.black.opacity(0.85)
-        }
-    }
-
-    var rgbComponents: (red: Double, green: Double, blue: Double) {
-        switch self {
-        case .rubbish: return (0.85, 0.2, 0.2)
-        case .recycling: return (0.95, 0.8, 0.1)
-        case .foodScraps: return (0.2, 0.75, 0.3)
-        case .inorganic: return (0.9, 0.6, 0.1)
-        }
-    }
-
-    /// A darker shade for text/icons on light backgrounds
-    var darkColor: Color {
-        switch self {
-        case .rubbish: return Color(red: 0.7, green: 0.1, blue: 0.1)
-        case .recycling: return Color(red: 0.7, green: 0.6, blue: 0.0)
-        case .foodScraps: return Color(red: 0.1, green: 0.6, blue: 0.2)
-        case .inorganic: return Color(red: 0.8, green: 0.5, blue: 0.0)
-        }
-    }
-
-    /// Gradient colours for card backgrounds
-    var gradient: LinearGradient {
-        switch self {
-        case .rubbish:
-            return LinearGradient(
-                colors: [Color(red: 0.85, green: 0.2, blue: 0.2), Color(red: 0.6, green: 0.1, blue: 0.1)],
-                startPoint: .topLeading, endPoint: .bottomTrailing
-            )
-        case .recycling:
-            return LinearGradient(
-                colors: [Color(red: 0.95, green: 0.8, blue: 0.1), Color(red: 0.8, green: 0.65, blue: 0.0)],
-                startPoint: .topLeading, endPoint: .bottomTrailing
-            )
-        case .foodScraps:
-            return LinearGradient(
-                colors: [Color(red: 0.2, green: 0.75, blue: 0.3), Color(red: 0.1, green: 0.55, blue: 0.15)],
-                startPoint: .topLeading, endPoint: .bottomTrailing
-            )
-        case .inorganic:
-            return LinearGradient(
-                colors: [Color(red: 0.9, green: 0.6, blue: 0.1), Color(red: 0.75, green: 0.45, blue: 0.0)],
-                startPoint: .topLeading, endPoint: .bottomTrailing
-            )
-        }
-    }
-
     var icon: String {
         switch self {
         case .rubbish: return "🔴"

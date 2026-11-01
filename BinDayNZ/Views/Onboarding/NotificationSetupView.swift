@@ -26,9 +26,9 @@ struct NotificationSetupView: View {
                     .font(.footnote).foregroundStyle(.secondary)
             }
             Section {
-                Text(L("App reminders have a limited window. Open Bin Day NZ regularly to renew them; the app also schedules a renewal reminder. Settings shows the last scheduled collection date."))
-                    .font(.footnote)
                 Text(L("You can finish setup if permission is denied. Today and Settings will explain how to enable reminders later."))
+                    .font(.footnote)
+                NavigationLink(L("How Bin Day works")) { HowItWorksView() }
                     .font(.footnote)
                 if let errorMessage { Text(errorMessage).foregroundStyle(.red) }
                 Button {

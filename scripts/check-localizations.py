@@ -5,6 +5,8 @@ d=json.loads(catalog.read_text());c=d['strings']
 langs={'en','mi','zh-Hans','ko','hi'}
 src='\n'.join(p.read_text() for root in ('BinDayNZ','BinDayNZWidget') for p in Path(root).rglob('*.swift'))
 keys=set(re.findall(r'\b(?:L|WL)\("((?:[^"\\]|\\.)*)"',src))
+dynamic=re.findall(r'(?<![\w.`])(?:L|WL)\((?!["_])[^\n]{0,80}',src)
+assert not dynamic,('L()/WL() must take a string literal as its first argument so this check can see it',dynamic)
 missing=keys-set(c)
 assert not missing,('Missing source keys',sorted(missing))
 pattern=re.compile(r'%(?:\d+\$)?[-+ #0]*(?:\d+|\*)?(?:\.(?:\d+|\*))?(?:hh|ll|[hlLzjtq])?[@diuoxXfFeEgGaAcCsSp]')

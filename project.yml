@@ -29,7 +29,6 @@ targets:
         GENERATE_INFOPLIST_FILE: false
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         INFOPLIST_KEY_CFBundleIconName: AppIcon
-        INFOPLIST_KEY_UIRequiresFullScreen: true
         CODE_SIGN_ENTITLEMENTS: BinDayNZ/BinDayNZ.entitlements
     entitlements:
       path: BinDayNZ/BinDayNZ.entitlements

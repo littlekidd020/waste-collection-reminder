@@ -21,7 +21,7 @@ final class OnboardingFlowUITests: XCTestCase {
         XCTAssertTrue(app.navigationBars["Your bin schedule"].waitForExistence(timeout: 5))
         XCTAssertFalse(app.navigationBars["Your bin schedule"].buttons["Save"].isEnabled)
         capture("03-per-bin-editor")
-        let confirmation = app.switches["I have checked these dates for my property"]
+        let confirmation = app.switches["These dates look right"]
         reveal(confirmation.switches.firstMatch)
         confirmation.switches.firstMatch.tap()
         XCTAssertEqual(confirmation.value as? String, "1")
@@ -53,7 +53,7 @@ final class OnboardingFlowUITests: XCTestCase {
         XCTAssertTrue(reminderStatus.exists)
         capture("05-reminder-status")
 
-        reveal(app.buttons["Change schedule"], upward: false)
+        app.buttons["Schedule options"].tap()
         app.buttons["Change schedule"].tap()
         XCTAssertTrue(app.navigationBars["Change schedule"].waitForExistence(timeout: 5))
         app.buttons["Review bin schedule"].tap()
@@ -136,7 +136,7 @@ final class OnboardingFlowUITests: XCTestCase {
 
     func testSavedScheduleFrequencyAndOneOffChangePersist() throws {
         try requireSavedSchedule()
-        reveal(app.buttons["Change schedule"])
+        app.buttons["Schedule options"].tap()
         app.buttons["Change schedule"].tap()
         app.buttons["Review bin schedule"].tap()
         XCTAssertTrue(app.navigationBars["Your bin schedule"].waitForExistence(timeout: 5))
@@ -153,7 +153,7 @@ final class OnboardingFlowUITests: XCTestCase {
         XCTAssertTrue(app.buttons["Remove change"].waitForExistence(timeout: 5))
         capture("18-added-one-off-change")
         app.navigationBars["One-off changes"].buttons.element(boundBy: 0).tap()
-        let confirmation = app.switches["I have checked these dates for my property"]
+        let confirmation = app.switches["These dates look right"]
         reveal(confirmation.switches.firstMatch)
         confirmation.switches.firstMatch.tap()
         XCTAssertTrue(app.navigationBars["Your bin schedule"].buttons["Save"].isEnabled)
@@ -164,7 +164,7 @@ final class OnboardingFlowUITests: XCTestCase {
         app.terminate()
         app.launch()
         try requireSavedSchedule()
-        reveal(app.buttons["Change schedule"])
+        app.buttons["Schedule options"].tap()
         app.buttons["Change schedule"].tap()
         app.buttons["Review bin schedule"].tap()
         XCTAssertTrue(app.navigationBars["Your bin schedule"].waitForExistence(timeout: 5))

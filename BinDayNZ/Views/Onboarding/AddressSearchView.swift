@@ -19,11 +19,11 @@ struct AddressSearchView: View {
                     .foregroundStyle(.secondary)
                 AddressEntryView(address: Binding(get: { selectedAddress ?? "" }, set: { selectedAddress = $0 }), coordinate: $selectedCoordinate)
                 Button { showSchedule = true } label: {
-                    Label(L(selectedZone == nil ? "Set up manually" : "Review bin schedule"), systemImage: "calendar")
+                    Label(selectedZone == nil ? L("Set up manually") : L("Review bin schedule"), systemImage: "calendar")
                         .frame(maxWidth: .infinity, minHeight: 44)
                 }.buttonStyle(.borderedProminent).tint(AppTheme.buttonFill)
                 if let zone = selectedZone {
-                    Label(L(scheduleReviewed ? "User-confirmed schedule" : "Schedule needs confirmation"), systemImage: scheduleReviewed ? "checkmark.circle" : "exclamationmark.circle")
+                    Label(scheduleReviewed ? L("User-confirmed schedule") : L("Schedule needs confirmation"), systemImage: scheduleReviewed ? "checkmark.circle" : "exclamationmark.circle")
                     ForEach(zone.schedules) { schedule in
                         Label(schedule.binType.displayName, systemImage: schedule.binType.systemImage)
                     }

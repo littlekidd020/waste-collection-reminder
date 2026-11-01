@@ -55,7 +55,7 @@ struct ManualScheduleView: View {
                     }
                 }
                 Section {
-                    Toggle(L("I have checked these dates for my property"), isOn: $confirmed)
+                    Toggle(L("These dates look right"), isOn: $confirmed)
                     if !zone.isValid { Text(L("Check each bin's collection date and frequency before saving.")).foregroundStyle(.red) }
                 }
             }

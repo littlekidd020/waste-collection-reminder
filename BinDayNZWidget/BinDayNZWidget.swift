@@ -9,7 +9,7 @@ struct BinDayEntry: TimelineEntry {
 
     var nextCollection: WidgetCollectionDay? { collectionDays.first }
     var emptyMessage: String {
-        WL(isConfigured ? "Check your schedule in Bin Day NZ" : "Confirm your schedule in Bin Day NZ", languageCode: languageCode)
+        isConfigured ? WL("Check your schedule in Bin Day NZ", languageCode: languageCode) : WL("Confirm your schedule in Bin Day NZ", languageCode: languageCode)
     }
 }
 
