@@ -12,7 +12,7 @@ Release record:
 | Archive version and build | 1.2 (4), archived from a Release build with automatic development signing, exported with manual Apple Distribution signing and the "Bin Day NZ App Store 2026-11-02" / "Bin Day NZ Widget App Store 2026-11-02" profiles (App Groups and Time Sensitive Notifications verified in the signed app) |
 | Devices and OS versions | Unit tests and UI journey on iPhone 17 Pro and 17 Pro Max simulators (iOS 26); no physical-device delivery run recorded for this build |
 | Automated results and screenshots | 34 unit tests pass (2 skipped by design); onboarding UI journey passes; CI green on `main`; store screenshots are the March 2026 set carried over from 1.1 |
-| Remaining limitations and decision | Build 4 uploaded and attached to App Store version 1.2 (`441472dc…`), export compliance set to exempt, readiness validation clean. App Privacy publish state is not verifiable via API. Review submission pending the owner's go-ahead. |
+| Remaining limitations and decision | Build 4 uploaded and attached to App Store version 1.2 (`441472dc…`), export compliance set to exempt, readiness validation clean. App Privacy publish state is not verifiable via API. Submitted for review on 2 November 2026 (NZDT) with the owner's go-ahead: review submission `a0c4dbe0-8f2c-4563-b783-81d2871170bb`, version state WAITING_FOR_REVIEW. Screenshots to be refreshed after release. |
 
 ## Build, signing and metadata
 
