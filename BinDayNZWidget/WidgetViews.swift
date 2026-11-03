@@ -16,7 +16,7 @@ struct BinDayWidgetEntryView: View {
             default: SmallWidgetView(entry: entry)
             }
         }
-        .environment(\.locale, Locale(identifier: entry.languageCode))
+        .environment(\.locale, Locale.app(entry.languageCode))
         .containerBackground(.background, for: .widget)
     }
 }

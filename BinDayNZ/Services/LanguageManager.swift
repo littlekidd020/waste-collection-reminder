@@ -14,7 +14,7 @@ final class LanguageManager {
     private(set) var currentCode: String = "en"
 
     /// The Locale matching the current language (e.g. for DateFormatters)
-    var locale: Locale { Locale(identifier: currentCode) }
+    var locale: Locale { Locale.app(currentCode) }
 
     private init() {
         // On first load, check if user had a saved preference
@@ -35,6 +35,14 @@ final class LanguageManager {
             // Fallback to main (English)
             bundle = .main
         }
+    }
+}
+
+extension Locale {
+    /// The locale for an app language. Plain "en" formats dates the American way ("November 18"),
+    /// so English uses the New Zealand region; the other languages already order day before month.
+    static func app(_ languageCode: String) -> Locale {
+        Locale(identifier: languageCode == "en" ? "en_NZ" : languageCode)
     }
 }
 

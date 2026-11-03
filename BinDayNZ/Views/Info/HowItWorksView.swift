@@ -15,6 +15,7 @@ struct HowItWorksView: View {
                 Text(L("Reminder times stay in New Zealand time, including when you travel."))
                 Text(L("App reminders have a limited window. Open Bin Day NZ regularly to renew them; the app also schedules a renewal reminder. Settings shows the last scheduled collection date."))
                 Text(L("Open the app regularly to keep upcoming reminders scheduled. Delivery also depends on your device's notification settings."))
+                Text(L("A bring-in reminder and a pause while you are away are optional in Settings. A pause silences reminders only; your dates stay the same."))
             }
 
             Section(L("Calendar")) {

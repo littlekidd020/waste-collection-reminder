@@ -13,6 +13,108 @@
       },
       "shouldTranslate": false
     },
+    "%@: every %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: every %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@：每周%@"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: ia %@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: 매주 %@"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: हर %@"
+          }
+        }
+      }
+    },
+    "%@: every second %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: every second %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@：每两周一次，周%@"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: ia rua wiki, i te %@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: 격주 %@"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: हर दूसरे %@"
+          }
+        }
+      }
+    },
+    "%@: every second %@, next %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: every second %@, next %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@：每两周一次，周%@，下次 %@"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: ia rua wiki, i te %@, ko te %@ e whai ake nei"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: 격주 %@, 다음은 %@"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: हर दूसरे %@, अगली बार %@"
+          }
+        }
+      }
+    },
     "%d bins": {
       "localizations": {
         "en": {
@@ -43,6 +145,40 @@
           "stringUnit": {
             "state": "translated",
             "value": "%d डिब्बे"
+          }
+        }
+      }
+    },
+    "A bring-in reminder and a pause while you are away are optional in Settings. A pause silences reminders only; your dates stay the same.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A bring-in reminder and a pause while you are away are optional in Settings. A pause silences reminders only; your dates stay the same."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "收回提醒和外出暂停可在“设置”中选择开启。暂停只会静音提醒；您的日期保持不变。"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "He kōwhiringa i Ngā Tautuhinga te whakamaumahara kawe mai me te whakatārewa i a koe e ngaro ana. Ka whakawahangū noa te whakatārewa i ngā whakamaumahara; ka mau tonu ō rā."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "들여놓기 알림과 부재 중 일시중지는 설정에서 선택할 수 있습니다. 일시중지는 알림만 끄며 날짜는 그대로입니다."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "अंदर लाने का रिमाइंडर और बाहर रहने के दौरान रोकना सेटिंग्स में वैकल्पिक हैं। रोकने से केवल रिमाइंडर बंद होते हैं; आपकी तारीखें वही रहती हैं।"
           }
         }
       }
@@ -145,6 +281,40 @@
           "stringUnit": {
             "state": "translated",
             "value": "नियमित संग्रह की तारीख"
+          }
+        }
+      }
+    },
+    "A third reminder on collection day. Each extra reminder shortens how far ahead the batch reaches.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A third reminder on collection day. Each extra reminder shortens how far ahead the batch reaches."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "收集日的第三条提醒。每增加一条提醒，预先安排的范围就会缩短。"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "He whakamaumahara tuatoru i te rā kohikohi. Ka whakapoto ia whakamaumahara tāpiri i te tawhiti o te whakaritenga."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "수거일의 세 번째 알림입니다. 알림을 추가할수록 미리 예약되는 기간이 짧아집니다."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "संग्रह के दिन तीसरा रिमाइंडर। हर अतिरिक्त रिमाइंडर से पहले से निर्धारित अवधि छोटी हो जाती है।"
           }
         }
       }
@@ -1051,6 +1221,40 @@
         }
       }
     },
+    "Book an inorganic collection": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Book an inorganic collection"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "预约大件垃圾收集"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tonohia he kohinga pararopi-kore"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "대형 폐기물 수거 예약"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "अकार्बनिक संग्रह बुक करें"
+          }
+        }
+      }
+    },
     "Book with Auckland Council": {
       "localizations": {
         "en": {
@@ -1150,6 +1354,108 @@
           "stringUnit": {
             "state": "translated",
             "value": "Bread, rice, and pasta"
+          }
+        }
+      }
+    },
+    "Bring bins in": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bring bins in"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "收回垃圾桶"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kawea mai ngā ipu para"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "쓰레기통 들여놓기"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "डिब्बे अंदर लाएँ"
+          }
+        }
+      }
+    },
+    "Bring your bins in": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bring your bins in"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请把垃圾桶收回来"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kawea mai ō ipu para ki roto"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "쓰레기통을 들여놓으세요"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "अपने डिब्बे अंदर ले आएँ"
+          }
+        }
+      }
+    },
+    "Bring-in reminder time": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bring-in reminder time"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "收回提醒时间"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wā whakamaumahara kawe mai"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "들여놓기 알림 시간"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "अंदर लाने की याद दिलाने का समय"
           }
         }
       }
@@ -2243,6 +2549,40 @@
           "stringUnit": {
             "state": "translated",
             "value": "संग्रह की शर्तें और सीमाएँ"
+          }
+        }
+      }
+    },
+    "Collections up to that day get no reminders. Your schedule, widget and calendar are unchanged.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Collections up to that day get no reminders. Your schedule, widget and calendar are unchanged."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "截至该日的收集不会收到提醒。您的时间表、小组件和日历保持不变。"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kāore he whakamaumahara mō ngā kohikohinga tae atu ki taua rā. Kāore e rerekē tō wātaka, tō widget me tō maramataka."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "그날까지의 수거에는 알림이 오지 않습니다. 일정, 위젯, 캘린더는 그대로 유지됩니다."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "उस दिन तक के संग्रह के लिए कोई रिमाइंडर नहीं मिलेगा। आपका कार्यक्रम, विजेट और कैलेंडर अपरिवर्तित रहेंगे।"
           }
         }
       }
@@ -4656,6 +4996,40 @@
         }
       }
     },
+    "My Auckland bin schedule from Bin Day NZ:": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "My Auckland bin schedule from Bin Day NZ:"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "我的奥克兰垃圾桶收集时间表（来自 Bin Day NZ）："
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taku wātaka ipu para o Tāmaki Makaurau mai i Bin Day NZ:"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bin Day NZ의 내 오클랜드 쓰레기통 수거 일정:"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bin Day NZ से मेरा ऑकलैंड डिब्बा संग्रह कार्यक्रम:"
+          }
+        }
+      }
+    },
     "NZ": {
       "comment": "Product branding; keep this text unchanged in every language.",
       "localizations": {
@@ -5289,6 +5663,40 @@
         }
       }
     },
+    "Open on iPhone to add it: %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open on iPhone to add it: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在 iPhone 上打开即可添加：%@"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Whakatuwherahia ki te iPhone hei tāpiri: %@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iPhone에서 열어 추가하기: %@"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "जोड़ने के लिए iPhone पर खोलें: %@"
+          }
+        }
+      }
+    },
     "Open on YouTube": {
       "extractionState": "stale",
       "localizations": {
@@ -5526,6 +5934,40 @@
           "stringUnit": {
             "state": "translated",
             "value": "Paper and cardboard (flattened)"
+          }
+        }
+      }
+    },
+    "Pause reminders while away": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pause reminders while away"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "外出期间暂停提醒"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Whakatārewa ngā whakamaumahara i a koe e ngaro ana"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "부재 중 알림 일시중지"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "बाहर रहने के दौरान रिमाइंडर रोकें"
           }
         }
       }
@@ -6045,6 +6487,40 @@
         }
       }
     },
+    "Remind me in 1 hour": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remind me in 1 hour"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 小时后再提醒我"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Whakamaumaharatia ahau ā te hāora"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1시간 후에 다시 알림"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "मुझे 1 घंटे में याद दिलाएँ"
+          }
+        }
+      }
+    },
     "Reminder times stay in New Zealand time, including when you travel.": {
       "localizations": {
         "en": {
@@ -6245,6 +6721,74 @@
           "stringUnit": {
             "state": "translated",
             "value": "अनुस्मारकों को अपडेट करना ज़रूरी है"
+          }
+        }
+      }
+    },
+    "Reminders paused": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reminders paused"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "提醒已暂停"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kua whakatārewatia ngā whakamaumahara"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "알림 일시중지됨"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "रिमाइंडर रोके गए"
+          }
+        }
+      }
+    },
+    "Reminders resume for collections after %@. Change this in Settings.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reminders resume for collections after %@. Change this in Settings."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@之后的收集将恢复提醒。可在“设置”中更改。"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ka tīmata anō ngā whakamaumahara mō ngā kohikohinga i muri i te %@. Hurihia tēnei i Ngā Tautuhinga."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 이후 수거부터 알림이 재개됩니다. 설정에서 변경할 수 있습니다."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ के बाद के संग्रह के लिए रिमाइंडर फिर से शुरू होंगे। इसे सेटिंग्स में बदलें।"
           }
         }
       }
@@ -6587,6 +7131,40 @@
           "stringUnit": {
             "state": "translated",
             "value": "Resources"
+          }
+        }
+      }
+    },
+    "Resume after": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resume after"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此日之后恢复"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Whakahaere anō i muri i te"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "다음 날짜 이후 재개"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "इसके बाद फिर से शुरू करें"
           }
         }
       }
@@ -9875,40 +10453,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "इस साझा शेड्यूल की समीक्षा करें, फिर पुष्टि करें कि यह आपकी संपत्ति से मेल खाता है।"
-          }
-        }
-      }
-    },
-    "My Auckland bin schedule from Bin Day NZ. Open on iPhone to add it: %@": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "My Auckland bin schedule from Bin Day NZ. Open on iPhone to add it: %@"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "我在 Bin Day NZ 中的奥克兰垃圾收集日程。在 iPhone 上打开即可添加：%@"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Taku rārangi wā ipu para o Tāmaki Makaurau mai i Bin Day NZ. Whakatuwheratia i te iPhone kia tāpiri: %@"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bin Day NZ의 오클랜드 쓰레기 수거 일정입니다. iPhone에서 열어 추가하세요: %@"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bin Day NZ से मेरा ऑकलैंड कचरा शेड्यूल। जोड़ने के लिए iPhone पर खोलें: %@"
           }
         }
       }

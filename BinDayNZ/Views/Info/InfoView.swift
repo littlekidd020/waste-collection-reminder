@@ -48,8 +48,11 @@ struct InfoView: View {
                         Link(destination: URL(string: "https://www.aucklandcouncil.govt.nz/rubbish-recycling")!) {
                             resourceLabel(L("Auckland Council Website"), icon: "globe")
                         }
-                        Link(destination: URL(string: "tel:093010101")!) {
-                            resourceLabel(L("Report a missed collection"), icon: "phone")
+                        Link(destination: DataService.missedCollectionURL) {
+                            resourceLabel(L("Report a missed collection"), icon: "exclamationmark.bubble")
+                        }
+                        Link(destination: DataService.inorganicBookingURL) {
+                            resourceLabel(L("Book an inorganic collection"), icon: "shippingbox")
                         }
                         Link(destination: URL(string: "https://www.aucklandcouncil.govt.nz/en/rubbish-recycling/get-rid-unwanted-items.html")!) {
                             resourceLabel(L("Find where an item goes"), icon: "magnifyingglass")

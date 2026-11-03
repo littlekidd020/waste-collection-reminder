@@ -75,6 +75,12 @@ struct ReminderPreferenceFields: View {
             if profile.notifyMorningOf || profile.calendarRemindersEnabled {
                 DatePicker(L("Morning reminder time"), selection: $profile.morningNotifyTime, displayedComponents: .hourAndMinute)
             }
+            Toggle(L("Bring bins in"), isOn: $profile.notifyBringIn)
+            if profile.notifyBringIn {
+                DatePicker(L("Bring-in reminder time"), selection: $profile.bringInNotifyTime, displayedComponents: .hourAndMinute)
+                Text(L("A third reminder on collection day. Each extra reminder shortens how far ahead the batch reaches."))
+                    .font(.footnote).foregroundStyle(.secondary)
+            }
         }
     }
 }

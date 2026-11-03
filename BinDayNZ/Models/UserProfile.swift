@@ -42,6 +42,11 @@ final class UserProfile {
     var notifyMorningOf: Bool = true
     var morningNotifyHour: Int = 7
     var morningNotifyMinute: Int = 0
+    var notifyBringIn: Bool = false
+    var bringInNotifyHour: Int = 18
+    var bringInNotifyMinute: Int = 0
+    /// Reminders are silenced for collections up to and including this day; nil when not away.
+    var remindersPausedUntil: Date?
 
     // Calendar
     var calendarSyncEnabled: Bool = false
@@ -81,6 +86,17 @@ final class UserProfile {
             let components = ScheduleEngine.collectionCalendar.dateComponents([.hour, .minute], from: newValue)
             morningNotifyHour = components.hour ?? 7
             morningNotifyMinute = components.minute ?? 0
+        }
+    }
+
+    var bringInNotifyTime: Date {
+        get {
+            ScheduleEngine.collectionCalendar.date(from: DateComponents(hour: bringInNotifyHour, minute: bringInNotifyMinute)) ?? Date()
+        }
+        set {
+            let components = ScheduleEngine.collectionCalendar.dateComponents([.hour, .minute], from: newValue)
+            bringInNotifyHour = components.hour ?? 18
+            bringInNotifyMinute = components.minute ?? 0
         }
     }
 }

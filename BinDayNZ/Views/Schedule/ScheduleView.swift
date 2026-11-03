@@ -290,7 +290,7 @@ final class CollectionDateFormatters {
         let formatter = DateFormatter()
         formatter.calendar = ScheduleEngine.collectionCalendar
         formatter.timeZone = ScheduleEngine.collectionCalendar.timeZone
-        formatter.locale = Locale(identifier: languageCode)
+        formatter.locale = Locale.app(languageCode)
         formatter.setLocalizedDateFormatFromTemplate(template)
         formatters[key] = formatter
         return formatter

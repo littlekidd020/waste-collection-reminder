@@ -49,8 +49,11 @@ private struct SettingsFormView: View {
                     ShareLink(item: text) { Label(L("Share with your household"), systemImage: "square.and.arrow.up") }
                 }
                 Link(L("Check official collection dates"), destination: DataService.collectionURL)
+                Link(L("Report a missed collection"), destination: DataService.missedCollectionURL)
+                Link(L("Book an inorganic collection"), destination: DataService.inorganicBookingURL)
             }
             ReminderPreferenceFields(profile: profile)
+            PauseRemindersSection(profile: profile)
             Section {
                 if coordinator.isUpdating {
                     ProgressView(L("Updating reminders"))
@@ -168,6 +171,36 @@ private struct SettingsFormView: View {
             return
         }
         shareItem = ShareItem(url: url)
+    }
+}
+
+/// Silences reminders for collections up to a chosen day without touching the schedule, so widgets
+/// and calendar events keep showing the real dates. The pause clears itself once the day has passed.
+struct PauseRemindersSection: View {
+    @Bindable var profile: UserProfile
+    private var calendar: Calendar { ScheduleEngine.collectionCalendar }
+    private var today: Date { calendar.startOfDay(for: Date()) }
+    private var defaultEnd: Date { calendar.date(byAdding: .day, value: 7, to: today)! }
+    private var latest: Date { calendar.date(byAdding: .year, value: 1, to: today)! }
+
+    private var isPaused: Binding<Bool> {
+        Binding(get: { profile.remindersPausedUntil != nil },
+                set: { profile.remindersPausedUntil = $0 ? defaultEnd : nil })
+    }
+    private var pausedUntil: Binding<Date> {
+        Binding(get: { profile.remindersPausedUntil ?? defaultEnd },
+                set: { profile.remindersPausedUntil = calendar.startOfDay(for: $0) })
+    }
+
+    var body: some View {
+        Section {
+            Toggle(L("Pause reminders while away"), isOn: isPaused)
+            if profile.remindersPausedUntil != nil {
+                DatePicker(L("Resume after"), selection: pausedUntil, in: today...latest, displayedComponents: .date)
+                Text(L("Collections up to that day get no reminders. Your schedule, widget and calendar are unchanged."))
+                    .font(.footnote).foregroundStyle(.secondary)
+            }
+        }
     }
 }
 

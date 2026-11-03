@@ -8,12 +8,39 @@ struct ReminderPreferences: Equatable {
     let eveningMinute: Int
     let morningHour: Int
     let morningMinute: Int
+    /// An optional afternoon reminder on collection day to bring the bins back in.
+    let bringIn: Bool
+    let bringInHour: Int
+    let bringInMinute: Int
+    /// Collections on or before this date get no reminders. The schedule itself is untouched.
+    let pausedUntil: Date?
 
-    var isEnabled: Bool { evening || morning }
+    init(evening: Bool, morning: Bool, eveningHour: Int, eveningMinute: Int, morningHour: Int, morningMinute: Int,
+         bringIn: Bool = false, bringInHour: Int = 18, bringInMinute: Int = 0, pausedUntil: Date? = nil) {
+        self.evening = evening; self.morning = morning
+        self.eveningHour = eveningHour; self.eveningMinute = eveningMinute
+        self.morningHour = morningHour; self.morningMinute = morningMinute
+        self.bringIn = bringIn; self.bringInHour = bringInHour; self.bringInMinute = bringInMinute
+        self.pausedUntil = pausedUntil
+    }
+
+    var isEnabled: Bool { evening || morning || bringIn }
     var isValid: Bool {
         (0...23).contains(eveningHour) && (0...59).contains(eveningMinute)
             && (0...23).contains(morningHour) && (0...59).contains(morningMinute)
+            && (0...23).contains(bringInHour) && (0...59).contains(bringInMinute)
+            && (pausedUntil?.timeIntervalSince1970.isFinite ?? true)
     }
+
+    /// Whether reminders for a collection on this date are silenced by a pause.
+    func isPaused(on collectionDate: Date) -> Bool {
+        guard let pausedUntil else { return false }
+        return collectionDate <= ScheduleEngine.collectionCalendar.startOfDay(for: pausedUntil)
+    }
+}
+
+enum ReminderKind: String, CaseIterable {
+    case evening, morning, bringIn
 }
 
 struct PlannedReminder {
@@ -21,7 +48,8 @@ struct PlannedReminder {
     let date: Date
     let collectionDate: Date
     let bins: [BinType]
-    let isEvening: Bool
+    let kind: ReminderKind
+    var isEvening: Bool { kind == .evening }
 }
 
 final class NotificationService {
@@ -41,6 +69,7 @@ final class NotificationService {
     func cancelAllReminders() { center.removeAllPendingNotificationRequests() }
 
     /// A conservative bounded batch with a reserved renewal notice. The UI exposes its horizon.
+    /// Each collection date keeps all of its reminders or none, so the batch never ends mid-day.
     static func plan(zone: CollectionZone, preferences: ReminderPreferences, now: Date, limit: Int = 60) -> [PlannedReminder] {
         guard now.timeIntervalSince1970.isFinite, zone.isValid, preferences.isEnabled, preferences.isValid, limit > 0 else { return [] }
         let calendar = ScheduleEngine.collectionCalendar
@@ -48,20 +77,49 @@ final class NotificationService {
         let groups = Dictionary(grouping: collections, by: \.date)
         var result: [PlannedReminder] = []
         for date in groups.keys.sorted() {
+            guard !preferences.isPaused(on: date) else { continue }
             let bins = (groups[date] ?? []).map(\.binType)
             var dayReminders: [PlannedReminder] = []
-            for evening in [true, false] {
-                guard evening ? preferences.evening : preferences.morning else { continue }
-                let day = evening ? calendar.date(byAdding: .day, value: -1, to: date)! : date
-                let hour = evening ? preferences.eveningHour : preferences.morningHour
-                let minute = evening ? preferences.eveningMinute : preferences.morningMinute
+            for kind in ReminderKind.allCases {
+                let enabled: Bool, day: Date, hour: Int, minute: Int
+                switch kind {
+                case .evening:
+                    enabled = preferences.evening; day = calendar.date(byAdding: .day, value: -1, to: date)!
+                    hour = preferences.eveningHour; minute = preferences.eveningMinute
+                case .morning:
+                    enabled = preferences.morning; day = date
+                    hour = preferences.morningHour; minute = preferences.morningMinute
+                case .bringIn:
+                    enabled = preferences.bringIn; day = date
+                    hour = preferences.bringInHour; minute = preferences.bringInMinute
+                }
+                guard enabled else { continue }
                 guard let fireDate = calendar.date(bySettingHour: hour, minute: minute, second: 0, of: day), fireDate > now else { continue }
-                dayReminders.append(PlannedReminder(id: "binday.\(Int(date.timeIntervalSince1970)).\(evening)", date: fireDate, collectionDate: date, bins: bins, isEvening: evening))
+                dayReminders.append(PlannedReminder(id: Self.identifier(collectionDate: date, kind: kind), date: fireDate,
+                                                    collectionDate: date, bins: bins, kind: kind))
             }
             guard result.count + dayReminders.count <= limit else { break }
             result += dayReminders
         }
         return result.sorted { $0.date < $1.date }
+    }
+
+    /// Evening and morning identifiers are unchanged from earlier versions.
+    static func identifier(collectionDate: Date, kind: ReminderKind) -> String {
+        let stamp = Int(collectionDate.timeIntervalSince1970)
+        switch kind {
+        case .evening: return "binday.\(stamp).true"
+        case .morning: return "binday.\(stamp).false"
+        case .bringIn: return "binday.\(stamp).bringIn"
+        }
+    }
+
+    static func title(for kind: ReminderKind) -> String {
+        switch kind {
+        case .evening: return L("Bins out tonight")
+        case .morning: return L("Collection today")
+        case .bringIn: return L("Bring your bins in")
+        }
     }
 
     func rescheduleUpcoming(zone: CollectionZone, preferences: ReminderPreferences, now: Date = Date()) async throws -> Date? {
@@ -74,10 +132,10 @@ final class NotificationService {
             for reminder in plan {
                 let names = reminder.bins.map { "\($0.icon) \($0.displayName)" }.joined(separator: "  ")
                 let content = UNMutableNotificationContent()
-                content.title = reminder.isEvening ? L("Bins out tonight") : L("Collection today")
+                content.title = Self.title(for: reminder.kind)
                 content.body = names
                 content.sound = .default
-                content.interruptionLevel = .timeSensitive
+                content.interruptionLevel = reminder.kind == .bringIn ? .active : .timeSensitive
                 content.categoryIdentifier = NotificationRouter.collectionCategory
                 content.userInfo = [NotificationRouter.tabKey: 0]
                 try await center.add(request(id: reminder.id, date: reminder.date, content: content))
@@ -101,6 +159,15 @@ final class NotificationService {
         }
     }
 
+    /// Re-delivers a reminder the user asked to see again. The original has already fired, so its
+    /// slot in the pending batch is free; the batch is rebuilt on the next foreground refresh anyway.
+    func snooze(_ notification: UNNotification, after interval: TimeInterval = 3600) async {
+        let content = notification.request.content.mutableCopy() as? UNMutableNotificationContent ?? UNMutableNotificationContent()
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: max(60, interval), repeats: false)
+        let id = notification.request.identifier.replacingOccurrences(of: ".snooze", with: "") + ".snooze"
+        try? await center.add(UNNotificationRequest(identifier: id, content: content, trigger: trigger))
+    }
+
     private func request(id: String, date: Date, content: UNNotificationContent) -> UNNotificationRequest {
         var components = ScheduleEngine.collectionCalendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
         components.calendar = ScheduleEngine.collectionCalendar
@@ -114,17 +181,22 @@ extension Notification.Name {
 }
 
 /// Tapping a reminder lands on Today; tapping the renewal notice lands on Settings.
-/// Reminders also show as banners while the app is open.
+/// Reminders also show as banners while the app is open, and offer Done and Remind me later.
 final class NotificationRouter: NSObject, UNUserNotificationCenterDelegate {
     static let shared = NotificationRouter()
     static let collectionCategory = "binday.collection"
+    static let doneAction = "binday.done"
+    static let snoozeAction = "binday.snooze"
     static let tabKey = "tab"
 
     func install() {
         let center = UNUserNotificationCenter.current()
         center.delegate = self
         center.setNotificationCategories([
-            UNNotificationCategory(identifier: Self.collectionCategory, actions: [], intentIdentifiers: [], options: [])
+            UNNotificationCategory(identifier: Self.collectionCategory, actions: [
+                UNNotificationAction(identifier: Self.doneAction, title: L("Done"), options: []),
+                UNNotificationAction(identifier: Self.snoozeAction, title: L("Remind me in 1 hour"), options: [])
+            ], intentIdentifiers: [], options: [])
         ])
     }
 
@@ -133,8 +205,15 @@ final class NotificationRouter: NSObject, UNUserNotificationCenterDelegate {
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
-        let tab = response.notification.request.content.userInfo[Self.tabKey] as? Int ?? 0
-        await MainActor.run { NotificationCenter.default.post(name: .binDayOpenTab, object: tab) }
+        switch response.actionIdentifier {
+        case Self.snoozeAction:
+            await NotificationService.shared.snooze(response.notification)
+        case Self.doneAction, UNNotificationDismissActionIdentifier:
+            break
+        default:
+            let tab = response.notification.request.content.userInfo[Self.tabKey] as? Int ?? 0
+            await MainActor.run { NotificationCenter.default.post(name: .binDayOpenTab, object: tab) }
+        }
     }
 }
 

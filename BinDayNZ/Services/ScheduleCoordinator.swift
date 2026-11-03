@@ -55,6 +55,10 @@ final class ScheduleCoordinator {
             try? context.save()
             return
         }
+        if let pausedUntil = profile.remindersPausedUntil,
+           pausedUntil < ScheduleEngine.collectionCalendar.startOfDay(for: Date()) {
+            profile.remindersPausedUntil = nil
+        }
         let preferences = profile.reminderPreferences
         do { try WidgetDataService.update(zone: zone, profile: profile) }
         catch { messages.append(L("Your schedule saved, but the widget could not update. Try again.")) }
@@ -84,7 +88,10 @@ final class ScheduleCoordinator {
 
 extension UserProfile {
     var reminderPreferences: ReminderPreferences {
-        ReminderPreferences(evening: notifyEveningBefore, morning: notifyMorningOf, eveningHour: eveningNotifyHour, eveningMinute: eveningNotifyMinute, morningHour: morningNotifyHour, morningMinute: morningNotifyMinute)
+        ReminderPreferences(evening: notifyEveningBefore, morning: notifyMorningOf, eveningHour: eveningNotifyHour, eveningMinute: eveningNotifyMinute,
+                            morningHour: morningNotifyHour, morningMinute: morningNotifyMinute,
+                            bringIn: notifyBringIn, bringInHour: bringInNotifyHour, bringInMinute: bringInNotifyMinute,
+                            pausedUntil: remindersPausedUntil)
     }
     var calendarReminderOffsets: [TimeInterval] {
         // Calendar reminders remain independently useful when local reminders are switched off.

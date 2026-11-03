@@ -6,6 +6,8 @@ final class DataService {
     static let manualZoneID = "manual"
     static let collectionURL = URL(string: "https://www.aucklandcouncil.govt.nz/en/rubbish-recycling/rubbish-recycling-collections/rubbish-recycling-collection-days.html")!
     static let aucklandCouncilID = "auckland-council"
+    static let missedCollectionURL = URL(string: "https://www.aucklandcouncil.govt.nz/en/rubbish-recycling/rubbish-recycling-collections/late-missed-collections.html")!
+    static let inorganicBookingURL = URL(string: "https://www.aucklandcouncil.govt.nz/en/rubbish-recycling/inorganic-collections/book-inorganic-collection.html")!
     private init() {}
 
     /// Views read the saved schedule on every body evaluation; decode each JSON value once.

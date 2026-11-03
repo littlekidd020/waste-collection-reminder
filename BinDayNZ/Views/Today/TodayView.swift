@@ -218,12 +218,14 @@ private struct ScheduleStatusCard: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var expanded = false
 
-    private enum ReminderState { case checking, off, denied, scheduled(Date), stale }
+    private enum ReminderState { case checking, off, denied, paused(Date), scheduled(Date), stale }
 
     private var state: ReminderState {
         if coordinator.isUpdating || !coordinator.hasCheckedAuthorization { return .checking }
         if !profile.reminderPreferences.isEnabled { return .off }
         if !coordinator.notificationsAuthorized { return .denied }
+        if let pausedUntil = profile.remindersPausedUntil,
+           pausedUntil >= ScheduleEngine.collectionCalendar.startOfDay(for: now) { return .paused(pausedUntil) }
         if let through = profile.remindersScheduledThrough,
            through >= ScheduleEngine.collectionCalendar.startOfDay(for: now) { return .scheduled(through) }
         return .stale
@@ -234,6 +236,7 @@ private struct ScheduleStatusCard: View {
         case .checking: return L("Checking reminders")
         case .off: return L("App reminders are off")
         case .denied: return L("Notifications are not allowed")
+        case .paused: return L("Reminders paused")
         case .scheduled: return L("Reminders on")
         case .stale: return L("Reminders need refreshing")
         }
@@ -242,7 +245,7 @@ private struct ScheduleStatusCard: View {
     private var symbol: String {
         switch state {
         case .checking, .scheduled: return "bell.badge"
-        case .off, .denied: return "bell.slash"
+        case .off, .denied, .paused: return "bell.slash"
         case .stale: return "bell.badge.waveform"
         }
     }
@@ -303,6 +306,9 @@ private struct ScheduleStatusCard: View {
                         .frame(minHeight: 44, alignment: .leading)
                     case .off:
                         Text(L("Change reminder preferences in Settings."))
+                            .foregroundStyle(.secondary)
+                    case .paused(let until):
+                        Text(L("Reminders resume for collections after %@. Change this in Settings.", collectionDateLabel(until, template: "d MMMM")))
                             .foregroundStyle(.secondary)
                     case .stale:
                         Text(L("Check reminder settings before relying on the next alert."))

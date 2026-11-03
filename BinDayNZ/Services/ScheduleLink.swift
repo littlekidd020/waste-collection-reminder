@@ -50,10 +50,33 @@ enum ScheduleLink {
         return zone.isValid ? zone : nil
     }
 
-    /// Text for the share sheet: the link for people with the app, the store link for everyone else.
-    static func shareText(for zone: CollectionZone) -> String? {
+    /// Text for the share sheet. The schedule is spelled out first so the message is useful on any phone;
+    /// the app link follows for iPhone, then the store link for everyone else.
+    static func shareText(for zone: CollectionZone, now: Date = Date()) -> String? {
         guard let url = url(for: zone) else { return nil }
-        return L("My Auckland bin schedule from Bin Day NZ. Open on iPhone to add it: %@", url.absoluteString)
-            + "\n" + L("Get the app: %@", appStoreURL.absoluteString)
+        let lines = [L("My Auckland bin schedule from Bin Day NZ:")] + scheduleLines(for: zone, now: now)
+            + [L("Open on iPhone to add it: %@", url.absoluteString), L("Get the app: %@", appStoreURL.absoluteString)]
+        return lines.joined(separator: "\n")
+    }
+
+    /// One plain-language line per bin, in the app's language: "Recycling: every second Tuesday, next 11 Nov".
+    static func scheduleLines(for zone: CollectionZone, now: Date = Date()) -> [String] {
+        let engine = ScheduleEngine()
+        let language = LanguageManager.shared.currentCode
+        let weekday = CollectionDateFormatters.shared.formatter(template: "EEEE", languageCode: language)
+        let short = CollectionDateFormatters.shared.formatter(template: "d MMM", languageCode: language)
+        return zone.schedules.map { schedule in
+            let day = weekday.string(from: schedule.anchorDate)
+            switch schedule.frequency {
+            case .weekly:
+                return L("%@: every %@", schedule.binType.displayName, day)
+            case .fortnightly:
+                let single = CollectionZone(id: zone.id, name: zone.name, suburbs: [], schedules: [schedule])
+                guard let next = engine.upcomingCollections(for: single, from: now, count: 1).first else {
+                    return L("%@: every second %@", schedule.binType.displayName, day)
+                }
+                return L("%@: every second %@, next %@", schedule.binType.displayName, day, short.string(from: next.date))
+            }
+        }
     }
 }
