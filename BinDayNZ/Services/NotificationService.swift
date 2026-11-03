@@ -1,5 +1,6 @@
 import Foundation
 import UserNotifications
+import os
 
 struct ReminderPreferences: Equatable {
     let evening: Bool
@@ -54,6 +55,7 @@ struct PlannedReminder {
 
 final class NotificationService {
     static let shared = NotificationService()
+    private static let log = Logger(subsystem: "com.bindaynz.app", category: "reminders")
     private let center = UNUserNotificationCenter.current()
     private init() {}
 
@@ -66,7 +68,22 @@ final class NotificationService {
         return status == .authorized || status == .provisional || status == .ephemeral
     }
 
+    /// Everything, including a snoozed reminder. Used when reminders are turned off.
     func cancelAllReminders() { center.removeAllPendingNotificationRequests() }
+
+    /// The scheduled batch only. A snoozed reminder is one the user asked for from the lock screen;
+    /// it is kept until it fires, so opening the app within the hour does not swallow it.
+    private func cancelScheduledReminders() async {
+        let pending = await center.pendingNotificationRequests().map(\.identifier)
+        center.removePendingNotificationRequests(withIdentifiers: pending.filter { !Self.isSnooze($0) })
+    }
+
+    static func isSnooze(_ identifier: String) -> Bool { identifier.hasSuffix(".snooze") }
+
+    /// Snoozing a snoozed reminder reuses its identifier rather than stacking suffixes.
+    static func snoozeIdentifier(for identifier: String) -> String {
+        isSnooze(identifier) ? identifier : identifier + ".snooze"
+    }
 
     /// A conservative bounded batch with a reserved renewal notice. The UI exposes its horizon.
     /// Each collection date keeps all of its reminders or none, so the batch never ends mid-day.
@@ -123,7 +140,7 @@ final class NotificationService {
     }
 
     func rescheduleUpcoming(zone: CollectionZone, preferences: ReminderPreferences, now: Date = Date()) async throws -> Date? {
-        cancelAllReminders()
+        await cancelScheduledReminders()
         guard preferences.isEnabled else { return nil }
         guard preferences.isValid else { throw ScheduleError.invalid }
         let plan = Self.plan(zone: zone, preferences: preferences, now: now)
@@ -164,8 +181,13 @@ final class NotificationService {
     func snooze(_ notification: UNNotification, after interval: TimeInterval = 3600) async {
         let content = notification.request.content.mutableCopy() as? UNMutableNotificationContent ?? UNMutableNotificationContent()
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: max(60, interval), repeats: false)
-        let id = notification.request.identifier.replacingOccurrences(of: ".snooze", with: "") + ".snooze"
-        try? await center.add(UNNotificationRequest(identifier: id, content: content, trigger: trigger))
+        let id = Self.snoozeIdentifier(for: notification.request.identifier)
+        do {
+            try await center.add(UNNotificationRequest(identifier: id, content: content, trigger: trigger))
+            Self.log.info("Snoozed \(id, privacy: .public) for \(Int(interval))s")
+        } catch {
+            Self.log.error("Snooze failed for \(id, privacy: .public): \(error.localizedDescription, privacy: .public)")
+        }
     }
 
     private func request(id: String, date: Date, content: UNNotificationContent) -> UNNotificationRequest {
@@ -182,6 +204,9 @@ extension Notification.Name {
 
 /// Tapping a reminder lands on Today; tapping the renewal notice lands on Settings.
 /// Reminders also show as banners while the app is open, and offer Done and Remind me later.
+/// Main-actor isolated: UIKit requires the delegate's completion handlers on the main thread, and the
+/// async variants call them from whatever executor the method finishes on.
+@MainActor
 final class NotificationRouter: NSObject, UNUserNotificationCenterDelegate {
     static let shared = NotificationRouter()
     static let collectionCategory = "binday.collection"
@@ -212,7 +237,7 @@ final class NotificationRouter: NSObject, UNUserNotificationCenterDelegate {
             break
         default:
             let tab = response.notification.request.content.userInfo[Self.tabKey] as? Int ?? 0
-            await MainActor.run { NotificationCenter.default.post(name: .binDayOpenTab, object: tab) }
+            NotificationCenter.default.post(name: .binDayOpenTab, object: tab)
         }
     }
 }

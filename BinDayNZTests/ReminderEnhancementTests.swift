@@ -82,6 +82,7 @@ final class ReminderEnhancementTests: XCTestCase {
         XCTAssertEqual(preferences(), preferences())
     }
 
+    @MainActor
     func testNotificationCategoryOffersDoneAndRemindLaterWithoutOpeningTheApp() async {
         NotificationRouter.shared.install()
         let categories = await UNUserNotificationCenter.current().notificationCategories()
@@ -105,5 +106,13 @@ final class ReminderEnhancementTests: XCTestCase {
         XCTAssertEqual(Array(textLines[1...3]), lines)
         XCTAssertTrue(textLines[4].contains("bindaynz://schedule?"))
         XCTAssertTrue(textLines[5].contains(ScheduleLink.appStoreURL.absoluteString))
+    }
+
+    func testSnoozeIdentifiersAreRecognisedAndNeverStack() {
+        XCTAssertEqual(NotificationService.snoozeIdentifier(for: "binday.1763337600.true"), "binday.1763337600.true.snooze")
+        XCTAssertEqual(NotificationService.snoozeIdentifier(for: "binday.1763337600.true.snooze"), "binday.1763337600.true.snooze")
+        XCTAssertTrue(NotificationService.isSnooze("binday.1763337600.bringIn.snooze"))
+        XCTAssertFalse(NotificationService.isSnooze("binday.1763337600.bringIn"))
+        XCTAssertFalse(NotificationService.isSnooze("binday.renewal"))
     }
 }

@@ -24,7 +24,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@：每周%@"
+            "value": "%@：每%@"
           }
         },
         "mi": {
@@ -58,7 +58,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@：每两周一次，周%@"
+            "value": "%@：每两周的%@"
           }
         },
         "mi": {
@@ -92,7 +92,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@：每两周一次，周%@，下次 %@"
+            "value": "%@：每两周的%@，下次 %@"
           }
         },
         "mi": {
@@ -160,7 +160,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "收回提醒和外出暂停可在“设置”中选择开启。暂停只会静音提醒；您的日期保持不变。"
+            "value": "收回垃圾桶提醒和外出暂停均为可选功能，可在“设置”中开启。暂停只会停止发送提醒；您的收集日期保持不变。"
           }
         },
         "mi": {
@@ -178,7 +178,7 @@
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "अंदर लाने का रिमाइंडर और बाहर रहने के दौरान रोकना सेटिंग्स में वैकल्पिक हैं। रोकने से केवल रिमाइंडर बंद होते हैं; आपकी तारीखें वही रहती हैं।"
+            "value": "डिब्बे अंदर लाने का रिमाइंडर और बाहर रहने के दौरान रिमाइंडर रोकना, दोनों सेटिंग्स में वैकल्पिक हैं। रोकने से केवल रिमाइंडर बंद होते हैं; आपकी तारीखें वही रहती हैं।"
           }
         }
       }
@@ -296,13 +296,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "收集日的第三条提醒。每增加一条提醒，预先安排的范围就会缩短。"
+            "value": "收集日当天的第三条提醒。每多一条提醒，提醒能提前安排到的日期就越近。"
           }
         },
         "mi": {
           "stringUnit": {
             "state": "translated",
-            "value": "He whakamaumahara tuatoru i te rā kohikohi. Ka whakapoto ia whakamaumahara tāpiri i te tawhiti o te whakaritenga."
+            "value": "He whakamaumahara tuatoru i te rā kohinga. Ka whakapoto ia whakamaumahara tāpiri i te roa o te wā ka whakaritea ki mua."
           }
         },
         "ko": {
@@ -314,7 +314,7 @@
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "संग्रह के दिन तीसरा रिमाइंडर। हर अतिरिक्त रिमाइंडर से पहले से निर्धारित अवधि छोटी हो जाती है।"
+            "value": "संग्रह के दिन तीसरा रिमाइंडर। हर अतिरिक्त रिमाइंडर से रिमाइंडर कम समय आगे तक निर्धारित हो पाते हैं।"
           }
         }
       }
@@ -1238,7 +1238,7 @@
         "mi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tonohia he kohinga pararopi-kore"
+            "value": "Tāpuitia he kohinga kore-koiora"
           }
         },
         "ko": {
@@ -1437,7 +1437,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "收回提醒时间"
+            "value": "收回垃圾桶提醒时间"
           }
         },
         "mi": {
@@ -1455,7 +1455,7 @@
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "अंदर लाने की याद दिलाने का समय"
+            "value": "अंदर लाने के रिमाइंडर का समय"
           }
         }
       }
@@ -2564,13 +2564,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "截至该日的收集不会收到提醒。您的时间表、小组件和日历保持不变。"
+            "value": "截至该日的收集不会发送提醒。您的收集安排、小组件和日历保持不变。"
           }
         },
         "mi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kāore he whakamaumahara mō ngā kohikohinga tae atu ki taua rā. Kāore e rerekē tō wātaka, tō widget me tō maramataka."
+            "value": "Kāore he whakamaumahara mō ngā kohinga tae atu ki taua rā. Kāore e rerekē tō hōtaka, tō widget me tō maramataka."
           }
         },
         "ko": {
@@ -2582,7 +2582,7 @@
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "उस दिन तक के संग्रह के लिए कोई रिमाइंडर नहीं मिलेगा। आपका कार्यक्रम, विजेट और कैलेंडर अपरिवर्तित रहेंगे।"
+            "value": "उस दिन तक के संग्रह के लिए कोई रिमाइंडर नहीं मिलेगा। आपका कार्यक्रम, विजेट और कैलेंडर वैसे ही रहेंगे।"
           }
         }
       }
@@ -5007,25 +5007,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "我的奥克兰垃圾桶收集时间表（来自 Bin Day NZ）："
+            "value": "我的奥克兰垃圾收集安排（来自 Bin Day NZ）："
           }
         },
         "mi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Taku wātaka ipu para o Tāmaki Makaurau mai i Bin Day NZ:"
+            "value": "Taku hōtaka ipu para o Tāmaki Makaurau mai i Bin Day NZ:"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bin Day NZ의 내 오클랜드 쓰레기통 수거 일정:"
+            "value": "Bin Day NZ에서 공유한 내 오클랜드 수거 일정:"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bin Day NZ से मेरा ऑकलैंड डिब्बा संग्रह कार्यक्रम:"
+            "value": "Bin Day NZ से ऑकलैंड के लिए मेरे डिब्बों का कार्यक्रम:"
           }
         }
       }
@@ -5296,7 +5296,7 @@
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "오눌은 수거하지 않음"
+            "value": "오늘은 수거하지 않음"
           }
         },
         "mi": {
@@ -5680,7 +5680,7 @@
         "mi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Whakatuwherahia ki te iPhone hei tāpiri: %@"
+            "value": "Huakina i tō iPhone hei tāpiri atu: %@"
           }
         },
         "ko": {
@@ -5955,7 +5955,7 @@
         "mi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Whakatārewa ngā whakamaumahara i a koe e ngaro ana"
+            "value": "Whakatārewatia ngā whakamaumahara i a koe e ngaro ana"
           }
         },
         "ko": {
@@ -6504,7 +6504,7 @@
         "mi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Whakamaumaharatia ahau ā te hāora"
+            "value": "Whakamaumaharatia ahau ā te kotahi hāora"
           }
         },
         "ko": {
@@ -6754,7 +6754,7 @@
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "रिमाइंडर रोके गए"
+            "value": "रिमाइंडर रुके हुए हैं"
           }
         }
       }
@@ -6776,7 +6776,7 @@
         "mi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ka tīmata anō ngā whakamaumahara mō ngā kohikohinga i muri i te %@. Hurihia tēnei i Ngā Tautuhinga."
+            "value": "Ka tīmata anō ngā whakamaumahara mō ngā kohinga i muri i te %@. Hurihia tēnei i Ngā Tautuhinga."
           }
         },
         "ko": {
@@ -7146,25 +7146,25 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "此日之后恢复"
+            "value": "暂停至"
           }
         },
         "mi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Whakahaere anō i muri i te"
+            "value": "Tīmata anō i muri i te rā"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "다음 날짜 이후 재개"
+            "value": "이 날짜 이후 재개"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "इसके बाद फिर से शुरू करें"
+            "value": "इस तारीख के बाद फिर से शुरू करें"
           }
         }
       }
