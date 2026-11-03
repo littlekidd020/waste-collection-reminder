@@ -1,22 +1,22 @@
 # Bin Day NZ — release checklist
 
-Candidate defaults: **1.2 (4)**, iPhone and iPad, iOS 17+. This is a working checklist, not a release certificate; the record below covers the 1.2 (4) submission candidate. Keep the audit of 6 September unchanged and attach new evidence for each repaired finding.
+Candidate defaults: **1.2.1 (5)**, iPhone and iPad, iOS 17+. This is a working checklist, not a release certificate; the record below covers the 1.2.1 (5) candidate (1.2 (4) was approved and released on 2 November 2026, submission `a0c4dbe0…`). Keep the audit of 6 September unchanged and attach new evidence for each repaired finding.
 
 Release record:
 
 | Field | Value to record |
 |---|---|
-| Date and responsible reviewer | 2 November 2026 (NZDT), Kexin Li; prepared with Claude Code |
-| Commit / working-tree state | `8976382` on `main` plus this record and the `ITSAppUsesNonExemptEncryption` key; tree clean at archive time apart from that key |
-| Generated project / tool versions | XcodeGen from `project.yml`; Xcode 26 toolchain on macOS 26; asc CLI 6.3.0 |
-| Archive version and build | 1.2 (4), archived from a Release build with automatic development signing, exported with manual Apple Distribution signing and the "Bin Day NZ App Store 2026-11-02" / "Bin Day NZ Widget App Store 2026-11-02" profiles (App Groups and Time Sensitive Notifications verified in the signed app) |
-| Devices and OS versions | Unit tests and UI journey on iPhone 17 Pro and 17 Pro Max simulators (iOS 26); no physical-device delivery run recorded for this build |
-| Automated results and screenshots | 34 unit tests pass (2 skipped by design); onboarding UI journey passes; CI green on `main`; store screenshots are the March 2026 set carried over from 1.1 |
-| Remaining limitations and decision | Build 4 uploaded and attached to App Store version 1.2 (`441472dc…`), export compliance set to exempt, readiness validation clean. App Privacy publish state is not verifiable via API. Submitted for review on 2 November 2026 (NZDT) with the owner's go-ahead: review submission `a0c4dbe0-8f2c-4563-b783-81d2871170bb`, version state WAITING_FOR_REVIEW. Screenshots to be refreshed after release. |
+| Date and responsible reviewer | 3 November 2026 (NZDT), Kexin Li; prepared with Claude Code |
+| Commit / working-tree state | `821ed00` on `main` plus the 1.2.1 version bump, `metadata/version/1.2.1` and this record |
+| Generated project / tool versions | XcodeGen from `project.yml`; Xcode 26.3 (iOS 26.2 SDK) on macOS 26; asc CLI 6.3.0 |
+| Archive version and build | 1.2.1 (5), archived from a Release build with automatic development signing (`DEVELOPMENT_TEAM` passed on the command line), exported with manual Apple Distribution signing and the "Bin Day NZ App Store 2026-11-02" / "Bin Day NZ Widget App Store 2026-11-02" profiles (App Groups and Time Sensitive Notifications verified in the export summary, `get-task-allow` false) |
+| Devices and OS versions | Unit tests on the iPhone 17 Pro simulator (iOS 26.2); notification snooze action and refresh behaviour exercised by hand on the same simulator; no physical-device run and no UI-test run recorded for this build |
+| Automated results and screenshots | 42 unit tests pass (2 skipped by design); the new strings were reviewed per language against the catalog; store screenshots are the 1.2 set |
+| Remaining limitations and decision | Build 5 uploaded, processed VALID with export compliance exempt, attached to App Store version 1.2.1 (`3a9904f8…`), readiness validation clean with two advisories (SDK version not reported by the API; App Privacy publish state not verifiable via API). Tap-to-open from a notification was not exercised on the simulator. Review submission pending the owner's go-ahead. |
 
 ## Build, signing and metadata
 
-- [ ] Generate from `project.yml`; confirm generation does not introduce unexplained configuration drift. Both app and widget use version 1.2/build 4, family 1,2 and the expected App Group.
+- [ ] Generate from `project.yml`; confirm generation does not introduce unexplained configuration drift. Both app and widget use version 1.2.1/build 5, family 1,2 and the expected App Group.
 - [ ] Build and run unit/UI tests on an isolated simulator. Verify shared scheme target membership and bundled resources, including permission translations and app/widget privacy manifests.
 - [ ] Produce a signed release archive. Inspect the actual archive's version, device family, entitlements, required-reason declarations and privacy report; simulator signing bypasses do not establish this.
 - [ ] Check latest App Store processing/validation requirements before upload. Record the result only after a real validation. No upload or submission is implied by checking this document.
