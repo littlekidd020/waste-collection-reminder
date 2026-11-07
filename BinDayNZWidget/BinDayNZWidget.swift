@@ -73,7 +73,7 @@ struct BinDayTimelineProvider: TimelineProvider {
 
     static func entry(snapshot: WidgetScheduleSnapshot?, at date: Date) -> BinDayEntry {
         guard let snapshot, snapshot.confirmedAt != nil, snapshot.zone.isValid else {
-            return BinDayEntry(date: date, collectionDays: [], languageCode: snapshot?.languageCode ?? "en", isConfigured: false)
+            return BinDayEntry(date: date, collectionDays: [], languageCode: snapshot?.languageCode ?? Bundle.main.preferredLocalizations.first ?? "en", isConfigured: false)
         }
         let engine = ScheduleEngine()
         let upcoming = engine.upcomingCollections(for: snapshot.zone, from: date, count: 12)

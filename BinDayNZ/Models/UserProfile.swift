@@ -20,6 +20,19 @@ enum AppLanguage: String, Codable, CaseIterable, Identifiable {
         case .korean: return "한국어"
         }
     }
+
+    /// The app language matching the device's language settings, or English when the device
+    /// uses none of the languages the app ships.
+    static var deviceDefault: AppLanguage { preferred(from: Locale.preferredLanguages) }
+
+    /// Picks the best app language for an ordered list of language preferences (e.g. ["zh-CN", "en-NZ"]),
+    /// using the same matching the system applies to app bundles, so regional variants and
+    /// Chinese scripts resolve to the shipped localization.
+    static func preferred(from preferences: [String]) -> AppLanguage {
+        let shipped = allCases.map(\.rawValue)
+        let best = Bundle.preferredLocalizations(from: shipped, forPreferences: preferences).first
+        return best.flatMap(AppLanguage.init(rawValue:)) ?? .english
+    }
 }
 
 /// The user's saved preferences and setup, persisted with SwiftData.
@@ -52,13 +65,15 @@ final class UserProfile {
     var calendarSyncEnabled: Bool = false
     var calendarRemindersEnabled: Bool = false
 
-    // Language
+    // Language. The stored default stays English for existing rows; new profiles follow the device language.
     var languageCode: String = AppLanguage.english.rawValue
 
     // Onboarding
     var hasCompletedOnboarding: Bool = false
 
-    init() {}
+    init() {
+        languageCode = AppLanguage.deviceDefault.rawValue
+    }
 
     // MARK: - Computed Properties
 

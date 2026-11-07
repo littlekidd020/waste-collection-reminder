@@ -16,6 +16,7 @@
 		12FA7B0973F3FABD9268C9AD /* ScheduleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF0B056C382561CEED2F5B9 /* ScheduleEngine.swift */; };
 		1B0C7355FEB1C1721C6E7D79 /* ScheduleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E0EBAE77BB08142AAE2BA3 /* ScheduleCoordinator.swift */; };
 		1C24FE63A7D2C20742A79317 /* ChangeAddressMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBEC462C449EA3CF1E9DFB8 /* ChangeAddressMapTests.swift */; };
+		1E80945FBB5B98372C0F03C7 /* AppLanguageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE056C6AE9E1CF7CE1E839D6 /* AppLanguageTests.swift */; };
 		21390720FA416AE319D0632C /* AddressSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D40BE507B54DFE98CB54614 /* AddressSearchService.swift */; };
 		256655519CAF4EBD6057687F /* ManualScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18EB3CD492EB680A9ED55C5 /* ManualScheduleView.swift */; };
 		25DD0C6D7435B3873ABE4EA3 /* CollectionZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E642DD6D95F4AFE57B88231 /* CollectionZone.swift */; };
@@ -163,6 +164,7 @@
 		BCC21ECE7D810346CBE6350A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		BCF0EBB5534BAAFC527436D4 /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
 		C5212870E41E8360D0D4DE7B /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		CE056C6AE9E1CF7CE1E839D6 /* AppLanguageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguageTests.swift; sourceTree = "<group>"; };
 		E18EB3CD492EB680A9ED55C5 /* ManualScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualScheduleView.swift; sourceTree = "<group>"; };
 		E28D09925A02318365407402 /* HolidayShiftService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayShiftService.swift; sourceTree = "<group>"; };
 		E933392050D92A2A4AAC3C67 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 		D3D5BBFF2FAD7EDEF926C324 /* BinDayNZTests */ = {
 			isa = PBXGroup;
 			children = (
+				CE056C6AE9E1CF7CE1E839D6 /* AppLanguageTests.swift */,
 				96436C5B41C44A9334497A0B /* CalendarSafetyTests.swift */,
 				EFBEC462C449EA3CF1E9DFB8 /* ChangeAddressMapTests.swift */,
 				5F3FF0D355A1E34BC674B9A9 /* IconographyTests.swift */,
@@ -523,6 +526,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E80945FBB5B98372C0F03C7 /* AppLanguageTests.swift in Sources */,
 				B183C1B5DF59057C379EDB41 /* CalendarSafetyTests.swift in Sources */,
 				1C24FE63A7D2C20742A79317 /* ChangeAddressMapTests.swift in Sources */,
 				A3C9FF54690FC1B5DAB50A8F /* IconographyTests.swift in Sources */,
