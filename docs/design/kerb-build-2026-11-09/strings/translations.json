@@ -1,0 +1,240 @@
+{
+  "Open the council guide": {
+    "zh-Hans": "打开议会指南",
+    "mi": "Huakina te aratohu a te kaunihera",
+    "ko": "의회 안내 열기",
+    "hi": "काउंसिल गाइड खोलें",
+    "comment": "VoiceOver label of the glass safari button, top trailing on the Guide; opens the council's own page for the bin on screen"
+  },
+  "Booked collection": {
+    "zh-Hans": "预约收集",
+    "mi": "Kohinga tāpui",
+    "ko": "예약 수거",
+    "hi": "बुकिंग वाला संग्रह",
+    "comment": "Small uppercase eyebrow above 'Inorganic Collection' on the Guide: this service is booked, not on a regular schedule"
+  },
+  "Not in your schedule": {
+    "zh-Hans": "不在您的收集安排中",
+    "mi": "Kāore i tō hōtaka",
+    "ko": "내 일정에 없음",
+    "hi": "आपके कार्यक्रम में नहीं",
+    "comment": "Small uppercase eyebrow above a bin's name on the Guide when the council collects this bin but the household has not set it up in its schedule"
+  },
+  "%@ · %@": {
+    "zh-Hans": "%@·%@",
+    "mi": "%1$@ · %2$@",
+    "ko": "%1$@ · %2$@",
+    "hi": "%1$@ · %2$@",
+    "comment": "Small uppercase eyebrow above a bin's name on the Guide: frequency, then weekday (e.g. 'Weekly · Tuesday'). First %@ is 'Weekly' or 'Fortnightly', second is the weekday name"
+  },
+  "%@, page %lld of %lld": {
+    "zh-Hans": "%@，第 %lld 页，共 %lld 页",
+    "mi": "%@, whārangi %lld o %lld",
+    "ko": "%@, %lld/%lld페이지",
+    "hi": "%@, पृष्ठ %lld / %lld",
+    "comment": "VoiceOver label of the Guide's page indicator (lid spheres): bin name, current page number, page count. e.g. 'Rubbish, page 1 of 4'"
+  },
+  "Yes": {
+    "zh-Hans": "可放入",
+    "mi": "Āe",
+    "ko": "넣으세요",
+    "hi": "हाँ",
+    "comment": "Small uppercase heading of the column of items that go in this bin (Guide)"
+  },
+  "No": {
+    "zh-Hans": "不可放入",
+    "mi": "Kāo",
+    "ko": "넣지 마세요",
+    "hi": "नहीं",
+    "comment": "Small uppercase heading of the column of items that must not go in this bin (Guide)"
+  },
+  "Next collections": {
+    "zh-Hans": "接下来的收集",
+    "mi": "Ngā kohinga e whai ake nei",
+    "ko": "다음 수거 일정",
+    "hi": "अगले संग्रह",
+    "comment": "Schedule tab: small uppercase section label above the list of the next six collection dates."
+  },
+  "Recycling week": {
+    "zh-Hans": "回收周",
+    "mi": "Wiki hangarua",
+    "ko": "재활용 수거 주",
+    "hi": "रीसाइक्लिंग सप्ताह",
+    "comment": "Schedule tab, Next collections row: muted line under the bin list when that date includes the fortnightly recycling collection."
+  },
+  "No recycling": {
+    "zh-Hans": "无回收",
+    "mi": "Kāore he hangarua",
+    "ko": "재활용 수거 없음",
+    "hi": "रीसाइक्लिंग नहीं",
+    "comment": "Schedule tab, Next collections row: muted line under the bin list when that date is the off week of a fortnightly recycling schedule."
+  },
+  "%@ is %@: collections that week may change.": {
+    "zh-Hans": "%@是%@：那一周的收集可能有变动。",
+    "mi": "Ko %@ te %@: ka rerekē pea ngā kohinga o taua wiki.",
+    "ko": "%@(%@): 그 주의 수거가 바뀔 수 있습니다.",
+    "hi": "%@ %@ को है: उस सप्ताह संग्रह बदल सकता है।",
+    "comment": "Schedule tab, holiday line for councils without a verified holiday rule. First %@ is the public holiday's name, second is its date (e.g. 'Monday 28 December')."
+  },
+  "Guide": {
+    "zh-Hans": "指南",
+    "mi": "Aratohu",
+    "ko": "안내",
+    "hi": "गाइड",
+    "comment": "Tab bar label of the third tab: the bin guide (one page per bin). Short noun."
+  },
+  "In %d days": {
+    "zh-Hans": "%d 天后",
+    "mi": "Ā ngā rā e %d",
+    "ko": "%d일 후",
+    "hi": "%d दिन में",
+    "comment": "Small uppercase eyebrow on Today before the date, when the next collection is two or more days away: 'In 3 days · Friday 13 November'. %d is always 2 or more."
+  },
+  "Out tonight": {
+    "zh-Hans": "今晚推出去",
+    "mi": "Ki waho i tēnei pō",
+    "ko": "오늘 밤 내놓기",
+    "hi": "आज रात बाहर",
+    "comment": "44 pt verdict on Today the day before a collection: the bins go out tonight."
+  },
+  "Nothing tonight": {
+    "zh-Hans": "今晚不用推出",
+    "mi": "Kāore he mea i tēnei pō",
+    "ko": "오늘 밤은 없음",
+    "hi": "आज रात कुछ नहीं",
+    "comment": "44 pt verdict on Today when no collection is due tomorrow: nothing to put out tonight."
+  },
+  "Done for tonight": {
+    "zh-Hans": "今晚已完成",
+    "mi": "Kua oti mō tēnei pō",
+    "ko": "오늘 밤은 완료",
+    "hi": "आज रात के लिए हो गया",
+    "comment": "44 pt verdict on Today after the household has rolled the bins to the kerb."
+  },
+  "%@. Put them out tonight.": {
+    "zh-Hans": "%@。今晚请推出去。",
+    "mi": "%@. Whakaputaina i tēnei pō.",
+    "ko": "%@. 오늘 밤 내놓으세요.",
+    "hi": "%@। आज रात इन्हें बाहर रखें।",
+    "comment": "Sentence under the verdict the day before: %@ is the bin list, e.g. 'Recycling, rubbish and food scraps'."
+  },
+  "%@. Have them out early.": {
+    "zh-Hans": "%@。请一早推出去。",
+    "mi": "%@. Whakaputaina i te ata tū.",
+    "ko": "%@. 아침 일찍 내놓으세요.",
+    "hi": "%@। इन्हें सुबह जल्दी बाहर रखें।",
+    "comment": "Sentence on the morning of collection day: %@ is the bin list."
+  },
+  "%@. Bring them in once they are emptied.": {
+    "zh-Hans": "%@。清空后请收回。",
+    "mi": "%@. Kawea mai ki roto ina whakawāteatia.",
+    "ko": "%@. 비워지면 들여놓으세요.",
+    "hi": "%@। खाली होने के बाद इन्हें अंदर ले आएँ।",
+    "comment": "Sentence on the afternoon of collection day: %@ is the bin list."
+  },
+  "Next: %@ on %@.": {
+    "zh-Hans": "下次：%@，%@。",
+    "mi": "E whai ake nei: %@ i te %@.",
+    "ko": "다음: %2$@에 %1$@.",
+    "hi": "अगला: %2$@ को %1$@।",
+    "comment": "Sentence when the collection is days away: first %@ is the bin list, second is the weekday name, e.g. 'Next: Rubbish on Friday.'"
+  },
+  "They are at the kerb. Reminders for this collection are off.": {
+    "zh-Hans": "垃圾桶已在路边。本次收集的提醒已关闭。",
+    "mi": "Kei te taha huarahi ngā ipu. Kua weto ngā whakamaharatanga mō tēnei kohinga.",
+    "ko": "쓰레기통을 도로변에 내놓았습니다. 이번 수거 알림은 꺼졌습니다.",
+    "hi": "डिब्बे सड़क किनारे हैं। इस संग्रह के अनुस्मारक बंद हैं।",
+    "comment": "Sentence after the bins were marked as out at the kerb; the app has cancelled this collection's reminders."
+  },
+  "Then %@: %@.": {
+    "zh-Hans": "之后%@：%@。",
+    "mi": "Kātahi ko te %@: %@.",
+    "ko": "그다음 %@: %@.",
+    "hi": "फिर %@: %@।",
+    "comment": "Muted line under the bins about the collection after the next: first %@ a full date such as 'Tuesday 17 November', second the bin list."
+  },
+  "%@ bins": {
+    "zh-Hans": "%@垃圾桶",
+    "mi": "Ngā ipu %@",
+    "ko": "%@ 쓰레기통",
+    "hi": "%@ के डिब्बे",
+    "comment": "VoiceOver label of the bin picture: %@ is the bin list, e.g. 'Recycling, rubbish and food scraps bins'."
+  },
+  "Swipe right when they are out": {
+    "zh-Hans": "推出去后向右轻扫",
+    "mi": "Whiua ki matau ina kua puta ki waho",
+    "ko": "내놓았으면 오른쪽으로 쓸어넘기세요",
+    "hi": "बाहर रखने के बाद दाईं ओर स्वाइप करें",
+    "comment": "VoiceOver hint on the bin picture: swiping right marks the bins as out at the kerb."
+  },
+  "Mark bins as out": {
+    "zh-Hans": "标记为已推出",
+    "mi": "Tohua kua puta ngā ipu",
+    "ko": "쓰레기통 내놓음으로 표시",
+    "hi": "डिब्बों को बाहर रखा गया चिह्नित करें",
+    "comment": "VoiceOver custom action name: records that the bins are out at the kerb."
+  },
+  "Bring the bins back": {
+    "zh-Hans": "取消已推出标记",
+    "mi": "Whakahokia mai ngā ipu",
+    "ko": "쓰레기통 내놓음 취소",
+    "hi": "डिब्बे वापस लाएँ",
+    "comment": "VoiceOver custom action name and hint on Undo: reverses marking the bins as out."
+  },
+  "Undo": {
+    "zh-Hans": "撤销",
+    "mi": "Whakahokia",
+    "ko": "되돌리기",
+    "hi": "पूर्ववत करें",
+    "comment": "Glass button after marking the bins as out; brings them back and restores the reminders."
+  },
+  "Turn on reminders": {
+    "zh-Hans": "开启提醒",
+    "mi": "Whakakāngia ngā whakamaharatanga",
+    "ko": "알림 켜기",
+    "hi": "अनुस्मारक चालू करें",
+    "comment": "Prominent button on Today when app reminders are switched off; opens Settings."
+  },
+  "Allow notifications": {
+    "zh-Hans": "允许通知",
+    "mi": "Whakaaetia ngā whakamōhiotanga",
+    "ko": "알림 허용",
+    "hi": "सूचनाओं की अनुमति दें",
+    "comment": "Prominent button on Today when iOS notification permission is denied; opens the system settings."
+  },
+  "Refresh reminders": {
+    "zh-Hans": "更新提醒",
+    "mi": "Whakahoungia ngā whakamaharatanga",
+    "ko": "알림 갱신",
+    "hi": "अनुस्मारक अपडेट करें",
+    "comment": "Prominent button on Today when the scheduled reminder batch has run out; reschedules."
+  },
+  "Reminders paused until %@": {
+    "zh-Hans": "提醒已暂停至%@",
+    "mi": "Kua whakatārewatia ngā whakamaharatanga tae noa ki %@",
+    "ko": "%@까지 알림 일시중지됨",
+    "hi": "%@ तक अनुस्मारक रुके हुए हैं",
+    "comment": "Quiet status line on Today while reminders are paused: %@ is a date such as '16 November'."
+  },
+  "Reminders on · %@": {
+    "zh-Hans": "提醒已开启·%@",
+    "mi": "Kei te mahi ngā whakamaharatanga · %@",
+    "ko": "알림 켜짐 · %@",
+    "hi": "अनुस्मारक चालू · %@",
+    "comment": "Quiet status line on Today when reminders are scheduled: %@ lists the reminder times, e.g. '7 pm and 7 am'."
+  },
+  "Opens Settings": {
+    "zh-Hans": "打开设置",
+    "mi": "Ka huaki i Ngā Tautuhinga",
+    "ko": "설정을 엽니다",
+    "hi": "सेटिंग्स खोलता है",
+    "comment": "VoiceOver hint on the quiet status line: tapping it opens Settings."
+  },
+  "The next fortnight": {
+    "zh-Hans": "接下来两周",
+    "mi": "Ngā wiki e rua e whai ake nei",
+    "ko": "앞으로 2주",
+    "hi": "अगले दो सप्ताह",
+    "comment": "Schedule tab: small uppercase label at the top, above the scrolling strip of the next fourteen days."
+  }
+}

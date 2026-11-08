@@ -1,0 +1,30 @@
+name: RoundFour
+options:
+  bundleIdPrefix: nz.binday.proto
+  deploymentTarget:
+    iOS: "26.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    SWIFT_STRICT_CONCURRENCY: minimal
+    CODE_SIGNING_ALLOWED: "NO"
+    TARGETED_DEVICE_FAMILY: "1"
+targets:
+  RoundFour:
+    type: application
+    platform: iOS
+    sources:
+      - Sources
+      - path: Assets.xcassets
+        optional: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: nz.binday.proto.scaffold
+        GENERATE_INFOPLIST_FILE: "YES"
+        INFOPLIST_KEY_UILaunchScreen_Generation: "YES"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UIUserInterfaceStyle: Light
+        INFOPLIST_KEY_CFBundleDisplayName: Round Four
+        ASSETCATALOG_COMPILER_APPICON_NAME: ""
+        ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS: "NO"

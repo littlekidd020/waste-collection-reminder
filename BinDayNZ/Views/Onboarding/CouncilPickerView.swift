@@ -11,20 +11,28 @@ struct CouncilRow: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(L("Council")).font(.headline)
+            Text(L("Council")).kerbLabel()
             Button { showPicker = true } label: {
                 HStack(spacing: 12) {
-                    Image(systemName: "building.2").accessibilityHidden(true)
+                    Image(systemName: "building.2")
+                        .foregroundStyle(Palette.muted)
+                        .accessibilityHidden(true)
                     Text(council?.name ?? L("Choose your council"))
-                        .foregroundStyle(council == nil ? .secondary : .primary)
+                        .kerbFont(17, relativeTo: .body)
+                        .foregroundStyle(council == nil ? Palette.muted : Palette.ink)
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
                     Spacer(minLength: 8)
-                    Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.secondary).accessibilityHidden(true)
+                    Image(systemName: "chevron.up.chevron.down")
+                        .font(.system(size: 12, weight: .semibold))
+                        .foregroundStyle(Palette.muted)
+                        .accessibilityHidden(true)
                 }
-                .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
-                .padding(.horizontal, 12)
-                .background(Color(uiColor: .secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
+                .frame(maxWidth: .infinity, minHeight: 48, alignment: .leading)
+                .padding(.horizontal, 16)
+                .background(Palette.surface, in: .rect(cornerRadius: 14))
+                .overlay { RoundedRectangle(cornerRadius: 14).strokeBorder(Palette.line, lineWidth: 0.5) }
+                .contentShape(.rect(cornerRadius: 14))
             }
             .buttonStyle(.plain)
             .accessibilityLabel(L("Council"))
@@ -33,7 +41,7 @@ struct CouncilRow: View {
             Text(suggested && council != nil
                  ? L("Suggested from your address. Change it if it is wrong.")
                  : L("Your council's website is where you check your collection day. The app links to it and lists the bins it offers."))
-                .font(.footnote).foregroundStyle(.secondary)
+                .kerbFootnote()
         }
         .sheet(isPresented: $showPicker) {
             CouncilPickerView(selection: $council)
@@ -54,16 +62,21 @@ struct CouncilPickerView: View {
             List {
                 if query.trimmingCharacters(in: .whitespaces).isEmpty {
                     ForEach(CouncilDirectory.grouped, id: \.region) { group in
-                        Section(group.region.displayName) {
+                        Section {
                             ForEach(group.councils) { row($0) }
-                        }
+                        } header: { KerbSectionHeader(group.region.displayName) }
+                        .kerbFormRows()
                     }
                 } else if results.isEmpty {
                     ContentUnavailableView.search(text: query)
                 } else {
-                    ForEach(results) { row($0) }
+                    Section {
+                        ForEach(results) { row($0) }
+                    }
+                    .kerbFormRows()
                 }
             }
+            .kerbFormGround()
             .searchable(text: $query, placement: .navigationBarDrawer(displayMode: .always), prompt: L("Search councils or towns"))
             .navigationTitle(L("Choose your council"))
             .navigationBarTitleDisplayMode(.inline)
@@ -80,18 +93,22 @@ struct CouncilPickerView: View {
         } label: {
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(council.name).foregroundStyle(.primary)
+                    Text(council.name).foregroundStyle(Palette.ink)
                     if !query.isEmpty {
-                        Text(council.region.displayName).font(.footnote).foregroundStyle(.secondary)
+                        Text(council.region.displayName)
+                            .kerbFont(13, relativeTo: .footnote)
+                            .foregroundStyle(Palette.muted)
                     }
                 }
                 Spacer()
                 if council == selection {
-                    Image(systemName: "checkmark").foregroundStyle(AppTheme.accent).accessibilityHidden(true)
+                    Image(systemName: "checkmark").fontWeight(.semibold).foregroundStyle(Palette.accent).accessibilityHidden(true)
                 }
             }
             .frame(minHeight: 44)
+            .contentShape(Rectangle())
         }
+        .buttonStyle(.plain)
         .accessibilityAddTraits(council == selection ? [.isSelected] : [])
     }
 }

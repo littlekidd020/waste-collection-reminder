@@ -17,35 +17,67 @@ struct NotificationSetupView: View {
     var body: some View {
         Form {
             Section {
-                OnboardingBackButton(action: onBack)
-                Text(L("Set Up Reminders")).font(.title.bold())
-                Text(L("Reminder times stay in New Zealand time, including when you travel."))
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(L("Set Up Reminders"))
+                        .kerbFont(28, .semibold, relativeTo: .title)
+                        .dynamicTypeSize(...DynamicTypeSize.accessibility1)
+                        .foregroundStyle(Palette.ink)
+                        .accessibilityAddTraits(.isHeader)
+                    Text(L("Reminder times stay in New Zealand time, including when you travel."))
+                        .kerbFont(17, relativeTo: .body)
+                        .foregroundStyle(Palette.muted)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .padding(.bottom, 4)
             }
+            .kerbFormRows()
             ReminderPreferenceFields(profile: profile)
             Section {
                 Toggle(L("Sync to Calendar"), isOn: $profile.calendarSyncEnabled)
                 Text(L("Adds recurring collection events to a separate calendar. Calendar access is optional."))
-                    .font(.footnote).foregroundStyle(.secondary)
-            }
+                    .kerbFootnote()
+            } header: { KerbSectionHeader(L("Calendar")) }
+            .kerbFormRows()
             Section {
                 Text(L("You can finish setup if permission is denied. Today and Settings will explain how to enable reminders later."))
-                    .font(.footnote)
+                    .kerbFootnote()
                 NavigationLink(L("How Bin Day works")) { HowItWorksView() }
-                    .font(.footnote)
-                if let errorMessage { Text(errorMessage).foregroundStyle(.red) }
+                    .kerbFont(15, relativeTo: .subheadline)
+                if let errorMessage { Text(errorMessage).foregroundStyle(Palette.attention) }
+            }
+            .kerbFormRows()
+        }
+        .kerbFormGround()
+        .disabled(isCompleting)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) { OnboardingBackButton(action: onBack).disabled(isCompleting) }
+        }
+        .safeAreaInset(edge: .bottom) {
+            VStack(spacing: 16) {
                 Button {
                     Task { await completeSetup() }
                 } label: {
-                    HStack {
-                        Text(L("Finish Setup")).font(.headline)
-                        if isCompleting { ProgressView() }
-                    }.frame(maxWidth: .infinity, minHeight: 44)
-                }.accessibilityIdentifier("finishSetup")
+                    KerbPrimaryButtonLabel(title: L("Finish Setup"), busy: isCompleting)
+                }
+                .buttonStyle(.glassProminent)
+                .buttonBorderShape(.capsule)
+                .tint(Palette.accent)
+                .disabled(isCompleting)
+                .accessibilityIdentifier("finishSetup")
+                OnboardingPageIndicator(currentPage: 2)
             }
-            OnboardingPageIndicator(currentPage: 2)
-                .frame(maxWidth: .infinity).listRowBackground(Color.clear)
+            .frame(maxWidth: 600)
+            .padding(.horizontal, 24)
+            .padding(.top, 20)
+            .padding(.bottom, 8)
+            .frame(maxWidth: .infinity)
+            .background(alignment: .top) {
+                LinearGradient(colors: [Palette.ground.opacity(0), Palette.ground.opacity(0.94)],
+                               startPoint: .top, endPoint: .init(x: 0.5, y: 0.35))
+                    .ignoresSafeArea(edges: .bottom)
+                    .allowsHitTesting(false)
+            }
         }
-        .disabled(isCompleting)
     }
 
     @MainActor private func completeSetup() async {
@@ -67,7 +99,7 @@ struct NotificationSetupView: View {
 struct ReminderPreferenceFields: View {
     @Bindable var profile: UserProfile
     var body: some View {
-        Section(L("Notifications")) {
+        Section {
             Toggle(L("Evening Before"), isOn: $profile.notifyEveningBefore)
             if profile.notifyEveningBefore || profile.calendarRemindersEnabled {
                 DatePicker(L("Evening reminder time"), selection: $profile.eveningNotifyTime, displayedComponents: .hourAndMinute)
@@ -80,8 +112,9 @@ struct ReminderPreferenceFields: View {
             if profile.notifyBringIn {
                 DatePicker(L("Bring-in reminder time"), selection: $profile.bringInNotifyTime, displayedComponents: .hourAndMinute)
                 Text(L("A third reminder on collection day. Each extra reminder shortens how far ahead the batch reaches."))
-                    .font(.footnote).foregroundStyle(.secondary)
+                    .kerbFootnote()
             }
-        }
+        } header: { KerbSectionHeader(L("Notifications")) }
+        .kerbFormRows()
     }
 }

@@ -27,6 +27,7 @@ final class OnboardingFlowUITests: XCTestCase {
         XCTAssertEqual(confirmation.value as? String, "1")
         XCTAssertTrue(app.navigationBars["Your bin schedule"].buttons["Save"].isEnabled)
         app.navigationBars["Your bin schedule"].buttons["Save"].tap()
+        chooseCouncil()
         app.buttons["Continue"].tap()
         XCTAssertTrue(app.staticTexts["Set Up Reminders"].waitForExistence(timeout: 5))
         capture("04-reminders")
@@ -44,21 +45,24 @@ final class OnboardingFlowUITests: XCTestCase {
             if deny.waitForExistence(timeout: 3) { deny.tap() }
             else if alternateDeny.exists { alternateDeny.tap() }
         }
-        XCTAssertTrue(app.tabBars.buttons["Today"].waitForExistence(timeout: 15))
+        XCTAssertTrue(tab("Today").waitForExistence(timeout: 15))
         if app.staticTexts["You're set"].waitForExistence(timeout: 5) {
             capture("05-setup-complete")
             app.buttons["Done"].firstMatch.tap()
         }
         capture("05-today")
         let reminderStatus = allowNotifications
-            ? app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "Reminders scheduled through")).firstMatch
-            : app.staticTexts["Notifications are not allowed"]
-        reveal(reminderStatus)
-        XCTAssertTrue(reminderStatus.exists)
+            ? app.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH %@", "Reminders on")).firstMatch
+            : app.buttons["Allow notifications"]
+        XCTAssertTrue(reminderStatus.waitForExistence(timeout: 20), "Today must show the reminder state")
         capture("05-reminder-status")
 
-        app.buttons["Schedule options"].tap()
-        app.buttons["Change schedule"].tap()
+        let scheduleOptions = app.buttons["Schedule options"]
+        XCTAssertTrue(scheduleOptions.waitForExistence(timeout: 5))
+        scheduleOptions.tap()
+        let changeSchedule = app.buttons["Change schedule"].firstMatch
+        XCTAssertTrue(changeSchedule.waitForExistence(timeout: 5))
+        changeSchedule.tap()
         XCTAssertTrue(app.navigationBars["Change schedule"].waitForExistence(timeout: 5))
         app.buttons["Review bin schedule"].tap()
         XCTAssertTrue(app.navigationBars["Your bin schedule"].waitForExistence(timeout: 5))
@@ -67,39 +71,37 @@ final class OnboardingFlowUITests: XCTestCase {
         app.navigationBars["Your bin schedule"].buttons["Cancel"].tap()
         app.navigationBars["Change schedule"].buttons["Cancel"].tap()
 
-        app.tabBars.buttons["Schedule"].tap()
-        XCTAssertTrue(app.navigationBars["Schedule"].waitForExistence(timeout: 5))
+        tab("Schedule").tap()
+        XCTAssertTrue(app.staticTexts["Next collections"].waitForExistence(timeout: 5))
         capture("07-schedule")
-        app.tabBars.buttons["Info"].tap()
-        capture("08-info")
-        app.buttons.containing(.staticText, identifier: "Rubbish").firstMatch.tap()
-        XCTAssertTrue(app.navigationBars["Rubbish"].waitForExistence(timeout: 5))
+        tab("Guide").tap()
+        XCTAssertTrue(guideHeading("Rubbish").waitForExistence(timeout: 5))
         XCTAssertFalse(app.webViews.firstMatch.exists)
-        XCTAssertFalse(app.buttons["Load video"].exists)
-        capture("08-rubbish-guide")
-        app.navigationBars["Rubbish"].buttons["Done"].tap()
-        app.buttons.containing(.staticText, identifier: "Recycling").firstMatch.tap()
-        XCTAssertTrue(app.navigationBars["Recycling"].waitForExistence(timeout: 5))
-        XCTAssertFalse(app.webViews.firstMatch.exists)
-        capture("09-recycling-guide")
-        app.navigationBars["Recycling"].buttons["Done"].tap()
-        app.tabBars.buttons["Settings"].tap()
+        capture("08-guide-rubbish")
+
+        tab("Today").tap()
+        let settings = app.buttons["Settings"].firstMatch
+        XCTAssertTrue(settings.waitForExistence(timeout: 5))
+        settings.tap()
+        XCTAssertTrue(app.navigationBars["Settings"].waitForExistence(timeout: 5))
         capture("10-settings")
         reveal(app.buttons["Privacy and Help"])
         app.buttons["Privacy and Help"].tap()
         XCTAssertTrue(app.navigationBars["Privacy and Help"].waitForExistence(timeout: 5))
         capture("11-privacy-help")
         app.navigationBars["Privacy and Help"].buttons.element(boundBy: 0).tap()
+        XCTAssertTrue(app.navigationBars["Settings"].waitForExistence(timeout: 5))
         reveal(app.buttons["languagePicker"], upward: false)
         app.buttons["languagePicker"].tap()
         app.buttons["简体中文"].tap()
-        XCTAssertTrue(app.tabBars.buttons.element(boundBy: 3).isSelected)
-        capture("12-language-preserves-tab")
+        XCTAssertTrue(app.buttons["languagePicker"].waitForExistence(timeout: 5), "The Settings sheet must stay open after a language change")
+        capture("12-language-keeps-settings")
         app.buttons["languagePicker"].tap()
         app.buttons["English"].tap()
+        XCTAssertTrue(app.navigationBars["Settings"].waitForExistence(timeout: 5))
         app.terminate()
         app.launch()
-        XCTAssertTrue(app.tabBars.buttons["Today"].waitForExistence(timeout: 10))
+        XCTAssertTrue(tab("Today").waitForExistence(timeout: 10))
         XCTAssertFalse(app.buttons["Get Started"].exists)
         capture("13-relaunch")
     }
@@ -109,18 +111,17 @@ final class OnboardingFlowUITests: XCTestCase {
     func testSavedScheduleVisualEvidence() throws {
         try requireSavedSchedule()
         capture("14-saved-today")
-        app.tabBars.buttons["Schedule"].tap()
-        XCTAssertTrue(app.navigationBars["Schedule"].waitForExistence(timeout: 5))
+        tab("Schedule").tap()
+        XCTAssertTrue(app.staticTexts["Next collections"].waitForExistence(timeout: 5))
         capture("15-saved-schedule")
-        let list = app.segmentedControls.buttons["List"]
-        if list.exists {
-            list.tap()
-            capture("16-saved-schedule-list")
-        }
-        let collection = app.buttons.containing(.staticText, identifier: "Rubbish").firstMatch
+        tab("Guide").tap()
+        XCTAssertTrue(guideHeading("Rubbish").waitForExistence(timeout: 5))
+        capture("16-saved-guide")
+        tab("Schedule").tap()
+        let collection = app.buttons.matching(NSPredicate(format: "value CONTAINS %@", "Rubbish")).firstMatch
         reveal(collection)
         collection.tap()
-        XCTAssertTrue(app.navigationBars["Collection details"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts["Collection details"].waitForExistence(timeout: 5))
         capture("17-saved-day-detail")
     }
 
@@ -130,18 +131,18 @@ final class OnboardingFlowUITests: XCTestCase {
 
     func testVisibleReminderStatusContrastAudit() throws {
         try requireSavedSchedule()
-        reveal(app.staticTexts["Notifications are not allowed"])
+        XCTAssertTrue(app.buttons["Allow notifications"].waitForExistence(timeout: 20))
         capture("21-visible-reminder-status")
         try app.performAccessibilityAudit(for: .contrast)
-        app.tabBars.buttons["Schedule"].tap()
-        XCTAssertTrue(app.navigationBars["Schedule"].waitForExistence(timeout: 5))
+        tab("Schedule").tap()
+        XCTAssertTrue(app.staticTexts["Next collections"].waitForExistence(timeout: 5))
         try app.performAccessibilityAudit(for: .contrast)
     }
 
     func testSavedScheduleFrequencyAndOneOffChangePersist() throws {
         try requireSavedSchedule()
         app.buttons["Schedule options"].tap()
-        app.buttons["Change schedule"].tap()
+        app.buttons["Change schedule"].firstMatch.tap()
         app.buttons["Review bin schedule"].tap()
         XCTAssertTrue(app.navigationBars["Your bin schedule"].waitForExistence(timeout: 5))
         let rubbishFrequency = app.buttons["Frequency, Weekly"].firstMatch
@@ -164,12 +165,12 @@ final class OnboardingFlowUITests: XCTestCase {
         app.navigationBars["Your bin schedule"].buttons["Save"].tap()
         XCTAssertTrue(app.navigationBars["Change schedule"].buttons["Save"].isEnabled)
         app.navigationBars["Change schedule"].buttons["Save"].tap()
-        XCTAssertTrue(app.tabBars.buttons["Today"].waitForExistence(timeout: 10))
+        XCTAssertTrue(tab("Today").waitForExistence(timeout: 10))
         app.terminate()
         app.launch()
         try requireSavedSchedule()
         app.buttons["Schedule options"].tap()
-        app.buttons["Change schedule"].tap()
+        app.buttons["Change schedule"].firstMatch.tap()
         app.buttons["Review bin schedule"].tap()
         XCTAssertTrue(app.navigationBars["Your bin schedule"].waitForExistence(timeout: 5))
         assertFrequency("Fortnightly", for: "Rubbish")
@@ -200,7 +201,7 @@ final class OnboardingFlowUITests: XCTestCase {
     }
 
     private func requireSavedSchedule() throws {
-        guard app.tabBars.buttons["Today"].waitForExistence(timeout: 10) else {
+        guard tab("Today").waitForExistence(timeout: 10) else {
             throw XCTSkip("Run the clean onboarding journey first to create its synthetic saved schedule.")
         }
     }
@@ -208,8 +209,8 @@ final class OnboardingFlowUITests: XCTestCase {
     private func auditSavedSchedule(_ type: XCUIAccessibilityAuditType) throws {
         try requireSavedSchedule()
         try app.performAccessibilityAudit(for: type)
-        app.tabBars.buttons["Schedule"].tap()
-        XCTAssertTrue(app.navigationBars["Schedule"].waitForExistence(timeout: 5))
+        tab("Schedule").tap()
+        XCTAssertTrue(app.staticTexts["Next collections"].waitForExistence(timeout: 5))
         try app.performAccessibilityAudit(for: type)
     }
 
@@ -220,6 +221,36 @@ final class OnboardingFlowUITests: XCTestCase {
         let nextMenu = menus.filter { $0.frame.minY >= binToggle.frame.maxY }
             .min { $0.frame.minY < $1.frame.minY }
         XCTAssertEqual(nextMenu?.label, "Frequency, \(frequency)", "The frequency immediately below \(bin) must be preserved.")
+    }
+
+    /// Continue needs a council; the manual flow picks Auckland Council through the picker's search.
+    private func chooseCouncil(_ name: String = "Auckland Council") {
+        let council = app.buttons["Council"].firstMatch
+        reveal(council)
+        council.tap()
+        XCTAssertTrue(app.navigationBars["Choose your council"].waitForExistence(timeout: 5))
+        let search = app.searchFields.firstMatch
+        XCTAssertTrue(search.waitForExistence(timeout: 5))
+        search.tap()
+        search.typeText("Auckland")
+        let row = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", name)).firstMatch
+        XCTAssertTrue(row.waitForExistence(timeout: 5))
+        row.tap()
+        XCTAssertTrue(app.buttons["Continue"].waitForExistence(timeout: 5))
+        XCTAssertEqual(council.value as? String, name)
+    }
+
+    /// iPhone uses a bottom tab bar; iPad shows the tabs in the top bar, outside any tab bar element.
+    private func tab(_ name: String) -> XCUIElement {
+        let bottom = app.tabBars.buttons[name]
+        if bottom.exists { return bottom }
+        let candidates = app.buttons.matching(identifier: name).allElementsBoundByIndex
+        return candidates.first(where: { $0.isHittable }) ?? app.buttons[name].firstMatch
+    }
+
+    /// The large bin name heading a Guide page.
+    private func guideHeading(_ bin: String) -> XCUIElement {
+        app.descendants(matching: .any).matching(NSPredicate(format: "label == %@ AND elementType != %d", bin, XCUIElement.ElementType.button.rawValue)).firstMatch
     }
 
     private func reveal(_ element: XCUIElement, upward: Bool = true) {

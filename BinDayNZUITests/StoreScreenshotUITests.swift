@@ -46,6 +46,7 @@ final class StoreScreenshotUITests: XCTestCase {
         confirmation.switches.firstMatch.tap()
         XCTAssertTrue(app.navigationBars["Your bin schedule"].buttons["Save"].isEnabled)
         app.navigationBars["Your bin schedule"].buttons["Save"].tap()
+        chooseCouncil()
         app.buttons["Continue"].tap()
         XCTAssertTrue(app.staticTexts["Set Up Reminders"].waitForExistence(timeout: 5))
         reveal(app.buttons["finishSetup"])
@@ -62,37 +63,65 @@ final class StoreScreenshotUITests: XCTestCase {
         app.buttons["Done"].firstMatch.tap()
 
         XCTAssertTrue(tab("Today").waitForExistence(timeout: 10))
-        XCTAssertTrue(app.staticTexts["Reminders on"].waitForExistence(timeout: 20), "Reminders must be scheduled")
+        let remindersOn = app.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH %@", "Reminders on")).firstMatch
+        XCTAssertTrue(remindersOn.waitForExistence(timeout: 20), "Reminders must be scheduled")
         sleep(1)
         capture("01-today")
-        app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Reminders on")).firstMatch.tap()
-        XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "Reminders scheduled through")).firstMatch.waitForExistence(timeout: 5))
-        capture("01b-today-expanded")
 
         tab("Schedule").tap()
-        XCTAssertTrue(app.navigationBars["Schedule"].waitForExistence(timeout: 5))
+        let nextCollections = app.staticTexts["Next collections"]
+        XCTAssertTrue(nextCollections.waitForExistence(timeout: 5))
         sleep(1)
         capture("04-schedule")
-        let list = app.segmentedControls.buttons["List"]
-        if list.exists {
-            list.tap()
-            capture("04b-schedule-list")
-            app.segmentedControls.buttons["Calendar"].tap()
-        }
+        reveal(nextCollections)
+        // Bring the rows under the label into view as well.
+        let start = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+        let end = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+            .withOffset(CGVector(dx: 0, dy: -max(0, nextCollections.frame.minY - app.frame.height * 0.2)))
+        start.press(forDuration: 0.05, thenDragTo: end, withVelocity: .slow, thenHoldForDuration: 0.3)
+        sleep(1)
+        capture("04b-schedule-next-collections")
 
-        tab("Info").tap()
+        tab("Guide").tap()
+        XCTAssertTrue(guideHeading("Rubbish").waitForExistence(timeout: 5))
         sleep(1)
-        capture("06-info")
-        app.buttons.containing(.staticText, identifier: "Recycling").firstMatch.tap()
-        XCTAssertTrue(app.navigationBars["Recycling"].waitForExistence(timeout: 5))
+        capture("06-guide")
+        app.swipeLeft()
+        let secondPage = app.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH %@", "Recycling, page 2")).firstMatch
+        XCTAssertTrue(secondPage.waitForExistence(timeout: 5), "Swiping left must turn to the second bin")
         sleep(1)
-        capture("06b-recycling-guide")
-        app.navigationBars["Recycling"].buttons["Done"].tap()
-        app.buttons.containing(.staticText, identifier: "Food Scraps").firstMatch.tap()
-        XCTAssertTrue(app.navigationBars["Food Scraps"].waitForExistence(timeout: 5))
+        capture("06b-guide-second-bin")
+
+        tab("Today").tap()
+        let settings = app.buttons["Settings"].firstMatch
+        XCTAssertTrue(settings.waitForExistence(timeout: 5))
+        settings.tap()
+        XCTAssertTrue(app.navigationBars["Settings"].waitForExistence(timeout: 5))
         sleep(1)
-        capture("06c-food-scraps-guide")
-        app.navigationBars["Food Scraps"].buttons["Done"].tap()
+        capture("07-settings")
+        app.navigationBars["Settings"].buttons["Done"].tap()
+    }
+
+    /// The large bin name heading a Guide page.
+    private func guideHeading(_ bin: String) -> XCUIElement {
+        app.descendants(matching: .any).matching(NSPredicate(format: "label == %@ AND elementType != %d", bin, XCUIElement.ElementType.button.rawValue)).firstMatch
+    }
+
+    /// Continue needs a council; the manual flow picks Auckland Council through the picker's search.
+    private func chooseCouncil(_ name: String = "Auckland Council") {
+        let council = app.buttons["Council"].firstMatch
+        reveal(council)
+        council.tap()
+        XCTAssertTrue(app.navigationBars["Choose your council"].waitForExistence(timeout: 5))
+        let search = app.searchFields.firstMatch
+        XCTAssertTrue(search.waitForExistence(timeout: 5))
+        search.tap()
+        search.typeText("Auckland")
+        let row = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", name)).firstMatch
+        XCTAssertTrue(row.waitForExistence(timeout: 5))
+        row.tap()
+        XCTAssertTrue(app.buttons["Continue"].waitForExistence(timeout: 5))
+        XCTAssertEqual(council.value as? String, name)
     }
 
     /// iPhone uses a bottom tab bar; iPad shows the tabs in the top bar, outside any tab bar element.

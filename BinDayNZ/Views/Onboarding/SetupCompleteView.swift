@@ -2,10 +2,13 @@ import SwiftUI
 import SwiftData
 
 /// Shown once, right after setup saves. The schedule is done; this screen is about keeping it
-/// in front of the household: the widget and a share link.
+/// in front of the household: the next collection standing on the floor, the widget and a share link.
 struct SetupCompleteView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Query private var profiles: [UserProfile]
+    @State private var binsIn = false
+    @State private var restIn = false
     private let engine = ScheduleEngine()
 
     private var zone: CollectionZone? { profiles.first.flatMap { DataService.shared.zone(for: $0) } }
@@ -14,103 +17,146 @@ struct SetupCompleteView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 24) {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Image(systemName: "checkmark.circle")
-                            .font(.system(size: 44, weight: .medium))
-                            .foregroundStyle(AppTheme.accent)
-                            .accessibilityHidden(true)
-                        Text(L("You're set"))
-                            .font(.largeTitle.bold())
-                        if let zone, let next = engine.nextCollection(for: zone) {
-                            let bins = engine.binsCollectedOn(date: next.date, zone: zone)
-                            Text(L("Next collection"))
-                                .font(.headline)
-                                .foregroundStyle(.secondary)
-                            Text(collectionDateLabel(next.date))
-                                .font(.title3.weight(.semibold))
-                            ForEach(bins) { CollectionBinRow(bin: $0) }
+                VStack(alignment: .leading, spacing: 0) {
+                    Text(L("You're set"))
+                        .kerbFont(34, .semibold, relativeTo: .largeTitle)
+                        .dynamicTypeSize(...DynamicTypeSize.accessibility1)
+                        .foregroundStyle(Palette.ink)
+                        .accessibilityAddTraits(.isHeader)
+                        .padding(.horizontal, 24)
+                        .padding(.top, 28)
+
+                    if let zone, let next = engine.nextCollection(for: zone) {
+                        nextCollection(date: next.date, bins: engine.binsCollectedOn(date: next.date, zone: zone))
+                    }
+
+                    VStack(alignment: .leading, spacing: 0) {
+                        Hairline().padding(.vertical, 24)
+                        block(symbol: "rectangle.on.rectangle", title: L("Add the widget"),
+                              message: L("See your next collection without opening the app.")) {
+                            Text(L("Touch and hold your Home Screen, tap the plus button, then search for Bin Day NZ."))
+                                .kerbFont(15, relativeTo: .subheadline)
+                                .foregroundStyle(Palette.muted)
+                                .fixedSize(horizontal: false, vertical: true)
                         }
-                    }
-                    .accessibilityElement(children: .combine)
 
-                    SetupCompleteCard(symbol: "rectangle.on.rectangle", title: L("Add the widget"),
-                                      message: L("See your next collection without opening the app.")) {
-                        Text(L("Touch and hold your Home Screen, tap the plus button, then search for Bin Day NZ."))
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    }
-
-                    if let zone, let text = ScheduleLink.shareText(for: zone, council: council) {
-                        SetupCompleteCard(symbol: "square.and.arrow.up", title: L("Share with your household"),
-                                          message: L("Everyone on your street has the same bin days. Send your schedule so they can add it in one tap.")) {
-                            ShareLink(item: text) {
-                                Label(L("Share with your household"), systemImage: "square.and.arrow.up")
-                                    .frame(minHeight: 44)
+                        if let zone, let text = ScheduleLink.shareText(for: zone, council: council) {
+                            Hairline().padding(.vertical, 24)
+                            block(symbol: "square.and.arrow.up", title: L("Share with your household"),
+                                  message: L("Everyone on your street has the same bin days. Send your schedule so they can add it in one tap.")) {
+                                ShareLink(item: text) {
+                                    Label(L("Share with your household"), systemImage: "square.and.arrow.up")
+                                        .kerbFont(15, .semibold, relativeTo: .subheadline)
+                                        .foregroundStyle(Palette.ink)
+                                        .frame(minHeight: 36)
+                                }
+                                .buttonStyle(.glass)
+                                .buttonBorderShape(.capsule)
+                                .controlSize(.large)
+                                .padding(.top, 4)
                             }
-                            .buttonStyle(.bordered)
-                            .controlSize(.large)
                         }
                     }
+                    .padding(.horizontal, 24)
+                    .padding(.bottom, 24)
+                    .opacity(restIn ? 1 : 0)
+                    .offset(y: restIn || reduceMotion ? 0 : 8)
                 }
                 .frame(maxWidth: 600, alignment: .leading)
-                .padding(24)
                 .frame(maxWidth: .infinity)
             }
-            .background(Color(uiColor: .systemGroupedBackground))
+            .background { LinenGround() }
             .safeAreaInset(edge: .bottom) {
-                Button(L("Done")) { dismiss() }
-                    .buttonStyle(.borderedProminent).tint(AppTheme.buttonFill).controlSize(.large)
-                    .frame(maxWidth: 600)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(.bar)
+                Button { dismiss() } label: {
+                    KerbPrimaryButtonLabel(title: L("Done"))
+                }
+                .buttonStyle(.glassProminent)
+                .buttonBorderShape(.capsule)
+                .tint(Palette.accent)
+                .frame(maxWidth: 600)
+                .padding(.horizontal, 24)
+                .padding(.top, 20)
+                .padding(.bottom, 8)
+                .frame(maxWidth: .infinity)
+                .background(alignment: .top) {
+                    LinearGradient(colors: [Palette.ground.opacity(0), Palette.ground.opacity(0.94)],
+                                   startPoint: .top, endPoint: .init(x: 0.5, y: 0.35))
+                        .ignoresSafeArea(edges: .bottom)
+                        .allowsHitTesting(false)
+                }
             }
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) { Button(L("Done")) { dismiss() } }
+            .toolbar(.hidden, for: .navigationBar)
+            .onAppear(perform: enter)
+        }
+        .tint(Palette.accent)
+    }
+
+    // MARK: - Next collection
+
+    private func nextCollection(date: Date, bins: [BinType]) -> some View {
+        VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text(L("Next collection")).kerbLabel()
+                Text(collectionDateLabel(date))
+                    .kerbFont(22, .semibold, relativeTo: .title2)
+                    .foregroundStyle(Palette.ink)
+                    .fixedSize(horizontal: false, vertical: true)
             }
+            .padding(.horizontal, 24)
+            .padding(.top, 20)
+            .accessibilityElement(children: .combine)
+
+            BinCluster(bins: bins, objectHeight: 150)
+                .frame(maxWidth: .infinity)
+                .frame(height: 150)
+                .background(alignment: .bottom) {
+                    GroundBand(returns: true, peak: 0.6)
+                        .frame(height: 120)
+                        .offset(y: 42)
+                }
+                .padding(.top, 28)
+                .opacity(binsIn ? 1 : 0)
+                .offset(y: binsIn || reduceMotion ? 0 : 12)
+                .accessibilityHidden(true)
+
+            VStack(alignment: .leading, spacing: 10) {
+                ForEach(bins) { CollectionBinRow(bin: $0) }
+            }
+            .padding(.horizontal, 24)
+            .padding(.top, 32)
+            .opacity(restIn ? 1 : 0)
         }
     }
-}
 
-private struct SetupCompleteCard<Content: View>: View {
-    let symbol: String
-    let title: String
-    let message: String
-    @ViewBuilder let content: Content
+    // MARK: - Text blocks
 
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Label(title, systemImage: symbol)
-                .font(.headline)
+    private func block<Content: View>(symbol: String, title: String, message: String, @ViewBuilder content: () -> Content) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Label {
+                Text(title).foregroundStyle(Palette.ink)
+            } icon: {
+                Image(systemName: symbol).foregroundStyle(Palette.muted)
+            }
+            .kerbFont(17, .semibold, relativeTo: .headline)
             Text(message)
+                .kerbFont(15, relativeTo: .subheadline)
+                .foregroundStyle(Palette.ink)
                 .fixedSize(horizontal: false, vertical: true)
-            content
+            content()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(18)
-        .background(Color(uiColor: .secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16))
     }
-}
 
-/// A gentle reminder on Today when no widget is installed two weeks after setup.
-struct WidgetNudgeCard: View {
-    let onDismiss: () -> Void
+    // MARK: - Motion
 
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Label(L("Add the widget"), systemImage: "rectangle.on.rectangle")
-                .font(.headline)
-            Text(L("See your next collection without opening the app."))
-            Text(L("Touch and hold your Home Screen, tap the plus button, then search for Bin Day NZ."))
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-            Button(L("Not now"), action: onDismiss)
-                .frame(minHeight: 44, alignment: .leading)
+    /// The day's bins settle onto the floor; the rows and blocks fade in after. Reduce Motion fades.
+    private func enter() {
+        guard !binsIn else { return }
+        if reduceMotion {
+            withAnimation(.easeOut(duration: 0.3)) { binsIn = true; restIn = true }
+            return
         }
-        .fixedSize(horizontal: false, vertical: true)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(16)
-        .background(Color(uiColor: .secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16))
+        withAnimation(.spring(response: 0.6, dampingFraction: 0.85)) { binsIn = true }
+        withAnimation(.spring(response: 0.6, dampingFraction: 0.85).delay(0.12)) { restIn = true }
     }
 }

@@ -1,0 +1,9 @@
+{
+  "Open the council guide": "VoiceOver label of the glass safari button, top trailing on the Guide; opens the council's own page for the bin on screen",
+  "Booked collection": "Small uppercase eyebrow above 'Inorganic Collection' on the Guide: this service is booked, not on a regular schedule",
+  "Not in your schedule": "Small uppercase eyebrow above a bin's name on the Guide when the council collects this bin but the household has not set it up in its schedule",
+  "%@ · %@": "Small uppercase eyebrow above a bin's name on the Guide: frequency, then weekday (e.g. 'Weekly · Tuesday'). First %@ is 'Weekly' or 'Fortnightly', second is the weekday name",
+  "%@, page %lld of %lld": "VoiceOver label of the Guide's page indicator (lid spheres): bin name, current page number, page count. e.g. 'Rubbish, page 1 of 4'",
+  "Yes": "Small uppercase heading of the column of items that go in this bin (Guide)",
+  "No": "Small uppercase heading of the column of items that must not go in this bin (Guide)"
+}

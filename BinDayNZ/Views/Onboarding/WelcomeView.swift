@@ -1,116 +1,174 @@
 import SwiftUI
 
+/// The first screen: the household's bins standing on the linen, the name, three promises and
+/// one way forward. The language menu sits above in glass so it can be changed before anything else.
 struct WelcomeView: View {
     @Binding var language: AppLanguage
     let onContinue: () -> Void
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @State private var contentVisible = false
+    @State private var binsIn = false
+    @State private var wordsIn = false
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 32) {
-                HStack {
-                    Spacer()
-                    Picker(selection: $language) {
-                        ForEach(AppLanguage.allCases) { language in
-                            Text(language.displayName).tag(language)
-                        }
-                    } label: {
-                        Label(language.displayName, systemImage: "globe")
-                    }
-                    .pickerStyle(.menu)
-                    .accessibilityLabel(L("Language"))
-                }
+            VStack(alignment: .leading, spacing: 0) {
+                languageMenu
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(.horizontal, 24)
+                    .padding(.top, 8)
 
-                VStack(spacing: 24) {
-                    HStack(spacing: 28) {
-                        binSymbol(color: .red)
-                        binSymbol(color: .yellow)
-                        binSymbol(color: .green)
-                    }
-                    .scaleEffect(contentVisible || reduceMotion ? 1 : 0.92)
-                    .opacity(contentVisible || reduceMotion ? 1 : 0)
-                    .accessibilityHidden(true)
+                hero
+                    .padding(.top, 28)
 
-                    VStack(spacing: 4) {
-                        Text("Bin Day")
-                            .font(.largeTitle.bold())
-                        Text("NZ")
-                            .font(.largeTitle.weight(.light))
-                            .foregroundStyle(.green)
-                    }
-                    .accessibilityElement(children: .combine)
-                }
-
-                Text(L("Your next bin day, made clear"))
-                    .font(.title3.weight(.medium))
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
-
-                VStack(alignment: .leading, spacing: 18) {
-                    featureRow(icon: "trash", text: L("Know which bins go out tonight"))
-                    featureRow(icon: "bell", text: L("Get a nudge the evening before"))
-                    featureRow(icon: "lock.rectangle", text: L("See it on your lock screen"))
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 16)
+                words
+                    .padding(.horizontal, 24)
+                    .padding(.top, 36)
+                    .padding(.bottom, 24)
             }
-            .padding(24)
             .frame(maxWidth: 600)
             .frame(maxWidth: .infinity)
-            .opacity(contentVisible || reduceMotion ? 1 : 0)
-            .offset(y: contentVisible || reduceMotion ? 0 : 12)
         }
-        .background(Color(uiColor: .systemBackground).ignoresSafeArea())
+        .scrollBounceBehavior(.basedOnSize)
+        .background { LinenGround() }
         .safeAreaInset(edge: .bottom) {
-            VStack(spacing: 14) {
+            VStack(spacing: 16) {
                 Button(action: onContinue) {
-                    Text(L("Get Started"))
-                        .font(.headline)
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
-                        .background(AppTheme.buttonFill, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    KerbPrimaryButtonLabel(title: L("Get Started"))
                 }
-                .buttonStyle(ScaleButtonStyle())
+                .buttonStyle(.glassProminent)
+                .buttonBorderShape(.capsule)
+                .tint(Palette.accent)
 
                 OnboardingPageIndicator(currentPage: 0)
             }
             .frame(maxWidth: 600)
-            .padding(.horizontal, 32)
-            .padding(.vertical, 12)
+            .padding(.horizontal, 24)
+            .padding(.top, 20)
+            .padding(.bottom, 8)
             .frame(maxWidth: .infinity)
-            .background(.bar)
-        }
-        .onAppear {
-            if reduceMotion {
-                contentVisible = true
-            } else {
-                withAnimation(.spring(response: 0.4, dampingFraction: 1)) {
-                    contentVisible = true
-                }
+            .background(alignment: .top) {
+                // Lets scrolled text fade under the button rather than meeting a bar.
+                LinearGradient(colors: [Palette.ground.opacity(0), Palette.ground.opacity(0.92)],
+                               startPoint: .top, endPoint: .init(x: 0.5, y: 0.35))
+                    .ignoresSafeArea(edges: .bottom)
+                    .allowsHitTesting(false)
             }
+            .opacity(wordsIn ? 1 : 0)
+        }
+        .onAppear(perform: enter)
+    }
+
+    // MARK: - Language
+
+    private var languageMenu: some View {
+        GlassEffectContainer {
+            Menu {
+                Picker(selection: $language) {
+                    ForEach(AppLanguage.allCases) { language in
+                        Text(language.displayName).tag(language)
+                    }
+                } label: {
+                    EmptyView()
+                }
+                .pickerStyle(.inline)
+            } label: {
+                HStack(spacing: 6) {
+                    Image(systemName: "globe")
+                        .font(.system(size: 14, weight: .medium))
+                        .foregroundStyle(Palette.muted)
+                    Text(language.displayName)
+                        .kerbFont(15, .semibold, relativeTo: .subheadline)
+                        .lineLimit(1)
+                    Image(systemName: "chevron.down")
+                        .font(.system(size: 11, weight: .bold))
+                        .foregroundStyle(Palette.muted)
+                }
+                .foregroundStyle(Palette.ink)
+                .padding(.horizontal, 16)
+                .frame(minHeight: 44)
+                .contentShape(.capsule)
+            }
+            .menuStyle(.button)
+            .buttonStyle(.plain)
+            .glassEffect(.regular.interactive(), in: .capsule)
+            .accessibilityLabel(L("Language"))
+            .accessibilityValue(language.displayName)
         }
     }
 
-    private func binSymbol(color: Color) -> some View {
-        Image(systemName: "trash")
-            .font(.largeTitle)
-            .foregroundStyle(color)
-            .shadow(color: color.opacity(0.2), radius: 8, y: 4)
+    // MARK: - Hero
+
+    private var hero: some View {
+        BinCluster(bins: [.recycling, .rubbish, .foodScraps], objectHeight: 230)
+            .frame(maxWidth: .infinity)
+            .frame(height: 230)
+            .background(alignment: .bottom) {
+                GroundBand(returns: true, peak: 0.6)
+                    .frame(height: 170)
+                    .offset(y: 58)
+            }
+            .opacity(binsIn ? 1 : 0)
+            .offset(y: binsIn || reduceMotion ? 0 : 12)
+            .accessibilityHidden(true)
+    }
+
+    // MARK: - Words
+
+    private var words: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Text(verbatim: "Bin Day NZ")
+                .kerbFont(34, .semibold, relativeTo: .largeTitle)
+                .dynamicTypeSize(...DynamicTypeSize.accessibility1)
+                .foregroundStyle(Palette.ink)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
+                .accessibilityAddTraits(.isHeader)
+            Text(L("Your next bin day, made clear"))
+                .kerbFont(17, relativeTo: .body)
+                .foregroundStyle(Palette.muted)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.top, 8)
+
+            VStack(alignment: .leading, spacing: 14) {
+                featureRow(icon: "trash", text: L("Know which bins go out tonight"))
+                Hairline()
+                featureRow(icon: "bell", text: L("Get a nudge the evening before"))
+                Hairline()
+                featureRow(icon: "lock.rectangle", text: L("See it on your lock screen"))
+            }
+            .padding(.top, 28)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .opacity(wordsIn ? 1 : 0)
+        .offset(y: wordsIn || reduceMotion ? 0 : 8)
     }
 
     private func featureRow(icon: String, text: String) -> some View {
-        HStack(spacing: 16) {
+        HStack(alignment: .firstTextBaseline, spacing: 14) {
             Image(systemName: icon)
-                .font(.title3)
-                .foregroundStyle(.green)
-                .frame(width: 28)
+                .font(.system(size: 15, weight: .medium))
+                .foregroundStyle(Palette.muted)
+                .frame(width: 22)
                 .accessibilityHidden(true)
             Text(text)
-                .font(.body)
+                .kerbFont(15, relativeTo: .subheadline)
+                .foregroundStyle(Palette.ink)
+                .fixedSize(horizontal: false, vertical: true)
         }
         .accessibilityElement(children: .combine)
+    }
+
+    // MARK: - Motion
+
+    /// The bins settle up onto the floor, then the words fade in. Reduce Motion: fades only.
+    private func enter() {
+        guard !binsIn else { return }
+        if reduceMotion {
+            withAnimation(.easeOut(duration: 0.3)) { binsIn = true; wordsIn = true }
+            return
+        }
+        withAnimation(.spring(response: 0.6, dampingFraction: 0.85)) { binsIn = true }
+        withAnimation(.spring(response: 0.6, dampingFraction: 0.85).delay(0.12)) { wordsIn = true }
     }
 }

@@ -38,24 +38,35 @@ struct ManualScheduleView: View {
         NavigationStack {
             Form {
                 Section {
-                    if let intro { Text(intro).font(.headline) }
+                    if let intro {
+                        Text(intro)
+                            .kerbFont(17, .semibold, relativeTo: .headline)
+                            .foregroundStyle(Palette.ink)
+                    }
                     Text(L("Check the regular collection dates for your property, then set each bin below. Add holiday or disruption changes separately."))
+                        .kerbFont(17, relativeTo: .body)
+                        .foregroundStyle(Palette.ink)
                     if let council {
                         Button(L("Check dates with %@", council.name)) { showCouncil = true }
+                            .foregroundStyle(.tint)
                         if !council.usesMainlandTime {
                             Text(L("Chatham Islands time is 45 minutes ahead. Reminder times follow mainland New Zealand time."))
-                                .font(.footnote).foregroundStyle(.secondary)
+                                .kerbFootnote()
                         }
                     }
                     Text(L("Dates and reminder times use New Zealand time. Address search does not verify collection dates."))
-                        .font(.footnote).foregroundStyle(.secondary)
+                        .kerbFootnote()
                 }
+                .kerbFormRows()
                 ForEach($schedules) { $schedule in
                     Section {
                         Toggle(isOn: Binding(get: { enabled.contains(schedule.binType) }, set: { value in
                             if value { enabled.insert(schedule.binType) } else { enabled.remove(schedule.binType) }
                             confirmed = false
-                        })) { Label(schedule.binType.displayName, systemImage: schedule.binType.systemImage) }
+                        })) {
+                            CollectionBinRow(bin: schedule.binType, sphere: 16)
+                                .kerbFont(17, .semibold, relativeTo: .body)
+                        }
                         if enabled.contains(schedule.binType) {
                             Picker(L("Frequency"), selection: $schedule.frequency) {
                                 Text(L("Weekly")).tag(Frequency.weekly)
@@ -67,26 +78,32 @@ struct ManualScheduleView: View {
                             if schedule.frequency == .fortnightly {
                                 let options = Self.nextDateOptions(for: schedule)
                                 Picker(L("Next collection"), selection: nextDateBinding($schedule, options: options)) {
-                                    ForEach(options, id: \.self) { Text($0, format: .dateTime.weekday(.abbreviated).day().month()).tag($0) }
+                                    ForEach(options, id: \.self) { Text(collectionDateLabel($0, template: "EEE d MMM")).tag($0) }
                                 }
                                 .pickerStyle(.segmented)
                             }
                             let preview = ScheduleEngine().upcomingCollections(for: DataService.shared.manualZone(schedules: [schedule]), from: Date(), count: 2)
-                            ForEach(preview) { collection in
-                                Text(collection.date, format: .dateTime.weekday(.wide).day().month())
-                                    .font(.subheadline).foregroundStyle(.secondary)
+                            VStack(alignment: .leading, spacing: 4) {
+                                ForEach(preview) { collection in
+                                    Text(collectionDateLabel(collection.date))
+                                        .kerbFont(15, relativeTo: .subheadline)
+                                        .foregroundStyle(Palette.muted)
+                                }
                             }
                             NavigationLink(L("One-off changes (%d)", schedule.changes.count)) {
                                 CollectionChangesView(schedule: $schedule)
                             }
                         }
                     }
+                    .kerbFormRows()
                 }
                 Section {
                     Toggle(L("These dates look right"), isOn: $confirmed)
-                    if !zone.isValid { Text(L("Check each bin's collection date and frequency before saving.")).foregroundStyle(.red) }
+                    if !zone.isValid { Text(L("Check each bin's collection date and frequency before saving.")).foregroundStyle(Palette.attention) }
                 }
+                .kerbFormRows()
             }
+            .kerbFormGround()
             .navigationTitle(L("Your bin schedule"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -164,24 +181,38 @@ private struct CollectionChangesView: View {
         Form {
             Section {
                 Text(L("Move or skip one collection. The regular weekly or fortnightly cycle stays the same."))
+                    .foregroundStyle(Palette.ink)
                 DatePicker(L("Original collection date"), selection: $originalDate, displayedComponents: .date)
                 Toggle(L("Skip this collection"), isOn: $skip)
                 if !skip { DatePicker(L("New collection date"), selection: $replacementDate, displayedComponents: .date) }
                 Button(L("Add change")) { addChange() }
-                if let error { Text(error).foregroundStyle(.red) }
+                    .foregroundStyle(.tint)
+                if let error { Text(error).foregroundStyle(Palette.attention) }
             }
-            Section(L("Saved changes")) {
+            .kerbFormRows()
+            Section {
                 ForEach(schedule.changes.sorted { $0.originalDate < $1.originalDate }) { change in
                     VStack(alignment: .leading, spacing: 6) {
-                        Text(change.originalDate, style: .date)
-                        if let replacement = change.replacementDate {
-                            Text(L("Moved to %@", dateLabel(replacement)))
-                        } else { Text(L("Skipped")) }
-                        Button(L("Remove change"), role: .destructive) { schedule.changes.removeAll { $0.id == change.id } }
+                        Text(dateLabel(change.originalDate))
+                            .foregroundStyle(Palette.ink)
+                        Group {
+                            if let replacement = change.replacementDate {
+                                Text(L("Moved to %@", dateLabel(replacement)))
+                            } else { Text(L("Skipped")) }
+                        }
+                        .kerbFont(15, relativeTo: .subheadline)
+                        .foregroundStyle(Palette.muted)
+                        Button(role: .destructive) { schedule.changes.removeAll { $0.id == change.id } } label: {
+                            Text(L("Remove change")).foregroundStyle(Palette.attention)
+                        }
+                        .buttonStyle(.borderless)
+                        .frame(minHeight: 44)
                     }
                 }
-            }
+            } header: { KerbSectionHeader(L("Saved changes")) }
+            .kerbFormRows()
         }
+        .kerbFormGround()
         .navigationTitle(L("One-off changes"))
         .onAppear {
             let base = CollectionZone(id: "preview", name: "", suburbs: [], schedules: [CollectionSchedule(id: schedule.id, binType: schedule.binType, frequency: schedule.frequency, anchorDate: schedule.anchorDate)])
@@ -191,9 +222,7 @@ private struct CollectionChangesView: View {
     }
 
     private func dateLabel(_ date: Date) -> String {
-        let formatter = DateFormatter(); formatter.locale = LanguageManager.shared.locale
-        formatter.timeZone = ScheduleEngine.collectionCalendar.timeZone; formatter.dateStyle = .medium
-        return formatter.string(from: date)
+        collectionDateLabel(date, template: "EEE d MMM yyyy")
     }
 
     private func addChange() {

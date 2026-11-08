@@ -6,7 +6,7 @@ struct HowItWorksView: View {
 
     var body: some View {
         List {
-            Section(L("Your schedule")) {
+            Section {
                 if let council {
                     Text(L("Bin Day NZ shows the schedule you saved. The source for your property's collection dates is %@.", council.name))
                 } else {
@@ -16,32 +16,39 @@ struct HowItWorksView: View {
                 Text(L("An address labels your schedule. It does not set or verify your collection dates."))
                 if let council {
                     Link(L("Check dates with %@", council.name), destination: council.collectionDayURL)
+                        .foregroundStyle(.tint)
                 }
-            }
+            } header: { KerbSectionHeader(L("Your schedule")) }
+            .kerbFormRows()
 
-            Section(L("Notifications")) {
+            Section {
                 Text(L("Reminder times stay in New Zealand time, including when you travel."))
                 Text(L("App reminders have a limited window. Open Bin Day NZ regularly to renew them; the app also schedules a renewal reminder. Settings shows the last scheduled collection date."))
                 Text(L("Open the app regularly to keep upcoming reminders scheduled. Delivery also depends on your device's notification settings."))
                 Text(L("A bring-in reminder and a pause while you are away are optional in Settings. A pause silences reminders only; your dates stay the same."))
-            }
+            } header: { KerbSectionHeader(L("Notifications")) }
+            .kerbFormRows()
 
-            Section(L("Calendar")) {
+            Section {
                 Text(L("Collection events repeat without reopening Bin Day NZ. One-off changes update when you save your schedule. Calendar reminder events add alerts at both chosen times. To avoid duplicate alerts, turn off app notifications if you use calendar alerts."))
                 Text(L("An exported file is a separate 90-day snapshot. It does not update automatically and importing it again may create duplicates."))
-            }
+            } header: { KerbSectionHeader(L("Calendar")) }
+            .kerbFormRows()
 
-            Section(L("Widgets")) {
+            Section {
                 Text(L("The home screen widget shares collection dates and your chosen language with the app. It does not need your home address."))
-            }
+            } header: { KerbSectionHeader(L("Widgets")) }
+            .kerbFormRows()
 
-            Section(L("Coverage")) {
+            Section {
                 Text(L("For council kerbside collections anywhere in New Zealand. Shared bins, private services and rural or island collections may have different arrangements."))
                 Text(L("Holiday changes are applied automatically only where the council publishes one clear rule. Elsewhere the app shows the affected dates and links the council notice."))
                 NavigationLink(L("Privacy and Help")) { PrivacyView(council: council) }
-            }
+            } header: { KerbSectionHeader(L("Coverage")) }
+            .kerbFormRows()
         }
         .navigationTitle(L("How Bin Day works"))
         .navigationBarTitleDisplayMode(.inline)
+        .kerbFormGround()
     }
 }

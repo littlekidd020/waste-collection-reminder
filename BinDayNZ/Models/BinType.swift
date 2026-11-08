@@ -27,39 +27,56 @@ enum BinType: String, Codable, CaseIterable, Identifiable {
         }
     }
 
-    /// National lid colours tuned for text and glyphs on grouped backgrounds: darker in light mode,
-    /// lighter in dark mode, so each passes 3:1 against both.
-    var color: Color {
-        Color(uiColor: UIColor { traits in
-            let dark = traits.userInterfaceStyle == .dark
-            switch self {
-            case .rubbish: return dark ? UIColor(red: 0.96, green: 0.38, blue: 0.36, alpha: 1) : UIColor(red: 0.76, green: 0.12, blue: 0.12, alpha: 1)
-            case .recycling: return dark ? UIColor(red: 0.98, green: 0.80, blue: 0.28, alpha: 1) : UIColor(red: 0.62, green: 0.47, blue: 0.0, alpha: 1)
-            case .glass: return dark ? UIColor(red: 0.45, green: 0.68, blue: 0.98, alpha: 1) : UIColor(red: 0.10, green: 0.36, blue: 0.76, alpha: 1)
-            case .foodScraps, .organics: return dark ? UIColor(red: 0.42, green: 0.80, blue: 0.48, alpha: 1) : UIColor(red: 0.14, green: 0.48, blue: 0.22, alpha: 1)
-            case .gardenWaste: return dark ? UIColor(red: 0.72, green: 0.78, blue: 0.34, alpha: 1) : UIColor(red: 0.36, green: 0.42, blue: 0.06, alpha: 1)
-            case .inorganic: return dark ? UIColor(red: 0.95, green: 0.64, blue: 0.28, alpha: 1) : UIColor(red: 0.68, green: 0.40, blue: 0.04, alpha: 1)
-            }
-        })
-    }
+    /// The lid colour as text: deep on linen, light on charcoal, so it passes 4.5:1 on both grounds.
+    var color: Color { lidDeep }
 
-    /// The physical lid colour, identical in both appearances, for filled chips.
-    var lidFill: Color {
+    /// The physical lid colour, toned for the Linen and clay palette and identical in both
+    /// appearances. Only lid spheres, rendered props and tints carry it; it is never text.
+    var lidTone: Color { Color(hex: lidHex) }
+
+    /// Legacy name for `lidTone`, kept for the widget's older call sites.
+    var lidFill: Color { lidTone }
+
+    /// A pale wash of the lid colour for backgrounds behind `lidDeep` text.
+    var lidTint: Color {
         switch self {
-        case .rubbish: return Color(red: 0.84, green: 0.16, blue: 0.16)
-        case .recycling: return Color(red: 0.96, green: 0.76, blue: 0.15)
-        case .glass: return Color(red: 0.16, green: 0.44, blue: 0.82)
-        case .foodScraps, .organics: return Color(red: 0.18, green: 0.56, blue: 0.26)
-        case .gardenWaste: return Color(red: 0.45, green: 0.52, blue: 0.12)
-        case .inorganic: return Color(red: 0.85, green: 0.52, blue: 0.12)
+        case .rubbish: return Palette.dynamic(light: 0xF8DDD5, dark: 0x3B221C)
+        case .recycling: return Palette.dynamic(light: 0xF6E6BC, dark: 0x3A2F15)
+        case .glass: return Palette.dynamic(light: 0xD9E3F0, dark: 0x1F2A38)
+        case .foodScraps, .organics: return Palette.dynamic(light: 0xDCE8D2, dark: 0x22301E)
+        case .gardenWaste: return Palette.dynamic(light: 0xE6E9CF, dark: 0x2E3119)
+        case .inorganic: return Palette.dynamic(light: 0xF3E2CF, dark: 0x3A2A18)
         }
     }
 
-    /// Glyph colour on `lidFill`.
+    /// The lid colour at text strength: deep by day, light by night.
+    var lidDeep: Color {
+        switch self {
+        case .rubbish: return Palette.dynamic(light: 0x8A3322, dark: 0xE8A090)
+        case .recycling: return Palette.dynamic(light: 0x6E4F0C, dark: 0xE6C67A)
+        case .glass: return Palette.dynamic(light: 0x2C4A6E, dark: 0x9FB8D6)
+        case .foodScraps, .organics: return Palette.dynamic(light: 0x2F5A2B, dark: 0xA9C79A)
+        case .gardenWaste: return Palette.dynamic(light: 0x4F5A14, dark: 0xCBD38A)
+        case .inorganic: return Palette.dynamic(light: 0x7A4E1C, dark: 0xE6B985)
+        }
+    }
+
+    private var lidHex: UInt32 {
+        switch self {
+        case .rubbish: return 0xC4573F
+        case .recycling: return 0xD9A441
+        case .glass: return 0x5A80A8
+        case .foodScraps, .organics: return 0x6E9A5B
+        case .gardenWaste: return 0x93A24E
+        case .inorganic: return 0xC98B4A
+        }
+    }
+
+    /// Glyph colour on `lidTone`.
     var lidForeground: Color {
         switch self {
-        case .recycling: return Color.black.opacity(0.82)
-        case .rubbish, .glass, .foodScraps, .gardenWaste, .organics, .inorganic: return .white
+        case .recycling, .gardenWaste: return Color(hex: 0x2B2622).opacity(0.85)
+        case .rubbish, .glass, .foodScraps, .organics, .inorganic: return .white
         }
     }
 

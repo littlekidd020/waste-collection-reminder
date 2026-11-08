@@ -16,8 +16,17 @@ struct OnboardingContainerView: View {
             VStack(spacing: 0) {
                 if profile.hasCompletedOnboarding {
                     Text(L("Please review your saved collection dates before continuing."))
-                        .font(.footnote).padding()
-                    if let message = profile.integrationMessage { Text(message).font(.footnote).foregroundStyle(.red).padding() }
+                        .kerbFont(15, relativeTo: .subheadline)
+                        .foregroundStyle(Palette.ink)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 24).padding(.top, 12)
+                    if let message = profile.integrationMessage {
+                        Text(message)
+                            .kerbFont(15, relativeTo: .subheadline)
+                            .foregroundStyle(Palette.attention)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal, 24).padding(.top, 8)
+                    }
                 }
                 Group {
                 switch currentPage {
@@ -32,7 +41,9 @@ struct OnboardingContainerView: View {
                 }
                 }
             }
+            .background { LinenGround() }
         }
+        .tint(Palette.accent)
         .onChange(of: selectedAddress) { _, _ in
             scheduleReviewed = false
             if currentPage == 2 { currentPage = 1 }
@@ -47,22 +58,32 @@ struct OnboardingContainerView: View {
     }
 }
 
+/// Three neutral lid spheres; the current step's sphere is lifted off the ground.
 struct OnboardingPageIndicator: View {
     let currentPage: Int
     var body: some View {
-        HStack(spacing: 8) {
+        HStack(spacing: 10) {
             ForEach(0..<3, id: \.self) { page in
-                Circle().fill(page == currentPage ? AnyShapeStyle(.secondary) : AnyShapeStyle(.quaternary)).frame(width: 8, height: 8)
+                LidSphere(bin: nil, size: 8, raised: page == currentPage)
+                    .opacity(page == currentPage ? 1 : 0.55)
             }
-        }.accessibilityElement(children: .ignore).accessibilityLabel(L("Page %d of %d", currentPage + 1, 3))
+        }
+        .frame(height: 14)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(L("Page %d of %d", currentPage + 1, 3))
     }
 }
 
+/// Back to the previous setup step. Placed in the navigation bar's leading slot, where the
+/// system draws it as a Liquid Glass circle.
 struct OnboardingBackButton: View {
     let action: () -> Void
     var body: some View {
         Button(action: action) {
-            Label(L("Back"), systemImage: "chevron.left").frame(minWidth: 44, minHeight: 44, alignment: .leading)
-        }.accessibilityHint(L("Return to the previous setup step"))
+            Label(L("Back"), systemImage: "chevron.left")
+                .foregroundStyle(Palette.ink)
+        }
+        .accessibilityLabel(L("Back"))
+        .accessibilityHint(L("Return to the previous setup step"))
     }
 }

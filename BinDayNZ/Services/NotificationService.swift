@@ -15,14 +15,23 @@ struct ReminderPreferences: Equatable {
     let bringInMinute: Int
     /// Collections on or before this date get no reminders. The schedule itself is untouched.
     let pausedUntil: Date?
+    /// The bins for this collection day are already at the kerb: no evening or morning reminder for it.
+    let binsOutOn: Date?
 
     init(evening: Bool, morning: Bool, eveningHour: Int, eveningMinute: Int, morningHour: Int, morningMinute: Int,
-         bringIn: Bool = false, bringInHour: Int = 18, bringInMinute: Int = 0, pausedUntil: Date? = nil) {
+         bringIn: Bool = false, bringInHour: Int = 18, bringInMinute: Int = 0, pausedUntil: Date? = nil, binsOutOn: Date? = nil) {
         self.evening = evening; self.morning = morning
         self.eveningHour = eveningHour; self.eveningMinute = eveningMinute
         self.morningHour = morningHour; self.morningMinute = morningMinute
         self.bringIn = bringIn; self.bringInHour = bringInHour; self.bringInMinute = bringInMinute
         self.pausedUntil = pausedUntil
+        self.binsOutOn = binsOutOn
+    }
+
+    /// Whether the household has already put this collection's bins out.
+    func binsAreOut(on collectionDate: Date) -> Bool {
+        guard let binsOutOn else { return false }
+        return ScheduleEngine.collectionCalendar.isDate(binsOutOn, inSameDayAs: collectionDate)
     }
 
     var isEnabled: Bool { evening || morning || bringIn }
@@ -96,8 +105,11 @@ final class NotificationService {
         for date in groups.keys.sorted() {
             guard !preferences.isPaused(on: date) else { continue }
             let bins = (groups[date] ?? []).map(\.binType)
+            let binsOut = preferences.binsAreOut(on: date)
             var dayReminders: [PlannedReminder] = []
             for kind in ReminderKind.allCases {
+                // bins already at the kerb need no "put them out" or "collection today" reminder
+                if binsOut && kind != .bringIn { continue }
                 let enabled: Bool, day: Date, hour: Int, minute: Int
                 switch kind {
                 case .evening:

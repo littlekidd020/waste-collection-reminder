@@ -1,0 +1,7 @@
+{
+  "Next collections": "Schedule tab: small uppercase section label above the list of the next six collection dates.",
+  "Recycling week": "Schedule tab, Next collections row: muted line under the bin list when that date includes the fortnightly recycling collection.",
+  "No recycling": "Schedule tab, Next collections row: muted line under the bin list when that date is the off week of a fortnightly recycling schedule.",
+  "%@ is %@: collections that week may change.": "Schedule tab, holiday line for councils without a verified holiday rule. First %@ is the public holiday's name, second is its date (e.g. 'Monday 28 December').",
+  "The next fortnight": "Schedule tab: small uppercase label at the top, above the scrolling strip of the next fourteen days."
+}

@@ -15,28 +15,67 @@ struct AddressSearchView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                OnboardingBackButton(action: onBack)
-                Text(L("Set your collection dates")).font(.title.bold())
-                Text(L("For council kerbside collections anywhere in New Zealand. Shared bins, private services and rural or island collections may have different arrangements."))
-                    .foregroundStyle(.secondary)
+            VStack(alignment: .leading, spacing: 28) {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(L("Set your collection dates"))
+                        .kerbFont(28, .semibold, relativeTo: .title)
+                        .dynamicTypeSize(...DynamicTypeSize.accessibility1)
+                        .foregroundStyle(Palette.ink)
+                        .accessibilityAddTraits(.isHeader)
+                    Text(L("For council kerbside collections anywhere in New Zealand. Shared bins, private services and rural or island collections may have different arrangements."))
+                        .kerbFont(17, relativeTo: .body)
+                        .foregroundStyle(Palette.muted)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
                 AddressEntryView(address: Binding(get: { selectedAddress ?? "" }, set: { selectedAddress = $0 }), coordinate: $selectedCoordinate, councilHint: $councilHint)
                 CouncilRow(council: Binding(get: { selectedCouncil }, set: { selectedCouncil = $0; councilSuggested = false }), suggested: councilSuggested)
-                Button { showSchedule = true } label: {
-                    Label(selectedZone == nil ? L("Set up manually") : L("Review bin schedule"), systemImage: "calendar")
-                        .frame(maxWidth: .infinity, minHeight: 44)
-                }.buttonStyle(.borderedProminent).tint(AppTheme.buttonFill)
-                if let zone = selectedZone {
-                    Label(scheduleReviewed ? L("User-confirmed schedule") : L("Schedule needs confirmation"), systemImage: scheduleReviewed ? "checkmark.circle" : "exclamationmark.circle")
-                    ForEach(zone.schedules) { schedule in
-                        Label(schedule.binType.displayName, systemImage: schedule.binType.systemImage)
+                VStack(alignment: .leading, spacing: 16) {
+                    // The step's one prominent action: setting up the schedule, then Continue once it is confirmed.
+                    if selectedZone == nil {
+                        Button { showSchedule = true } label: {
+                            KerbPrimaryButtonLabel(title: L("Set up manually"), systemImage: "calendar")
+                        }
+                        .buttonStyle(.glassProminent)
+                        .buttonBorderShape(.capsule)
+                        .tint(Palette.accent)
+                    } else {
+                        Button { showSchedule = true } label: {
+                            KerbPrimaryButtonLabel(title: L("Review bin schedule"), systemImage: "calendar", prominent: false)
+                        }
+                        .buttonStyle(.glass)
+                        .buttonBorderShape(.capsule)
+                    }
+                    if let zone = selectedZone {
+                        Label {
+                            Text(scheduleReviewed ? L("User-confirmed schedule") : L("Schedule needs confirmation"))
+                                .foregroundStyle(scheduleReviewed ? Palette.ink : Palette.attention)
+                        } icon: {
+                            Image(systemName: scheduleReviewed ? "checkmark.circle" : "exclamationmark.circle")
+                                .foregroundStyle(scheduleReviewed ? Palette.accent : Palette.attention)
+                        }
+                        .kerbFont(15, .medium, relativeTo: .subheadline)
+                        VStack(alignment: .leading, spacing: 10) {
+                            ForEach(zone.schedules) { schedule in
+                                CollectionBinRow(bin: schedule.binType)
+                            }
+                        }
                     }
                 }
+                Hairline()
                 NavigationLink(L("Privacy and Help")) { PrivacyView(council: selectedCouncil) }
+                    .kerbFont(15, relativeTo: .subheadline)
+                    .frame(minHeight: 44)
             }
-            .frame(maxWidth: 600, alignment: .leading).padding(24).frame(maxWidth: .infinity)
+            .frame(maxWidth: 600, alignment: .leading)
+            .padding(.horizontal, 24)
+            .padding(.vertical, 16)
+            .frame(maxWidth: .infinity)
         }
-        .background(Color(uiColor: .systemGroupedBackground))
+        .background { LinenGround() }
+        .tint(Palette.accent)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) { OnboardingBackButton(action: onBack) }
+        }
         .onChange(of: councilHint) { _, hint in
             // The address only suggests; a council the person chose themselves is kept.
             guard let hint, selectedCouncil == nil || councilSuggested else { return }
@@ -44,12 +83,27 @@ struct AddressSearchView: View {
             councilSuggested = true
         }
         .safeAreaInset(edge: .bottom) {
-            VStack(spacing: 12) {
-                Button(L("Continue"), action: onContinue)
-                    .buttonStyle(.borderedProminent).tint(AppTheme.buttonFill).controlSize(.large)
-                    .disabled(selectedZone?.isValid != true || !scheduleReviewed || selectedCouncil == nil)
+            VStack(spacing: 16) {
+                Button(action: onContinue) {
+                    KerbPrimaryButtonLabel(title: L("Continue"))
+                }
+                .buttonStyle(.glassProminent)
+                .buttonBorderShape(.capsule)
+                .tint(Palette.accent)
+                .disabled(selectedZone?.isValid != true || !scheduleReviewed || selectedCouncil == nil)
                 OnboardingPageIndicator(currentPage: 1)
-            }.frame(maxWidth: .infinity).padding().background(.bar)
+            }
+            .frame(maxWidth: 600)
+            .padding(.horizontal, 24)
+            .padding(.top, 20)
+            .padding(.bottom, 8)
+            .frame(maxWidth: .infinity)
+            .background(alignment: .top) {
+                LinearGradient(colors: [Palette.ground.opacity(0), Palette.ground.opacity(0.94)],
+                               startPoint: .top, endPoint: .init(x: 0.5, y: 0.35))
+                    .ignoresSafeArea(edges: .bottom)
+                    .allowsHitTesting(false)
+            }
         }
         .sheet(isPresented: $showSchedule) {
             ManualScheduleView(initialZone: selectedZone, council: selectedCouncil) { selectedZone = $0; scheduleReviewed = true }
@@ -73,15 +127,21 @@ struct AddressEntryView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text(L("Address (optional)")).font(.headline)
+            Text(L("Address (optional)")).kerbLabel()
             TextField(L("e.g. 12 Queen Street, Auckland"), text: Binding(get: { address }, set: { value in
                 address = value; coordinate = nil; councilHint = nil; showSuggestions = true; search.search(value)
             }))
                 .textContentType(.fullStreetAddress).autocorrectionDisabled()
-                .textFieldStyle(.roundedBorder).focused($focused)
+                .focused($focused)
+                .kerbFont(17, relativeTo: .body)
+                .foregroundStyle(Palette.ink)
+                .padding(.horizontal, 16)
+                .frame(minHeight: 48)
+                .background(Palette.surface, in: .rect(cornerRadius: 14))
+                .overlay { RoundedRectangle(cornerRadius: 14).strokeBorder(focused ? Palette.accent.opacity(0.6) : Palette.line, lineWidth: focused ? 1 : 0.5) }
                 .disabled(resolving)
             Text(L("An address labels your schedule. It does not set or verify your collection dates."))
-                .font(.footnote).foregroundStyle(.secondary)
+                .kerbFootnote()
             if resolving || search.isSearching { ProgressView().accessibilityLabel(L("Finding address")) }
             if showSuggestions {
                 ForEach(search.suggestions.prefix(5)) { suggestion in
@@ -100,11 +160,21 @@ struct AddressEntryView: View {
                             } catch { self.error = L("The address could not be found. Enter it yourself or continue without one.") }
                         }
                     } label: {
-                        VStack(alignment: .leading) {
+                        VStack(alignment: .leading, spacing: 2) {
                             Text(suggestion.title)
-                            Text(suggestion.subtitle).font(.caption).foregroundStyle(.secondary)
-                        }.frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
-                    }.disabled(resolving)
+                                .kerbFont(17, relativeTo: .body)
+                                .foregroundStyle(Palette.ink)
+                            Text(suggestion.subtitle)
+                                .kerbFont(13, relativeTo: .footnote)
+                                .foregroundStyle(Palette.muted)
+                        }
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+                        .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+                    .disabled(resolving)
+                    Hairline()
                 }
             }
             HStack {
@@ -123,14 +193,20 @@ struct AddressEntryView: View {
                 if !address.isEmpty {
                     Button(L("Clear")) { address = ""; coordinate = nil; councilHint = nil; showSuggestions = false; search.search("") }.disabled(resolving)
                 }
-            }.buttonStyle(.bordered).controlSize(.large)
+            }
+            .buttonStyle(.glass).buttonBorderShape(.capsule).controlSize(.large)
+            .kerbFont(15, .medium, relativeTo: .subheadline)
+            .foregroundStyle(Palette.ink)
             if let message = error ?? search.errorMessage {
-                Text(message).font(.footnote).foregroundStyle(.secondary)
+                Text(message)
+                    .kerbFont(13, relativeTo: .footnote)
+                    .foregroundStyle(Palette.attention)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             if let coordinate {
                 Map(initialPosition: .region(MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))))
                     .id("\(coordinate.latitude),\(coordinate.longitude)")
-                    .frame(height: 180).clipShape(RoundedRectangle(cornerRadius: 12)).accessibilityHidden(true)
+                    .frame(height: 180).clipShape(RoundedRectangle(cornerRadius: 14)).accessibilityHidden(true)
             }
         }
         .onAppear { isVisible = true }

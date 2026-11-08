@@ -2,8 +2,8 @@ name: BinDayNZ
 options:
   bundleIdPrefix: com.bindaynz
   deploymentTarget:
-    iOS: "17.0"
-  xcodeVersion: "16.0"
+    iOS: "26.0"
+  xcodeVersion: "26.0"
   createIntermediateGroups: true
 
 settings:
@@ -53,6 +53,8 @@ targets:
       - path: BinDayNZ/Services/ScheduleEngine.swift
       - path: BinDayNZ/Services/LanguageManager.swift
       - path: BinDayNZ/Views/Shared/BinLidChip.swift
+      - path: BinDayNZ/Design/Palette.swift
+      - path: BinDayNZ/Design/LidSphere.swift
       - path: BinDayNZ/Resources/Localizable.xcstrings
         buildPhase: resources
     settings:

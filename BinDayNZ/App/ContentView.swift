@@ -37,7 +37,11 @@ struct ContentView: View {
                 ProgressView(L("Loading…"))
                     .task {
                         guard profiles.isEmpty else { return }
-                        modelContext.insert(UserProfile())
+                        let profile = UserProfile()
+                        #if DEBUG
+                        if DebugSeed.isRequested { DebugSeed.apply(to: profile) }
+                        #endif
+                        modelContext.insert(profile)
                         do { try modelContext.save() }
                         catch { modelContext.rollback(); storageError = true }
                     }
@@ -76,45 +80,40 @@ struct ContentView: View {
     }
 }
 
-/// Main tab bar with Today, Schedule, Info, and Settings tabs.
+/// Three tabs, Today, Schedule and Guide, in Liquid Glass. Settings is a sheet behind the gear on Today.
 struct MainTabView: View {
-    @State private var selectedTab = 0
+    @State private var selectedTab: MainTab = .today
+    @State private var showSettings = false
     @AppStorage("pendingSetupComplete") private var pendingSetupComplete = false
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            TodayView()
-                .tag(0)
-                .tabItem {
-                    Label(L("Today"), systemImage: selectedTab == 0 ? "house.fill" : "house")
-                        .environment(\.symbolVariants, .none)
-                }
-
-            ScheduleView()
-                .tag(1)
-                .tabItem {
-                    Label(L("Schedule"), systemImage: "calendar")
-                        .environment(\.symbolVariants, .none)
-                }
-
-            InfoView()
-                .tag(2)
-                .tabItem {
-                    Label(L("Info"), systemImage: selectedTab == 2 ? "info.circle.fill" : "info.circle")
-                        .environment(\.symbolVariants, .none)
-                }
-
-            SettingsView()
-                .tag(3)
-                .tabItem {
-                    Label(L("Settings"), systemImage: selectedTab == 3 ? "gearshape.fill" : "gearshape")
-                        .environment(\.symbolVariants, .none)
-                }
+            Tab(L("Today"), systemImage: "sun.horizon", value: MainTab.today) {
+                TodayView(openSettings: { showSettings = true })
+            }
+            Tab(L("Schedule"), systemImage: "calendar", value: MainTab.schedule) {
+                ScheduleView()
+            }
+            Tab(L("Guide"), systemImage: "book", value: MainTab.guide) {
+                GuideView()
+            }
         }
-        .tint(AppTheme.accent)
+        .tabBarMinimizeBehavior(.onScrollDown)
+        .tint(Palette.accent)
         .onReceive(NotificationCenter.default.publisher(for: .binDayOpenTab)) { note in
-            if let tab = note.object as? Int { selectedTab = tab }
+            // Reminders carry the old tab indexes: 0 Today, 1 Schedule, 2 Guide, 3 Settings.
+            switch note.object as? Int {
+            case 1: selectedTab = .schedule
+            case 2: selectedTab = .guide
+            case 3: selectedTab = .today; showSettings = true
+            default: selectedTab = .today
+            }
         }
         .sheet(isPresented: $pendingSetupComplete) { SetupCompleteView() }
+        .sheet(isPresented: $showSettings) { SettingsView() }
     }
+}
+
+enum MainTab: Hashable {
+    case today, schedule, guide
 }

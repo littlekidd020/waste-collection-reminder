@@ -60,6 +60,9 @@ final class UserProfile {
     var bringInNotifyMinute: Int = 0
     /// Reminders are silenced for collections up to and including this day; nil when not away.
     var remindersPausedUntil: Date?
+    /// The collection day whose bins the household has already put out at the kerb. Its evening and
+    /// morning reminders are skipped. Cleared automatically once that day has passed.
+    var binsOutForCollectionOn: Date?
 
     // Calendar
     var calendarSyncEnabled: Bool = false

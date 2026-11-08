@@ -13,6 +13,41 @@
       },
       "shouldTranslate": false
     },
+    "%@ bins": {
+      "comment": "VoiceOver label of the bin picture: %@ is the bin list, e.g. 'Recycling, rubbish and food scraps bins'.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ bins"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@垃圾桶"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngā ipu %@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 쓰레기통"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ के डिब्बे"
+          }
+        }
+      }
+    },
     "%@ is %@. Collections that week may change. Check the %@ notice before putting bins out.": {
       "localizations": {
         "en": {
@@ -47,6 +82,41 @@
         }
       }
     },
+    "%@ is %@: collections that week may change.": {
+      "comment": "Schedule tab, holiday line for councils without a verified holiday rule. First %@ is the public holiday's name, second is its date (e.g. 'Monday 28 December').",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ is %@: collections that week may change."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@是%@：那一周的收集可能有变动。"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ko %@ te %@: ka rerekē pea ngā kohinga o taua wiki."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@(%@): 그 주의 수거가 바뀔 수 있습니다."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ %@ को है: उस सप्ताह संग्रह बदल सकता है।"
+          }
+        }
+      }
+    },
     "%@ on %@": {
       "localizations": {
         "en": {
@@ -77,6 +147,181 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@: %@"
+          }
+        }
+      }
+    },
+    "%@ · %@": {
+      "comment": "Small uppercase eyebrow above a bin's name on the Guide: frequency, then weekday (e.g. 'Weekly · Tuesday'). First %@ is 'Weekly' or 'Fortnightly', second is the weekday name",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ · %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@·%@"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · %2$@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · %2$@"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · %2$@"
+          }
+        }
+      }
+    },
+    "%@, page %lld of %lld": {
+      "comment": "VoiceOver label of the Guide's page indicator (lid spheres): bin name, current page number, page count. e.g. 'Rubbish, page 1 of 4'",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, page %lld of %lld"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@，第 %lld 页，共 %lld 页"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, whārangi %lld o %lld"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, %lld/%lld페이지"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, पृष्ठ %lld / %lld"
+          }
+        }
+      }
+    },
+    "%@. Bring them in once they are emptied.": {
+      "comment": "Sentence on the afternoon of collection day: %@ is the bin list.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@. Bring them in once they are emptied."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@。清空后请收回。"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@. Kawea mai ki roto ina whakawāteatia."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@. 비워지면 들여놓으세요."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@। खाली होने के बाद इन्हें अंदर ले आएँ।"
+          }
+        }
+      }
+    },
+    "%@. Have them out early.": {
+      "comment": "Sentence on the morning of collection day: %@ is the bin list.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@. Have them out early."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@。请一早推出去。"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@. Whakaputaina i te ata tū."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@. 아침 일찍 내놓으세요."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@। इन्हें सुबह जल्दी बाहर रखें।"
+          }
+        }
+      }
+    },
+    "%@. Put them out tonight.": {
+      "comment": "Sentence under the verdict the day before: %@ is the bin list, e.g. 'Recycling, rubbish and food scraps'.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@. Put them out tonight."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@。今晚请推出去。"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@. Whakaputaina i tēnei pō."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@. 오늘 밤 내놓으세요."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@। आज रात इन्हें बाहर रखें।"
           }
         }
       }
@@ -315,40 +560,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "स्थान का अनुरोध पहले से चल रहा है।"
-          }
-        }
-      }
-    },
-    "A regular collection date": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A regular collection date"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "常规收集日期"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "He rā kohinga auau"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "정기 수거일"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "नियमित संग्रह की तारीख"
           }
         }
       }
@@ -660,6 +871,41 @@
         }
       }
     },
+    "Allow notifications": {
+      "comment": "Prominent button on Today when iOS notification permission is denied; opens the system settings.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Allow notifications"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "允许通知"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Whakaaetia ngā whakamōhiotanga"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "알림 허용"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "सूचनाओं की अनुमति दें"
+          }
+        }
+      }
+    },
     "An address labels your schedule. It does not set or verify your collection dates.": {
       "localizations": {
         "en": {
@@ -762,40 +1008,6 @@
         }
       }
     },
-    "App reminders are off": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "App reminders are off"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "应用提醒已关闭"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kua whakawetohia ngā whakamaharatanga taupānga"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "앱 알림이 꺼져 있습니다"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ऐप के अनुस्मारक बंद हैं"
-          }
-        }
-      }
-    },
     "App reminders are off.": {
       "localizations": {
         "en": {
@@ -860,41 +1072,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ऐप के अनुस्मारक सीमित अवधि के लिए होते हैं। उन्हें नवीनीकृत करने के लिए Bin Day NZ नियमित रूप से खोलें; ऐप नवीनीकरण का अनुस्मारक भी निर्धारित करता है। सेटिंग्स में अंतिम निर्धारित संग्रह तारीख दिखाई जाती है।"
-          }
-        }
-      }
-    },
-    "Area": {
-      "extractionState": "stale",
-      "localizations": {
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "क्षेत्र"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "지역"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wāhi"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "区域"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Area"
           }
         }
       }
@@ -1252,75 +1429,6 @@
         }
       }
     },
-    "Bin Guide": {
-      "extractionState": "stale",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bin Guide"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "बिन गाइड"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "쓰레기통 안내"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aratohu Ipu Para"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "垃圾桶指南"
-          }
-        }
-      }
-    },
-    "Book a collection": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Book a collection"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "预约收集"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tāpuitia he kohinga"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "수거 예약"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "संग्रह बुक करें"
-          }
-        }
-      }
-    },
     "Book an inorganic collection": {
       "localizations": {
         "en": {
@@ -1423,6 +1531,41 @@
         }
       }
     },
+    "Booked collection": {
+      "comment": "Small uppercase eyebrow above 'Inorganic Collection' on the Guide: this service is booked, not on a regular schedule",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Booked collection"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "预约收集"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kohinga tāpui"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "예약 수거"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "बुकिंग वाला संग्रह"
+          }
+        }
+      }
+    },
     "Bread, rice, and pasta": {
       "extractionState": "stale",
       "localizations": {
@@ -1488,6 +1631,41 @@
           "stringUnit": {
             "state": "translated",
             "value": "डिब्बे अंदर लाएँ"
+          }
+        }
+      }
+    },
+    "Bring the bins back": {
+      "comment": "VoiceOver custom action name and hint on Undo: reverses marking the bins as out.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bring the bins back"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取消已推出标记"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Whakahokia mai ngā ipu"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "쓰레기통 내놓음 취소"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "डिब्बे वापस लाएँ"
           }
         }
       }
@@ -1800,41 +1978,6 @@
         }
       }
     },
-    "Calendar integration": {
-      "extractionState": "stale",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Calendar integration"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "कैलेंडर एकीकरण"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "캘린더 연동"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hononga maramataka"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "日历同步"
-          }
-        }
-      }
-    },
     "Calendar needs attention: %@": {
       "localizations": {
         "en": {
@@ -2143,40 +2286,6 @@
         }
       }
     },
-    "Change reminder preferences in Settings.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Change reminder preferences in Settings."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在设置中更改提醒偏好。"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hurihia ngā kōwhiringa whakamahara i Ngā Tautuhinga."
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "설정에서 알림 환경설정을 변경하세요."
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "सेटिंग्स में अनुस्मारक की प्राथमिकताएँ बदलें।"
-          }
-        }
-      }
-    },
     "Change schedule": {
       "localizations": {
         "en": {
@@ -2377,74 +2486,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "सहेजने से पहले हर डिब्बे की संग्रह तारीख और आवृत्ति जाँचें।"
-          }
-        }
-      }
-    },
-    "Check official collection dates": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Check official collection dates"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "查看官方收集日期"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tirohia ngā rā kohinga whaimana"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "공식 수거일 확인"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "आधिकारिक संग्रह तारीखें जाँचें"
-          }
-        }
-      }
-    },
-    "Check reminder settings before relying on the next alert.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Check reminder settings before relying on the next alert."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "依赖下一次提醒前，请先检查提醒设置。"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tirohia ngā tautuhinga whakamahara i mua i te whakawhirinaki ki te matohi e whai ake nei."
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "다음 알림에 의존하기 전에 알림 설정을 확인하세요."
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "अगले अलर्ट पर भरोसा करने से पहले अनुस्मारक सेटिंग्स जाँचें।"
           }
         }
       }
@@ -3507,6 +3548,41 @@
         }
       }
     },
+    "Done for tonight": {
+      "comment": "44 pt verdict on Today after the household has rolled the bins to the kerb.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done for tonight"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今晚已完成"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kua oti mō tēnei pō"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "오늘 밤은 완료"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "आज रात के लिए हो गया"
+          }
+        }
+      }
+    },
     "Drinking glasses and ceramics": {
       "extractionState": "stale",
       "localizations": {
@@ -3674,41 +3750,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "सूचनाएँ सक्षम करें"
-          }
-        }
-      }
-    },
-    "Enabled": {
-      "extractionState": "stale",
-      "localizations": {
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "चालू"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "켜짐"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kua whakahohea"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已启用"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Enabled"
           }
         }
       }
@@ -4914,6 +4955,41 @@
         }
       }
     },
+    "Guide": {
+      "comment": "Tab bar label of the third tab: the bin guide (one page per bin). Short noun.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guide"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "指南"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aratohu"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "안내"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "गाइड"
+          }
+        }
+      }
+    },
     "Guide reviewed: %@": {
       "localizations": {
         "en": {
@@ -5085,41 +5161,6 @@
         }
       }
     },
-    "Home screen widget": {
-      "extractionState": "stale",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Home screen widget"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "होम स्क्रीन विजेट"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "홈 화면 위젯"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Taputapu mata kāinga"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "主屏幕小组件"
-          }
-        }
-      }
-    },
     "Hot ashes": {
       "localizations": {
         "en": {
@@ -5150,40 +5191,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "गरम राख"
-          }
-        }
-      }
-    },
-    "I have checked these dates for my property": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "I have checked these dates for my property"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "我已核对此房产的收集日期"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kua tirohia e au ēnei rā mō tōku whare"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "해당 주소의 날짜를 확인했습니다"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "मैंने अपनी संपत्ति के लिए इन तारीखों की जाँच की है"
           }
         }
       }
@@ -5222,71 +5229,37 @@
         }
       }
     },
-    "If your council moves a collection, add it as a one-off change in Change schedule.": {
+    "In %d days": {
+      "comment": "Small uppercase eyebrow on Today before the date, when the next collection is two or more days away: 'In 3 days · Friday 13 November'. %d is always 2 or more.",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "If your council moves a collection, add it as a one-off change in Change schedule."
+            "value": "In %d days"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "如果议会调整了某次收集，请在“更改收集安排”中添加单次变更。"
+            "value": "%d 天后"
           }
         },
         "mi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mēnā ka nekehia e tō kaunihera tētahi kohinga, tāpirihia hei panonitanga kotahi i roto i Hurihia te hōtaka kohinga."
+            "value": "Ā ngā rā e %d"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "의회가 수거일을 옮기면 일정 변경에서 일회성 변경으로 추가하세요."
+            "value": "%d일 후"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "यदि आपकी काउंसिल कोई संग्रह बदलती है, तो उसे संग्रह कार्यक्रम बदलें में एकबारगी बदलाव के रूप में जोड़ें।"
-          }
-        }
-      }
-    },
-    "Info": {
-      "extractionState": "stale",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Info"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "जानकारी"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "정보"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mōhiohio"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "信息"
+            "value": "%d दिन में"
           }
         }
       }
@@ -5356,74 +5329,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ढक्कन बंद रखें और फुटपाथ, ड्राइववे तथा डिब्बों तक पहुँचने का रास्ता खाली रखें।"
-          }
-        }
-      }
-    },
-    "Kerbside guidance for %@. Written guides are available offline.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kerbside guidance for %@. Written guides are available offline."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@的路边收集指南。文字指南可离线查看。"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aratohu taha huarahi mō %@. E wātea ana ngā aratohu tuhi i waho o te ipurangi."
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ 도로변 수거 안내입니다. 문서 안내는 오프라인에서도 볼 수 있습니다."
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ के लिए सड़क किनारे संग्रह मार्गदर्शन। लिखित गाइड ऑफ़लाइन उपलब्ध हैं।"
-          }
-        }
-      }
-    },
-    "Kerbside guidance. Written guides are available offline.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kerbside guidance. Written guides are available offline."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "路边收集指南。文字指南可离线查看。"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aratohu taha huarahi. E wātea ana ngā aratohu tuhi i waho o te ipurangi."
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "도로변 수거 안내입니다. 문서 안내는 오프라인에서도 볼 수 있습니다."
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "सड़क किनारे संग्रह मार्गदर्शन। लिखित गाइड ऑफ़लाइन उपलब्ध हैं।"
           }
         }
       }
@@ -5599,40 +5504,6 @@
         }
       }
     },
-    "List": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "List"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "列表"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rārangi"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "목록"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "सूची"
-          }
-        }
-      }
-    },
     "Load video": {
       "localizations": {
         "en": {
@@ -5697,41 +5568,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "लोड हो रहा है…"
-          }
-        }
-      }
-    },
-    "Location": {
-      "extractionState": "stale",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Location"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "स्थान"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "위치"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wāhi"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "位置"
           }
         }
       }
@@ -5906,6 +5742,41 @@
           "stringUnit": {
             "state": "translated",
             "value": "मनावातू-वांगानुई"
+          }
+        }
+      }
+    },
+    "Mark bins as out": {
+      "comment": "VoiceOver custom action name: records that the bins are out at the kerb.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mark bins as out"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "标记为已推出"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tohua kua puta ngā ipu"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "쓰레기통 내놓음으로 표시"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "डिब्बों को बाहर रखा गया चिह्नित करें"
           }
         }
       }
@@ -6288,6 +6159,146 @@
         }
       }
     },
+    "Next collections": {
+      "comment": "Schedule tab: small uppercase section label above the list of the next six collection dates.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next collections"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "接下来的收集"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngā kohinga e whai ake nei"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "다음 수거 일정"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "अगले संग्रह"
+          }
+        }
+      }
+    },
+    "Next: %@ on %@.": {
+      "comment": "Sentence when the collection is days away: first %@ is the bin list, second is the weekday name, e.g. 'Next: Rubbish on Friday.'",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next: %@ on %@."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下次：%@，%@。"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "E whai ake nei: %@ i te %@."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "다음: %2$@에 %1$@."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "अगला: %2$@ को %1$@।"
+          }
+        }
+      }
+    },
+    "No": {
+      "comment": "Small uppercase heading of the column of items that must not go in this bin (Guide)",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不可放入"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kāo"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "넣지 마세요"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "नहीं"
+          }
+        }
+      }
+    },
+    "No recycling": {
+      "comment": "Schedule tab, Next collections row: muted line under the bin list when that date is the off week of a fortnightly recycling schedule.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No recycling"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无回收"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kāore he hangarua"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "재활용 수거 없음"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "रीसाइक्लिंग नहीं"
+          }
+        }
+      }
+    },
     "Northland": {
       "localizations": {
         "en": {
@@ -6322,6 +6333,76 @@
         }
       }
     },
+    "Not in your schedule": {
+      "comment": "Small uppercase eyebrow above a bin's name on the Guide when the council collects this bin but the household has not set it up in its schedule",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not in your schedule"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不在您的收集安排中"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kāore i tō hōtaka"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "내 일정에 없음"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "आपके कार्यक्रम में नहीं"
+          }
+        }
+      }
+    },
+    "Nothing tonight": {
+      "comment": "44 pt verdict on Today when no collection is due tomorrow: nothing to put out tonight.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nothing tonight"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今晚不用推出"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kāore he mea i tēnei pō"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "오늘 밤은 없음"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "आज रात कुछ नहीं"
+          }
+        }
+      }
+    },
     "NZ": {
       "comment": "Product branding; keep this text unchanged in every language.",
       "localizations": {
@@ -6333,41 +6414,6 @@
         }
       },
       "shouldTranslate": false
-    },
-    "Nappies": {
-      "extractionState": "stale",
-      "localizations": {
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "नैपी"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "기저귀"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kope"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "纸尿裤"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nappies"
-          }
-        }
-      }
     },
     "Nappies and sanitary products": {
       "extractionState": "stale",
@@ -6646,41 +6692,6 @@
         }
       }
     },
-    "Not in this bin": {
-      "extractionState": "stale",
-      "localizations": {
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "इस बिन में नहीं"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "이 쓰레기통에 넣지 마세요"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kaua i roto i tēnei ipu"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "不可放入此垃圾桶"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Not in this bin"
-          }
-        }
-      }
-    },
     "Notifications": {
       "extractionState": "stale",
       "localizations": {
@@ -6712,40 +6723,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "通知"
-          }
-        }
-      }
-    },
-    "Notifications are not allowed": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Notifications are not allowed"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未允许通知"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kāore ngā whakamōhiotanga e whakaaetia"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "알림이 허용되지 않았습니다"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "सूचनाओं की अनुमति नहीं है"
           }
         }
       }
@@ -6955,40 +6932,6 @@
         }
       }
     },
-    "Open notification settings": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Open notification settings"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "打开通知设置"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Huakina ngā tautuhinga whakamōhiotanga"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "알림 설정 열기"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "सूचना सेटिंग्स खोलें"
-          }
-        }
-      }
-    },
     "Open on iPhone to add it: %@": {
       "localizations": {
         "en": {
@@ -7088,6 +7031,76 @@
           "stringUnit": {
             "state": "translated",
             "value": "आने वाले अनुस्मारक निर्धारित रखने के लिए ऐप नियमित रूप से खोलें। उनकी डिलीवरी आपके डिवाइस की सूचना सेटिंग्स पर भी निर्भर करती है।"
+          }
+        }
+      }
+    },
+    "Open the council guide": {
+      "comment": "VoiceOver label of the glass safari button, top trailing on the Guide; opens the council's own page for the bin on screen",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open the council guide"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开议会指南"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Huakina te aratohu a te kaunihera"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "의회 안내 열기"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "काउंसिल गाइड खोलें"
+          }
+        }
+      }
+    },
+    "Opens Settings": {
+      "comment": "VoiceOver hint on the quiet status line: tapping it opens Settings.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opens Settings"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开设置"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ka huaki i Ngā Tautuhinga"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "설정을 엽니다"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "सेटिंग्स खोलता है"
           }
         }
       }
@@ -7258,6 +7271,41 @@
           "stringUnit": {
             "state": "translated",
             "value": "ओटागो वर्षगांठ दिवस"
+          }
+        }
+      }
+    },
+    "Out tonight": {
+      "comment": "44 pt verdict on Today the day before a collection: the bins go out tonight.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Out tonight"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今晚推出去"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ki waho i tēnei pō"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "오늘 밤 내놓기"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "आज रात बाहर"
           }
         }
       }
@@ -7847,6 +7895,76 @@
         }
       }
     },
+    "Recycling week": {
+      "comment": "Schedule tab, Next collections row: muted line under the bin list when that date includes the fortnightly recycling collection.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recycling week"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回收周"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wiki hangarua"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "재활용 수거 주"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "रीसाइक्लिंग सप्ताह"
+          }
+        }
+      }
+    },
+    "Refresh reminders": {
+      "comment": "Prominent button on Today when the scheduled reminder batch has run out; reschedules.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Refresh reminders"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更新提醒"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Whakahoungia ngā whakamaharatanga"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "알림 갱신"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "अनुस्मारक अपडेट करें"
+          }
+        }
+      }
+    },
     "Refresh reminders and calendar": {
       "localizations": {
         "en": {
@@ -8119,104 +8237,72 @@
         }
       }
     },
-    "Reminders need refreshing": {
+    "Reminders on · %@": {
+      "comment": "Quiet status line on Today when reminders are scheduled: %@ lists the reminder times, e.g. '7 pm and 7 am'.",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Reminders need refreshing"
+            "value": "Reminders on · %@"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "提醒需要更新"
+            "value": "提醒已开启·%@"
           }
         },
         "mi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Me whakahou ngā whakamaharatanga"
+            "value": "Kei te mahi ngā whakamaharatanga · %@"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "알림을 갱신해야 합니다"
+            "value": "알림 켜짐 · %@"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "अनुस्मारकों को अपडेट करना ज़रूरी है"
+            "value": "अनुस्मारक चालू · %@"
           }
         }
       }
     },
-    "Reminders paused": {
+    "Reminders paused until %@": {
+      "comment": "Quiet status line on Today while reminders are paused: %@ is a date such as '16 November'.",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Reminders paused"
+            "value": "Reminders paused until %@"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "提醒已暂停"
+            "value": "提醒已暂停至%@"
           }
         },
         "mi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kua whakatārewatia ngā whakamaumahara"
+            "value": "Kua whakatārewatia ngā whakamaharatanga tae noa ki %@"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "알림 일시중지됨"
+            "value": "%@까지 알림 일시중지됨"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "रिमाइंडर रुके हुए हैं"
-          }
-        }
-      }
-    },
-    "Reminders resume for collections after %@. Change this in Settings.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reminders resume for collections after %@. Change this in Settings."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@之后的收集将恢复提醒。可在“设置”中更改。"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ka tīmata anō ngā whakamaumahara mō ngā kohinga i muri i te %@. Hurihia tēnei i Ngā Tautuhinga."
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ 이후 수거부터 알림이 재개됩니다. 설정에서 변경할 수 있습니다."
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ के बाद के संग्रह के लिए रिमाइंडर फिर से शुरू होंगे। इसे सेटिंग्स में बदलें।"
+            "value": "%@ तक अनुस्मारक रुके हुए हैं"
           }
         }
       }
@@ -8906,40 +8992,6 @@
         }
       }
     },
-    "Saved data could not be fully removed. Check calendar access and try again. Your schedule has been kept.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saved data could not be fully removed. Check calendar access and try again. Your schedule has been kept."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未能完全删除已保存的数据。请检查日历权限后重试。您的收集安排已保留。"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kāore i taea te tango katoa i ngā raraunga kua tiakina. Tirohia te urunga maramataka, ka whakamātau anō. Kua puritia tō hōtaka."
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "저장된 데이터를 모두 삭제하지 못했습니다. 캘린더 권한을 확인하고 다시 시도하세요. 수거 일정은 유지되었습니다."
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "सहेजा गया डेटा पूरी तरह नहीं हटाया जा सका। कैलेंडर की अनुमति जाँचकर फिर कोशिश करें। आपका कार्यक्रम रखा गया है।"
-          }
-        }
-      }
-    },
     "Saved data could not be removed. Free some device storage and try again. Your schedule has been kept.": {
       "localizations": {
         "en": {
@@ -9111,40 +9163,6 @@
         }
       }
     },
-    "Schedule display": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Schedule display"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "收集安排显示方式"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Te whakaatu hōtaka"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "일정 표시 방식"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "कार्यक्रम का प्रदर्शन"
-          }
-        }
-      }
-    },
     "Schedule needs confirmation": {
       "localizations": {
         "en": {
@@ -9209,40 +9227,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "काउंसिल या शहर खोजें"
-          }
-        }
-      }
-    },
-    "See your upcoming bin collection at a glance.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "See your upcoming bin collection at a glance."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "下一次垃圾收集，一目了然。"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kia kite wawe i tō kohinga para e tū mai nei."
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "다가오는 수거 일정을 한눈에 확인하세요."
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "आने वाला कचरा संग्रह एक नज़र में देखें।"
           }
         }
       }
@@ -9627,41 +9611,6 @@
         }
       }
     },
-    "Smart reminders": {
-      "extractionState": "stale",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Smart reminders"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "स्मार्ट रिमाइंडर"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "스마트 알림"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Whakamahara atamai"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "智能提醒"
-          }
-        }
-      }
-    },
     "Soil, stones and treated timber": {
       "localizations": {
         "en": {
@@ -9935,6 +9884,41 @@
         }
       }
     },
+    "Swipe right when they are out": {
+      "comment": "VoiceOver hint on the bin picture: swiping right marks the bins as out at the kerb.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swipe right when they are out"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "推出去后向右轻扫"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Whiua ki matau ina kua puta ki waho"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "내놓았으면 오른쪽으로 쓸어넘기세요"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "बाहर रखने के बाद दाईं ओर स्वाइप करें"
+          }
+        }
+      }
+    },
     "Sync to Calendar": {
       "extractionState": "stale",
       "localizations": {
@@ -9966,41 +9950,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sync to Calendar"
-          }
-        }
-      }
-    },
-    "Tap for details": {
-      "extractionState": "stale",
-      "localizations": {
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "विवरण के लिए टैप करें"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "자세한 내용은 탭하세요"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pato mō ngā taipitopito"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "点击查看详情"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tap for details"
           }
         }
       }
@@ -10313,6 +10262,41 @@
         }
       }
     },
+    "The next fortnight": {
+      "comment": "Schedule tab: small uppercase label at the top, above the scrolling strip of the next fourteen days.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The next fortnight"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "接下来两周"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ngā wiki e rua e whai ake nei"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "앞으로 2주"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "अगले दो सप्ताह"
+          }
+        }
+      }
+    },
     "The video could not load. Check your connection, retry, or read the guide above.": {
       "localizations": {
         "en": {
@@ -10347,6 +10331,41 @@
         }
       }
     },
+    "Then %@: %@.": {
+      "comment": "Muted line under the bins about the collection after the next: first %@ a full date such as 'Tuesday 17 November', second the bin list.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Then %@: %@."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "之后%@：%@。"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kātahi ko te %@: %@."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "그다음 %@: %@."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "फिर %@: %@।"
+          }
+        }
+      }
+    },
     "These are common examples. Check the council source for unusual items or changes.": {
       "localizations": {
         "en": {
@@ -10377,6 +10396,41 @@
           "stringUnit": {
             "state": "translated",
             "value": "ये सामान्य उदाहरण हैं। असामान्य सामान या बदलावों के लिए काउंसिल की जानकारी जाँचें।"
+          }
+        }
+      }
+    },
+    "They are at the kerb. Reminders for this collection are off.": {
+      "comment": "Sentence after the bins were marked as out at the kerb; the app has cancelled this collection's reminders.",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "They are at the kerb. Reminders for this collection are off."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "垃圾桶已在路边。本次收集的提醒已关闭。"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kei te taha huarahi ngā ipu. Kua weto ngā whakamaharatanga mō tēnei kohinga."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "쓰레기통을 도로변에 내놓았습니다. 이번 수거 알림은 꺼졌습니다."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "डिब्बे सड़क किनारे हैं। इस संग्रह के अनुस्मारक बंद हैं।"
           }
         }
       }
@@ -10445,41 +10499,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "दो मीटर से कम लंबी लकड़ी, जिसमें कीलें बाहर न निकली हों"
-          }
-        }
-      }
-    },
-    "Time": {
-      "extractionState": "stale",
-      "localizations": {
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "समय"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "시간"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wā"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "时间"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Time"
           }
         }
       }
@@ -10587,71 +10606,72 @@
         }
       }
     },
-    "Unknown": {
-      "extractionState": "stale",
+    "Turn on reminders": {
+      "comment": "Prominent button on Today when app reminders are switched off; opens Settings.",
       "localizations": {
-        "hi": {
+        "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "अज्ञात"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "알 수 없음"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "E kore e mōhiotia"
+            "value": "Turn on reminders"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "未知"
+            "value": "开启提醒"
           }
         },
-        "en": {
+        "mi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Unknown"
+            "value": "Whakakāngia ngā whakamaharatanga"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "알림 켜기"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "अनुस्मारक चालू करें"
           }
         }
       }
     },
-    "Upcoming": {
+    "Undo": {
+      "comment": "Glass button after marking the bins as out; brings them back and restores the reminders.",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Upcoming"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "आगामी"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "예정"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kei Te Haere Mai"
+            "value": "Undo"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "即将到来"
+            "value": "撤销"
+          }
+        },
+        "mi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Whakahokia"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "되돌리기"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "पूर्ववत करें"
           }
         }
       }
@@ -11170,40 +11190,6 @@
         }
       }
     },
-    "What goes in": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "What goes in"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "可投放物品"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ngā mea ka uru"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "넣을 수 있는 품목"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "क्या डालें"
-          }
-        }
-      }
-    },
     "Window glass and mirrors": {
       "localizations": {
         "en": {
@@ -11238,37 +11224,37 @@
         }
       }
     },
-    "Yes, put these in": {
-      "extractionState": "stale",
+    "Yes": {
+      "comment": "Small uppercase heading of the column of items that go in this bin (Guide)",
       "localizations": {
-        "hi": {
+        "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "हाँ, इन्हें अंदर रखें"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "예, 다음 항목은 넣으세요"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Āe, kuhua ēnei"
+            "value": "Yes"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "是的，可以放入"
+            "value": "可放入"
           }
         },
-        "en": {
+        "mi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Yes, put these in"
+            "value": "Āe"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "넣으세요"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "हाँ"
           }
         }
       }
@@ -11853,40 +11839,6 @@
         }
       }
     },
-    "Reminders on": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reminders on"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "提醒已开启"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kei te mahi ngā whakamaharatanga"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "알림 켜짐"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "रिमाइंडर चालू हैं"
-          }
-        }
-      }
-    },
     "Schedule options": {
       "localizations": {
         "en": {
@@ -11951,40 +11903,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Bin Day कैसे काम करता है"
-          }
-        }
-      }
-    },
-    "Schedule and reminder details": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Schedule and reminder details"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "日程和提醒详情"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ngā taipitopito rārangi wā me ngā whakamaharatanga"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "일정 및 알림 세부 정보"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "शेड्यूल और रिमाइंडर विवरण"
           }
         }
       }
@@ -12733,40 +12651,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "मुझ पर लागू नहीं"
-          }
-        }
-      }
-    },
-    "Check the council notice for your property. City centre bags, island and private services differ.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Check the council notice for your property. City centre bags, island and private services differ."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请查看市议会针对您房产的通知。市中心袋装收集、岛屿和私人服务有所不同。"
-          }
-        },
-        "mi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tirohia te pānui a te kaunihera mō tōu whare. He rerekē ngā pēke o te pokapū tāone, ngā motu me ngā ratonga tūmataiti."
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "거주지에 대한 시의회 공지를 확인하세요. 도심 봉투 수거, 섬 및 민간 서비스는 다릅니다."
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "अपनी संपत्ति के लिए काउंसिल की सूचना देखें। शहर के केंद्र के बैग, द्वीप और निजी सेवाएँ अलग हैं।"
           }
         }
       }

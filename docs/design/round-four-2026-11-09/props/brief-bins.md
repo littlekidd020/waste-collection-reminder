@@ -1,0 +1,13 @@
+You are generating production props for an iPhone app prototype called "Bin Day NZ". Use your built-in image generation tool (the latest GPT Image model) once per image below. Do not write code, do not ask questions.
+
+Subject facts: New Zealand kerbside wheelie bins. Body: dark warm charcoal plastic (#4A4036), two black wheels at the back, a moulded handle bar at the top rear. The lid is the only coloured part. Lid colours for this brand, exact: terracotta red #C4573F (rubbish), ochre yellow #D9A441 (recycling), sage green #6E9A5B (food scraps, a smaller 23-litre bin, about half the size of the others), steel blue #5A80A8 (glass crate: an open-top rectangular crate in #5A80A8 with no lid and no wheels, hip height compared with the bins).
+
+Style for every image: soft matte clay 3D render, slightly rounded edges, no gloss or specular hot spots, soft studio light from the upper left, gentle ambient occlusion, a soft contact shadow under each object. Three-quarter front view from slightly above (camera about 15 degrees above horizontal, objects turned about 30 degrees), lens around 50 mm, no perspective distortion. Background: a perfectly uniform flat linen colour #F5F0E8 across the whole image, no gradient, no vignette, no floor line, no horizon, no texture. No text, no labels, no logos, no recycling symbols, no people, no street.
+
+Image 1, file bins-row.png, size 1536x1024 landscape: the four objects standing in one row, left to right: rubbish bin (red lid), recycling bin (yellow lid), food-scraps bin (green lid, half height), glass crate (blue). Evenly spaced with clear gaps of at least 8 percent of the image width between them, nothing overlapping, all with the same camera, scale and lighting, the whole row centred and filling about 85 percent of the width.
+
+Image 2, file bins-trio.png, size 1024x1536 portrait: three objects grouped as a family at a kerb: the recycling bin (yellow lid) in front slightly left, the rubbish bin (red lid) just behind and to the right, the small food-scraps bin (green lid) in front right. Slight overlap is fine. The group fills about 70 percent of the width and sits in the lower two thirds of the frame with empty linen above.
+
+Image 3, file bin-recycling-hero.png, size 1024x1536 portrait: a single recycling bin (yellow lid) standing alone, filling about 60 percent of the width, centred, in the lower two thirds of the frame.
+
+After each image is generated, copy the PNG from your generated-images folder into the current working directory with the exact filename given. When all three files exist in the current working directory, finish with one line per file saying what it shows.

@@ -25,20 +25,32 @@ struct ChangeAddressView: View {
                     AddressEntryView(address: $address, coordinate: $coordinate, councilHint: $councilHint)
                     CouncilRow(council: Binding(get: { council }, set: { council = $0; councilSuggested = false; reviewed = false }), suggested: councilSuggested)
                     Button { showSchedule = true } label: {
-                        Label(L("Review bin schedule"), systemImage: "calendar")
-                            .frame(maxWidth: .infinity, minHeight: 44)
-                    }.buttonStyle(.borderedProminent).tint(AppTheme.buttonFill)
+                        KerbPrimaryButtonLabel(title: L("Review bin schedule"), systemImage: "calendar")
+                    }
+                    .buttonStyle(.glassProminent)
+                    .buttonBorderShape(.capsule)
+                    .tint(Palette.accent)
                     if let zone {
-                        ForEach(zone.schedules) { schedule in
-                            Label(schedule.binType.displayName, systemImage: schedule.binType.systemImage)
+                        VStack(alignment: .leading, spacing: 10) {
+                            ForEach(zone.schedules) { schedule in
+                                CollectionBinRow(bin: schedule.binType)
+                            }
                         }
                     }
+                    Hairline()
                     Text(L("Review the dates whenever your property or collection service changes."))
-                        .foregroundStyle(.secondary)
-                    if let error { Text(error).foregroundStyle(.red) }
-                    if saving { ProgressView(L("Saving schedule")) }
-                }.frame(maxWidth: 600, alignment: .leading).padding(24).frame(maxWidth: .infinity)
+                        .kerbFont(15, relativeTo: .subheadline)
+                        .foregroundStyle(Palette.muted)
+                        .fixedSize(horizontal: false, vertical: true)
+                    if let error { Text(error).foregroundStyle(Palette.attention) }
+                    if saving { ProgressView(L("Saving schedule")).foregroundStyle(Palette.muted) }
+                }
+                .frame(maxWidth: 600, alignment: .leading)
+                .padding(.horizontal, 24)
+                .padding(.vertical, 16)
+                .frame(maxWidth: .infinity)
             }
+            .background { LinenGround() }
             .navigationTitle(L("Change schedule"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -49,6 +61,7 @@ struct ChangeAddressView: View {
                 }
             }
             .interactiveDismissDisabled(saving)
+            .tint(Palette.accent)
             .onAppear {
                 guard !initialized, let profile = profiles.first else { return }
                 initialized = true
