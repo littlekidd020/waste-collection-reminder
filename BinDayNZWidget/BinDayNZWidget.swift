@@ -95,7 +95,10 @@ func widgetBinName(_ bin: BinType, languageCode: String) -> String {
     switch bin {
     case .rubbish: return WL("Rubbish", languageCode: languageCode)
     case .recycling: return WL("Recycling", languageCode: languageCode)
+    case .glass: return WL("Glass", languageCode: languageCode)
     case .foodScraps: return WL("Food Scraps", languageCode: languageCode)
+    case .gardenWaste: return WL("Garden Waste", languageCode: languageCode)
+    case .organics: return WL("Food and Garden Waste", languageCode: languageCode)
     case .inorganic: return WL("Inorganic Collection", languageCode: languageCode)
     }
 }

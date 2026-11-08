@@ -12,7 +12,7 @@ Never miss recycling week
 
 ## Promotional text
 
-Rubbish, recycling and food scraps, sorted for your Auckland household. Set each bin once, then let a reminder, a widget or your calendar tell you what goes out tonight.
+Rubbish, recycling, glass and food scraps, sorted for your New Zealand household. Set each bin once, then let a reminder, a widget or your calendar tell you what goes out tonight.
 
 ## Description
 
@@ -22,14 +22,14 @@ Never wonder whether it's recycling week again. Bin Day NZ shows what goes out n
 - Widgets: the next collection on your home screen or lock screen.
 - Calendar: optional recurring events in Apple Calendar, or a 90-day .ics export.
 - Holidays: move or skip a single collection without changing the regular schedule.
-- Sorting guide: what goes in which bin in Auckland, with links to the official sources.
+- Sorting guide: what goes in which bin for your council, with links to the official sources.
 - Five languages: English, Te Reo Māori, Simplified Chinese, Hindi and Korean.
 
-Good to know: you set each bin's schedule yourself after checking Auckland Council's website, which remains the source for your dates; Bin Day NZ doesn't fetch them for you. It's made for Auckland Council kerbside collections, so shared bins, private services and island collections may differ. Reminders are scheduled in batches and renew whenever you open the app, so open it now and then. Adding your address is optional and only labels your schedule. There's no account, no ads and no tracking, and everything stays on your device.
+Good to know: you set each bin's schedule yourself after checking your council's website, which remains the source for your dates; Bin Day NZ doesn't fetch them for you. It's made for Auckland Council kerbside collections, so shared bins, private services and island collections may differ. Reminders are scheduled in batches and renew whenever you open the app, so open it now and then. Adding your address is optional and only labels your schedule. There's no account, no ads and no tracking, and everything stays on your device.
 
 ## Keywords
 
-rubbish,recycling,food scraps,collection,reminder,widget,Auckland,council,kerbside,calendar,waste
+rubbish,recycling,food scraps,collection,reminder,widget,council,kerbside,calendar,waste,NZ
 
 ## What's New in 1.2
 

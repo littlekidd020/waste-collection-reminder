@@ -20,6 +20,7 @@ struct TodayView: View {
     private var currentZone: CollectionZone? {
         profile.flatMap { DataService.shared.zone(for: $0) }
     }
+    private var council: Council? { profile.flatMap { DataService.shared.council(for: $0) } }
 
     var body: some View {
         NavigationStack {
@@ -39,12 +40,14 @@ struct TodayView: View {
                                 )
                             }
 
-                            ForEach(HolidayShiftService.suggestions(for: zone, now: context.date, dismissed: dismissedHolidays)) { suggestion in
-                                HolidayShiftCard(suggestion: suggestion) {
+                            if let council {
+                            ForEach(HolidayShiftService.suggestions(for: zone, council: council, now: context.date, dismissed: dismissedHolidays)) { suggestion in
+                                HolidayShiftCard(suggestion: suggestion, council: council) {
                                     applyHoliday(suggestion, zone: zone, profile: profile)
                                 } onDismiss: {
                                     dismissHoliday(suggestion.holiday.id)
                                 }
+                            }
                             }
 
                             ScheduleStatusCard(profile: profile, coordinator: coordinator, now: context.date) {
@@ -99,8 +102,10 @@ struct TodayView: View {
                             Button { showChangeAddress = true } label: {
                                 Label(L("Change schedule"), systemImage: "calendar.badge.clock")
                             }
-                            Button { showCouncil = true } label: {
-                                Label(L("Check dates with Auckland Council"), systemImage: "safari")
+                            if let council {
+                                Button { showCouncil = true } label: {
+                                    Label(L("Check dates with %@", council.name), systemImage: "safari")
+                                }
                             }
                             Button { showHowItWorks = true } label: {
                                 Label(L("How Bin Day works"), systemImage: "questionmark.circle")
@@ -112,10 +117,10 @@ struct TodayView: View {
                 }
             }
             .sheet(isPresented: $showChangeAddress) { ChangeAddressView() }
-            .sheet(isPresented: $showCouncil) { SafariView(url: DataService.collectionURL).ignoresSafeArea() }
+            .sheet(isPresented: $showCouncil) { SafariView(url: (council ?? CouncilDirectory.auckland).collectionDayURL).ignoresSafeArea() }
             .sheet(isPresented: $showHowItWorks) {
                 NavigationStack {
-                    HowItWorksView()
+                    HowItWorksView(council: council)
                         .toolbar {
                             ToolbarItem(placement: .confirmationAction) {
                                 Button(L("Done")) { showHowItWorks = false }
@@ -142,7 +147,7 @@ extension TodayView {
         guard let updated = HolidayShiftService.applying(suggestion, to: zone) else { return }
         let coordinate = profile.latitude.flatMap { lat in profile.longitude.map { CLLocationCoordinate2D(latitude: lat, longitude: $0) } }
         Task { @MainActor in
-            try? await ScheduleCoordinator.shared.save(zone: updated, address: profile.address, coordinate: coordinate, profile: profile, context: modelContext)
+            try? await ScheduleCoordinator.shared.save(zone: updated, council: nil, address: profile.address, coordinate: coordinate, profile: profile, context: modelContext)
         }
     }
 

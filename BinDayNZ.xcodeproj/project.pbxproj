@@ -25,6 +25,7 @@
 		37983968D045BF4BB40D50D6 /* CollectionSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9A60E42058263ACDAEBFB1 /* CollectionSchedule.swift */; };
 		3998D1D53B3A8FF746BA0411 /* BinDayNZApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C602DACDBD7E8EE18AE3CE8 /* BinDayNZApp.swift */; };
 		3CFC545E5BD0EE6E346A8732 /* YouTubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D920A1591CACFDFC73236 /* YouTubePlayerView.swift */; };
+		480598E301C3D1C0D766BA2B /* CouncilPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F7738B97E9A3EEFC2FB40 /* CouncilPickerView.swift */; };
 		4BB0E3D5331AA395E142D447 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FD07FF4983F4C665BB7129 /* NotificationService.swift */; };
 		528B42112604697BB537FC75 /* ShareAndHolidayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0FA664B09ED906518E27A3 /* ShareAndHolidayTests.swift */; };
 		558AB47D183F2DF406216976 /* ReminderEnhancementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A1B03B3421B25702E9F341 /* ReminderEnhancementTests.swift */; };
@@ -53,14 +54,17 @@
 		B1F70522EB5F06CEE21501BD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8198819FA539DE5E1BC01095 /* DataService.swift */; };
 		C007FEF2D733813801F2CA24 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D0140EEFE5E60E4F90F16E /* SafariView.swift */; };
 		C239A772D542C2F70232AB1A /* NotificationSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D767777DC0FBB857780378 /* NotificationSetupView.swift */; };
+		C37045B3C522A702F9D5C9B2 /* CouncilDirectoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEEB08A26009D0AB989A996 /* CouncilDirectoryTests.swift */; };
 		C6F3F62A522E4844B4BEDE9F /* ChangeAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795E5ABEDEE853158CDDD5A6 /* ChangeAddressView.swift */; };
 		C7C7E62F89F506DDAF218CE3 /* BinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63FC860715FB04548D4018 /* BinType.swift */; };
 		CFFE3D3C3ED24C67DD261848 /* HolidayShiftService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D09925A02318365407402 /* HolidayShiftService.swift */; };
+		D3ADB5AA57A69C0FFBDAAFFB /* Council.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CAC95B09A5F5A84E48D8E5 /* Council.swift */; };
 		D3D97E7763801229DBA16BF3 /* WidgetDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F8E851134A06FD1218E62 /* WidgetDataService.swift */; };
 		E2A0B345C9E3D2BA9C21011D /* StoreScreenshotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200AC701D54B7779047D39B4 /* StoreScreenshotUITests.swift */; };
 		E61055A92FD976DE88D302F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079C527AB8285CC13EC2D3A9 /* Assets.xcassets */; };
 		E67835E50514A813A8D17FC9 /* ManualScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D876C6B543CB4D429F85BD0 /* ManualScheduleTests.swift */; };
 		E8645849DF33D38465AADC89 /* WidgetSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24547698AABA70EF5702D8A3 /* WidgetSnapshotTests.swift */; };
+		E8FA19E1927D8ED6A6DA7932 /* BinGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD0C180D336009DE61F12AE /* BinGuide.swift */; };
 		EA7820F4901348315E0D3725 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C07D04B413ED8137B3343 /* AppTheme.swift */; };
 		EA81FACE880924D030FBE7D9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86F7B1F948D914CDE091F64F /* InfoPlist.strings */; };
 		ED2D6A5ABFE81D0E72A5614C /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371A2E571D2CC3555A5DE94 /* ScheduleView.swift */; };
@@ -117,6 +121,7 @@
 		079C527AB8285CC13EC2D3A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AEB2B82BAD9A55AC1E5B270 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0C27F35021B72FEF1E003734 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		0DD0C180D336009DE61F12AE /* BinGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGuide.swift; sourceTree = "<group>"; };
 		200AC701D54B7779047D39B4 /* StoreScreenshotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreScreenshotUITests.swift; sourceTree = "<group>"; };
 		24547698AABA70EF5702D8A3 /* WidgetSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSnapshotTests.swift; sourceTree = "<group>"; };
 		28296697ED8CE2E0779EA0A8 /* WidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
@@ -128,6 +133,7 @@
 		3171925657295B428771F83D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		3658B5D07D5553171D68A9DB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3E7F1DE590C656A3B5B1C84F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		3F8F7738B97E9A3EEFC2FB40 /* CouncilPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouncilPickerView.swift; sourceTree = "<group>"; };
 		40BA1B37C5F1B9EAAFFD0CE4 /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
 		4C1D865B0B57CE06228046D6 /* BinDayNZWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = BinDayNZWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D178E60E1478050531170C3 /* HowItWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowItWorksView.swift; sourceTree = "<group>"; };
@@ -165,8 +171,10 @@
 		BCF0EBB5534BAAFC527436D4 /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
 		C5212870E41E8360D0D4DE7B /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		CE056C6AE9E1CF7CE1E839D6 /* AppLanguageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguageTests.swift; sourceTree = "<group>"; };
+		DBEEB08A26009D0AB989A996 /* CouncilDirectoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouncilDirectoryTests.swift; sourceTree = "<group>"; };
 		E18EB3CD492EB680A9ED55C5 /* ManualScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualScheduleView.swift; sourceTree = "<group>"; };
 		E28D09925A02318365407402 /* HolidayShiftService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayShiftService.swift; sourceTree = "<group>"; };
+		E6CAC95B09A5F5A84E48D8E5 /* Council.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Council.swift; sourceTree = "<group>"; };
 		E933392050D92A2A4AAC3C67 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		E9EB0C7B256FD11353256705 /* BinDayNZTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = BinDayNZTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB730791D2782DB4D6393E38 /* SetupCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCompleteView.swift; sourceTree = "<group>"; };
@@ -296,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				2E9F90236ACD3D623964FF56 /* AddressSearchView.swift */,
+				3F8F7738B97E9A3EEFC2FB40 /* CouncilPickerView.swift */,
 				E18EB3CD492EB680A9ED55C5 /* ManualScheduleView.swift */,
 				81D767777DC0FBB857780378 /* NotificationSetupView.swift */,
 				40BA1B37C5F1B9EAAFFD0CE4 /* OnboardingContainerView.swift */,
@@ -328,9 +337,11 @@
 		D3AC5940B5E199A0E6047808 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0DD0C180D336009DE61F12AE /* BinGuide.swift */,
 				7F63FC860715FB04548D4018 /* BinType.swift */,
 				7E9A60E42058263ACDAEBFB1 /* CollectionSchedule.swift */,
 				8E642DD6D95F4AFE57B88231 /* CollectionZone.swift */,
+				E6CAC95B09A5F5A84E48D8E5 /* Council.swift */,
 				054562B446E399A964099556 /* UpcomingCollection.swift */,
 				E933392050D92A2A4AAC3C67 /* UserProfile.swift */,
 			);
@@ -343,6 +354,7 @@
 				CE056C6AE9E1CF7CE1E839D6 /* AppLanguageTests.swift */,
 				96436C5B41C44A9334497A0B /* CalendarSafetyTests.swift */,
 				EFBEC462C449EA3CF1E9DFB8 /* ChangeAddressMapTests.swift */,
+				DBEEB08A26009D0AB989A996 /* CouncilDirectoryTests.swift */,
 				5F3FF0D355A1E34BC674B9A9 /* IconographyTests.swift */,
 				2D876C6B543CB4D429F85BD0 /* ManualScheduleTests.swift */,
 				97A1B03B3421B25702E9F341 /* ReminderEnhancementTests.swift */,
@@ -529,6 +541,7 @@
 				1E80945FBB5B98372C0F03C7 /* AppLanguageTests.swift in Sources */,
 				B183C1B5DF59057C379EDB41 /* CalendarSafetyTests.swift in Sources */,
 				1C24FE63A7D2C20742A79317 /* ChangeAddressMapTests.swift in Sources */,
+				C37045B3C522A702F9D5C9B2 /* CouncilDirectoryTests.swift in Sources */,
 				A3C9FF54690FC1B5DAB50A8F /* IconographyTests.swift in Sources */,
 				E67835E50514A813A8D17FC9 /* ManualScheduleTests.swift in Sources */,
 				558AB47D183F2DF406216976 /* ReminderEnhancementTests.swift in Sources */,
@@ -562,6 +575,7 @@
 				0DF140FD8725EBD5A591685A /* AddressSearchView.swift in Sources */,
 				EA7820F4901348315E0D3725 /* AppTheme.swift in Sources */,
 				3998D1D53B3A8FF746BA0411 /* BinDayNZApp.swift in Sources */,
+				E8FA19E1927D8ED6A6DA7932 /* BinGuide.swift in Sources */,
 				323A0BE16180FB1FE1A2824F /* BinLidChip.swift in Sources */,
 				9C201D63962ABA47C85F09E9 /* BinType.swift in Sources */,
 				95DE6BE377D626897882D4B7 /* CalendarService.swift in Sources */,
@@ -569,6 +583,8 @@
 				37983968D045BF4BB40D50D6 /* CollectionSchedule.swift in Sources */,
 				25DD0C6D7435B3873ABE4EA3 /* CollectionZone.swift in Sources */,
 				9F5164613747F9C8B43B76EC /* ContentView.swift in Sources */,
+				D3ADB5AA57A69C0FFBDAAFFB /* Council.swift in Sources */,
+				480598E301C3D1C0D766BA2B /* CouncilPickerView.swift in Sources */,
 				B1F70522EB5F06CEE21501BD /* DataService.swift in Sources */,
 				AF093EA9D9213A0FB4F89101 /* HolidayShiftCard.swift in Sources */,
 				CFFE3D3C3ED24C67DD261848 /* HolidayShiftService.swift in Sources */,

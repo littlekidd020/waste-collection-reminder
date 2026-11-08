@@ -8,6 +8,7 @@ struct ContentView: View {
     @Query private var profiles: [UserProfile]
     @State private var storageError = false
     @State private var sharedZone: CollectionZone?
+    @State private var sharedCouncil: Council?
 
     var body: some View {
         Group {
@@ -47,13 +48,17 @@ struct ContentView: View {
         .environment(\.timeZone, ScheduleEngine.collectionCalendar.timeZone)
         .tint(AppTheme.accent)
         .onOpenURL { url in
-            if let zone = ScheduleLink.zone(from: url) { sharedZone = zone }
+            if let zone = ScheduleLink.zone(from: url) {
+                sharedCouncil = ScheduleLink.council(from: url)
+                sharedZone = zone
+            }
         }
         .sheet(item: $sharedZone) { zone in
-            ManualScheduleView(initialZone: zone, intro: L("Review this shared schedule, then confirm it matches your property.")) { confirmed in
+            let council = sharedCouncil ?? profiles.first.flatMap { DataService.shared.council(for: $0) }
+            ManualScheduleView(initialZone: zone, council: council, intro: L("Review this shared schedule, then confirm it matches your property.")) { confirmed in
                 guard let profile = profiles.first else { return }
                 Task { @MainActor in
-                    try? await ScheduleCoordinator.shared.save(zone: confirmed, address: profile.address, coordinate: nil, profile: profile, context: modelContext)
+                    try? await ScheduleCoordinator.shared.save(zone: confirmed, council: council, address: profile.address, coordinate: nil, profile: profile, context: modelContext)
                 }
             }
         }

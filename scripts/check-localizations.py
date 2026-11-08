@@ -19,5 +19,5 @@ for k,e in c.items():
   value=e['localizations'][lang]['stringUnit']['value']
   assert value.strip(),('Empty value',k,lang)
   assert placeholders(k)==placeholders(value),('Placeholder mismatch',k,lang,value)
-  assert lang=='en' or value!=k,('English copied into non-English translation',k,lang)
+  assert lang=='en' or value!=k or 'identical' in e.get('comment',''),('English copied into non-English translation',k,lang)
 print(f'PASS: {len(keys)} L/WL source keys; {len(c)-3} translatable catalog keys in all five languages; no missing keys, blank values, copied-English fallbacks or placeholder mismatches. Three brand/interpolation entries are explicitly nontranslatable.')

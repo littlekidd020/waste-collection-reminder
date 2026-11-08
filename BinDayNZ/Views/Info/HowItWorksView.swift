@@ -2,13 +2,21 @@ import SwiftUI
 
 /// Every boundary statement once, in one place. Other screens link here instead of repeating it.
 struct HowItWorksView: View {
+    var council: Council? = nil
+
     var body: some View {
         List {
             Section(L("Your schedule")) {
-                Text(L("Bin Day NZ shows the schedule you saved. Auckland Council's website is the source for your property's collection dates."))
+                if let council {
+                    Text(L("Bin Day NZ shows the schedule you saved. The source for your property's collection dates is %@.", council.name))
+                } else {
+                    Text(L("Bin Day NZ shows the schedule you saved. Your council's website is the source for your property's collection dates."))
+                }
                 Text(L("Dates follow your saved schedule. Add any council-confirmed changes in Change schedule."))
                 Text(L("An address labels your schedule. It does not set or verify your collection dates."))
-                Link(L("Check dates with Auckland Council"), destination: DataService.collectionURL)
+                if let council {
+                    Link(L("Check dates with %@", council.name), destination: council.collectionDayURL)
+                }
             }
 
             Section(L("Notifications")) {
@@ -28,8 +36,9 @@ struct HowItWorksView: View {
             }
 
             Section(L("Coverage")) {
-                Text(L("For Auckland Council kerbside collections. Shared bins, private services and island collections may have different arrangements."))
-                NavigationLink(L("Privacy and Help")) { PrivacyView() }
+                Text(L("For council kerbside collections anywhere in New Zealand. Shared bins, private services and rural or island collections may have different arrangements."))
+                Text(L("Holiday changes are applied automatically only where the council publishes one clear rule. Elsewhere the app shows the affected dates and links the council notice."))
+                NavigationLink(L("Privacy and Help")) { PrivacyView(council: council) }
             }
         }
         .navigationTitle(L("How Bin Day works"))

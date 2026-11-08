@@ -8,6 +8,9 @@ struct ChangeAddressView: View {
     @Query private var profiles: [UserProfile]
     @State private var address = ""
     @State private var coordinate: CLLocationCoordinate2D?
+    @State private var council: Council?
+    @State private var councilHint: Council?
+    @State private var councilSuggested = false
     @State private var zone: CollectionZone?
     @State private var showSchedule = false
     @State private var saving = false
@@ -19,7 +22,8 @@ struct ChangeAddressView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    AddressEntryView(address: $address, coordinate: $coordinate)
+                    AddressEntryView(address: $address, coordinate: $coordinate, councilHint: $councilHint)
+                    CouncilRow(council: Binding(get: { council }, set: { council = $0; councilSuggested = false; reviewed = false }), suggested: councilSuggested)
                     Button { showSchedule = true } label: {
                         Label(L("Review bin schedule"), systemImage: "calendar")
                             .frame(maxWidth: .infinity, minHeight: 44)
@@ -41,7 +45,7 @@ struct ChangeAddressView: View {
                 ToolbarItem(placement: .cancellationAction) { Button(L("Cancel")) { dismiss() }.disabled(saving) }
                 ToolbarItem(placement: .confirmationAction) {
                     Button(L("Save")) { Task { await save() } }
-                        .disabled(saving || !reviewed || zone?.isValid != true)
+                        .disabled(saving || !reviewed || zone?.isValid != true || council == nil)
                 }
             }
             .interactiveDismissDisabled(saving)
@@ -51,10 +55,15 @@ struct ChangeAddressView: View {
                 address = profile.address ?? ""
                 if let latitude = profile.latitude, let longitude = profile.longitude { coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude) }
                 zone = DataService.shared.zone(for: profile)
+                council = DataService.shared.council(for: profile)
             }
             .onChange(of: address) { _, _ in reviewed = false }
+            .onChange(of: councilHint) { _, hint in
+                guard let hint, council == nil || councilSuggested else { return }
+                council = hint; councilSuggested = true; reviewed = false
+            }
             .sheet(isPresented: $showSchedule) {
-                ManualScheduleView(initialZone: zone) { zone = $0; reviewed = true }
+                ManualScheduleView(initialZone: zone, council: council) { zone = $0; reviewed = true }
             }
         }
     }
@@ -64,7 +73,7 @@ struct ChangeAddressView: View {
         saving = true
         defer { saving = false }
         do {
-            try await ScheduleCoordinator.shared.save(zone: zone, address: address, coordinate: coordinate, profile: profile, context: context)
+            try await ScheduleCoordinator.shared.save(zone: zone, council: council, address: address, coordinate: coordinate, profile: profile, context: context)
             dismiss() // Integration errors are visible in Today/Settings; the schedule did save.
         } catch { self.error = L("Your schedule could not be saved. Please try again.") }
     }

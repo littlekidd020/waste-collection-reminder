@@ -9,6 +9,7 @@ struct OnboardingContainerView: View {
     @State private var scheduleReviewed = false
     @State private var selectedAddress: String?
     @State private var selectedCoordinate: CLLocationCoordinate2D?
+    @State private var selectedCouncil: Council?
 
     var body: some View {
         NavigationStack {
@@ -23,10 +24,10 @@ struct OnboardingContainerView: View {
                 case 0:
                     WelcomeView(language: $profile.language, onContinue: { currentPage = 1 })
                 case 1:
-                    AddressSearchView(selectedZone: $selectedZone, selectedAddress: $selectedAddress, selectedCoordinate: $selectedCoordinate, scheduleReviewed: $scheduleReviewed, onBack: { currentPage = 0 }, onContinue: { currentPage = 2 })
+                    AddressSearchView(selectedZone: $selectedZone, selectedAddress: $selectedAddress, selectedCoordinate: $selectedCoordinate, selectedCouncil: $selectedCouncil, scheduleReviewed: $scheduleReviewed, onBack: { currentPage = 0 }, onContinue: { currentPage = 2 })
                 default:
                     if let zone = selectedZone {
-                        NotificationSetupView(profile: profile, zone: zone, address: selectedAddress ?? "", coordinate: selectedCoordinate, onBack: { currentPage = 1 })
+                        NotificationSetupView(profile: profile, zone: zone, council: selectedCouncil, address: selectedAddress ?? "", coordinate: selectedCoordinate, onBack: { currentPage = 1 })
                     }
                 }
                 }
@@ -38,6 +39,7 @@ struct OnboardingContainerView: View {
         }
         .onAppear {
             selectedAddress = profile.address
+            selectedCouncil = DataService.shared.council(for: profile)
             if let latitude = profile.latitude, let longitude = profile.longitude { selectedCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude) }
             // Existing ambiguous/parity-only data requires review; it is never guessed into an anchor.
             if profile.hasCompletedOnboarding { currentPage = 1 }

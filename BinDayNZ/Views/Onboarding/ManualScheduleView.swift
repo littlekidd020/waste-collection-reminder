@@ -7,20 +7,29 @@ struct ManualScheduleView: View {
     @State private var enabled: Set<BinType>
     @State private var confirmed = false
     @State private var showCouncil = false
+    let council: Council?
     let intro: String?
     let onSave: (CollectionZone) -> Void
 
-    init(initialZone: CollectionZone? = nil, intro: String? = nil, onSave: @escaping (CollectionZone) -> Void) {
+    /// Every regular kerbside bin, with the council's own services first and switched on for a new schedule.
+    static func editableBins(for council: Council?) -> (all: [BinType], offered: [BinType]) {
+        let standard: [BinType] = [.rubbish, .recycling, .glass, .foodScraps, .gardenWaste, .organics]
+        let offered = (council?.services ?? [.rubbish, .recycling, .foodScraps]).filter { $0 != .inorganic }
+        return (offered + standard.filter { !offered.contains($0) }, offered)
+    }
+
+    init(initialZone: CollectionZone? = nil, council: Council? = nil, intro: String? = nil, onSave: @escaping (CollectionZone) -> Void) {
         self.onSave = onSave
+        self.council = council
         self.intro = intro
         let calendar = ScheduleEngine.collectionCalendar
         let nextDate = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 1, to: Date())!)
-        let bins: [BinType] = [.rubbish, .recycling, .foodScraps]
-        _schedules = State(initialValue: bins.map { bin in
+        let bins = Self.editableBins(for: council)
+        _schedules = State(initialValue: bins.all.map { bin in
             initialZone?.schedules.first(where: { $0.binType == bin })
-                ?? CollectionSchedule(id: bin.rawValue, binType: bin, frequency: bin == .recycling ? .fortnightly : .weekly, anchorDate: nextDate)
+                ?? CollectionSchedule(id: bin.rawValue, binType: bin, frequency: bin == .recycling || bin == .glass ? .fortnightly : .weekly, anchorDate: nextDate)
         })
-        _enabled = State(initialValue: Set(initialZone?.schedules.map(\.binType) ?? bins))
+        _enabled = State(initialValue: Set(initialZone?.schedules.map(\.binType) ?? bins.offered))
     }
 
     private var zone: CollectionZone { DataService.shared.manualZone(schedules: schedules.filter { enabled.contains($0.binType) }) }
@@ -31,8 +40,14 @@ struct ManualScheduleView: View {
                 Section {
                     if let intro { Text(intro).font(.headline) }
                     Text(L("Check the regular collection dates for your property, then set each bin below. Add holiday or disruption changes separately."))
-                    Button(L("Check dates with Auckland Council")) { showCouncil = true }
-                    Text(L("Dates and reminder times use Auckland time. Address search does not verify collection dates."))
+                    if let council {
+                        Button(L("Check dates with %@", council.name)) { showCouncil = true }
+                        if !council.usesMainlandTime {
+                            Text(L("Chatham Islands time is 45 minutes ahead. Reminder times follow mainland New Zealand time."))
+                                .font(.footnote).foregroundStyle(.secondary)
+                        }
+                    }
+                    Text(L("Dates and reminder times use New Zealand time. Address search does not verify collection dates."))
                         .font(.footnote).foregroundStyle(.secondary)
                 }
                 ForEach($schedules) { $schedule in
@@ -81,7 +96,7 @@ struct ManualScheduleView: View {
                 }
             }
             .onChange(of: schedules) { _, _ in confirmed = false }
-            .sheet(isPresented: $showCouncil) { SafariView(url: DataService.collectionURL).ignoresSafeArea() }
+            .sheet(isPresented: $showCouncil) { SafariView(url: (council ?? CouncilDirectory.auckland).collectionDayURL).ignoresSafeArea() }
         }
         .environment(\.calendar, ScheduleEngine.collectionCalendar)
         .environment(\.timeZone, ScheduleEngine.collectionCalendar.timeZone)

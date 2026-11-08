@@ -5,6 +5,7 @@ import CoreLocation
 struct NotificationSetupView: View {
     @Bindable var profile: UserProfile
     let zone: CollectionZone
+    let council: Council?
     let address: String
     let coordinate: CLLocationCoordinate2D?
     let onBack: () -> Void
@@ -55,7 +56,7 @@ struct NotificationSetupView: View {
             _ = await NotificationService.shared.requestPermission()
         }
         do {
-            try await ScheduleCoordinator.shared.save(zone: zone, address: address, coordinate: coordinate, profile: profile, context: modelContext)
+            try await ScheduleCoordinator.shared.save(zone: zone, council: council, address: address, coordinate: coordinate, profile: profile, context: modelContext)
             pendingSetupComplete = true
         } catch {
             errorMessage = L("Your schedule could not be saved. Please try again.")

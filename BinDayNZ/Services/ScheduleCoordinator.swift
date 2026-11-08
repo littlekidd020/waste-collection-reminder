@@ -12,11 +12,12 @@ final class ScheduleCoordinator {
     private(set) var hasCheckedAuthorization = false
     private var refreshAgain = false
 
-    func save(zone: CollectionZone, address: String?, coordinate: CLLocationCoordinate2D?, profile: UserProfile, context: ModelContext) async throws {
+    /// A nil council keeps the saved one, so a shared link or holiday change never drops it.
+    func save(zone: CollectionZone, council: Council?, address: String?, coordinate: CLLocationCoordinate2D?, profile: UserProfile, context: ModelContext) async throws {
         let json = try DataService.shared.encodedManualSchedules(from: zone)
         profile.manualSchedulesJSON = json
         profile.zoneId = DataService.manualZoneID
-        profile.councilId = DataService.aucklandCouncilID
+        if let council { profile.councilId = council.id }
         profile.address = address?.trimmingCharacters(in: .whitespacesAndNewlines).nilIfEmpty
         profile.latitude = coordinate?.latitude
         profile.longitude = coordinate?.longitude

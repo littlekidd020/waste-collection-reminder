@@ -9,6 +9,7 @@ struct SetupCompleteView: View {
     private let engine = ScheduleEngine()
 
     private var zone: CollectionZone? { profiles.first.flatMap { DataService.shared.zone(for: $0) } }
+    private var council: Council? { profiles.first.flatMap { DataService.shared.council(for: $0) } }
 
     var body: some View {
         NavigationStack {
@@ -40,7 +41,7 @@ struct SetupCompleteView: View {
                             .foregroundStyle(.secondary)
                     }
 
-                    if let zone, let text = ScheduleLink.shareText(for: zone) {
+                    if let zone, let text = ScheduleLink.shareText(for: zone, council: council) {
                         SetupCompleteCard(symbol: "square.and.arrow.up", title: L("Share with your household"),
                                           message: L("Everyone on your street has the same bin days. Send your schedule so they can add it in one tap.")) {
                             ShareLink(item: text) {

@@ -16,6 +16,7 @@ struct ScheduleView: View {
     private var currentZone: CollectionZone? {
         profiles.first.flatMap { DataService.shared.zone(for: $0) }
     }
+    private var council: Council? { profiles.first.flatMap { DataService.shared.council(for: $0) } }
     private var year: Int { calendar.component(.year, from: displayedMonth) }
     private var month: Int { calendar.component(.month, from: displayedMonth) }
     private var monthCollections: [Int: [BinType]] {
@@ -60,8 +61,10 @@ struct ScheduleView: View {
                                 Button(L("Change schedule")) { showChangeAddress = true }
                                     .buttonStyle(.bordered)
                                     .controlSize(.large)
-                                Link(L("Check dates with Auckland Council"), destination: DataService.collectionURL)
-                                    .frame(minHeight: 44, alignment: .leading)
+                                if let council {
+                                    Link(L("Check dates with %@", council.name), destination: council.collectionDayURL)
+                                        .frame(minHeight: 44, alignment: .leading)
+                                }
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.horizontal, 12)

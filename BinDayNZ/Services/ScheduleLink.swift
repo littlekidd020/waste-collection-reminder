@@ -18,14 +18,16 @@ enum ScheduleLink {
         return formatter
     }
 
-    /// Regular cycles only. One-off changes are property specific and are not shared.
-    static func url(for zone: CollectionZone) -> URL? {
+    /// Regular cycles only. One-off changes are property specific and are not shared; the council is.
+    static func url(for zone: CollectionZone, council: Council? = nil) -> URL? {
         guard zone.isValid else { return nil }
         let formatter = dayFormatter
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
-        components.queryItems = [URLQueryItem(name: "v", value: version)] + zone.schedules.map { schedule in
+        components.queryItems = [URLQueryItem(name: "v", value: version)]
+            + (council.map { [URLQueryItem(name: "c", value: $0.id)] } ?? [])
+            + zone.schedules.map { schedule in
             let cycle = schedule.frequency == .weekly ? "w" : "f"
             return URLQueryItem(name: "b", value: "\(schedule.binType.rawValue).\(cycle).\(formatter.string(from: schedule.anchorDate))")
         }
@@ -50,11 +52,19 @@ enum ScheduleLink {
         return zone.isValid ? zone : nil
     }
 
+    /// The council named in a link, if it is one the app knows.
+    static func council(from url: URL) -> Council? {
+        guard url.scheme?.lowercased() == scheme, url.host?.lowercased() == host,
+              let items = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems else { return nil }
+        return CouncilDirectory.council(id: items.first { $0.name == "c" }?.value)
+    }
+
     /// Text for the share sheet. The schedule is spelled out first so the message is useful on any phone;
     /// the app link follows for iPhone, then the store link for everyone else.
-    static func shareText(for zone: CollectionZone, now: Date = Date()) -> String? {
-        guard let url = url(for: zone) else { return nil }
-        let lines = [L("My Auckland bin schedule from Bin Day NZ:")] + scheduleLines(for: zone, now: now)
+    static func shareText(for zone: CollectionZone, council: Council?, now: Date = Date()) -> String? {
+        guard let url = url(for: zone, council: council) else { return nil }
+        let heading = council.map { L("My bin schedule from Bin Day NZ (%@):", $0.name) } ?? L("My bin schedule from Bin Day NZ:")
+        let lines = [heading] + scheduleLines(for: zone, now: now)
             + [L("Open on iPhone to add it: %@", url.absoluteString), L("Get the app: %@", appStoreURL.absoluteString)]
         return lines.joined(separator: "\n")
     }

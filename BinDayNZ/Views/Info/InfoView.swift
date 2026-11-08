@@ -1,9 +1,14 @@
 import SwiftUI
+import SwiftData
 
-/// Locally available Auckland guides, with optional council videos and resources.
+/// Locally available bin guides for the saved council, with Auckland's optional videos and resources.
 struct InfoView: View {
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    @Query private var profiles: [UserProfile]
     @State private var selectedBin: BinType?
+
+    private var council: Council? { profiles.first.flatMap { DataService.shared.council(for: $0) } }
+    private var isAuckland: Bool { council == CouncilDirectory.auckland }
 
     private var columns: [GridItem] {
         Array(repeating: GridItem(.flexible(), spacing: 12), count: dynamicTypeSize.isAccessibilitySize ? 1 : 2)
@@ -16,12 +21,13 @@ struct InfoView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(L("Bin Guide"))
                             .font(.title2.bold())
-                        Text(L("Auckland Council guidance. Written guides are available offline."))
+                        Text(council.map { L("Kerbside guidance for %@. Written guides are available offline.", $0.name) }
+                             ?? L("Kerbside guidance. Written guides are available offline."))
                             .foregroundStyle(.secondary)
                     }
 
                     LazyVGrid(columns: columns, spacing: 12) {
-                        ForEach(BinType.allCases) { bin in
+                        ForEach(BinType.guideBins(for: council)) { bin in
                             BinGuideCard(binType: bin) { selectedBin = bin }
                         }
                     }
@@ -45,25 +51,32 @@ struct InfoView: View {
                     VStack(alignment: .leading, spacing: 12) {
                         Text(L("Resources"))
                             .font(.headline)
-                        Link(destination: URL(string: "https://www.aucklandcouncil.govt.nz/rubbish-recycling")!) {
-                            resourceLabel(L("Auckland Council Website"), icon: "globe")
+                        if let council {
+                            Link(destination: council.website) {
+                                resourceLabel(L("Council website"), icon: "globe")
+                            }
+                            Link(destination: council.collectionDayURL) {
+                                resourceLabel(L("Check dates with %@", council.name), icon: "safari")
+                            }
                         }
-                        Link(destination: DataService.missedCollectionURL) {
-                            resourceLabel(L("Report a missed collection"), icon: "exclamationmark.bubble")
-                        }
-                        Link(destination: DataService.inorganicBookingURL) {
-                            resourceLabel(L("Book an inorganic collection"), icon: "shippingbox")
-                        }
-                        Link(destination: URL(string: "https://www.aucklandcouncil.govt.nz/en/rubbish-recycling/get-rid-unwanted-items.html")!) {
-                            resourceLabel(L("Find where an item goes"), icon: "magnifyingglass")
+                        if isAuckland {
+                            Link(destination: DataService.aucklandMissedCollectionURL) {
+                                resourceLabel(L("Report a missed collection"), icon: "exclamationmark.bubble")
+                            }
+                            Link(destination: DataService.aucklandInorganicBookingURL) {
+                                resourceLabel(L("Book an inorganic collection"), icon: "shippingbox")
+                            }
+                            Link(destination: DataService.aucklandItemFinderURL) {
+                                resourceLabel(L("Find where an item goes"), icon: "magnifyingglass")
+                            }
                         }
                         NavigationLink {
-                            HowItWorksView()
+                            HowItWorksView(council: council)
                         } label: {
                             resourceLabel(L("How Bin Day works"), icon: "questionmark.circle")
                         }
                         NavigationLink {
-                            PrivacyView()
+                            PrivacyView(council: council)
                         } label: {
                             resourceLabel(L("Privacy and Help"), icon: "hand.raised")
                         }
@@ -75,7 +88,7 @@ struct InfoView: View {
             }
             .background(Color(uiColor: .systemGroupedBackground))
             .navigationTitle(L("Info"))
-            .sheet(item: $selectedBin) { BinDetailView(binType: $0) }
+            .sheet(item: $selectedBin) { BinDetailView(binType: $0, council: council) }
         }
     }
 
@@ -135,6 +148,8 @@ struct ScaleButtonStyle: ButtonStyle {
 private struct BinDetailView: View {
     @Environment(\.dismiss) private var dismiss
     let binType: BinType
+    let council: Council?
+    private var isAuckland: Bool { council == CouncilDirectory.auckland }
 
     var body: some View {
         NavigationStack {
@@ -145,10 +160,10 @@ private struct BinDetailView: View {
                         .symbolVariant(.none)
 
                     VStack(alignment: .leading, spacing: 12) {
-                        ForEach(binType.guideNotes, id: \.self) { note in
+                        ForEach(binType.guideNotes(for: council), id: \.self) { note in
                             Text(note)
                         }
-                        if binType == .inorganic {
+                        if binType == .inorganic && isAuckland {
                             Link(L("Book with Auckland Council"), destination: URL(string: "https://inorganiccollections.aucklandcouncil.govt.nz/Inorganic/")!)
                                 .buttonStyle(.borderedProminent).tint(AppTheme.buttonFill)
                                 .controlSize(.large)
@@ -158,15 +173,15 @@ private struct BinDetailView: View {
                     }
                     .fixedSize(horizontal: false, vertical: true)
 
-                    DetailListSection(title: L("Yes, put these in"), icon: "checkmark.circle", items: binType.acceptedItems)
-                    DetailListSection(title: L("Not in this bin"), icon: "xmark.circle", items: binType.rejectedItems)
+                    DetailListSection(title: L("Yes, put these in"), icon: "checkmark.circle", items: binType.acceptedItems(for: council))
+                    DetailListSection(title: L("Not in this bin"), icon: "xmark.circle", items: binType.rejectedItems(for: council))
 
                     VStack(alignment: .leading, spacing: 10) {
-                        Link(destination: binType.guideSourceURL) {
-                            Label(L("Source: Auckland Council"), systemImage: "arrow.up.right.square")
+                        Link(destination: binType.guideSourceURL(for: council)) {
+                            Label(L("Source: %@", (council ?? CouncilDirectory.auckland).name), systemImage: "arrow.up.right.square")
                         }
                         .frame(minHeight: 44, alignment: .leading)
-                        if binType == .foodScraps {
+                        if binType == .foodScraps && isAuckland {
                             Link(L("Food scraps collection rules"), destination: URL(string: "https://www.aucklandcouncil.govt.nz/plans-projects-policies-reports-bylaws/bylaws/docssolidwastebylawoperationalcontrols/waste-management-minimisation-bylaw-collections-control.pdf")!)
                                 .frame(minHeight: 44, alignment: .leading)
                         }
@@ -178,7 +193,7 @@ private struct BinDetailView: View {
                             .foregroundStyle(.secondary)
                     }
 
-                    if let videoID = binType.youTubeVideoID, let videoURL = binType.videoURL {
+                    if let videoID = binType.youTubeVideoID(for: council), let videoURL = binType.videoURL {
                         CouncilVideoSection(videoID: videoID, videoURL: videoURL)
                     }
                 }

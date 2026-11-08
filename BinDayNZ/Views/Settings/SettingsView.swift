@@ -31,6 +31,7 @@ private struct SettingsFormView: View {
     @State private var shareItem: ShareItem?
     private let coordinator = ScheduleCoordinator.shared
     private var zone: CollectionZone? { DataService.shared.zone(for: profile) }
+    private var council: Council? { DataService.shared.council(for: profile) }
     private var version: String {
         let info = Bundle.main.infoDictionary ?? [:]
         return "\(info["CFBundleShortVersionString"] as? String ?? "—") (\(info["CFBundleVersion"] as? String ?? "—"))"
@@ -40,17 +41,22 @@ private struct SettingsFormView: View {
         Form {
             Section(L("Your schedule")) {
                 if let address = profile.address { Text(address) }
+                if let council { LabeledContent(L("Council"), value: council.name) }
                 Label(L("User-confirmed schedule"), systemImage: "checkmark.circle")
                 if let date = profile.scheduleConfirmedAt {
                     Text(L("Confirmed %@", collectionDateLabel(date, template: "d MMMM yyyy"))).font(.footnote)
                 }
                 Button(L("Change schedule")) { showAddressSearch = true }
-                if let zone, let text = ScheduleLink.shareText(for: zone) {
+                if let zone, let text = ScheduleLink.shareText(for: zone, council: council) {
                     ShareLink(item: text) { Label(L("Share with your household"), systemImage: "square.and.arrow.up") }
                 }
-                Link(L("Check official collection dates"), destination: DataService.collectionURL)
-                Link(L("Report a missed collection"), destination: DataService.missedCollectionURL)
-                Link(L("Book an inorganic collection"), destination: DataService.inorganicBookingURL)
+                if let council {
+                    Link(L("Check official collection dates"), destination: council.collectionDayURL)
+                    if council == CouncilDirectory.auckland {
+                        Link(L("Report a missed collection"), destination: DataService.aucklandMissedCollectionURL)
+                        Link(L("Book an inorganic collection"), destination: DataService.aucklandInorganicBookingURL)
+                    }
+                }
             }
             ReminderPreferenceFields(profile: profile)
             PauseRemindersSection(profile: profile)
@@ -98,9 +104,9 @@ private struct SettingsFormView: View {
             }
             Section(L("About")) {
                 LabeledContent(L("Version"), value: version)
-                NavigationLink(L("How Bin Day works")) { HowItWorksView() }
-                NavigationLink(L("Privacy and Help")) { PrivacyView() }
-                Link(L("Auckland Council Website"), destination: URL(string: "https://www.aucklandcouncil.govt.nz/rubbish-recycling")!)
+                NavigationLink(L("How Bin Day works")) { HowItWorksView(council: council) }
+                NavigationLink(L("Privacy and Help")) { PrivacyView(council: council) }
+                if let council { Link(L("Council website"), destination: council.website) }
                 Text(L("Made with ♥ in Aotearoa"))
             }
             Section {

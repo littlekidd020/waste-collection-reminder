@@ -14,7 +14,8 @@ final class AddressSearchService: NSObject, ObservableObject, MKLocalSearchCompl
         super.init()
         completer.delegate = self
         completer.resultTypes = .address
-        completer.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -36.85, longitude: 174.76), span: MKCoordinateSpan(latitudeDelta: 1.5, longitudeDelta: 1.5))
+        // The whole country, Northland to Stewart Island; the Chatham Islands sit at the eastern edge.
+        completer.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -41.0, longitude: 174.0), span: MKCoordinateSpan(latitudeDelta: 14.0, longitudeDelta: 14.0))
     }
 
     func search(_ query: String) {
@@ -38,7 +39,9 @@ final class AddressSearchService: NSObject, ObservableObject, MKLocalSearchCompl
         let street = [item.placemark.subThoroughfare, item.placemark.thoroughfare].compactMap { $0 }.joined(separator: " ")
         let parts = [street, item.placemark.subLocality, item.placemark.locality].compactMap { $0 }.filter { !$0.isEmpty }
         let address = parts.isEmpty ? suggestion.title : parts.reduce(into: [String]()) { if !$0.contains($1) { $0.append($1) } }.joined(separator: ", ")
-        return ResolvedAddress(fullAddress: address, coordinate: item.placemark.coordinate)
+        let council = CouncilDirectory.suggestion(locality: item.placemark.locality, subAdministrativeArea: item.placemark.subAdministrativeArea,
+                                                  administrativeArea: item.placemark.administrativeArea)
+        return ResolvedAddress(fullAddress: address, coordinate: item.placemark.coordinate, councilHint: council)
     }
 
     nonisolated func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
@@ -67,6 +70,8 @@ struct AddressSuggestion: Identifiable {
 struct ResolvedAddress {
     let fullAddress: String
     let coordinate: CLLocationCoordinate2D
+    /// The council the placemark points at, when its locality or region is unambiguous. A suggestion only.
+    let councilHint: Council?
 }
 enum AddressError: LocalizedError {
     case notFound

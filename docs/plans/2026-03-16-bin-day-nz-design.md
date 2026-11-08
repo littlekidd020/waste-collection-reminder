@@ -4,7 +4,9 @@ Updated 6 September 2026 for the local 1.2 candidate. This replaces the original
 
 ## Purpose and coverage
 
-Help Auckland households put out the correct bins on the correct day. Focus on ordinary Council kerbside rubbish, recycling and food-scraps services. Inorganic collection is a separately booked service with guidance, not a predictable weekly bin.
+Help New Zealand households put out the correct bins on the correct day. Focus on ordinary council kerbside services: rubbish, recycling, and where the council offers them, glass, food scraps, garden waste or combined organics. Auckland's inorganic collection is a separately booked service with guidance, not a predictable weekly bin.
+
+Since November 2026 the app carries a directory of all 67 territorial authorities. The household chooses its council (suggested from the address when the placemark is unambiguous); the council decides which links, bins, guidance source, anniversary day and holiday policy the app shows. The council never supplies dates.
 
 An Apple Maps address suggestion does not prove service coverage. The exact property's council information is the source to check externally, and a user-confirmed schedule is stored locally. The app does not fetch authoritative Council dates automatically. A manually entered schedule must remain identifiable. Private collections, shared-building arrangements and area-specific exceptions require confirmation with the responsible provider; no national-coverage promise is made.
 
@@ -31,7 +33,8 @@ The critical job is a dependable date and an understandable correction path. Fre
 | Notifications | Native scheduled local notifications. Finite coverage is disclosed with renewal status; OS permissions, Focus and scheduling can affect delivery. Opening the app permits reconciliation; it is not continuous background execution. |
 | Widget | App Group shares the saved schedule and language; WidgetKit computes future entries from the rules. iOS controls when a widget is rendered or refreshed. |
 | Calendar | Optional EventKit management of app-owned recurring collection events and alerts. A local `.ics` export is a snapshot; it is not a subscription feed and does not acquire future Council changes. |
-| Sorting content | Auckland-specific text and official links. Loading a video is optional and makes third-party requests; text guidance remains available without video. |
+| Sorting content | National standard-materials lists, with Auckland's reviewed wording and videos kept for Auckland. Each guide links the saved council's page as its source. Loading a video is optional and makes third-party requests; text guidance remains available without video. |
+| Holiday shifts | Auckland's published one-day-later rule is bundled and applied with one tap. Other councils get the national and regional holiday dates with a link to the council's own notice; nothing is written to the schedule without a verified rule. |
 | Languages | English, Māori, Simplified Chinese, Hindi and Korean resources. Fluent review of critical instructions and permission prompts is a release gate. |
 
 The repository must not retain unused CloudKit update code or claim remote updates, private sync, location-triggered reminders, guaranteed notification delivery or fully offline online-media playback. Holiday and disruption notices need authoritative verification; a generic annual holiday rule is insufficient for every service and locality.

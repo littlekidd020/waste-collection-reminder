@@ -2,6 +2,8 @@ import SwiftUI
 
 /// Bundled disclosure and help remain readable without a connection.
 struct PrivacyView: View {
+    var council: Council? = nil
+
     var body: some View {
         List {
             Section(L("Saved on this device")) {
@@ -12,7 +14,7 @@ struct PrivacyView: View {
 
             Section(L("Address and location search")) {
                 Text(L("Address search uses Apple Maps, which receives search requests. Using your current location is optional and requires your permission; you can enter a schedule manually instead."))
-                Text(L("Council links open the official website in your browser. The app does not upload your saved address to Auckland Council."))
+                Text(L("Council links open the official website in your browser. The app does not upload your saved address to your council."))
             }
 
             Section(L("Reminders and calendars")) {
@@ -31,9 +33,14 @@ struct PrivacyView: View {
                 Link(destination: URL(string: "https://github.com/littlekidd020/waste-collection-reminder/issues")!) {
                     Label(L("Report an app issue"), systemImage: "arrow.up.right.square")
                 }
-                Text(L("For a missed collection or council service question, contact Auckland Council."))
-                Link(destination: URL(string: "tel:093010101")!) {
-                    Label(L("Call Auckland Council"), systemImage: "phone")
+                if let council {
+                    Text(L("For a missed collection or council service question, contact %@.", council.name))
+                    if let phoneURL = council.phoneURL {
+                        Link(destination: phoneURL) { Label(L("Call %@", council.name), systemImage: "phone") }
+                    }
+                    Link(destination: council.website) { Label(L("Council website"), systemImage: "globe") }
+                } else {
+                    Text(L("For a missed collection or council service question, contact your council."))
                 }
             }
         }

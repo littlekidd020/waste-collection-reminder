@@ -4,10 +4,11 @@ import Foundation
 final class DataService {
     static let shared = DataService()
     static let manualZoneID = "manual"
-    static let collectionURL = URL(string: "https://www.aucklandcouncil.govt.nz/en/rubbish-recycling/rubbish-recycling-collections/rubbish-recycling-collection-days.html")!
-    static let aucklandCouncilID = "auckland-council"
-    static let missedCollectionURL = URL(string: "https://www.aucklandcouncil.govt.nz/en/rubbish-recycling/rubbish-recycling-collections/late-missed-collections.html")!
-    static let inorganicBookingURL = URL(string: "https://www.aucklandcouncil.govt.nz/en/rubbish-recycling/inorganic-collections/book-inorganic-collection.html")!
+    static let aucklandCouncilID = CouncilDirectory.auckland.id
+    /// Auckland-only services, shown when the saved council is Auckland.
+    static let aucklandMissedCollectionURL = URL(string: "https://www.aucklandcouncil.govt.nz/en/rubbish-recycling/rubbish-recycling-collections/late-missed-collections.html")!
+    static let aucklandInorganicBookingURL = URL(string: "https://www.aucklandcouncil.govt.nz/en/rubbish-recycling/inorganic-collections/book-inorganic-collection.html")!
+    static let aucklandItemFinderURL = URL(string: "https://www.aucklandcouncil.govt.nz/en/rubbish-recycling/get-rid-unwanted-items.html")!
     private init() {}
 
     /// Views read the saved schedule on every body evaluation; decode each JSON value once.
@@ -29,6 +30,11 @@ final class DataService {
         }
         cachedJSON = json; cachedLanguage = language; cachedZone = zone
         return zone
+    }
+
+    /// The saved council. Profiles from 1.2 and earlier carry Auckland's identifier already.
+    func council(for profile: UserProfile) -> Council? {
+        CouncilDirectory.council(id: profile.councilId)
     }
 
     func manualZone(schedules: [CollectionSchedule]) -> CollectionZone {
